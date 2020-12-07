@@ -1,7 +1,7 @@
 package com.shanqb.wallet.tabview;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 /**
  * Created by yx on 16/4/3.

@@ -1,6 +1,6 @@
 package com.shanqb.wallet.test;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,12 +23,12 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter {
         this.mResourceId = resourceId;
     }
 
-    public android.support.v7.widget.RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(this.mResourceId, parent, false);
         return new ViewHolder(itemView);
     }
 
-    public void onBindViewHolder(android.support.v7.widget.RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         if(this.mItemClickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
@@ -71,7 +71,7 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter {
 
     public abstract void onBindViewData(ViewHolder var1, int var2);
 
-    public static final class ViewHolder extends android.support.v7.widget.RecyclerView.ViewHolder {
+    public static final class ViewHolder extends RecyclerView.ViewHolder {
         private SparseArray<View> viewArray;
 
         public ViewHolder(View itemView) {

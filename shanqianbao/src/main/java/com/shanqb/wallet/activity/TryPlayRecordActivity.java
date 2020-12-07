@@ -1,11 +1,8 @@
 package com.shanqb.wallet.activity;
 
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
-import android.util.LruCache;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +19,6 @@ import com.google.gson.reflect.TypeToken;
 import com.shanqb.wallet.R;
 import com.shanqb.wallet.bean.BaseJsonResponse2;
 import com.shanqb.wallet.bean.TryPlayListResponse;
-import com.shanqb.wallet.tabview.BaseSwipeRefreshLayout;
 import com.shanqb.wallet.test.BaseRecyclerViewAdapter;
 import com.shanqb.wallet.utils.AcitonConstants;
 import com.shanqb.wallet.utils.BitmapCache;
@@ -36,7 +32,6 @@ import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class TryPlayRecordActivity extends MyBaseActivity {

@@ -4,18 +4,15 @@ import java.util.ArrayList;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import com.shanqb.wallet.R;
-import com.shanqb.wallet.tabview.HomeActivity;
-import com.shanqb.wallet.utils.SharedPreConstants;
-import com.shanqb.wallet.utils.SharedPreferencesUtil;
 import com.shanqb.wallet.view.PointView;
 
 public class LeadActivity extends BaseActivity

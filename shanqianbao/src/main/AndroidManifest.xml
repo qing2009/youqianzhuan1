@@ -87,7 +87,7 @@
         <uses-library android:name="org.apache.http.legacy" android:required="false" />
         <service android:name="com.shanqb.wallet.activity.DownLoadAppUpdateService" />
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="com.shanqb.wallet.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">

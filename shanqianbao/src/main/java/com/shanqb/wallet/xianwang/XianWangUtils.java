@@ -1,25 +1,14 @@
 package com.shanqb.wallet.xianwang;
 
 
-import android.Manifest;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.Build;
-import android.support.v4.app.FragmentActivity;
 import android.telephony.TelephonyManager;
-import android.widget.Toast;
 
-import com.bun.miitmdid.interfaces.IdSupplier;
-import com.permissionx.guolindev.PermissionX;
-import com.permissionx.guolindev.callback.RequestCallback;
-import com.shanqb.wallet.BaseApplication;
-import com.shanqb.wallet.utils.MittUtils;
 import com.shanqb.wallet.utils.SharedPreConstants;
 import com.shanqb.wallet.utils.SharedPreferencesUtil;
 
 import java.lang.reflect.Method;
-import java.util.List;
 
 /**
  * 接入享玩sdk使用的工具类

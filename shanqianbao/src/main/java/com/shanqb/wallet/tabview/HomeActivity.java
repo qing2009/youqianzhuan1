@@ -1,12 +1,11 @@
 package com.shanqb.wallet.tabview;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.ActionBar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
@@ -20,7 +19,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.pceggs.workwall.util.PceggsWallUtils;
 import com.shanqb.wallet.R;
-import com.shanqb.wallet.activity.LoginActivity;
 import com.shanqb.wallet.activity.MyBaseActivity;
 import com.shanqb.wallet.bean.LoginResponse;
 import com.shanqb.wallet.utils.AcitonConstants;
