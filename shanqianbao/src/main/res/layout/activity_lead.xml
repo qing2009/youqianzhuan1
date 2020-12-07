@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:jyq="http://schemas.android.com/apk/res/com.shanqb.wallet"
+    android:id="@+id/layoutMain"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000" >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <com.shanqb.wallet.view.PointView
+        android:id="@+id/pointView"
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        jyq:pointRadius="4dp"
+        jyq:pointSpacing="8dp" />
+
+</RelativeLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/titleBar_height"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/back_imgView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/back_ic" />
+
+
+    <ImageView
+        android:id="@+id/right_imgView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/back_ic"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/title_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toLeftOf="@id/right_imgView"
+        android:layout_toRightOf="@id/back_imgView"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="@color/titleBar_title"
+        android:textSize="@dimen/titleBar_titleTextSize" />
+
+    <TextView style="@style/titlebar_buttomLine2" />
+
+
+</RelativeLayout>

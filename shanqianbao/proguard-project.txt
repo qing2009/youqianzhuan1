@@ -1,0 +1,135 @@
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontskipnonpubliclibraryclassmembers
+-dontpreverify
+-verbose
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+-dontwarn android.support.**
+-dontwarn com.alibaba.fastjson.**
+-dontwarn com.umeng.**
+
+-dontshrink
+-dontoptimize
+
+#-libraryjars libs/android-support-v4.jar
+-libraryjars libs/umeng-analytics-v5.4.1.jar
+-libraryjars libs/fastjson-1.1.33.jar
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+
+-keep class android.support.v4.** {*;}
+-keep class vi.com.gdi.bgl.android.** {*;}  
+-keep class com.umeng.** { *;}
+-keep class u.fb.** { *;}
+-keep class u.aly.** { *;}
+-keep class u.upd.** { *;}
+-keep class com.alibaba.** {*;}
+-keep class com.markupartist.android.widget.** {*;}
+-keep class org.apache.** {*;}
+ 
+-keepclassmembers class com.shanqb.wallet.bean.** {
+	public <methods>;
+}
+
+-keepclasseswithmembers class * {
+    native <methods>;
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keepclassmembers class * {
+   public <init>(org.json.JSONObject);
+}
+-keep public class com.com.symdata.jyq.R$*{
+    public static final int *;
+}
+-keep public class com.umeng.fb.ui.ThreadView {
+}
+
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+-keepattributes *Annotation*
+
+-keep class org.taptwo.android.widget.**{ *; }
+
+-keepattributes Signature
+-keepclasseswithmembernames class com.shanqb.wallet.bean.** {*;}
+
+-dontwarn com.google.android.maps.**
+-dontwarn android.webkit.WebView
+-dontwarn com.tencent.weibo.sdk.**
+-dontwarn com.facebook.**
+
+-keep enum com.facebook.**
+-keepattributes Exceptions,InnerClasses,Signature
+-keepattributes *Annotation*
+-keepattributes SourceFile,LineNumberTable
+
+-keep public interface com.facebook.**
+-keep public interface com.tencent.**
+-keep public interface com.umeng.socialize.**
+-keep public interface com.umeng.socialize.sensor.**
+-keep public interface com.umeng.scrshot.**
+
+-keep public class com.umeng.socialize.* {*;}
+-keep public class javax.**
+-keep public class android.webkit.**
+
+-keep class com.tencent.weibo.sdk.** { *; }  
+-keep interface com.tencent.weibo.sdk.** { *; }  
+-keep public class *  extends com.tencent.weibo.sdk.**   
+
+-keep class com.facebook.**
+-keep class com.umeng.scrshot.**
+-keep public class com.tencent.** {*;}
+-keep class com.umeng.socialize.sensor.**
+
+-keep class im.yixin.sdk.api.YXMessage {*;}
+-keep class im.yixin.sdk.api.** implements im.yixin.sdk.api.YXMessage$YXMessageData{*;}
+
+ -keep, includedescriptorclasses class com.asus.msa.SupplementaryDID.** { *; }
+ -keepclasseswithmembernames class com.asus.msa.SupplementaryDID.** { *; }
+ -keep, includedescriptorclasses class com.asus.msa.sdid.** { *; }
+ -keepclasseswithmembernames class com.asus.msa.sdid.** { *; }
+ -keep public class com.netease.nis.sdkwrapper.Utils {public <methods>;}
+ -keep class com.bun.miitmdid.**{*;}
+ -keep class com.bun.lib.**{*;}
+ -keep class com.samsung.android.deviceidservice.**{*;}
+ -keep class a.**{*;}
+ #三星 10加固奔溃处理方法
+ -keep class com.bun.** {*;}
+ -keep class com.asus.msa.** {*;}
+ -keep class com.heytap.openid.** {*;}
+ -keep class com.huawei.android.hms.pps.** {*;}
+ -keep class com.meizu.flyme.openidsdk.** {*;}
+ -keep class com.samsung.android.deviceidservice.** {*;}
+ -keep class com.zui.** {*;}
+ -keep class com.huawei.hms.ads.** {*; }
+ -keep interface com.huawei.hms.ads.** {*; }
+ -keepattributes *Annotation*
+ #非androidX用户
+ -keep @android.support.annotation.Keep class **{
+     @android.support.annotation.Keep <fields>;
+     @android.support.annotation.Keep <methods>;
+ }
