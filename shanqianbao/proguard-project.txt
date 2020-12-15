@@ -133,3 +133,43 @@
      @android.support.annotation.Keep <fields>;
      @android.support.annotation.Keep <methods>;
  }
+
+
+##聚享游
+-keep class com.toomee.mengplus.** {*;}
+
+
+##91淘金CPL广告对接
+# 忽略警告
+-dontwarn android.support.**
+-dontwarn com.fc.tjcpl.sdk.**
+-dontwarn com.github.lzyzsd.jsbridge.**
+# 避免库文件被混淆
+-keep class com.fc.tjcpl.sdk.** {*;}
+-keep class android.support.** {*;}
+-keep class com.github.lzyzsd.jsbridge.** {*;}
+# 移动安全联盟设备标识符SDK
+#设备标识符sdk v1.0.23
+-keep class XI.CA.XI.**{*;}
+-keep class XI.K0.XI.**{*;}
+-keep class XI.XI.K0.**{*;}
+-keep class XI.vs.K0.**{*;}
+-keep class XI.xo.XI.XI.**{*;}
+-keep class com.asus.msa.SupplementaryDID.**{*;}
+-keep class com.asus.msa.sdid.**{*;}
+-keep class com.bun.lib.**{*;}
+-keep class com.bun.miitmdid.**{*;}
+-keep class com.huawei.hms.ads.identifier.**{*;}
+-keep class com.samsung.android.deviceidservice.**{*;}
+-keep class org.json.**{*;}
+-keep public class com.netease.nis.sdkwrapper.Utils {
+    public <methods>;
+}
+# 保护注解
+-keepattributes *Annotation*
+# 避免混淆泛型
+-keepattributes Signature
+# 避免R文件被混淆
+-keepclassmembers class **.R$* {
+   public static <fields>;
+}

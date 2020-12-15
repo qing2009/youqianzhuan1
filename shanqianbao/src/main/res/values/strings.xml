@@ -66,4 +66,14 @@
     <string name="noRecord">暂无记录</string>
     <string name="read_get_money">阅读赚钱</string>
     <string name="myDownline">我的下线</string>
+
+
+    <string name="juxiangyou">聚享游sdk</string>
+    <string name="Taojing91">91淘金CPL</string>
+
+    <!--权限-->
+    <string name="need_agree_permissions">程序的正常运行需要您同意以下权限</string>
+    <string name="to_set_open_permissions">程序的正常运行需要您在设置当中手动开启权限</string>
+    <string name="agree">同意</string>
+    <string name="openSet">打开设置</string>
 </resources>

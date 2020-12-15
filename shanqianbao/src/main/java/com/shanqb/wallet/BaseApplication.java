@@ -6,11 +6,13 @@ import android.os.Build;
 import android.text.TextUtils;
 
 import com.pceggs.workwall.util.PceggsWallUtils;
+import com.shanqb.shanqianbao.MainActivity;
 import com.shanqb.wallet.activity.BaseActivity;
 import com.shanqb.wallet.activity.MyBaseActivity;
 import com.shanqb.wallet.utils.MittUtils;
 import com.shanqb.wallet.utils.SharedPreConstants;
 import com.shanqb.wallet.utils.SharedPreferencesUtil;
+import com.toomee.mengplus.common.utils.TooMeeUtils;
 
 import java.util.ArrayList;
 
@@ -32,7 +34,14 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         baseApplication = this;
+
+        //享玩sdk初始化
         PceggsWallUtils.init(this);
+
+        //聚享游sdk初始化
+//        TooMeeUtils.init(this);
+
+        //安全联盟
         initOAID();
 
     }
@@ -51,6 +60,7 @@ public class BaseApplication extends Application {
                     }
                 });
             } catch (Exception e) {
+
             }
         }
     }

@@ -7,18 +7,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.pceggs.workwall.util.PceggsWallUtils;
 import com.permissionx.guolindev.PermissionX;
+import com.permissionx.guolindev.callback.ExplainReasonCallback;
+import com.permissionx.guolindev.callback.ForwardToSettingsCallback;
 import com.permissionx.guolindev.callback.RequestCallback;
+import com.permissionx.guolindev.request.ExplainScope;
+import com.permissionx.guolindev.request.ForwardScope;
 import com.shanqb.wallet.R;
 import com.shanqb.wallet.activity.ReadGetMoneyActivity;
-import com.shanqb.wallet.activity.TryPlayRecordActivity;
+import com.shanqb.wallet.utils.DeviceUtils;
 import com.shanqb.wallet.utils.SharedPreConstants;
 import com.shanqb.wallet.utils.SharedPreferencesUtil;
+import com.shanqb.wallet.utils.sdk.JuxiangyouUtils;
+import com.shanqb.wallet.utils.sdk.Taojing91Utils;
 import com.shanqb.wallet.view.CircleImageView;
-import com.shanqb.wallet.xianwang.XianWangUtils;
+import com.shanqb.wallet.utils.sdk.XianWangUtils;
 
 import java.util.List;
 
@@ -43,9 +48,6 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
     @BindView(R.id.withdrawableTextView)
     TextView withdrawableTextView;
     Unbinder unbinder;
-
-    String deviceId = null;
-    String xwdeviceid = null;
 
     @Override
     public void fetchData() {
@@ -86,31 +88,72 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
 
 
 
-    @OnClick({R.id.taskGetMoney_imgView, R.id.readGetMoney_imgView})
+    @OnClick({R.id.taskGetMoney_imgView, R.id.readGetMoney_imgView, R.id.juxiangwang_btn, R.id.taojing91_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.taskGetMoney_imgView:
                 PermissionX.init(this)
                         .permissions(Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_PHONE_STATE)
+                        .onExplainRequestReason(new ExplainReasonCallback() {
+                            @Override
+                            public void onExplainReason(ExplainScope scope, List<String> deniedList) {
+                                scope.showRequestReasonDialog(deniedList, getString(R.string.need_agree_permissions), getString(R.string.agree), getString(R.string.cancel));
+                            }
+                        })
+                        .onForwardToSettings(new ForwardToSettingsCallback() {
+                            @Override
+                            public void onForwardToSettings(ForwardScope scope, List<String> deniedList) {
+                                scope.showForwardToSettingsDialog(deniedList, getString(R.string.to_set_open_permissions), getString(R.string.openSet), getString(R.string.cancel));
+                            }
+                        })
                         .request(new RequestCallback() {
                             @Override
                             public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
                                 if (allGranted) {
 //                                    Toast.makeText(getActivity(), "All permissions are granted", Toast.LENGTH_LONG).show();
+//                                    textview.setText("deviceId=" + deviceId + "; xwdeviceid=" + xwdeviceid);
 
-                                    deviceId = XianWangUtils.getDeviceId(getActivity());
-                                    xwdeviceid = XianWangUtils.getXwdeviceid(getActivity());
-                                    String merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
-
-//                            textview.setText("deviceId=" + deviceId + "; xwdeviceid=" + xwdeviceid);
-                                    PceggsWallUtils.loadAd(getActivity(), XianWangUtils.XIANWANG_PID, XianWangUtils.XIANWANG_APPKEY, merCode, deviceId, xwdeviceid);
-//                                PceggsWallUtils.loadAd(getActivity(), "10001", "PCDDXW_CS_10001", userid + "", deviceId, xwdeviceid);
-
+                                    XianWangUtils.startSDK(getActivity());
                                 } else {
 //                                    Toast.makeText(getActivity(), "These permissions are denied: $deniedList", Toast.LENGTH_LONG).show();
                                 }
                             }
                         });
+                break;
+
+
+            case R.id.juxiangwang_btn:
+
+                PermissionX.init(this)
+                        .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.READ_PHONE_STATE)
+                        .onExplainRequestReason(new ExplainReasonCallback() {
+                            @Override
+                            public void onExplainReason(ExplainScope scope, List<String> deniedList) {
+                                scope.showRequestReasonDialog(deniedList, getString(R.string.need_agree_permissions), getString(R.string.agree), getString(R.string.cancel));
+                            }
+                        })
+                        .onForwardToSettings(new ForwardToSettingsCallback() {
+                            @Override
+                            public void onForwardToSettings(ForwardScope scope, List<String> deniedList) {
+                                scope.showForwardToSettingsDialog(deniedList, getString(R.string.to_set_open_permissions), getString(R.string.openSet), getString(R.string.cancel));
+                            }
+                        })
+                        .request(new RequestCallback() {
+                            @Override
+                            public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
+                                if (allGranted) {
+                                    String userId = "654321";
+                                    String merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
+                                    JuxiangyouUtils.startSDK(getActivity(),userId);
+                                } else {
+//                                    Toast.makeText(getActivity(), "These permissions are denied: $deniedList", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+                break;
+            case R.id.taojing91_btn:
+                String userId=(int)(Math.random()*1000000000)+"";
+                Taojing91Utils.startSDK(getActivity(),userId);
                 break;
             case R.id.readGetMoney_imgView:
                 startActivity(new Intent(getActivity(), ReadGetMoneyActivity.class));

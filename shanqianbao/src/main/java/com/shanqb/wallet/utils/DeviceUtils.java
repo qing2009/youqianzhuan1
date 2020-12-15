@@ -1,26 +1,18 @@
-package com.shanqb.wallet.xianwang;
+package com.shanqb.wallet.utils;
 
 
 import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 
-import com.shanqb.wallet.utils.SharedPreConstants;
-import com.shanqb.wallet.utils.SharedPreferencesUtil;
-
 import java.lang.reflect.Method;
 
 /**
- * 接入享玩sdk使用的工具类
+ * 设备工具类。
+ * 可以获取手机的IMEI、oaid等。
  */
-public class XianWangUtils {
+public class DeviceUtils {
 
-
-    /**
-     * 接入享玩sdk使用的常量
-     */
-    public static final String XIANWANG_PID = "11495";//渠道ID(对接渠道享玩提供)
-    public static final String XIANWANG_APPKEY = "PCDDXW8_YQZ_11495";//渠道key(对接渠道享玩提供)
 
 
     public static String getDeviceId(Context context) {
@@ -39,18 +31,6 @@ public class XianWangUtils {
 
 
 
-    public static String getXwdeviceid(Context context) {
-
-        String xwdeviceid = "";
-
-        if (Build.VERSION.SDK_INT <= 28) {
-            xwdeviceid = getIMEI(context, 0) + "," + getIMEI(context, 1) + "," + getMEID(context);
-        } else {
-            xwdeviceid = SharedPreferencesUtil.getStringValue(context, SharedPreConstants.OAID,"");
-        }
-
-        return xwdeviceid;
-    }
 
     /**
      * @param slotId slotId为卡槽Id，它的值为 0、1；
