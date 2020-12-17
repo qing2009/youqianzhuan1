@@ -58,9 +58,15 @@ dependencies {
     implementation 'com.permissionx.guolindev:permissionx:1.4.0'
 
 
+    //XUI
+    implementation 'com.github.xuexiangjys:XUI:1.1.5'
+
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+
 
     implementation(name: 'oaid_sdk_1.0.23', ext: 'aar')//移动安全联盟获取OAID
-
 
     api 'com.liulishuo.filedownloader:library:1.7.4'
     implementation(name: 'pceggs_wall_v5.0', ext: 'aar')//享玩

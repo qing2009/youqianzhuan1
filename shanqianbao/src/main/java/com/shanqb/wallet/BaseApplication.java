@@ -13,6 +13,7 @@ import com.shanqb.wallet.utils.MittUtils;
 import com.shanqb.wallet.utils.SharedPreConstants;
 import com.shanqb.wallet.utils.SharedPreferencesUtil;
 import com.toomee.mengplus.common.utils.TooMeeUtils;
+import com.xuexiang.xui.XUI;
 
 import java.util.ArrayList;
 
@@ -34,6 +35,11 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         baseApplication = this;
+
+
+        XUI.init(this); //初始化UI框架
+        XUI.debug(true);  //开启UI框架调试日志
+
 
         //享玩sdk初始化
         PceggsWallUtils.init(this);

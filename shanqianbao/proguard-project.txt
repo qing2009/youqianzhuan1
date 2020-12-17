@@ -135,6 +135,11 @@
  }
 
 
+##xui
+-keep class com.xuexiang.xui.widget.edittext.materialedittext.** { *; }
+
+
+
 ##聚享游
 -keep class com.toomee.mengplus.** {*;}
 
