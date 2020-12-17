@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DCB5FF"
     android:orientation="vertical">
 
     <LinearLayout
@@ -17,12 +16,16 @@
             android:id="@+id/juxiangwang_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/juxiangyou"></Button>
+            android:layout_margin="10dp"
+            android:background="@drawable/homepage_img1"></Button>
+
         <Button
             android:id="@+id/taojing91_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Taojing91"></Button>
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/homepage_img2"></Button>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,22 +54,6 @@
                 android:src="@drawable/read_get_money"></ImageView>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
-
-            <ImageView
-                android:id="@+id/yinxiong_imgView"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="fitXY"
-                android:src="@drawable/homepage_yinxiong"></ImageView>
-
-        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>
