@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-import com.shanqb.wallet.R;
-import com.shanqb.wallet.tabview.HomeActivity;
-import com.shanqb.wallet.utils.MittUtils;
+import com.shanqb.douquzhuan.R;
+import com.shanqb.douquzhuan.tabview.HomeActivity;
+import com.shanqb.douquzhuan.utils.MittUtils;
 
 public class MainActivity extends Activity
 {
