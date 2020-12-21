@@ -45,13 +45,24 @@
         <item name="sCenterViewGravity">left_center</item>
         <item name="sCenterViewMarginLeft">15dp</item>
         <item name="sCenterViewMarginRight">15dp</item>
-        <item name="sDividerLineHeight">2dp</item>
+        <item name="sDividerLineHeight">@dimen/titleBar_bottomLineHeight</item>
+        <item name="sDividerLineColor">@color/app_primary_dark_color</item>
         <item name="sRightTextSize">13sp</item>
+        <item name="sEditTextButtonType">clear</item>
         <item name="sRightViewMarginRight">0dp</item>
-        <item name="sLeftIconWidth">16dp</item>
-        <item name="sLeftIconHeight">16dp</item>
         <item name="sUseRipple">false</item>
         <item name="sEnableEdit">true</item>
+        <item name="cet_clearIconSize">10dp</item>
+    </style>
+
+    <style name="Button.Style" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">?attr/xui_btn_view_text_size</item>
+        <item name="android:textColor">@color/xui_config_color_white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/xui_config_bg_blue_btn</item>
+        <item name="android:padding">15dp</item>
     </style>
 
 </resources>

@@ -2,6 +2,7 @@ package com.shanqb.douquzhuan.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -27,15 +28,23 @@ import com.shanqb.douquzhuan.utils.Global;
 import com.shanqb.douquzhuan.utils.NetworkUtils;
 import com.shanqb.douquzhuan.utils.SharedPreConstants;
 import com.shanqb.douquzhuan.utils.SharedPreferencesUtil;
+import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class LoginActivity extends MyBaseActivity {                 //登录界面活动
 
     public int pwdresetFlag = 0;
-    private EditText mAccount;                        //用户名编辑
-    private EditText mPwd;                            //密码编辑
+    @BindView(R.id.stv_login_account)
+    SuperTextView stvLoginAccount;
+    @BindView(R.id.stv_login_pwd)
+    SuperTextView stvLoginPwd;
+//    private EditText mAccount;                        //用户名编辑
+//    private EditText mPwd;                            //密码编辑
     //    private Button mRegisterButton;                   //注册按钮
     private Button mLoginButton;                      //登录按钮
 //    private Button mCancleButton;                     //注销按钮
@@ -44,9 +53,9 @@ public class LoginActivity extends MyBaseActivity {                 //登录界�
     private SharedPreferences login_sp;
     private String userNameValue, passwordValue;
 
-    private View loginView;                           //登录
-    private View loginSuccessView;
-    private TextView loginSuccessShow;
+//    private View loginView;                           //登录
+//    private View loginSuccessView;
+//    private TextView loginSuccessShow;
     private TextView registText;
 
 
@@ -63,14 +72,14 @@ public class LoginActivity extends MyBaseActivity {                 //登录界�
     @Override
     public void initData() {
 
-        String userName = SharedPreferencesUtil.getStringValue(this,SharedPreConstants.loginCode,"");
-        String userPwd = SharedPreferencesUtil.getStringValue(this,SharedPreConstants.loginPwd,"");
-        if (!TextUtils.isEmpty(userName) && !TextUtils.isEmpty(userPwd) ) {
-            mAccount = (EditText) findViewById(R.id.login_edit_account);
-            mPwd = (EditText) findViewById(R.id.login_edit_pwd);
-            mAccount.setText(userName);
-            mPwd.setText(userPwd);
-            autoLogin(userName,userPwd);
+        String userName = SharedPreferencesUtil.getStringValue(this, SharedPreConstants.loginCode, "");
+        String userPwd = SharedPreferencesUtil.getStringValue(this, SharedPreConstants.loginPwd, "");
+        if (!TextUtils.isEmpty(userName) && !TextUtils.isEmpty(userPwd)) {
+//            mAccount = (EditText) findViewById(R.id.login_edit_account);
+//            mPwd = (EditText) findViewById(R.id.login_edit_pwd);
+            stvLoginAccount.setCenterEditString(userName);
+            stvLoginAccount.setCenterEditString(userPwd);
+            autoLogin(userName, userPwd);
         }
 
     }
@@ -79,14 +88,14 @@ public class LoginActivity extends MyBaseActivity {                 //登录界�
     public void initWeight() {
 
         //通过id找到相应的控件
-        mAccount = (EditText) findViewById(R.id.login_edit_account);
-        mPwd = (EditText) findViewById(R.id.login_edit_pwd);
+//        mAccount = (EditText) findViewById(R.id.login_edit_account);
+//        mPwd = (EditText) findViewById(R.id.login_edit_pwd);
 //        mRegisterButton = (Button) findViewById(R.id.login_btn_register);
         mLoginButton = (Button) findViewById(R.id.login_btn_login);
 //        mCancleButton = (Button) findViewById(R.id.login_btn_cancle);
-        loginView = findViewById(R.id.login_view);
-        loginSuccessView = findViewById(R.id.login_success_view);
-        loginSuccessShow = (TextView) findViewById(R.id.login_success_show);
+//        loginView = findViewById(R.id.login_view);
+//        loginSuccessView = findViewById(R.id.login_success_view);
+//        loginSuccessShow = (TextView) findViewById(R.id.login_success_show);
 
         registText = (TextView) findViewById(R.id.register_textView);
 //        mRememberCheck = (CheckBox) findViewById(R.id.Login_Remember);
@@ -98,8 +107,10 @@ public class LoginActivity extends MyBaseActivity {                 //登录界�
         boolean choseAutoLogin = login_sp.getBoolean("mAutologinCheck", false);
         //如果上次选了记住密码，那进入登录页面也自动勾选记住密码，并填上用户名和密码
         if (choseRemember) {
-            mAccount.setText(name);
-            mPwd.setText(pwd);
+//            mAccount.setText(name);
+//            mPwd.setText(pwd);
+            stvLoginAccount.setCenterEditString(name);
+            stvLoginAccount.setCenterEditString(pwd);
 //            mRememberCheck.setChecked(true);
         }
 
@@ -120,8 +131,8 @@ public class LoginActivity extends MyBaseActivity {                 //登录界�
 //                    break;
                 case R.id.login_btn_login:                              //登录界面的登录按钮
                     if (isUserNameAndPwdValid()) {
-                        String userName = mAccount.getText().toString().trim();    //获取当前输入的用户名和密码信息
-                        String userPwd = mPwd.getText().toString().trim();
+                        String userName = stvLoginAccount.getCenterEditValue().trim();    //获取当前输入的用户名和密码信息
+                        String userPwd = stvLoginPwd.getCenterEditValue().trim();
                         login(userName, userPwd);
                     }
                     break;
@@ -283,11 +294,11 @@ public class LoginActivity extends MyBaseActivity {                 //登录界�
     }
 
     public boolean isUserNameAndPwdValid() {
-        if (mAccount.getText().toString().trim().equals("")) {
+        if (stvLoginAccount.getCenterEditValue().trim().equals("")) {
             Toast.makeText(this, getString(R.string.account_empty),
                     Toast.LENGTH_SHORT).show();
             return false;
-        } else if (mPwd.getText().toString().trim().equals("")) {
+        } else if (stvLoginPwd.getCenterEditValue().trim().equals("")) {
             Toast.makeText(this, getString(R.string.pwd_empty),
                     Toast.LENGTH_SHORT).show();
             return false;

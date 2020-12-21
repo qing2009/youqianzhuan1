@@ -19,9 +19,10 @@
     <string name="confirm_logout">是否确认退出当前账号？</string>
     <string name="search">查询</string>
     <string name="collection">收藏查阅</string>
-    <string name="username">用户名: </string>
+    <string name="username">用户名</string>
     <string name="hint_username">请输入用户名</string>
-    <string name="password">密码: </string>
+    <string name="password">密码</string>
+    <string name="confirmPassword">确认密码</string>
     <string name="hint_password">请输入密码</string>
     <string name="login">登录</string>
     <string name="login_page">登录页</string>
