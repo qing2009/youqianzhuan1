@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -24,17 +22,28 @@ import com.shanqb.douquzhuan.utils.Global;
 import com.shanqb.douquzhuan.utils.NetworkUtils;
 import com.shanqb.douquzhuan.utils.SharedPreConstants;
 import com.shanqb.douquzhuan.utils.SharedPreferencesUtil;
+import com.xuexiang.xui.widget.edittext.ClearEditText;
+import com.xuexiang.xui.widget.edittext.PasswordEditText;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 
 public class RegisterActivity extends MyBaseActivity {
-    private EditText mAccount;                        //用户名编辑
-    private EditText mPwd;                            //密码编辑
-    private EditText mPwdCheck;                       //密码编辑
-    private Button mSureButton;                       //确定按钮
+    @BindView(R.id.register_account_clearEditText)
+    ClearEditText registerAccountClearEditText;
+    @BindView(R.id.register_pwd_clearEditText)
+    PasswordEditText registerPwdClearEditText;
+    @BindView(R.id.register_confirmPwd_clearEditText)
+    PasswordEditText registerConfirmPwdClearEditText;
+
+
+//    private EditText registerAccountClearEditText;                        //用户名编辑
+//    private EditText registerPwdClearEditText;                            //密码编辑
+//    private EditText registerConfirregisterPwdClearEditTextClearEditText;                       //密码编辑
+//    private Button mSureButton;                       //确定按钮
 //    private Button mCancelButton;                     //取消按钮
 
     @Override
@@ -54,14 +63,14 @@ public class RegisterActivity extends MyBaseActivity {
 
     @Override
     public void initWeight() {
-        mAccount = (EditText) findViewById(R.id.resetpwd_edit_name);
-        mPwd = (EditText) findViewById(R.id.resetpwd_edit_pwd_old);
-        mPwdCheck = (EditText) findViewById(R.id.resetpwd_edit_pwd_new);
-
-        mSureButton = (Button) findViewById(R.id.register_btn_sure);
+//        registerAccountClearEditText = (EditText) findViewById(R.id.resetpwd_edit_name);
+//        registerPwdClearEditText = (EditText) findViewById(R.id.resetpwd_edit_pwd_old);
+//        registerConfirregisterPwdClearEditTextClearEditText = (EditText) findViewById(R.id.resetpwd_edit_pwd_new);
+//
+//        mSureButton = (Button) findViewById(R.id.register_btn_sure);
 //        mCancelButton = (Button) findViewById(R.id.register_btn_cancel);
 
-        mSureButton.setOnClickListener(m_register_Listener);      //注册界面两个按钮的监听事件
+//        mSureButton.setOnClickListener(m_register_Listener);      //注册界面两个按钮的监听事件
 //        mCancelButton.setOnClickListener(m_register_Listener);
     }
 
@@ -84,9 +93,9 @@ public class RegisterActivity extends MyBaseActivity {
         try {
 
             if (isUserNameAndPwdValid()) {
-                String userName = mAccount.getText().toString().trim();
-                String userPwd = mPwd.getText().toString().trim();
-                String userPwdCheck = mPwdCheck.getText().toString().trim();
+                String userName = registerAccountClearEditText.getText().toString().trim();
+                String userPwd = registerPwdClearEditText.getText().toString().trim();
+                String userPwdCheck = registerConfirmPwdClearEditText.getText().toString().trim();
                 if (userPwd.equals(userPwdCheck) == false) {     //两次密码输入不一样
                     Toast.makeText(this, getString(R.string.pwd_not_the_same), Toast.LENGTH_SHORT).show();
                     return;
@@ -170,15 +179,15 @@ public class RegisterActivity extends MyBaseActivity {
     }
 
     public boolean isUserNameAndPwdValid() {
-        if (mAccount.getText().toString().trim().equals("")) {
+        if (registerAccountClearEditText.getText().toString().trim().equals("")) {
             Toast.makeText(this, getString(R.string.account_empty),
                     Toast.LENGTH_SHORT).show();
             return false;
-        } else if (mPwd.getText().toString().trim().equals("")) {
+        } else if (registerPwdClearEditText.getText().toString().trim().equals("")) {
             Toast.makeText(this, getString(R.string.pwd_empty),
                     Toast.LENGTH_SHORT).show();
             return false;
-        } else if (mPwdCheck.getText().toString().trim().equals("")) {
+        } else if (registerConfirmPwdClearEditText.getText().toString().trim().equals("")) {
             Toast.makeText(this, getString(R.string.pwd_check_empty),
                     Toast.LENGTH_SHORT).show();
 
@@ -188,9 +197,22 @@ public class RegisterActivity extends MyBaseActivity {
     }
 
 
-    @OnClick(R.id.register_textView)
-    public void onViewClicked() {
-        startActivity(new Intent(this,LoginActivity.class));
-        finish();
+//    @OnClick(R.id.register_textView)
+//    public void onViewClicked() {
+//        startActivity(new Intent(this, LoginActivity.class));
+//        finish();
+//    }
+
+    @OnClick({R.id.register_btn_sure, R.id.toLogin_textView})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.register_btn_sure:
+                register_check();
+                break;
+            case R.id.toLogin_textView:
+                startActivity(new Intent(this, LoginActivity.class));
+                finish();
+                break;
+        }
     }
 }

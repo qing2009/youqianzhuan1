@@ -1,11 +1,12 @@
 package com.shanqb.douquzhuan.activity;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
-import android.widget.ImageView;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -26,6 +27,7 @@ import com.shanqb.douquzhuan.utils.Global;
 import com.shanqb.douquzhuan.utils.NetworkUtils;
 import com.shanqb.douquzhuan.utils.SharedPreConstants;
 import com.shanqb.douquzhuan.utils.SharedPreferencesUtil;
+import com.xuexiang.xui.widget.actionbar.TitleBar;
 
 import java.util.HashMap;
 import java.util.List;
@@ -37,10 +39,8 @@ import butterknife.OnClick;
 public class TryPlayRecordActivity extends MyBaseActivity {
     @BindView(R.id.recordRecyView)
     RecyclerView recordRecyView;
-    @BindView(R.id.back_imgView)
-    ImageView backImgView;
-    @BindView(R.id.title_textView)
-    TextView titleTextView;
+    @BindView(R.id.tryPlay_titlebartryPlay_titlebar)
+    TitleBar tryPlayTitlebartryPlayTitlebar;
 //    @BindView(R.id.refresh_layout)
 //    BaseSwipeRefreshLayout refreshLayout;
 
@@ -68,7 +68,12 @@ public class TryPlayRecordActivity extends MyBaseActivity {
 
     @Override
     public void initWeight() {
-        titleTextView.setText(getString(R.string.tryPlay));
+        tryPlayTitlebartryPlayTitlebar.setLeftClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         this.layoutManager = new LinearLayoutManager(this);
         this.layoutManager.setOrientation(1);
@@ -134,11 +139,6 @@ public class TryPlayRecordActivity extends MyBaseActivity {
         }
     }
 
-
-    @OnClick(R.id.back_imgView)
-    public void onViewClicked() {
-        onBackPressed();
-    }
 
 
     class PlayListAdapter extends BaseRecyclerViewAdapter {

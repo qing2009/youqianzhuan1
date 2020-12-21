@@ -5,7 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/widget_title_bar_white"></include>
+    <com.xuexiang.xui.widget.actionbar.TitleBar
+        android:id="@+id/tryPlay_titlebartryPlay_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tb_titleText="@string/withdraw" />
+
 
 
 <!--    <com.shanqb.wallet.tabview.BaseSwipeRefreshLayout

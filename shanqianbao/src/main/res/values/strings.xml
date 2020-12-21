@@ -20,7 +20,7 @@
     <string name="search">查询</string>
     <string name="collection">收藏查阅</string>
     <string name="username">用户名</string>
-    <string name="hint_username">请输入用户名</string>
+    <string name="hint_username">请填写用户名</string>
     <string name="password">密码</string>
     <string name="confirmPassword">确认密码</string>
     <string name="hint_password">请输入密码</string>
@@ -93,4 +93,9 @@
     <string name="tx_amount_empty">请填写提现金额</string>
     <string name="tx_pwd_empty">请填写提现密码（登录密码）</string>
     <string name="submit_success">提交成功</string>
+    <string name="input_pwd">请填写密码</string>
+    <string name="input_confirmPwd">请确认您的密码</string>
+    <string name="input_old_pwd">请填写您的旧密码</string>
+    <string name="input_new_pwd">请填写您的新密码</string>
+    <string name="input_confirm_new_pwd">请再次填写您的新密码</string>
 </resources>

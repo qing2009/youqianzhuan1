@@ -263,6 +263,7 @@ public class LoginActivity extends MyBaseActivity {                 //登录界�
                                 editor.commit();
 
                                 startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+//                                startActivity(new Intent(LoginActivity.this, BottomNavigationViewBehaviorActivity.class));
                                 finish();
 
 
