@@ -78,7 +78,7 @@ public class LoginActivity extends MyBaseActivity {                 //登录界�
 //            mAccount = (EditText) findViewById(R.id.login_edit_account);
 //            mPwd = (EditText) findViewById(R.id.login_edit_pwd);
             stvLoginAccount.setCenterEditString(userName);
-            stvLoginAccount.setCenterEditString(userPwd);
+            stvLoginPwd.setCenterEditString(userPwd);
             autoLogin(userName, userPwd);
         }
 

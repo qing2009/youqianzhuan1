@@ -11,9 +11,11 @@ import com.shanqb.douquzhuan.R;
 import com.shanqb.douquzhuan.activity.LoginActivity;
 import com.shanqb.douquzhuan.activity.ResetpwdActivity;
 import com.shanqb.douquzhuan.activity.TryPlayRecordActivity;
+import com.shanqb.douquzhuan.activity.WithdrawActivity;
 import com.shanqb.douquzhuan.utils.SharedPreConstants;
 import com.shanqb.douquzhuan.utils.SharedPreferencesUtil;
 import com.shanqb.douquzhuan.view.CircleImageView;
+import com.shanqb.douquzhuan.activity.WithdrawalAccountActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,13 +43,15 @@ public class ProfileFragment extends BaseFragment implements ITabClickListener {
     @BindView(R.id.logout_textView)
     TextView logoutTextView;
     Unbinder unbinder;
+    @BindView(R.id.withdrawalAccount_textView)
+    TextView withdrawalAccountTextView;
 
     @Override
     public void fetchData() {
-        userNameTextView.setText(SharedPreferencesUtil.getStringValue(getActivity(),SharedPreConstants.loginCode,""));
-        String totalRevenue = SharedPreferencesUtil.getStringValue(getActivity(),SharedPreConstants.allAmt,"0.00");
+        userNameTextView.setText(SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.loginCode, ""));
+        String totalRevenue = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.allAmt, "0.00");
         totalRevenueTextView.setText(totalRevenue);
-        String withdrawable = SharedPreferencesUtil.getStringValue(getActivity(),SharedPreConstants.txAmt,"0.00");
+        String withdrawable = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.txAmt, "0.00");
         withdrawableTextView.setText(withdrawable);
     }
 
@@ -74,7 +78,7 @@ public class ProfileFragment extends BaseFragment implements ITabClickListener {
         unbinder.unbind();
     }
 
-    @OnClick({R.id.withdrawDeposit_textView, R.id.changePwd_textView, R.id.logout_textView, R.id.tryPlay_textView})
+    @OnClick({R.id.withdrawDeposit_textView, R.id.changePwd_textView, R.id.logout_textView, R.id.tryPlay_textView, R.id.withdraw_textView, R.id.withdrawalAccount_textView})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.withdrawDeposit_textView:
@@ -90,6 +94,12 @@ public class ProfileFragment extends BaseFragment implements ITabClickListener {
                 break;
             case R.id.tryPlay_textView:
                 startActivity(new Intent(getActivity(), TryPlayRecordActivity.class));
+                break;
+            case R.id.withdraw_textView:
+                startActivity(new Intent(getActivity(), WithdrawActivity.class));
+                break;
+            case R.id.withdrawalAccount_textView:
+                startActivity(new Intent(getActivity(), WithdrawalAccountActivity.class));
                 break;
         }
     }

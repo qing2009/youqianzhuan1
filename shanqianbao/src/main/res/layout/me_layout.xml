@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e8e8e8"
+    android:background="@color/wx_gray_bg"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
+        android:paddingTop="10dp"
         android:layout_height="match_parent">
 
         <include layout="@layout/layout_myinfo"></include>
@@ -20,12 +21,37 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tryPlay_textView"
+                android:id="@+id/withdrawalAccount_textView"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@color/white"
-                android:drawableLeft="@drawable/user"
+                android:drawableRight="@drawable/jaintou_ic"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/withdrawal_account"></TextView>
+
+            <TextView
+                android:id="@+id/withdraw_textView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:drawableRight="@drawable/jaintou_ic"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/withdraw"></TextView>
+
+            <TextView
+                android:id="@+id/tryPlay_textView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
                 android:drawableRight="@drawable/jaintou_ic"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
@@ -38,7 +64,6 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
-                android:drawableLeft="@drawable/user"
                 android:drawableRight="@drawable/jaintou_ic"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
@@ -52,7 +77,6 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
-                android:drawableLeft="@drawable/user"
                 android:drawableRight="@drawable/jaintou_ic"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
@@ -67,7 +91,6 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
-                android:drawableLeft="@drawable/user"
                 android:drawableRight="@drawable/jaintou_ic"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
@@ -81,7 +104,6 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
-                android:drawableLeft="@drawable/user"
                 android:drawableRight="@drawable/jaintou_ic"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"

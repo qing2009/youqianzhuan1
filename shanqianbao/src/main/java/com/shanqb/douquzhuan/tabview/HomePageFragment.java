@@ -122,33 +122,33 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
 
             case R.id.juxiangwang_btn:
 
-                PermissionX.init(this)
-                        .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.READ_PHONE_STATE)
-                        .onExplainRequestReason(new ExplainReasonCallback() {
-                            @Override
-                            public void onExplainReason(ExplainScope scope, List<String> deniedList) {
-                                scope.showRequestReasonDialog(deniedList, getString(R.string.need_agree_permissions), getString(R.string.agree), getString(R.string.cancel));
-                            }
-                        })
-                        .onForwardToSettings(new ForwardToSettingsCallback() {
-                            @Override
-                            public void onForwardToSettings(ForwardScope scope, List<String> deniedList) {
-                                scope.showForwardToSettingsDialog(deniedList, getString(R.string.to_set_open_permissions), getString(R.string.openSet), getString(R.string.cancel));
-                            }
-                        })
-                        .request(new RequestCallback() {
-                            @Override
-                            public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
-                                if (allGranted) {
-                                    String userId = "654321";
-                                    String merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
-                                    JuxiangyouUtils.startSDK(getActivity(),userId);
-                                } else {
-//                                    Toast.makeText(getActivity(), "These permissions are denied: $deniedList", Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
-                break;
+//                PermissionX.init(this)
+//                        .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.READ_PHONE_STATE)
+//                        .onExplainRequestReason(new ExplainReasonCallback() {
+//                            @Override
+//                            public void onExplainReason(ExplainScope scope, List<String> deniedList) {
+//                                scope.showRequestReasonDialog(deniedList, getString(R.string.need_agree_permissions), getString(R.string.agree), getString(R.string.cancel));
+//                            }
+//                        })
+//                        .onForwardToSettings(new ForwardToSettingsCallback() {
+//                            @Override
+//                            public void onForwardToSettings(ForwardScope scope, List<String> deniedList) {
+//                                scope.showForwardToSettingsDialog(deniedList, getString(R.string.to_set_open_permissions), getString(R.string.openSet), getString(R.string.cancel));
+//                            }
+//                        })
+//                        .request(new RequestCallback() {
+//                            @Override
+//                            public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
+//                                if (allGranted) {
+//                                    String userId = "654321";
+//                                    String merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
+//                                    JuxiangyouUtils.startSDK(getActivity(),userId);
+//                                } else {
+////                                    Toast.makeText(getActivity(), "These permissions are denied: $deniedList", Toast.LENGTH_LONG).show();
+//                                }
+//                            }
+//                        });
+//                break;
             case R.id.taojing91_btn:
                 String userId=(int)(Math.random()*1000000000)+"";
                 Taojing91Utils.startSDK(getActivity(),userId);

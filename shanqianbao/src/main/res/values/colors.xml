@@ -20,4 +20,5 @@
     <color name="tab_gray">#ff999999</color>
     <color name="tab_green">#ff45c01a</color>
     <color name="blue">#9bddff</color>
+    <color name="wx_gray_bg">#F0F0F0</color>
 </resources>

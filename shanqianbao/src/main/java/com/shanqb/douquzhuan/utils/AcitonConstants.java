@@ -35,6 +35,16 @@ public class AcitonConstants {
     public static final String ORDERLIST_SIZE = "size";
 
 
+    //绑定支付宝账号
+    public static final String BIND_ZFB = "txWallt";
+
+    /**
+     * 绑定支付宝账号接口参数
+     */
+    public static final String BIND_ZFB_ACCOUNT = "zfb";
+    public static final String BIND_ZFB_NAME = "zfbName";
+
+
     //获取用户信息
     public static final String INTER_MYINFO = "myInfo";
 

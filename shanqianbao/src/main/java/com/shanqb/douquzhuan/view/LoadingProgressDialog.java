@@ -12,7 +12,7 @@ public class LoadingProgressDialog extends ProgressDialog {
     public LoadingProgressDialog(Context context) {
 //        super(context);
         super(context, R.style.Progress_Dialog);
-        setCancelable(true);
+        setCancelable(false);
         setCanceledOnTouchOutside(false);
     }
 
