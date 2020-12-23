@@ -69,12 +69,24 @@ dependencies {
 
     implementation(name: 'oaid_sdk_1.0.23', ext: 'aar')//移动安全联盟获取OAID
 
+
     api 'com.liulishuo.filedownloader:library:1.7.4'
     implementation(name: 'pceggs_wall_v5.0', ext: 'aar')//享玩
+
 
     implementation(name: 'tjsdk-3.0', ext: 'aar')// 91淘金CPL广告对接
     implementation 'com.github.lzyzsd:jsbridge:1.0.4'
 
+
     implementation 'com.toomee:jxwSDK-Android:2.1.3'//聚享游sdk
+
+
+    //爱变现接入文档：http://www.aibianxian.net/igame-guide/android.html#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98
+    implementation(name:'ibx_sdk_release_v2.0.3',ext:'aar') //根据 libs 目录下具体文件填写
+    implementation(name:'device_release_v1.0.3',ext:'aar')
+    implementation 'com.arialyy.aria:core:3.8.10'  //必须
+    annotationProcessor 'com.arialyy.aria:compiler:3.8.10' //必须
+    implementation "com.github.donkingliang:ImageSelector:2.2.0"//必须 非AndroidX 项目 使用 1.9.2版本
+
 
 }

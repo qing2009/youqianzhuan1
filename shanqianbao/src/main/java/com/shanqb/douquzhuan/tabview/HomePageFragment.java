@@ -18,10 +18,10 @@ import com.shanqb.douquzhuan.R;
 import com.shanqb.douquzhuan.activity.ReadGetMoneyActivity;
 import com.shanqb.douquzhuan.utils.SharedPreConstants;
 import com.shanqb.douquzhuan.utils.SharedPreferencesUtil;
-import com.shanqb.douquzhuan.utils.sdk.JuxiangyouUtils;
+import com.shanqb.douquzhuan.utils.sdk.AibianxianUtils;
 import com.shanqb.douquzhuan.utils.sdk.Taojing91Utils;
-import com.shanqb.douquzhuan.view.CircleImageView;
 import com.shanqb.douquzhuan.utils.sdk.XianWangUtils;
+import com.shanqb.douquzhuan.view.CircleImageView;
 
 import java.util.List;
 
@@ -46,14 +46,16 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
     @BindView(R.id.withdrawableTextView)
     TextView withdrawableTextView;
     Unbinder unbinder;
+    String merCode;
 
     @Override
     public void fetchData() {
-        userNameTextView.setText(SharedPreferencesUtil.getStringValue(getActivity(),SharedPreConstants.loginCode,""));
-        String totalRevenue = SharedPreferencesUtil.getStringValue(getActivity(),SharedPreConstants.allAmt,"0.00");
+        userNameTextView.setText(SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.loginCode, ""));
+        String totalRevenue = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.allAmt, "0.00");
         totalRevenueTextView.setText(totalRevenue);
-        String withdrawable = SharedPreferencesUtil.getStringValue(getActivity(),SharedPreConstants.txAmt,"0.00");
+        String withdrawable = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.txAmt, "0.00");
         withdrawableTextView.setText(withdrawable);
+
 
     }
 
@@ -61,10 +63,9 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.homepage_layout, container, false);
         unbinder = ButterKnife.bind(this, view);
+        merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
         return view;
     }
-
-
 
 
     @Override
@@ -85,8 +86,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
     }
 
 
-
-    @OnClick({R.id.taskGetMoney_imgView, R.id.readGetMoney_imgView, R.id.juxiangwang_btn, R.id.taojing91_btn})
+    @OnClick({R.id.taskGetMoney_imgView, R.id.readGetMoney_imgView, R.id.juxiangwang_btn, R.id.taojing91_btn, R.id.aibianxian_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.taskGetMoney_imgView:
@@ -150,13 +150,14 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
 //                        });
 //                break;
             case R.id.taojing91_btn:
-                String userId=(int)(Math.random()*1000000000)+"";
-                Taojing91Utils.startSDK(getActivity(),userId);
+                Taojing91Utils.startSDK(getActivity(), merCode);
+                break;
+            case R.id.aibianxian_btn:
+                AibianxianUtils.startSDK(getActivity().getApplication(), merCode,getActivity());
                 break;
             case R.id.readGetMoney_imgView:
                 startActivity(new Intent(getActivity(), ReadGetMoneyActivity.class));
                 break;
         }
     }
-
 }

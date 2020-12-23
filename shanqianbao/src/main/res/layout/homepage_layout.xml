@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="none"
     android:background="@color/wx_gray_bg"
     android:orientation="vertical">
 
@@ -10,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="10dp">
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
 
         <include layout="@layout/layout_myinfo"></include>
 
@@ -21,7 +23,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/homepage_img1"></Button>
+            android:background="@drawable/homepage_juxianwang"></Button>
 
         <Button
             android:id="@+id/taojing91_btn"
@@ -30,7 +32,16 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/homepage_img2"></Button>
+            android:background="@drawable/homepage_taojin91"></Button>
+
+        <Button
+            android:id="@+id/aibianxian_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/homepage_aibianxian"></Button>
 
         <LinearLayout
             android:layout_width="match_parent"
