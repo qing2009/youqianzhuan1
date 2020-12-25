@@ -25,20 +25,22 @@
             android:orientation="horizontal">
 
 
-            <Button
+            <ImageView
                 android:id="@+id/taojing91_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/homepage_taojin91"></Button>
+                android:scaleType="fitCenter"
+                android:src="@drawable/homepage_taojin91"></ImageView>
 
-            <Button
+            <ImageView
                 android:id="@+id/aibianxian_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/homepage_aibianxian"></Button>
+                android:scaleType="fitCenter"
+                android:src="@drawable/homepage_aibianxian"></ImageView>
         </LinearLayout>
 
         <LinearLayout
@@ -49,19 +51,44 @@
             android:layout_marginRight="10dp"
             android:orientation="horizontal">
 
-            <Button
+            <ImageView
                 android:id="@+id/juxiangwang_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/homepage_img1"></Button>
+                android:src="@drawable/homepage_img1"></ImageView>
 
-            <Button
+            <ImageView
+                android:id="@+id/lin2Img2_imgView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/homepage_img2"></Button>
+                android:src="@drawable/homepage_img2"></ImageView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/lin3Img1_imgView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/homepage_img3"></ImageView>
+
+            <ImageView
+                android:id="@+id/lin3Img2_imgView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:src="@drawable/homepage_img4"></ImageView>
 
         </LinearLayout>
 

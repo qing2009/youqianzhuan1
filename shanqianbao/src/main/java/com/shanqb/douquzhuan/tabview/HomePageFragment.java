@@ -3,9 +3,11 @@ package com.shanqb.douquzhuan.tabview;
 import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.permissionx.guolindev.PermissionX;
@@ -23,6 +25,7 @@ import com.shanqb.douquzhuan.utils.sdk.JuxiangyouUtils;
 import com.shanqb.douquzhuan.utils.sdk.Taojing91Utils;
 import com.shanqb.douquzhuan.utils.sdk.XianWangUtils;
 import com.shanqb.douquzhuan.view.CircleImageView;
+import com.xuexiang.xui.utils.DensityUtils;
 
 import java.util.List;
 
@@ -48,6 +51,18 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
     TextView withdrawableTextView;
     Unbinder unbinder;
     String merCode;
+    @BindView(R.id.taojing91_btn)
+    ImageView taojing91Btn;
+    @BindView(R.id.aibianxian_btn)
+    ImageView aibianxianBtn;
+    @BindView(R.id.juxiangwang_btn)
+    ImageView juxiangwangBtn;
+    @BindView(R.id.lin2Img2_imgView)
+    ImageView lin2Img2ImgView;
+    @BindView(R.id.lin3Img1_imgView)
+    ImageView lin3Img1ImgView;
+    @BindView(R.id.lin3Img2_imgView)
+    ImageView lin3Img2ImgView;
 
     @Override
     public void fetchData() {
@@ -56,8 +71,6 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
         totalRevenueTextView.setText(totalRevenue);
         String withdrawable = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.txAmt, "0.00");
         withdrawableTextView.setText(withdrawable);
-
-
     }
 
     @Override
@@ -65,6 +78,23 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
         View view = inflater.inflate(R.layout.homepage_layout, container, false);
         unbinder = ButterKnife.bind(this, view);
         merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
+
+
+        int screenWidth = DensityUtils.getScreenMetrics(true).widthPixels;//屏幕宽度
+        int spacingWidth = DensityUtils.dp2px(25);//图片控件左右中间使用的空白间距宽度
+        int viewWidth = (screenWidth - spacingWidth) / 2;//总共两张图，每张图的宽度。
+        int viewHeight = viewWidth * 280 / 640;//640*280是图片分辨率
+
+        Log.e(getTag(), "viewWidth: " + viewWidth);
+        Log.e(getTag(), "viewHeight: " + viewHeight);
+
+        taojing91Btn.getLayoutParams().height = viewHeight;
+        aibianxianBtn.getLayoutParams().height = viewHeight;
+        juxiangwangBtn.getLayoutParams().height = viewHeight;
+        aibianxianBtn.getLayoutParams().height = viewHeight;
+        lin2Img2ImgView.getLayoutParams().height = viewHeight;
+        lin3Img1ImgView.getLayoutParams().height = viewHeight;
+        lin3Img2ImgView.getLayoutParams().height = viewHeight;
         return view;
     }
 
@@ -124,7 +154,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
             case R.id.juxiangwang_btn:
 
                 PermissionX.init(this)
-                        .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.READ_PHONE_STATE)
+                        .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE)
                         .onExplainRequestReason(new ExplainReasonCallback() {
                             @Override
                             public void onExplainReason(ExplainScope scope, List<String> deniedList) {
@@ -143,7 +173,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
                                 if (allGranted) {
 //                                    String userId = "654321";
                                     String merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
-                                    JuxiangyouUtils.startSDK(getActivity(),merCode);
+                                    JuxiangyouUtils.startSDK(getActivity(), merCode);
                                 } else {
 //                                    Toast.makeText(getActivity(), "These permissions are denied: $deniedList", Toast.LENGTH_LONG).show();
                                 }
@@ -154,7 +184,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
                 Taojing91Utils.startSDK(getActivity(), merCode);
                 break;
             case R.id.aibianxian_btn:
-                AibianxianUtils.startSDK(getActivity().getApplication(), merCode,getActivity());
+                AibianxianUtils.startSDK(getActivity().getApplication(), merCode, getActivity());
                 break;
             case R.id.readGetMoney_imgView:
                 startActivity(new Intent(getActivity(), ReadGetMoneyActivity.class));
