@@ -9,7 +9,7 @@
         android:id="@+id/tryPlay_titlebartryPlay_titlebar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tb_titleText="@string/withdraw" />
+        app:tb_titleText="@string/tryPlay" />
 
 
 

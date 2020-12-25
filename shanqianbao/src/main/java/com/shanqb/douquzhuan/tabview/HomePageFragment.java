@@ -19,6 +19,7 @@ import com.shanqb.douquzhuan.activity.ReadGetMoneyActivity;
 import com.shanqb.douquzhuan.utils.SharedPreConstants;
 import com.shanqb.douquzhuan.utils.SharedPreferencesUtil;
 import com.shanqb.douquzhuan.utils.sdk.AibianxianUtils;
+import com.shanqb.douquzhuan.utils.sdk.JuxiangyouUtils;
 import com.shanqb.douquzhuan.utils.sdk.Taojing91Utils;
 import com.shanqb.douquzhuan.utils.sdk.XianWangUtils;
 import com.shanqb.douquzhuan.view.CircleImageView;
@@ -122,33 +123,33 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
 
             case R.id.juxiangwang_btn:
 
-//                PermissionX.init(this)
-//                        .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.READ_PHONE_STATE)
-//                        .onExplainRequestReason(new ExplainReasonCallback() {
-//                            @Override
-//                            public void onExplainReason(ExplainScope scope, List<String> deniedList) {
-//                                scope.showRequestReasonDialog(deniedList, getString(R.string.need_agree_permissions), getString(R.string.agree), getString(R.string.cancel));
-//                            }
-//                        })
-//                        .onForwardToSettings(new ForwardToSettingsCallback() {
-//                            @Override
-//                            public void onForwardToSettings(ForwardScope scope, List<String> deniedList) {
-//                                scope.showForwardToSettingsDialog(deniedList, getString(R.string.to_set_open_permissions), getString(R.string.openSet), getString(R.string.cancel));
-//                            }
-//                        })
-//                        .request(new RequestCallback() {
-//                            @Override
-//                            public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
-//                                if (allGranted) {
+                PermissionX.init(this)
+                        .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.READ_PHONE_STATE)
+                        .onExplainRequestReason(new ExplainReasonCallback() {
+                            @Override
+                            public void onExplainReason(ExplainScope scope, List<String> deniedList) {
+                                scope.showRequestReasonDialog(deniedList, getString(R.string.need_agree_permissions), getString(R.string.agree), getString(R.string.cancel));
+                            }
+                        })
+                        .onForwardToSettings(new ForwardToSettingsCallback() {
+                            @Override
+                            public void onForwardToSettings(ForwardScope scope, List<String> deniedList) {
+                                scope.showForwardToSettingsDialog(deniedList, getString(R.string.to_set_open_permissions), getString(R.string.openSet), getString(R.string.cancel));
+                            }
+                        })
+                        .request(new RequestCallback() {
+                            @Override
+                            public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
+                                if (allGranted) {
 //                                    String userId = "654321";
-//                                    String merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
-//                                    JuxiangyouUtils.startSDK(getActivity(),userId);
-//                                } else {
-////                                    Toast.makeText(getActivity(), "These permissions are denied: $deniedList", Toast.LENGTH_LONG).show();
-//                                }
-//                            }
-//                        });
-//                break;
+                                    String merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
+                                    JuxiangyouUtils.startSDK(getActivity(),merCode);
+                                } else {
+//                                    Toast.makeText(getActivity(), "These permissions are denied: $deniedList", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+                break;
             case R.id.taojing91_btn:
                 Taojing91Utils.startSDK(getActivity(), merCode);
                 break;

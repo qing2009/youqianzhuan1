@@ -11,8 +11,8 @@ import com.fc.tjcpl.sdk.TJSDK;
  */
 public class AibianxianUtils {
 
-    public static final String appKey = "1957";
-    public static final String secret = "359b2780e4f0d05db9241c179b8fd3cf";
+    public static final String appKey = "142793066";
+    public static final String secret = "d1ea984016d3e97c";
 
     public static void startSDK(Application application, String userId,Activity activity){
 //        IBXSdk.getInstance().showLog(true);
