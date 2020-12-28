@@ -1,5 +1,6 @@
 package com.shanqb.douquzhuan.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
@@ -13,19 +14,28 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.permissionx.guolindev.PermissionX;
+import com.permissionx.guolindev.callback.ExplainReasonCallback;
+import com.permissionx.guolindev.callback.ForwardToSettingsCallback;
+import com.permissionx.guolindev.callback.RequestCallback;
+import com.permissionx.guolindev.request.ExplainScope;
+import com.permissionx.guolindev.request.ForwardScope;
 import com.shanqb.douquzhuan.BaseApplication;
 import com.shanqb.douquzhuan.R;
 import com.shanqb.douquzhuan.bean.LoginResponse;
 import com.shanqb.douquzhuan.tabview.HomeActivity;
 import com.shanqb.douquzhuan.utils.AcitonConstants;
+import com.shanqb.douquzhuan.utils.DeviceUtils;
 import com.shanqb.douquzhuan.utils.Global;
 import com.shanqb.douquzhuan.utils.NetworkUtils;
 import com.shanqb.douquzhuan.utils.SharedPreConstants;
 import com.shanqb.douquzhuan.utils.SharedPreferencesUtil;
+import com.shanqb.douquzhuan.utils.sdk.XianWangUtils;
 import com.xuexiang.xui.widget.edittext.ClearEditText;
 import com.xuexiang.xui.widget.edittext.PasswordEditText;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -39,12 +49,6 @@ public class RegisterActivity extends MyBaseActivity {
     @BindView(R.id.register_confirmPwd_clearEditText)
     PasswordEditText registerConfirmPwdClearEditText;
 
-
-//    private EditText registerAccountClearEditText;                        //用户名编辑
-//    private EditText registerPwdClearEditText;                            //密码编辑
-//    private EditText registerConfirregisterPwdClearEditTextClearEditText;                       //密码编辑
-//    private Button mSureButton;                       //确定按钮
-//    private Button mCancelButton;                     //取消按钮
 
     @Override
     public void initLayout() {
@@ -63,31 +67,8 @@ public class RegisterActivity extends MyBaseActivity {
 
     @Override
     public void initWeight() {
-//        registerAccountClearEditText = (EditText) findViewById(R.id.resetpwd_edit_name);
-//        registerPwdClearEditText = (EditText) findViewById(R.id.resetpwd_edit_pwd_old);
-//        registerConfirregisterPwdClearEditTextClearEditText = (EditText) findViewById(R.id.resetpwd_edit_pwd_new);
-//
-//        mSureButton = (Button) findViewById(R.id.register_btn_sure);
-//        mCancelButton = (Button) findViewById(R.id.register_btn_cancel);
-
-//        mSureButton.setOnClickListener(m_register_Listener);      //注册界面两个按钮的监听事件
-//        mCancelButton.setOnClickListener(m_register_Listener);
     }
 
-    View.OnClickListener m_register_Listener = new View.OnClickListener() {    //不同按钮按下的监听事件选择
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.register_btn_sure:                       //确认按钮的监听事件
-                    register_check();
-                    break;
-//                case R.id.register_btn_cancel:                     //取消按钮的监听事件,由注册界面返回登录界面
-//                    Intent intent_Register_to_Login = new Intent(Register.this,Login.class) ;    //切换User Activity至Login Activity
-//                    startActivity(intent_Register_to_Login);
-//                    finish();
-//                    break;
-            }
-        }
-    };
 
     public void register_check() {
         try {
@@ -96,6 +77,8 @@ public class RegisterActivity extends MyBaseActivity {
                 String userName = registerAccountClearEditText.getText().toString().trim();
                 String userPwd = registerPwdClearEditText.getText().toString().trim();
                 String userPwdCheck = registerConfirmPwdClearEditText.getText().toString().trim();
+                String imei = DeviceUtils.getDeviceId(this);
+
                 if (userPwd.equals(userPwdCheck) == false) {     //两次密码输入不一样
                     Toast.makeText(this, getString(R.string.pwd_not_the_same), Toast.LENGTH_SHORT).show();
                     return;
@@ -167,6 +150,7 @@ public class RegisterActivity extends MyBaseActivity {
                             Map<String, String> map = new HashMap<String, String>();
                             map.put(AcitonConstants.LOGIN_USERNAME, userName);
                             map.put(AcitonConstants.LOGIN_PASSWORD, userPwd);
+                            map.put(AcitonConstants.INTER_REGISTER_IMEI, imei);
                             return map;
                         }
                     };
@@ -197,17 +181,37 @@ public class RegisterActivity extends MyBaseActivity {
     }
 
 
-//    @OnClick(R.id.register_textView)
-//    public void onViewClicked() {
-//        startActivity(new Intent(this, LoginActivity.class));
-//        finish();
-//    }
 
     @OnClick({R.id.register_btn_sure, R.id.toLogin_textView})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.register_btn_sure:
-                register_check();
+
+                PermissionX.init(this)
+                        .permissions(Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_PHONE_STATE)
+                        .onExplainRequestReason(new ExplainReasonCallback() {
+                            @Override
+                            public void onExplainReason(ExplainScope scope, List<String> deniedList) {
+                                scope.showRequestReasonDialog(deniedList, getString(R.string.need_agree_permissions), getString(R.string.agree), getString(R.string.cancel));
+                            }
+                        })
+                        .onForwardToSettings(new ForwardToSettingsCallback() {
+                            @Override
+                            public void onForwardToSettings(ForwardScope scope, List<String> deniedList) {
+                                scope.showForwardToSettingsDialog(deniedList, getString(R.string.to_set_open_permissions), getString(R.string.openSet), getString(R.string.cancel));
+                            }
+                        })
+                        .request(new RequestCallback() {
+                            @Override
+                            public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
+                                if (allGranted) {
+                                    register_check();
+                                } else {
+//                                    Toast.makeText(getActivity(), "These permissions are denied: $deniedList", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+
                 break;
             case R.id.toLogin_textView:
                 startActivity(new Intent(this, LoginActivity.class));

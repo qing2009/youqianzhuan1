@@ -18,6 +18,7 @@ import com.permissionx.guolindev.request.ExplainScope;
 import com.permissionx.guolindev.request.ForwardScope;
 import com.shanqb.douquzhuan.R;
 import com.shanqb.douquzhuan.activity.ReadGetMoneyActivity;
+import com.shanqb.douquzhuan.utils.DeviceUtils;
 import com.shanqb.douquzhuan.utils.SharedPreConstants;
 import com.shanqb.douquzhuan.utils.SharedPreferencesUtil;
 import com.shanqb.douquzhuan.utils.sdk.AibianxianUtils;
@@ -189,11 +190,19 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
                 break;
             case R.id.aibianxian_btn:
                 AibianxianUtils.startSDK(getActivity().getApplication(), merCode, getActivity());
+//                test();
                 break;
             case R.id.readGetMoney_imgView:
                 startActivity(new Intent(getActivity(), ReadGetMoneyActivity.class));
                 break;
         }
+    }
+
+    private void test() {
+        Log.e(getClass().getName(), "test: DeviceId="+ DeviceUtils.getDeviceId(getContext()));
+        Log.e(getClass().getName(), "test: IMEI 0 ="+ DeviceUtils.getIMEI(getContext(),0));
+        Log.e(getClass().getName(), "test: IMEI 1 ="+ DeviceUtils.getIMEI(getContext(),1));
+        Log.e(getClass().getName(), "test: MEID ="+ DeviceUtils.getMEID(getContext()));
     }
 
 }

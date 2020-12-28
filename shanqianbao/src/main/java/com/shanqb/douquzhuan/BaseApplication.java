@@ -62,7 +62,7 @@ public class BaseApplication extends Application {
                     }
                 });
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
         }
     }

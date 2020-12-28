@@ -14,6 +14,7 @@ public class AcitonConstants {
 
     //注册接口
     public static final String INTER_REGISTER = "register";
+    public static final String INTER_REGISTER_IMEI = "imei";
 
 
     //修改密码接口
