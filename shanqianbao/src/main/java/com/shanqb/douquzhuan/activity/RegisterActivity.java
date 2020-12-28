@@ -31,6 +31,7 @@ import com.shanqb.douquzhuan.utils.NetworkUtils;
 import com.shanqb.douquzhuan.utils.SharedPreConstants;
 import com.shanqb.douquzhuan.utils.SharedPreferencesUtil;
 import com.shanqb.douquzhuan.utils.sdk.XianWangUtils;
+import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
 import com.xuexiang.xui.widget.edittext.ClearEditText;
 import com.xuexiang.xui.widget.edittext.PasswordEditText;
 
@@ -127,13 +128,17 @@ public class RegisterActivity extends MyBaseActivity {
 
 
                                     } else {
-                                        Toast.makeText(RegisterActivity.this, getString(R.string.register_fail), Toast.LENGTH_SHORT).show();  //登录失败提示
+//                                        Toast.makeText(RegisterActivity.this, getString(R.string.register_fail), Toast.LENGTH_SHORT).show();  //登录失败提示
+                                        showSimpleTipDialog(getString(R.string.register_fail));
                                     }
                                 } else {
-                                    Toast.makeText(RegisterActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();  //登录失败提示
+//                                    Toast.makeText(RegisterActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();  //登录失败提示
+                                    showSimpleTipDialog(loginResponse.getMessage());
+
                                 }
                             } else {
-                                Toast.makeText(RegisterActivity.this, getString(R.string.register_fail), Toast.LENGTH_SHORT).show();  //登录失败提示
+//                                Toast.makeText(RegisterActivity.this, getString(R.string.register_fail), Toast.LENGTH_SHORT).show();  //登录失败提示
+                                showSimpleTipDialog(getString(R.string.register_fail));
                             }
 
                         }
@@ -218,5 +223,16 @@ public class RegisterActivity extends MyBaseActivity {
                 finish();
                 break;
         }
+    }
+
+    /**
+     * 简单的提示性对话框
+     */
+    private void showSimpleTipDialog(String contentString) {
+        new MaterialDialog.Builder(this)
+                .title(R.string.notice)
+                .content(contentString)
+                .positiveText(R.string.ok)
+                .show();
     }
 }
