@@ -66,11 +66,15 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
 
     @Override
     public void fetchData() {
-        userNameTextView.setText(SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.loginCode, ""));
-        String totalRevenue = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.allAmt, "0.00");
-        totalRevenueTextView.setText(totalRevenue);
-        String withdrawable = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.txAmt, "0.00");
-        withdrawableTextView.setText(withdrawable);
+        try {
+            userNameTextView.setText(SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.loginCode, ""));
+            String totalRevenue = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.allAmt, "0.00");
+            totalRevenueTextView.setText(totalRevenue);
+            String withdrawable = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.txAmt, "0.00");
+            withdrawableTextView.setText(withdrawable);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -85,8 +89,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
         int viewWidth = (screenWidth - spacingWidth) / 2;//总共两张图，每张图的宽度。
         int viewHeight = viewWidth * 280 / 640;//640*280是图片分辨率
 
-        Log.e(getTag(), "viewWidth: " + viewWidth);
-        Log.e(getTag(), "viewHeight: " + viewHeight);
+//        Log.e(getTag(), "viewWidth: " + viewWidth);
+//        Log.e(getTag(), "viewHeight: " + viewHeight);
 
         taojing91Btn.getLayoutParams().height = viewHeight;
         aibianxianBtn.getLayoutParams().height = viewHeight;
@@ -191,4 +195,5 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
                 break;
         }
     }
+
 }

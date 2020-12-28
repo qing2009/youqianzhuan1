@@ -151,12 +151,19 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
 
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        getUserInfo();
-    }
+//    @Override
+//    protected void onRestart() {
+//        super.onRestart();
+//        getUserInfo();
+//    }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getUserInfo();
+        Log.d(getLocalClassName(), "onResume() called");
+    }
 
 
     public void getUserInfo() {
@@ -171,6 +178,7 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
                 showLoadingDialog();
 
                 String loginUrl = Global.BASE_INTER_URL + AcitonConstants.INTER_MYINFO;
+                Log.d(getLocalClassName(), "loginUrl: "+loginUrl);
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
