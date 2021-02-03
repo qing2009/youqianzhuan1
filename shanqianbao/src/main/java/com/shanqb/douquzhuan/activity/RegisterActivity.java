@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -30,10 +31,12 @@ import com.shanqb.douquzhuan.utils.Global;
 import com.shanqb.douquzhuan.utils.NetworkUtils;
 import com.shanqb.douquzhuan.utils.SharedPreConstants;
 import com.shanqb.douquzhuan.utils.SharedPreferencesUtil;
-import com.shanqb.douquzhuan.utils.sdk.XianWangUtils;
+import com.shanqb.douquzhuan.utils.StringUtils;
+import com.xuexiang.xui.widget.button.roundbutton.RoundButton;
 import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
 import com.xuexiang.xui.widget.edittext.ClearEditText;
 import com.xuexiang.xui.widget.edittext.PasswordEditText;
+import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 
 import java.util.HashMap;
 import java.util.List;
@@ -43,12 +46,16 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class RegisterActivity extends MyBaseActivity {
-    @BindView(R.id.register_account_clearEditText)
-    ClearEditText registerAccountClearEditText;
-    @BindView(R.id.register_pwd_clearEditText)
-    PasswordEditText registerPwdClearEditText;
-    @BindView(R.id.register_confirmPwd_clearEditText)
-    PasswordEditText registerConfirmPwdClearEditText;
+    @BindView(R.id.stv_register)
+    SuperTextView stvRegister;
+    @BindView(R.id.stv_register_pwd)
+    SuperTextView stvRegisterPwd;
+    @BindView(R.id.stv_register_pwd_confirmPwd)
+    SuperTextView stvRegisterPwdConfirmPwd;
+    @BindView(R.id.register_btn_sure)
+    RoundButton registerBtnSure;
+    @BindView(R.id.toLogin_textView)
+    TextView toLoginTextView;
 
 
     @Override
@@ -68,6 +75,7 @@ public class RegisterActivity extends MyBaseActivity {
 
     @Override
     public void initWeight() {
+        toLoginTextView.setText(StringUtils.setColor4Key(getString(R.string.goto_login),getString(R.string.login),getResources().getColor(R.color.custom_color_main_theme)));
     }
 
 
@@ -75,9 +83,9 @@ public class RegisterActivity extends MyBaseActivity {
         try {
 
             if (isUserNameAndPwdValid()) {
-                String userName = registerAccountClearEditText.getText().toString().trim();
-                String userPwd = registerPwdClearEditText.getText().toString().trim();
-                String userPwdCheck = registerConfirmPwdClearEditText.getText().toString().trim();
+                String userName = stvRegister.getCenterEditValue().trim();
+                String userPwd = stvRegisterPwd.getCenterEditValue().trim();
+                String userPwdCheck = stvRegisterPwdConfirmPwd.getCenterEditValue().trim();
                 String imei = DeviceUtils.getDeviceId(this);
 
                 if (userPwd.equals(userPwdCheck) == false) {     //两次密码输入不一样
@@ -168,15 +176,15 @@ public class RegisterActivity extends MyBaseActivity {
     }
 
     public boolean isUserNameAndPwdValid() {
-        if (registerAccountClearEditText.getText().toString().trim().equals("")) {
+        if (stvRegister.getCenterEditValue().trim().equals("")) {
             Toast.makeText(this, getString(R.string.account_empty),
                     Toast.LENGTH_SHORT).show();
             return false;
-        } else if (registerPwdClearEditText.getText().toString().trim().equals("")) {
+        } else if (stvRegisterPwd.getCenterEditValue().trim().equals("")) {
             Toast.makeText(this, getString(R.string.pwd_empty),
                     Toast.LENGTH_SHORT).show();
             return false;
-        } else if (registerConfirmPwdClearEditText.getText().toString().trim().equals("")) {
+        } else if (stvRegisterPwdConfirmPwd.getCenterEditValue().trim().equals("")) {
             Toast.makeText(this, getString(R.string.pwd_check_empty),
                     Toast.LENGTH_SHORT).show();
 
@@ -184,7 +192,6 @@ public class RegisterActivity extends MyBaseActivity {
         }
         return true;
     }
-
 
 
     @OnClick({R.id.register_btn_sure, R.id.toLogin_textView})

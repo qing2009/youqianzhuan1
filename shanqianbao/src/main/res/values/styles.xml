@@ -12,9 +12,26 @@
         -->
     </style>
 
+    <!--xui的主题修改规则请参考：https://github.com/xuexiangjys/XUI/wiki/%E4%B8%BB%E9%A2%98-->
     <!-- Application theme. -->
     <style name="AppTheme" parent="XUITheme.Phone">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+
+        <!--**********************************************
+        *                   xui color                    *
+        ***********************************************-->
+        <!-- CheckBox，RadioButton，SwitchCompat等一般控件的选中效果默认采用该颜色 -->
+        <item name="colorAccent">@color/custom_color_main_theme</item>
+        <!--应用的主要色调，actionBar默认使用该颜色，Toolbar导航栏的底色-->
+        <item name="colorPrimary">@color/title_bg</item>
+        <!--应用的主要暗色调，statusBarColor默认使用该颜色-->
+        <item name="colorPrimaryDark">@color/xui_config_color_control_normal</item>
+        <item name="colorControlNormal">@color/xui_config_color_control_normal</item>
+
+        <!--actionbar的样式-->
+        <item name="xui_actionbar_color">@color/white</item>
+        <item name="xui_actionbar_text_color">@color/titleBar_title</item>
+        <item name="xui_actionbar_immersive">false</item>
+        <item name="xui_actionbar_ic_navigation_back">@drawable/icon_back</item>
     </style>
 
 
@@ -46,7 +63,7 @@
         <item name="sCenterViewMarginLeft">15dp</item>
         <item name="sCenterViewMarginRight">15dp</item>
         <item name="sDividerLineHeight">@dimen/titleBar_bottomLineHeight</item>
-        <item name="sDividerLineColor">@color/app_primary_dark_color</item>
+        <item name="sDividerLineColor">@color/custom_color_main_theme</item>
         <item name="sRightTextSize">13sp</item>
         <item name="sEditTextButtonType">clear</item>
         <item name="sRightViewMarginRight">0dp</item>
@@ -55,14 +72,30 @@
         <item name="cet_clearIconSize">10dp</item>
     </style>
 
-    <style name="Button.Style" >
+<!--    <style name="Button.Style" >
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">?attr/xui_btn_view_text_size</item>
         <item name="android:textColor">@color/xui_config_color_white</item>
         <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/xui_config_bg_blue_btn</item>
+        <item name="android:background">@color/custom_color_main_theme</item>
         <item name="android:padding">15dp</item>
+    </style>-->
+
+    <style name="RoundButton" parent="@style/Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/button_textSize</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">13dp</item>
+        <item name="android:paddingBottom">13dp</item>
+
+        <item name="android:ellipsize">end</item>
+        <item name="rb_isRadiusAdjustBounds">false</item>
+        <item name="rb_radius">?attr/xui_btn_view_radius</item>
+
+        <item name="rb_backgroundColor">@color/custom_color_main_theme</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

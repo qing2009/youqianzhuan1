@@ -28,6 +28,7 @@ import com.shanqb.douquzhuan.utils.Global;
 import com.shanqb.douquzhuan.utils.NetworkUtils;
 import com.shanqb.douquzhuan.utils.SharedPreConstants;
 import com.shanqb.douquzhuan.utils.SharedPreferencesUtil;
+import com.shanqb.douquzhuan.utils.StringUtils;
 import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 
 import java.util.HashMap;
@@ -98,6 +99,7 @@ public class LoginActivity extends MyBaseActivity {                 //登录界�
 //        loginSuccessShow = (TextView) findViewById(R.id.login_success_show);
 
         registText = (TextView) findViewById(R.id.register_textView);
+        registText.setText(StringUtils.setColor4Key(getString(R.string.no_ccount_sign_up),getString(R.string.register),getResources().getColor(R.color.custom_color_main_theme)));
 //        mRememberCheck = (CheckBox) findViewById(R.id.Login_Remember);
 
         login_sp = getSharedPreferences("userInfo", 0);

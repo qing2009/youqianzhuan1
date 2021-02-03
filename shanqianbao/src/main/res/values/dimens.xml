@@ -12,10 +12,11 @@
     <dimen name="titleBar_rightTextSize">16sp</dimen>
     <dimen name="translate_text_size">18sp</dimen>
 
-    <dimen name="titleBar_bottomLineHeight">0.1dp</dimen>
+    <dimen name="titleBar_bottomLineHeight">1dp</dimen>
 
     <!--按钮的高度-->
     <dimen name="buttonHeight">45dp</dimen>
+    <dimen name="button_textSize">18sp</dimen>
 
 
 </resources>

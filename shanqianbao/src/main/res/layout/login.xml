@@ -33,11 +33,13 @@
             app:sLeftTextString="@string/password" />
 
 
-        <Button
+
+        <com.xuexiang.xui.widget.button.roundbutton.RoundButton
             android:id="@+id/login_btn_login"
-            style="@style/Button.Style"
+            style="@style/RoundButton"
             android:layout_marginTop="50dp"
             android:text="登录" />
+
 
 
     </LinearLayout>
@@ -48,7 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginTop="40dp"
+        android:textSize="15sp"
         android:text="@string/no_ccount_sign_up"
-        android:textColor="@color/xui_btn_blue_normal_color" />
+        android:textColor="@color/grey" />
 
 </LinearLayout>
