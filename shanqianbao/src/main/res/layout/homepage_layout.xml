@@ -11,19 +11,60 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
-        <include layout="@layout/layout_myinfo"></include>
+        <com.xuexiang.xui.widget.banner.recycler.BannerLayout
+            android:id="@+id/bl_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:bl_autoPlaying="true"
+            app:bl_centerScale="1.3"
+            app:bl_itemSpace="10dp"
+            app:bl_moveSpeed="1.8" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:orientation="horizontal">
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/home_meizhou"
+                android:gravity="center"
+                android:text="@string/meizhou_libao"></TextView>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/home_task"
+                android:gravity="center"
+                android:text="@string/task_libao"></TextView>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/hot_tuijian"
+            android:textSize="20sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/taojing91_btn"
@@ -67,6 +108,7 @@
                 android:src="@drawable/homepage_img2"></ImageView>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

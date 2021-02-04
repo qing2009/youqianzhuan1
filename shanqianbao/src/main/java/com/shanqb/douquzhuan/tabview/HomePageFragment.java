@@ -18,6 +18,8 @@ import com.permissionx.guolindev.request.ExplainScope;
 import com.permissionx.guolindev.request.ForwardScope;
 import com.shanqb.douquzhuan.R;
 import com.shanqb.douquzhuan.activity.ReadGetMoneyActivity;
+import com.shanqb.douquzhuan.adapter.RecyclerViewBannerAdapter;
+import com.shanqb.douquzhuan.utils.DemoDataProvider;
 import com.shanqb.douquzhuan.utils.DeviceUtils;
 import com.shanqb.douquzhuan.utils.SharedPreConstants;
 import com.shanqb.douquzhuan.utils.SharedPreferencesUtil;
@@ -27,6 +29,7 @@ import com.shanqb.douquzhuan.utils.sdk.Taojing91Utils;
 import com.shanqb.douquzhuan.utils.sdk.XianWangUtils;
 import com.shanqb.douquzhuan.view.CircleImageView;
 import com.xuexiang.xui.utils.DensityUtils;
+import com.xuexiang.xui.widget.banner.recycler.BannerLayout;
 
 import java.util.List;
 
@@ -39,17 +42,19 @@ import butterknife.Unbinder;
 /**
  * Created by yx on 16/4/3.
  */
-public class HomePageFragment extends BaseFragment implements ITabClickListener {
-    @BindView(R.id.headImageView)
-    CircleImageView headImageView;
-    @BindView(R.id.userNameTextView)
-    TextView userNameTextView;
-    @BindView(R.id.phoneTextView)
-    TextView phoneTextView;
-    @BindView(R.id.totalRevenueTextView)
-    TextView totalRevenueTextView;
-    @BindView(R.id.withdrawableTextView)
-    TextView withdrawableTextView;
+public class HomePageFragment extends BaseFragment implements ITabClickListener,BannerLayout.OnBannerItemClickListener  {
+    @BindView(R.id.bl_horizontal)
+    BannerLayout blHorizontal;
+//    @BindView(R.id.headImageView)
+//    CircleImageView headImageView;
+//    @BindView(R.id.userNameTextView)
+//    TextView userNameTextView;
+//    @BindView(R.id.phoneTextView)
+//    TextView phoneTextView;
+//    @BindView(R.id.totalRevenueTextView)
+//    TextView totalRevenueTextView;
+//    @BindView(R.id.withdrawableTextView)
+//    TextView withdrawableTextView;
     Unbinder unbinder;
     String merCode;
     @BindView(R.id.taojing91_btn)
@@ -65,14 +70,16 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
     @BindView(R.id.lin3Img2_imgView)
     ImageView lin3Img2ImgView;
 
+    private RecyclerViewBannerAdapter mAdapterHorizontal;
+
     @Override
     public void fetchData() {
         try {
-            userNameTextView.setText(SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.loginCode, ""));
-            String totalRevenue = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.allAmt, "0.00");
-            totalRevenueTextView.setText(totalRevenue);
-            String withdrawable = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.txAmt, "0.00");
-            withdrawableTextView.setText(withdrawable);
+//            userNameTextView.setText(SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.loginCode, ""));
+//            String totalRevenue = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.allAmt, "0.00");
+//            totalRevenueTextView.setText(totalRevenue);
+//            String withdrawable = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.txAmt, "0.00");
+//            withdrawableTextView.setText(withdrawable);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -100,6 +107,11 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
         lin2Img2ImgView.getLayoutParams().height = viewHeight;
         lin3Img1ImgView.getLayoutParams().height = viewHeight;
         lin3Img2ImgView.getLayoutParams().height = viewHeight;
+
+
+        blHorizontal.setAdapter(mAdapterHorizontal = new RecyclerViewBannerAdapter(DemoDataProvider.urls));
+        mAdapterHorizontal.setOnBannerItemClickListener(this);
+
         return view;
     }
 
@@ -205,4 +217,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener 
         Log.e(getClass().getName(), "test: MEID ="+ DeviceUtils.getMEID(getContext()));
     }
 
+    @Override
+    public void onItemClick(int position) {
+
+    }
 }

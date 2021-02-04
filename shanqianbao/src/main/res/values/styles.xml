@@ -31,7 +31,7 @@
         <item name="xui_actionbar_color">@color/white</item>
         <item name="xui_actionbar_text_color">@color/titleBar_title</item>
         <item name="xui_actionbar_immersive">false</item>
-        <item name="xui_actionbar_ic_navigation_back">@drawable/icon_back</item>
+        <item name="xui_actionbar_ic_navigation_back">@drawable/back_icon</item>
     </style>
 
 

@@ -4,7 +4,7 @@
 
     <corners android:radius="5dip" />
 
-    <solid android:color="@color/holo_red_light" />
+    <solid android:color="@color/custom_color_main_theme" />
 
     <stroke
         android:width="2px"

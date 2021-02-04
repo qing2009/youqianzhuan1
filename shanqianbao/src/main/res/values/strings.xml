@@ -19,8 +19,13 @@
     <string name="confirm_logout">是否确认退出当前账号？</string>
     <string name="search">查询</string>
     <string name="collection">收藏查阅</string>
-    <string name="username">用户名</string>
-    <string name="hint_username">请填写用户名</string>
+    <string name="username">手机号</string>
+    <string name="hint_username">请填写手机号</string>
+    <string name="hint_please_input_verify_code">请输入验证码</string>
+    <string name="lab_verify_code">验证码</string>
+    <string name="tip_verify_code_error">请输入正确验证码</string>
+    <string name="regex_verify_code">^\\d{4}$</string>
+    <string name="action_get_verify_code">获取验证码</string>
     <string name="password">密码</string>
     <string name="confirmPassword">确认密码</string>
     <string name="hint_password">请输入密码</string>
@@ -76,6 +81,10 @@
 
     <string name="juxiangyou">聚享游sdk</string>
     <string name="Taojing91">91淘金CPL</string>
+
+    <string name="meizhou_libao">每周礼包</string>
+    <string name="task_libao">任务礼包</string>
+    <string name="hot_tuijian">热门推荐</string>
 
     <!--权限-->
     <string name="need_agree_permissions">程序的正常运行需要您同意以下权限</string>

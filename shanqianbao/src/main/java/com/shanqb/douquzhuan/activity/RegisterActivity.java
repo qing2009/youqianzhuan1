@@ -32,10 +32,10 @@ import com.shanqb.douquzhuan.utils.NetworkUtils;
 import com.shanqb.douquzhuan.utils.SharedPreConstants;
 import com.shanqb.douquzhuan.utils.SharedPreferencesUtil;
 import com.shanqb.douquzhuan.utils.StringUtils;
+import com.shanqb.douquzhuan.utils.XToastUtils;
+import com.xuexiang.xui.utils.CountDownButtonHelper;
 import com.xuexiang.xui.widget.button.roundbutton.RoundButton;
 import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
-import com.xuexiang.xui.widget.edittext.ClearEditText;
-import com.xuexiang.xui.widget.edittext.PasswordEditText;
 import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 
 import java.util.HashMap;
@@ -56,6 +56,12 @@ public class RegisterActivity extends MyBaseActivity {
     RoundButton registerBtnSure;
     @BindView(R.id.toLogin_textView)
     TextView toLoginTextView;
+    @BindView(R.id.stv_verify_code)
+    SuperTextView stvVerifyCode;
+    @BindView(R.id.btn_get_verify_code)
+    RoundButton btnGetVerifyCode;
+
+    private CountDownButtonHelper mCountDownHelper;
 
 
     @Override
@@ -70,12 +76,12 @@ public class RegisterActivity extends MyBaseActivity {
 
     @Override
     public void initData() {
-
+        mCountDownHelper = new CountDownButtonHelper(btnGetVerifyCode, 60);
     }
 
     @Override
     public void initWeight() {
-        toLoginTextView.setText(StringUtils.setColor4Key(getString(R.string.goto_login),getString(R.string.login),getResources().getColor(R.color.custom_color_main_theme)));
+        toLoginTextView.setText(StringUtils.setColor4Key(getString(R.string.goto_login), getString(R.string.login), getResources().getColor(R.color.custom_color_main_theme)));
     }
 
 
@@ -241,5 +247,24 @@ public class RegisterActivity extends MyBaseActivity {
                 .content(contentString)
                 .positiveText(R.string.ok)
                 .show();
+    }
+
+    @OnClick(R.id.btn_get_verify_code)
+    public void onClick() {
+        if (!stvRegister.getCenterEditValue().trim().equals("")) {stvRegister.invalidate();
+            getVerifyCode(stvRegister.getCenterEditValue().trim());
+        }else {
+            XToastUtils.toast(getString(R.string.hint_username));
+        }
+    }
+
+
+    /**
+     * 获取验证码
+     */
+    private void getVerifyCode(String phoneNumber) {
+        // TODO: 2019-11-18 这里只是界面演示而已
+        XToastUtils.warning("只是演示，验证码请随便输");
+        mCountDownHelper.start();
     }
 }

@@ -13,9 +13,43 @@
         android:id="@+id/stv_register"
         style="@style/EditInfoItem"
         app:sEditTextButtonType="clear"
-        app:sLeftViewWidth="70dp"
         app:sEditTextHint="@string/hint_username"
-        app:sLeftTextString="@string/username" />
+        app:sLeftTextString="@string/username"
+        app:sLeftViewWidth="70dp" />
+
+    <FrameLayout
+        android:id="@+id/fl_verify_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+
+        <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
+            android:id="@+id/stv_verify_code"
+            style="@style/EditInfoItem"
+            app:sEditTextButtonType="none"
+            app:sEditTextHint="@string/hint_please_input_verify_code"
+            app:sLeftTextString="@string/lab_verify_code"
+            app:sLeftViewWidth="70dp" />
+
+        <com.xuexiang.xui.widget.button.roundbutton.RoundButton
+            android:id="@+id/btn_get_verify_code"
+            style="?attr/CountDownButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:paddingStart="10dp"
+            android:paddingTop="3dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="3dp"
+            android:text="@string/action_get_verify_code"
+            android:textColor="@color/selector_round_button_main_theme_color"
+            android:textSize="13sp"
+            app:rb_borderColor="@color/selector_round_button_main_theme_color"
+            app:rb_borderWidth="1.5dp"
+            app:rb_radius="15dp" />
+
+    </FrameLayout>
 
 
     <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
@@ -24,8 +58,8 @@
         android:layout_marginTop="10dp"
         app:sEditTextButtonType="password"
         app:sEditTextHint="@string/hint_password"
-        app:sLeftViewWidth="70dp"
-        app:sLeftTextString="@string/password" />
+        app:sLeftTextString="@string/password"
+        app:sLeftViewWidth="70dp" />
 
     <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
         android:id="@+id/stv_register_pwd_confirmPwd"
@@ -33,8 +67,8 @@
         android:layout_marginTop="10dp"
         app:sEditTextButtonType="password"
         app:sEditTextHint="@string/input_confirmPwd"
-        app:sLeftViewWidth="70dp"
-        app:sLeftTextString="@string/confirmPassword" />
+        app:sLeftTextString="@string/confirmPassword"
+        app:sLeftViewWidth="70dp" />
 
 
     <com.xuexiang.xui.widget.button.roundbutton.RoundButton
@@ -51,8 +85,8 @@
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginTop="40dp"
         android:text="@string/goto_login"
-        android:textSize="15sp"
-        android:textColor="@color/grey" />
+        android:textColor="@color/grey"
+        android:textSize="15sp" />
 
 
 </LinearLayout>
