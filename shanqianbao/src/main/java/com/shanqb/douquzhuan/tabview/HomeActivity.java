@@ -69,17 +69,19 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
 //        tabs.add(new TabItem(R.drawable.selector_tab_homepage, R.string.homePage, R.string.app_name, HomePageFragment.class));
 //        tabs.add(new TabItem(R.drawable.selector_tab_profile, R.string.me, R.string.me, ProfileFragment.class));
         tabs.add(new TabItem(R.drawable.selector_tab_homepage, R.string.homePage, R.string.app_name));
+        tabs.add(new TabItem(R.drawable.selector_tab_faxian, R.string.faxian, R.string.faxian));
         tabs.add(new TabItem(R.drawable.selector_tab_profile, R.string.me, R.string.me));
 
         mTabLayout.initData(tabs, this);
         mTabLayout.setCurrentTab(0);
 
         baseFragments.add(new HomePageFragment());
+        baseFragments.add(new FaxianFragment());
         baseFragments.add(new ProfileFragment());
 
         FragAdapter adapter = new FragAdapter(getSupportFragmentManager(),baseFragments);
         mViewPager.setAdapter(adapter);
-        mViewPager.setOffscreenPageLimit(2);
+        mViewPager.setOffscreenPageLimit(3);
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
