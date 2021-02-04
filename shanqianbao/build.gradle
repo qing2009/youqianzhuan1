@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.2"
 
     defaultConfig {
-        applicationId "com.shanqb.douquzhuan"
+        applicationId "com.shanqb.ttaiyou"
         minSdkVersion 21
         targetSdkVersion 28
     }
@@ -88,5 +88,11 @@ dependencies {
     annotationProcessor 'com.arialyy.aria:compiler:3.8.10' //必须
     implementation "com.github.donkingliang:ImageSelector:2.2.0"//必须 非AndroidX 项目 使用 1.9.2版本
 
+
+
+    //嘻趣sdk。接入文档：https://www.showdoc.com.cn/XiQuChannelV2?page_id=3398243819072419
+    implementation(name:"xq_android_1.2.6",ext:'aar')
+    //下载器 嘻趣sdk中使用了此下载器 不集成无法下载
+    implementation 'com.liulishuo.filedownloader:library:1.7.6'
 
 }

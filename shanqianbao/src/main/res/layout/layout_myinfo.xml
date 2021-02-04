@@ -16,7 +16,7 @@
         android:paddingRight="15dp"
         android:paddingBottom="10dp">
 
-        <com.shanqb.douquzhuan.view.CircleImageView
+        <com.shanqb.ttaiyou.view.CircleImageView
             android:id="@+id/headImageView"
             android:layout_width="60dp"
             android:layout_height="60dp"

@@ -35,7 +35,7 @@
 -keep class com.markupartist.android.widget.** {*;}
 -keep class org.apache.** {*;}
  
--keepclassmembers class com.shanqb.douquzhuan.bean.** {
+-keepclassmembers class com.shanqb.ttaiyou.bean.** {
 	public <methods>;
 }
 
@@ -74,7 +74,7 @@
 -keep class org.taptwo.android.widget.**{ *; }
 
 -keepattributes Signature
--keepclasseswithmembernames class com.shanqb.douquzhuan.bean.** {*;}
+-keepclasseswithmembernames class com.shanqb.ttaiyou.bean.** {*;}
 
 -dontwarn com.google.android.maps.**
 -dontwarn android.webkit.WebView
@@ -191,4 +191,15 @@
     @Download.* <methods>;
     @Upload.* <methods>;
     @DownloadGroup.* <methods>;
+}
+
+
+##嘻趣
+-dontwarn com.xiqu.sdklibrary.**
+-keep class com.xiqu.sdklibrary.*.** { *; }
+-keep class **.R$* {
+ *;
+}
+-keepclassmembers class **.R$* {
+ public static <fields>;
 }
