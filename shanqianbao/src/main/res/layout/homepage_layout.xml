@@ -28,7 +28,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/meizhou_textView"
@@ -48,6 +49,59 @@
                 android:text="@string/task_libao"></TextView>
         </LinearLayout>
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+
+            <com.xuexiang.xui.widget.imageview.RadiusImageView
+                android:id="@+id/aibianxian_btn"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/shiwang01"
+                app:riv_border_color="@color/white"
+                app:riv_border_width="1px"
+                app:riv_corner_radius="8dp"
+                app:riv_selected_border_color="@color/xui_config_color_gray_4"
+                app:riv_selected_border_width="1px"
+                app:riv_selected_mask_color="@color/xui_config_color_gray_8" />
+
+            <com.xuexiang.xui.widget.imageview.RadiusImageView
+                android:id="@+id/juxiangwang_btn"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/shiwang02"
+                app:riv_border_color="@color/white"
+                app:riv_border_width="1px"
+                app:riv_corner_radius="8dp"
+                app:riv_selected_border_color="@color/xui_config_color_gray_4"
+                app:riv_selected_border_width="1px"
+                app:riv_selected_mask_color="@color/xui_config_color_gray_8" />
+
+            <com.xuexiang.xui.widget.imageview.RadiusImageView
+                android:id="@+id/xiqu_btn"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/shiwang03"
+                app:riv_border_color="@color/white"
+                app:riv_border_width="1px"
+                app:riv_corner_radius="8dp"
+                app:riv_selected_border_color="@color/xui_config_color_gray_4"
+                app:riv_selected_border_width="1px"
+                app:riv_selected_mask_color="@color/xui_config_color_gray_8" />
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,9 +109,8 @@
             android:layout_marginTop="20dp"
             android:text="@string/hot_tuijian"
             android:textSize="20sp"
-            android:textStyle="bold">
-
-        </TextView>
+            android:textStyle="bold"
+            android:visibility="gone"></TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -65,7 +118,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/taojing91_btn"
@@ -75,14 +129,14 @@
                 android:scaleType="fitCenter"
                 android:src="@drawable/homepage_taojin91"></ImageView>
 
-            <ImageView
-                android:id="@+id/aibianxian_btn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                android:src="@drawable/homepage_aibianxian"></ImageView>
+            <!--            <ImageView
+                            android:id="@+id/aibianxian_btn"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/homepage_aibianxian"></ImageView>-->
         </LinearLayout>
 
         <LinearLayout
@@ -91,14 +145,15 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
-            <ImageView
-                android:id="@+id/juxiangwang_btn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/homepage_img1"></ImageView>
+            <!--            <ImageView
+                            android:id="@+id/juxiangwang_btn"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/homepage_img1"></ImageView>-->
 
             <ImageView
                 android:id="@+id/lin2Img2_imgView"
@@ -116,7 +171,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/lin3Img1_imgView"

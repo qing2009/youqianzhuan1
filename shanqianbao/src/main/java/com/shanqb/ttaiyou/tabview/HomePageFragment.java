@@ -92,20 +92,20 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
 
         int screenWidth = DensityUtils.getScreenMetrics(true).widthPixels;//屏幕宽度
-        int spacingWidth = DensityUtils.dp2px(25);//图片控件左右中间使用的空白间距宽度
-        int viewWidth = (screenWidth - spacingWidth) / 2;//总共两张图，每张图的宽度。
-        int viewHeight = viewWidth * 280 / 640;//640*280是图片分辨率
+        int spacingWidth = DensityUtils.dp2px(50);//图片控件左右中间使用的空白间距宽度
+        int viewWidth = (screenWidth - spacingWidth) / 3;//总共两张图，每张图的宽度。
+        int viewHeight = viewWidth * 675 / 1080;//640*280是图片分辨率
 
 //        Log.e(getTag(), "viewWidth: " + viewWidth);
 //        Log.e(getTag(), "viewHeight: " + viewHeight);
 
-        taojing91Btn.getLayoutParams().height = viewHeight;
-        aibianxianBtn.getLayoutParams().height = viewHeight;
-        juxiangwangBtn.getLayoutParams().height = viewHeight;
-        aibianxianBtn.getLayoutParams().height = viewHeight;
-        lin2Img2ImgView.getLayoutParams().height = viewHeight;
-        lin3Img1ImgView.getLayoutParams().height = viewHeight;
-        lin3Img2ImgView.getLayoutParams().height = viewHeight;
+//        taojing91Btn.getLayoutParams().height = viewHeight;
+//        aibianxianBtn.getLayoutParams().height = viewHeight;
+//        juxiangwangBtn.getLayoutParams().height = viewHeight;
+//        aibianxianBtn.getLayoutParams().height = viewHeight;
+//        lin2Img2ImgView.getLayoutParams().height = viewHeight;
+//        lin3Img1ImgView.getLayoutParams().height = viewHeight;
+//        lin3Img2ImgView.getLayoutParams().height = viewHeight;
 
 
         blHorizontal.setAdapter(mAdapterHorizontal = new RecyclerViewBannerAdapter(DemoDataProvider.urls));
