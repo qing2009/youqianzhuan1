@@ -14,4 +14,57 @@
         <attr name="border_color" format="color" />
     </declare-styleable>
 
+    <string-array name="gameUserName">
+        <item> 妃子笑</item>
+        <item>踏破风尘</item>
+        <item>月光傾城〆</item>
+        <item>寄情书</item>
+        <item>仰天望月</item>
+        <item>人不如故.</item>
+        <item>念旧人</item>
+        <item>银笺别梦</item>
+        <item>束发人</item>
+        <item>齐眉举案</item>
+        <item>夏末__涼薄</item>
+        <item>幽香冥思</item>
+        <item>跋千山</item>
+        <item>横笛听雨</item>
+        <item>闻君有两意.</item>
+        <item>悲歌离人悼</item>
+        <item>_____墨染傾城 〆</item>
+        <item>三更</item>
+        <item>饮尽风雪</item>
+        <item>倚弦而笑</item>
+        <item>人心隔肚皮!*</item>
+        <item>醉酒诗人</item>
+        <item>﹄曲斷弦╮</item>
+        <item>北溟有鱼。</item>
+        <item>此地无爱三百两</item>
+        <item>木兮木</item>
+        <item>眉间学...</item>
+        <item>红尘初妆</item>
+        <item>翩若惊鸿</item>
+        <item>无声书</item>
+        <item>雨潇生</item>
+        <item>卿寻吾归</item>
+        <item>岁月多蹉跎.</item>
+        <item>试灯问君</item>
+        <item>竹下莺</item>
+        <item>红泪垂百事非</item>
+        <item>宦娘</item>
+        <item>绻影浮沉</item>
+        <item>君故</item>
+        <item>雨夜孤云</item>
+        <item>梦里江湖</item>
+        <item>仲夏冰桐</item>
+        <item>南鸢北筏</item>
+        <item>忆春风</item>
+        <item>策白马啸西风</item>
+        <item>-石溪竹屋佳人住</item>
+        <item>琼琚</item>
+        <item>醉卧江山</item>
+        <item>醉清风</item>
+        <item>颠覆天下、</item>
+    </string-array>
+
 </resources>

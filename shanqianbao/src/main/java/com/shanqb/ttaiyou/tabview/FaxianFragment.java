@@ -69,8 +69,8 @@ public class FaxianFragment extends BaseFragment implements ITabClickListener {
         mRecyclerView.setLayoutManager(mPagerLayoutManager);
 
         List<Integer> list = new ArrayList<>();
-        list.add(R.drawable.haibao01);
-        list.add(R.drawable.haibao02);
+        list.add(R.drawable.haibao03);
+//        list.add(R.drawable.haibao02);
         mRecyclerViewAdapter = new CommonRecyclerViewAdapter(list);
 //        mRecyclerViewAdapter.setItemCount(10);
         mRecyclerView.setAdapter(mRecyclerViewAdapter);

@@ -8,9 +8,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="10dp"
-        android:layout_height="match_parent">
+        android:paddingTop="10dp">
 
         <include layout="@layout/layout_myinfo"></include>
 
@@ -26,6 +26,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@color/white"
+                android:drawableLeft="@drawable/me_tiianzhanghu"
                 android:drawableRight="@drawable/jaintou_ic"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
@@ -39,6 +40,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
+                android:drawableLeft="@drawable/me_tixian"
                 android:drawableRight="@drawable/jaintou_ic"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
@@ -52,6 +54,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
+                android:drawableLeft="@drawable/me_tryplay"
                 android:drawableRight="@drawable/jaintou_ic"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
@@ -64,6 +67,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
+                android:drawableLeft="@drawable/me_xiaxian"
                 android:drawableRight="@drawable/jaintou_ic"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
@@ -77,6 +81,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
+                android:drawableLeft="@drawable/me_tiianzhanghu"
                 android:drawableRight="@drawable/jaintou_ic"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
@@ -91,6 +96,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
+                android:drawableLeft="@drawable/me_changepwd"
                 android:drawableRight="@drawable/jaintou_ic"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
@@ -98,12 +104,43 @@
                 android:paddingRight="15dp"
                 android:text="修改密码"></TextView>
 
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:id="@+id/yaoqingma_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:drawablePadding="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:drawableLeft="@drawable/me_yaoqingma"
+                    android:gravity="center_vertical"
+                    android:text="邀请码"></TextView>
+                <TextView
+                    android:id="@+id/yaoqingmaCode_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    ></TextView>
+            </RelativeLayout>
+
             <TextView
                 android:id="@+id/logout_textView"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
+                android:drawableLeft="@drawable/me_signout"
                 android:drawableRight="@drawable/jaintou_ic"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"

@@ -43,11 +43,14 @@
     <string name="goto_login">已有账号？去登录</string>
     <string name="account_empty">用户名为空，请重新输入！</string>
     <string name="pwd_empty">密码为空，请重新输入！</string>
+    <string name="please_input_code">请输入验证码！</string>
     <string name="pwd_not_fit_user">密码不正确，请重新输入！</string>
     <string name="pwd_new_empty">新密码为空，请重新输入！</string>
     <string name="pwd_check_empty">确认密码为空，请重新输入！</string>
     <string name="pwd_not_the_same">两次输入的密码不一致，请重新输入！</string>
     <string name="register_fail">注册用户失败，请重新尝试！</string>
+    <string name="getMsg_fail">获取验证码失败</string>
+    <string name="send_success">发送成功</string>
     <string name="register_success">注册成功！</string>
     <string name="resetpwd">密码修改</string>
     <string name="resetpwd_fail">密码修改失败，请重新尝试！</string>
@@ -86,6 +89,7 @@
     <string name="meizhou_libao">每周礼包</string>
     <string name="task_libao">任务礼包</string>
     <string name="hot_tuijian">热门推荐</string>
+    <string name="zhuanjingtop10">赚金TOP10</string>
 
     <!--权限-->
     <string name="need_agree_permissions">程序的正常运行需要您同意以下权限</string>

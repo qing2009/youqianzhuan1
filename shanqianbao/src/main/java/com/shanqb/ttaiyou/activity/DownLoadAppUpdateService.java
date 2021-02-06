@@ -159,7 +159,7 @@ public class DownLoadAppUpdateService extends Service
 
 		// notification = new Notification(R.drawable.dot_enable,app_name +
 		// getString(R.string.is_downing) ,System.currentTimeMillis());
-		notification = new Notification(R.drawable.ic_launcher, app_name
+		notification = new Notification(R.drawable.launcher_icon, app_name
 				+ getString(R.string.is_downing), System.currentTimeMillis());
 		notification.flags = Notification.FLAG_ONGOING_EVENT;
 		// notification.flags = Notification.FLAG_AUTO_CANCEL;

@@ -3,6 +3,7 @@ package com.shanqb.ttaiyou.activity;
 import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ import com.permissionx.guolindev.request.ExplainScope;
 import com.permissionx.guolindev.request.ForwardScope;
 import com.shanqb.ttaiyou.BaseApplication;
 import com.shanqb.ttaiyou.R;
+import com.shanqb.ttaiyou.bean.BaseJsonResponse;
 import com.shanqb.ttaiyou.bean.LoginResponse;
 import com.shanqb.ttaiyou.tabview.HomeActivity;
 import com.shanqb.ttaiyou.utils.AcitonConstants;
@@ -132,6 +134,7 @@ public class RegisterActivity extends MyBaseActivity {
                                         editor.putString(SharedPreConstants.merPhone, loginResponse.getData().getMerPhone());
                                         editor.putString(SharedPreConstants.allAmt, loginResponse.getData().getAllAmt() + "");
                                         editor.putString(SharedPreConstants.txAmt, loginResponse.getData().getTxAmt() + "");
+                                        editor.putString(SharedPreConstants.shareCode, loginResponse.getData().getShareCode() + "");
                                         editor.commit();
 
                                         BaseApplication.getInstance().clearActivityList();
@@ -170,6 +173,7 @@ public class RegisterActivity extends MyBaseActivity {
                             map.put(AcitonConstants.LOGIN_USERNAME, userName);
                             map.put(AcitonConstants.LOGIN_PASSWORD, userPwd);
                             map.put(AcitonConstants.INTER_REGISTER_IMEI, imei);
+                            map.put(AcitonConstants.INTER_REGISTER_VCODE, stvVerifyCode.getCenterEditValue());
                             return map;
                         }
                     };
@@ -186,7 +190,11 @@ public class RegisterActivity extends MyBaseActivity {
             Toast.makeText(this, getString(R.string.account_empty),
                     Toast.LENGTH_SHORT).show();
             return false;
-        } else if (stvRegisterPwd.getCenterEditValue().trim().equals("")) {
+        } else if (TextUtils.isEmpty(stvVerifyCode.getCenterEditValue().trim())) {
+            Toast.makeText(this, getString(R.string.please_input_code),
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        }else if (stvRegisterPwd.getCenterEditValue().trim().equals("")) {
             Toast.makeText(this, getString(R.string.pwd_empty),
                     Toast.LENGTH_SHORT).show();
             return false;
@@ -263,8 +271,61 @@ public class RegisterActivity extends MyBaseActivity {
      * 获取验证码
      */
     private void getVerifyCode(String phoneNumber) {
-        // TODO: 2019-11-18 这里只是界面演示而已
-        XToastUtils.warning("只是演示，验证码请随便输");
+        if (!NetworkUtils.checkNetworkConnectionState(this)) {//未连接到网络
+            Toast.makeText(this, getString(R.string.net_close), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         mCountDownHelper.start();
+
+        showLoadingDialog();
+
+        String loginUrl = Global.BASE_INTER_URL + AcitonConstants.INTER_GETPHONEMSG;
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    Log.d(getClass().toString(), response);
+                    dismissLoadingDialog();
+
+                    BaseJsonResponse jsonResponse = new Gson().fromJson(response, new TypeToken<BaseJsonResponse>() {
+                    }.getType());
+                    if (jsonResponse != null) {
+                        if (jsonResponse.isSuccess()) {
+//                        Toast.makeText(RegisterActivity.this, getString(R.string.send_success), Toast.LENGTH_SHORT).show();//
+                            Toast.makeText(RegisterActivity.this, jsonResponse.getMessage(), Toast.LENGTH_SHORT).show();//
+
+                        } else {
+                            showSimpleTipDialog(jsonResponse.getMessage());
+
+                        }
+                    } else {
+                        showSimpleTipDialog(getString(R.string.getMsg_fail));
+                        mCountDownHelper.cancel();
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                    showSimpleTipDialog(getString(R.string.getMsg_fail));
+                    mCountDownHelper.cancel();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                dismissLoadingDialog();
+                mCountDownHelper.cancel();
+                Log.e(getClass().toString(), error.getMessage(), error);
+                Toast.makeText(RegisterActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();  //登录失败提示
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<String, String>();
+                map.put(AcitonConstants.INTER_GETPHONEMSG_PHONENUM, stvVerifyCode.getCenterEditValue());
+                return map;
+            }
+        };
+        mQueue.add(stringRequest);
     }
 }

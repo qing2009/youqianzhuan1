@@ -16,6 +16,7 @@ import com.shanqb.ttaiyou.utils.SharedPreConstants;
 import com.shanqb.ttaiyou.utils.SharedPreferencesUtil;
 import com.shanqb.ttaiyou.view.CircleImageView;
 import com.shanqb.ttaiyou.activity.WithdrawalAccountActivity;
+import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,6 +46,8 @@ public class ProfileFragment extends BaseFragment implements ITabClickListener {
     Unbinder unbinder;
     @BindView(R.id.withdrawalAccount_textView)
     TextView withdrawalAccountTextView;
+    @BindView(R.id.yaoqingmaCode_textView)
+    TextView youqingmaSuperText;
 
     @Override
     public void fetchData() {
@@ -53,6 +56,8 @@ public class ProfileFragment extends BaseFragment implements ITabClickListener {
         totalRevenueTextView.setText(totalRevenue);
         String withdrawable = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.txAmt, "0.00");
         withdrawableTextView.setText(withdrawable);
+        String yaoqingma = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.shareCode, "");
+        youqingmaSuperText.setText(yaoqingma);
     }
 
     @Override
