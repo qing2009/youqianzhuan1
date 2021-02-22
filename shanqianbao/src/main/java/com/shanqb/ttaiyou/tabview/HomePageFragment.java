@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.permissionx.guolindev.PermissionX;
 import com.permissionx.guolindev.callback.ExplainReasonCallback;
 import com.permissionx.guolindev.callback.ForwardToSettingsCallback;
@@ -17,6 +20,7 @@ import com.permissionx.guolindev.request.ExplainScope;
 import com.permissionx.guolindev.request.ForwardScope;
 import com.shanqb.ttaiyou.R;
 import com.shanqb.ttaiyou.activity.ReadGetMoneyActivity;
+import com.shanqb.ttaiyou.adapter.HomeTopListAdapter;
 import com.shanqb.ttaiyou.adapter.RecyclerViewBannerAdapter;
 import com.shanqb.ttaiyou.utils.DemoDataProvider;
 import com.shanqb.ttaiyou.utils.DeviceUtils;
@@ -69,7 +73,13 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     @BindView(R.id.lin3Img2_imgView)
     ImageView lin3Img2ImgView;
 
+    @BindView(R.id.recordRecyView)
+    RecyclerView recordRecyView;
+
     private RecyclerViewBannerAdapter mAdapterHorizontal;
+
+    private LinearLayoutManager layoutManager;
+    private HomeTopListAdapter adapter;
 
     @Override
     public void fetchData() {
@@ -111,12 +121,22 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
         blHorizontal.setAdapter(mAdapterHorizontal = new RecyclerViewBannerAdapter(DemoDataProvider.urls));
         mAdapterHorizontal.setOnBannerItemClickListener(this);
 
+        this.layoutManager = new LinearLayoutManager(getActivity());
+        this.layoutManager.setOrientation(1);
+        this.recordRecyView.setLayoutManager(this.layoutManager);
+        adapter = new HomeTopListAdapter(getActivity());
+//        initTop10Data(adapter);
+        recordRecyView.setAdapter(adapter);
+
         return view;
     }
 
 
     @Override
     public void onMenuItemClick() {
+
+    }
+    public void initTop10Data() {
 
     }
 
@@ -221,7 +241,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
     }
 
-    @OnClick(R.id.meizhou_textView)
+    @OnClick(R.id.xiqu_btn)
     public void onClick() {
         PermissionX.init(this)
                 .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE)

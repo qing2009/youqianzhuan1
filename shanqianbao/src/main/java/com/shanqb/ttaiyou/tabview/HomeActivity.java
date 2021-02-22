@@ -205,6 +205,7 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
                                     editor.putString(SharedPreConstants.merPhone, loginResponse.getData().getMerPhone());
                                     editor.putString(SharedPreConstants.allAmt, loginResponse.getData().getAllAmt()+"");
                                     editor.putString(SharedPreConstants.txAmt, loginResponse.getData().getTxAmt()+"");
+                                    editor.putString(SharedPreConstants.shareCode, loginResponse.getData().getShareCode() + "");
                                     editor.commit();
 
 

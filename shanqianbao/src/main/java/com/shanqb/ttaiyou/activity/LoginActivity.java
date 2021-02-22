@@ -183,6 +183,7 @@ public class LoginActivity extends MyBaseActivity {                 //登录界�
                                 editor.putString(SharedPreConstants.merPhone, loginResponse.getData().getMerPhone());
                                 editor.putString(SharedPreConstants.allAmt, loginResponse.getData().getAllAmt() + "");
                                 editor.putString(SharedPreConstants.txAmt, loginResponse.getData().getTxAmt() + "");
+                                editor.putString(SharedPreConstants.shareCode, loginResponse.getData().getShareCode() + "");
                                 editor.commit();
 
                                 Toast.makeText(LoginActivity.this, getString(R.string.login_success), Toast.LENGTH_SHORT).show();//登录成功提示

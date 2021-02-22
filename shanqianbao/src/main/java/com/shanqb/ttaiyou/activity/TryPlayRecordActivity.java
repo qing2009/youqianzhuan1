@@ -28,6 +28,7 @@ import com.shanqb.ttaiyou.utils.NetworkUtils;
 import com.shanqb.ttaiyou.utils.SharedPreConstants;
 import com.shanqb.ttaiyou.utils.SharedPreferencesUtil;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
+import com.shanqb.ttaiyou.adapter.PlayListAdapter;
 
 import java.util.HashMap;
 import java.util.List;
@@ -47,7 +48,7 @@ public class TryPlayRecordActivity extends MyBaseActivity {
     private int size = 1000;
 
     private LinearLayoutManager layoutManager;
-    PlayListAdapter adapter;
+    private PlayListAdapter adapter;
 
     @Override
     public void initLayout() {
@@ -77,7 +78,7 @@ public class TryPlayRecordActivity extends MyBaseActivity {
         this.layoutManager = new LinearLayoutManager(this);
         this.layoutManager.setOrientation(1);
         this.recordRecyView.setLayoutManager(this.layoutManager);
-        adapter = new PlayListAdapter();
+        adapter = new PlayListAdapter(mQueue);
         recordRecyView.setAdapter(adapter);
     }
 
@@ -140,43 +141,6 @@ public class TryPlayRecordActivity extends MyBaseActivity {
 
 
 
-    class PlayListAdapter extends BaseRecyclerViewAdapter {
-
-        List<TryPlayListResponse.DataBean> data;
-
-        public PlayListAdapter() {
-            super(R.layout.tryplay_record_item);
-        }
-
-        @Override
-        public void onBindViewData(ViewHolder var1, int var2) {
-            try {
-                TryPlayListResponse.DataBean bean = data.get(var2);
-                if (bean != null) {
-                    ImageLoader imageLoader = new ImageLoader(mQueue, new BitmapCache());
-                    NetworkImageView gameIconImgView = (NetworkImageView) var1.getImageView(R.id.gameIcon_imageView);
-                    gameIconImgView.setImageUrl(bean.getAppIcon(), imageLoader);
-                    TextView income_textView = (TextView) var1.getTextView(R.id.income_textView);
-                    income_textView.setText("+" + bean.getUserFee() + "元");
-                    TextView gameName_textView = (TextView) var1.getTextView(R.id.gameName_textView);
-                    gameName_textView.setText(bean.getAdName());
-                    TextView gameDes_textView = (TextView) var1.getTextView(R.id.gameDes_textView);
-                    gameDes_textView.setText("完成任务：" + bean.getTaskName());
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        @Override
-        public int getItemCount() {
-            return data == null ? 0 : data.size();
-        }
-
-        public void setData(List<TryPlayListResponse.DataBean> data) {
-            this.data = data;
-        }
-    }
 
 
 }

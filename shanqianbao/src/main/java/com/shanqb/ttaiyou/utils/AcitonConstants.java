@@ -15,6 +15,10 @@ public class AcitonConstants {
     //注册接口
     public static final String INTER_REGISTER = "register";
     public static final String INTER_REGISTER_IMEI = "imei";
+    public static final String INTER_REGISTER_VCODE = "vcode";
+
+    public static final String INTER_GETPHONEMSG = "getPhoneMsg";
+    public static final String INTER_GETPHONEMSG_PHONENUM = "phoneCode";
 
 
     //修改密码接口

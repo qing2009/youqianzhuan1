@@ -14,6 +14,7 @@ public class SharedPreConstants {
     public static final String merPhone = "merPhone";
     public static final String allAmt = "allAmt";
     public static final String txAmt = "txAmt";
+    public static final String shareCode = "shareCode";
 
     public static final String ISLOGINED = "isLogined";
 

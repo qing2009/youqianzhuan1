@@ -64,6 +64,17 @@ public class LoginResponse extends BaseJsonResponse {
         private Object lastLook;
         private String imei;
         private Object mobileModel;
+        private String shareCode;
+
+        public String getShareCode() {
+            return shareCode;
+        }
+
+        public void setShareCode(String shareCode) {
+            this.shareCode = shareCode;
+        }
+
+
 
         public int getId() {
             return id;
