@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/wx_gray_bg"
+    android:background="@color/white"
     android:orientation="vertical"
     android:scrollbars="none">
 
@@ -16,10 +16,12 @@
         <com.xuexiang.xui.widget.banner.recycler.BannerLayout
             android:id="@+id/bl_horizontal"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="170dp"
+            android:paddingTop="5dp"
+            android:layout_marginBottom="10dp"
             app:bl_autoPlaying="true"
-            app:bl_centerScale="1.3"
-            app:bl_itemSpace="10dp"
+            app:bl_centerScale="1.6"
+            app:bl_itemSpace="5dp"
             app:bl_moveSpeed="1.8" />
 
 
@@ -60,7 +62,7 @@
             <com.xuexiang.xui.widget.imageview.RadiusImageView
                 android:id="@+id/aibianxian_btn"
                 android:layout_width="0dp"
-                android:layout_height="70dp"
+                android:layout_height="90dp"
                 android:layout_weight="1"
                 android:clickable="true"
                 android:src="@drawable/shiwang01"
@@ -74,8 +76,8 @@
             <com.xuexiang.xui.widget.imageview.RadiusImageView
                 android:id="@+id/juxiangwang_btn"
                 android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="15dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:clickable="true"
                 android:src="@drawable/shiwang02"
@@ -87,18 +89,19 @@
                 app:riv_selected_mask_color="@color/xui_config_color_gray_8" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
             <com.xuexiang.xui.widget.imageview.RadiusImageView
                 android:id="@+id/xiqu_btn"
                 android:layout_width="0dp"
-                android:layout_height="70dp"
+                android:layout_height="90dp"
                 android:layout_weight="1"
                 android:clickable="true"
                 android:src="@drawable/shiwang03"
@@ -108,10 +111,11 @@
                 app:riv_selected_border_color="@color/xui_config_color_gray_4"
                 app:riv_selected_border_width="1px"
                 app:riv_selected_mask_color="@color/xui_config_color_gray_8" />
+
             <com.xuexiang.xui.widget.imageview.RadiusImageView
                 android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="15dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:clickable="true"
                 android:src="@drawable/shiwang04"
@@ -129,12 +133,20 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:text="@string/zhuanjingtop10"
+            android:visibility="gone"
             android:textSize="20sp"
-            android:textStyle="bold"
-            ></TextView>
+            android:textStyle="bold"></TextView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/hometop"
+            android:layout_height="wrap_content">
+
+        </ImageView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recordRecyView"
+            android:nestedScrollingEnabled="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -248,4 +260,4 @@
 
     </LinearLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

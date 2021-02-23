@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.shanqb.ttaiyou"
+    package="com.shanqb.weishouzhuan"
     android:resizeableActivity="true"
     android:versionCode="1"
     android:versionName="1.0.0">
@@ -25,7 +25,7 @@
         android:value="OPPO"></meta-data>
 
     <application
-        android:name="com.shanqb.ttaiyou.BaseApplication"
+        android:name="com.shanqb.weishouzhuan.BaseApplication"
         android:allowBackup="true"
         android:usesCleartextTraffic="true"
         android:icon="@drawable/launcher_icon"
@@ -34,7 +34,7 @@
 
 
         <activity
-            android:name="com.shanqb.ttaiyou.activity.StartActivity"
+            android:name="com.shanqb.weishouzhuan.activity.StartActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -47,58 +47,58 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.ttaiyou.activity.WebActivity"
+            android:name="com.shanqb.weishouzhuan.activity.WebActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.ttaiyou.activity.LeadActivity"
+            android:name="com.shanqb.weishouzhuan.activity.LeadActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name="com.shanqb.ttaiyou.tabview.HomeActivity"
+            android:name="com.shanqb.weishouzhuan.tabview.HomeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light"></activity>
         <activity
-            android:name="com.shanqb.ttaiyou.activity.BottomNavigationViewBehaviorActivity"
+            android:name="com.shanqb.weishouzhuan.activity.BottomNavigationViewBehaviorActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name="com.shanqb.ttaiyou.activity.LoginActivity"
+            android:name="com.shanqb.weishouzhuan.activity.LoginActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.ttaiyou.activity.RegisterActivity"
+            android:name="com.shanqb.weishouzhuan.activity.RegisterActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.shanqb.ttaiyou.activity.ResetpwdActivity"
+            android:name="com.shanqb.weishouzhuan.activity.ResetpwdActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.ttaiyou.activity.TryPlayRecordActivity"
+            android:name="com.shanqb.weishouzhuan.activity.TryPlayRecordActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.ttaiyou.activity.ReadGetMoneyActivity"
+            android:name="com.shanqb.weishouzhuan.activity.ReadGetMoneyActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.ttaiyou.activity.WithdrawActivity"
+            android:name="com.shanqb.weishouzhuan.activity.WithdrawActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.ttaiyou.activity.WithdrawalAccountActivity"
+            android:name="com.shanqb.weishouzhuan.activity.WithdrawalAccountActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"></activity>
 
         <uses-library android:name="org.apache.http.legacy" android:required="false" />
-        <service android:name="com.shanqb.ttaiyou.activity.DownLoadAppUpdateService" />
+        <service android:name="com.shanqb.weishouzhuan.activity.DownLoadAppUpdateService" />
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.shanqb.ttaiyou.fileprovider"
+            android:authorities="com.shanqb.weishouzhuan.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

@@ -5,7 +5,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.shanqb.ttaiyou"
+        applicationId "com.shanqb.weishouzhuan"
         minSdkVersion 21
         targetSdkVersion 28
     }
