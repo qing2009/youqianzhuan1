@@ -8,6 +8,13 @@ public class Global
 {
 	/** 日志打印TAG */
 	public static final String DEBUG_TAG = "SQB";
+	public static final String BUSINESS_CODE = "20210223153134088";//商户号
+
+	public static final String CHANNEL_CODE_AIBIANXIAN = "20210221021824005";//爱变现
+	public static final String CHANNEL_CODE_JUXIANGYOU = "20210221021842938";//聚享游
+	public static final String CHANNEL_CODE_TAOJING91 = "20210221021834000";//91淘金
+	public static final String CHANNEL_CODE_XIANWANG = "20210221021853088";//享玩
+	public static final String CHANNEL_CODE_XIQU = "";//
 
 	/** 日志开启开关 */
 	public static final boolean DEBUG = false;
@@ -26,7 +33,8 @@ public class Global
 
 //	public static final String BASE_INTER_URL = "http://47.106.39.224/front/myInfo/";//
 //	public static final String BASE_INTER_URL = "http://wmn.douziok.com/diaobo/front/myInfo/";//
-	public static final String BASE_INTER_URL = "http://1.15.38.129/front/myInfo/";//
+//	public static final String BASE_INTER_URL = "http://1.15.38.129/front/myInfo/";//tt爱游
+	public static final String BASE_INTER_URL = "http://8.133.178.205/front/myInfo/";//
 
 
 	/**

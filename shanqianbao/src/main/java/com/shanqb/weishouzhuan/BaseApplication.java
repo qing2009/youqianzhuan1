@@ -49,7 +49,7 @@ public class BaseApplication extends Application {
         //聚享游sdk初始化
 //        TooMeeUtils.init(this);
 
-        XiquUtils.init(this);
+//        XiquUtils.init(this);
     }
 
     private void initOAID() {

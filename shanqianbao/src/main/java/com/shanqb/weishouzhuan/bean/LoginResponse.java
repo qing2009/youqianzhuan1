@@ -1,5 +1,7 @@
 package com.shanqb.weishouzhuan.bean;
 
+import java.util.List;
+
 public class LoginResponse extends BaseJsonResponse {
 
     /**
@@ -54,8 +56,8 @@ public class LoginResponse extends BaseJsonResponse {
         private String merPhone;
         private String realName;
         private Object idCard;
-        private Object zfb;
-        private Object zfbName;
+        private String zfb;
+        private String zfbName;
         private double allAmt;
         private double txAmt;
         private int state;
@@ -65,6 +67,7 @@ public class LoginResponse extends BaseJsonResponse {
         private String imei;
         private Object mobileModel;
         private String shareCode;
+        private List<ChannelBean> listbc;
 
         public String getShareCode() {
             return shareCode;
@@ -172,19 +175,19 @@ public class LoginResponse extends BaseJsonResponse {
             this.idCard = idCard;
         }
 
-        public Object getZfb() {
+        public String getZfb() {
             return zfb;
         }
 
-        public void setZfb(Object zfb) {
+        public void setZfb(String zfb) {
             this.zfb = zfb;
         }
 
-        public Object getZfbName() {
+        public String getZfbName() {
             return zfbName;
         }
 
-        public void setZfbName(Object zfbName) {
+        public void setZfbName(String zfbName) {
             this.zfbName = zfbName;
         }
 
@@ -250,6 +253,14 @@ public class LoginResponse extends BaseJsonResponse {
 
         public void setMobileModel(Object mobileModel) {
             this.mobileModel = mobileModel;
+        }
+
+        public List<ChannelBean> getListbc() {
+            return listbc;
+        }
+
+        public void setListbc(List<ChannelBean> listbc) {
+            this.listbc = listbc;
         }
     }
 }

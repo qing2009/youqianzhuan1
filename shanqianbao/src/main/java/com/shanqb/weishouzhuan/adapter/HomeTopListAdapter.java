@@ -57,8 +57,8 @@ public class HomeTopListAdapter extends BaseRecyclerViewAdapter {
 
         for (int i=0; i<10;i++) {
             ZhuanjinTop zhuanjinTop = new ZhuanjinTop();
-            zhuanjinTop.setUserHeadResId(gameHeadArr[(int)(Math.random()*100)%29]);
-            zhuanjinTop.setGameName(gameUserNameArr[(int)(Math.random()*100)%45]);
+            zhuanjinTop.setUserHeadResId(gameHeadArr[(int)(Math.random()*100)%28]);
+            zhuanjinTop.setGameName(gameUserNameArr[(int)(Math.random()*100)%44]);
             zhuanjinTop.setGameDes("完成任务");
 
             double moneyDouble = Math.random();

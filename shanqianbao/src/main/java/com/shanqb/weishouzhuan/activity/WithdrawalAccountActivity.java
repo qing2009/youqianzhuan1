@@ -1,7 +1,9 @@
 package com.shanqb.weishouzhuan.activity;
 
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -20,7 +22,9 @@ import com.shanqb.weishouzhuan.utils.SharedPreConstants;
 import com.shanqb.weishouzhuan.utils.SharedPreferencesUtil;
 import com.shanqb.weishouzhuan.utils.XToastUtils;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
+import com.xuexiang.xui.widget.button.roundbutton.RoundButton;
 import com.xuexiang.xui.widget.edittext.ClearEditText;
+import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +39,14 @@ public class WithdrawalAccountActivity extends MyBaseActivity {
     ClearEditText nameClearEditText;
     @BindView(R.id.withdrawalAccount_titlebar)
     TitleBar withdrawalAccountTitlebar;
+    @BindView(R.id.tips_textView)
+    TextView tipsTextView;
+    @BindView(R.id.login_btn_login)
+    RoundButton loginBtnLogin;
+    @BindView(R.id.zfbAccount_superTextView)
+    SuperTextView zfbAccountSuperTextView;
+    @BindView(R.id.zfbName_superTextView)
+    SuperTextView zfbNameSuperTextView;
 
     @Override
     public void initLayout() {
@@ -60,6 +72,20 @@ public class WithdrawalAccountActivity extends MyBaseActivity {
             }
         });
 
+        String zfb = SharedPreferencesUtil.getStringValue(this, SharedPreConstants.zfb, "");
+        String zfbName = SharedPreferencesUtil.getStringValue(this, SharedPreConstants.zfbName, "");
+        if (!TextUtils.isEmpty(zfb)) {
+
+            accountClearEditText.setVisibility(View.GONE);
+            nameClearEditText.setVisibility(View.GONE);
+            tipsTextView.setVisibility(View.GONE);
+            loginBtnLogin.setVisibility(View.GONE);
+
+            zfbAccountSuperTextView.setVisibility(View.VISIBLE);
+            zfbNameSuperTextView.setVisibility(View.VISIBLE);
+            zfbAccountSuperTextView.setRightString(zfb);
+            zfbNameSuperTextView.setRightString(zfbName);
+        }
     }
 
 
@@ -105,6 +131,8 @@ public class WithdrawalAccountActivity extends MyBaseActivity {
                     }.getType());
                     if (responseBean != null) {
                         if (responseBean.isSuccess()) {
+                            SharedPreferencesUtil.setStringValue(WithdrawalAccountActivity.this, SharedPreConstants.zfb, account);
+                            SharedPreferencesUtil.setStringValue(WithdrawalAccountActivity.this, SharedPreConstants.zfbName, name);
                             Toast.makeText(WithdrawalAccountActivity.this, getString(R.string.bind_zfb_success), Toast.LENGTH_SHORT).show();
                             finish();
                         }

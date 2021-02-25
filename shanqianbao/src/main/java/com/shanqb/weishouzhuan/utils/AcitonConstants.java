@@ -16,6 +16,7 @@ public class AcitonConstants {
     public static final String INTER_REGISTER = "register";
     public static final String INTER_REGISTER_IMEI = "imei";
     public static final String INTER_REGISTER_VCODE = "vcode";
+    public static final String INTER_REGISTER_BUSINESSCODE = "businessCode";//商户号
 
     public static final String INTER_GETPHONEMSG = "getPhoneMsg";
     public static final String INTER_GETPHONEMSG_PHONENUM = "phoneCode";

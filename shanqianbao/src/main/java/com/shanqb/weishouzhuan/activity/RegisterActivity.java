@@ -2,7 +2,6 @@ package com.shanqb.weishouzhuan.activity;
 
 import android.Manifest;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -24,17 +23,15 @@ import com.permissionx.guolindev.request.ExplainScope;
 import com.permissionx.guolindev.request.ForwardScope;
 import com.shanqb.weishouzhuan.BaseApplication;
 import com.shanqb.weishouzhuan.R;
-import com.shanqb.weishouzhuan.bean.BaseJsonResponse;
 import com.shanqb.weishouzhuan.bean.LoginResponse;
 import com.shanqb.weishouzhuan.tabview.HomeActivity;
 import com.shanqb.weishouzhuan.utils.AcitonConstants;
 import com.shanqb.weishouzhuan.utils.DeviceUtils;
 import com.shanqb.weishouzhuan.utils.Global;
 import com.shanqb.weishouzhuan.utils.NetworkUtils;
-import com.shanqb.weishouzhuan.utils.SharedPreConstants;
-import com.shanqb.weishouzhuan.utils.SharedPreferencesUtil;
 import com.shanqb.weishouzhuan.utils.StringUtils;
 import com.shanqb.weishouzhuan.utils.XToastUtils;
+import com.shanqb.weishouzhuan.utils.LoginUtils;
 import com.xuexiang.xui.utils.CountDownButtonHelper;
 import com.xuexiang.xui.widget.button.roundbutton.RoundButton;
 import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
@@ -121,21 +118,7 @@ public class RegisterActivity extends MyBaseActivity {
                                 if (loginResponse.isSuccess()) {
 
                                     if (loginResponse.getData() != null) {
-                                        SharedPreferences preferences = SharedPreferencesUtil.getInterface(RegisterActivity.this);
-                                        SharedPreferences.Editor editor = preferences.edit();
-                                        editor.putInt(SharedPreConstants.userid, loginResponse.getData().getId());
-                                        editor.putString(SharedPreConstants.loginCode, loginResponse.getData().getLoginCode());
-//                                        editor.putString(SharedPreConstants.loginPwd, loginResponse.getData().getLoginPwd());
-                                        editor.putString(SharedPreConstants.loginPwd, userPwd);
-                                        editor.putString(SharedPreConstants.realName, loginResponse.getData().getRealName());
-                                        editor.putString(SharedPreConstants.merCode, loginResponse.getData().getMerCode());
-                                        editor.putString(SharedPreConstants.merName, loginResponse.getData().getMerName());
-                                        editor.putString(SharedPreConstants.merPhoto, loginResponse.getData().getMerPhoto());
-                                        editor.putString(SharedPreConstants.merPhone, loginResponse.getData().getMerPhone());
-                                        editor.putString(SharedPreConstants.allAmt, loginResponse.getData().getAllAmt() + "");
-                                        editor.putString(SharedPreConstants.txAmt, loginResponse.getData().getTxAmt() + "");
-                                        editor.putString(SharedPreConstants.shareCode, loginResponse.getData().getShareCode() + "");
-                                        editor.commit();
+                                        LoginUtils.saveUserInfo(RegisterActivity.this,loginResponse,userPwd);
 
                                         BaseApplication.getInstance().clearActivityList();
 
@@ -173,7 +156,8 @@ public class RegisterActivity extends MyBaseActivity {
                             map.put(AcitonConstants.LOGIN_USERNAME, userName);
                             map.put(AcitonConstants.LOGIN_PASSWORD, userPwd);
                             map.put(AcitonConstants.INTER_REGISTER_IMEI, imei);
-                            map.put(AcitonConstants.INTER_REGISTER_VCODE, stvVerifyCode.getCenterEditValue());
+                            map.put(AcitonConstants.INTER_REGISTER_VCODE, "dqz");
+                            map.put(AcitonConstants.INTER_REGISTER_BUSINESSCODE, Global.BUSINESS_CODE);
                             return map;
                         }
                     };
@@ -278,54 +262,54 @@ public class RegisterActivity extends MyBaseActivity {
 
         mCountDownHelper.start();
 
-        showLoadingDialog();
-
-        String loginUrl = Global.BASE_INTER_URL + AcitonConstants.INTER_GETPHONEMSG;
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    Log.d(getClass().toString(), response);
-                    dismissLoadingDialog();
-
-                    BaseJsonResponse jsonResponse = new Gson().fromJson(response, new TypeToken<BaseJsonResponse>() {
-                    }.getType());
-                    if (jsonResponse != null) {
-                        if (jsonResponse.isSuccess()) {
-//                        Toast.makeText(RegisterActivity.this, getString(R.string.send_success), Toast.LENGTH_SHORT).show();//
-                            Toast.makeText(RegisterActivity.this, jsonResponse.getMessage(), Toast.LENGTH_SHORT).show();//
-
-                        } else {
-                            showSimpleTipDialog(jsonResponse.getMessage());
-
-                        }
-                    } else {
-                        showSimpleTipDialog(getString(R.string.getMsg_fail));
-                        mCountDownHelper.cancel();
-                    }
-                }catch (Exception e){
-                    e.printStackTrace();
-                    showSimpleTipDialog(getString(R.string.getMsg_fail));
-                    mCountDownHelper.cancel();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                dismissLoadingDialog();
-                mCountDownHelper.cancel();
-                Log.e(getClass().toString(), error.getMessage(), error);
-                Toast.makeText(RegisterActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();  //登录失败提示
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> map = new HashMap<String, String>();
-                map.put(AcitonConstants.INTER_GETPHONEMSG_PHONENUM, stvVerifyCode.getCenterEditValue());
-                return map;
-            }
-        };
-        mQueue.add(stringRequest);
+//        showLoadingDialog();
+//
+//        String loginUrl = Global.BASE_INTER_URL + AcitonConstants.INTER_GETPHONEMSG;
+//        StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                try {
+//                    Log.d(getClass().toString(), response);
+//                    dismissLoadingDialog();
+//
+//                    BaseJsonResponse jsonResponse = new Gson().fromJson(response, new TypeToken<BaseJsonResponse>() {
+//                    }.getType());
+//                    if (jsonResponse != null) {
+//                        if (jsonResponse.isSuccess()) {
+////                        Toast.makeText(RegisterActivity.this, getString(R.string.send_success), Toast.LENGTH_SHORT).show();//
+//                            Toast.makeText(RegisterActivity.this, jsonResponse.getMessage(), Toast.LENGTH_SHORT).show();//
+//
+//                        } else {
+//                            showSimpleTipDialog(jsonResponse.getMessage());
+//
+//                        }
+//                    } else {
+//                        showSimpleTipDialog(getString(R.string.getMsg_fail));
+//                        mCountDownHelper.cancel();
+//                    }
+//                }catch (Exception e){
+//                    e.printStackTrace();
+//                    showSimpleTipDialog(getString(R.string.getMsg_fail));
+//                    mCountDownHelper.cancel();
+//                }
+//
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                dismissLoadingDialog();
+//                mCountDownHelper.cancel();
+//                Log.e(getClass().toString(), error.getMessage(), error);
+//                Toast.makeText(RegisterActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();  //登录失败提示
+//            }
+//        }) {
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String, String> map = new HashMap<String, String>();
+//                map.put(AcitonConstants.INTER_GETPHONEMSG_PHONENUM, stvVerifyCode.getCenterEditValue());
+//                return map;
+//            }
+//        };
+//        mQueue.add(stringRequest);
     }
 }

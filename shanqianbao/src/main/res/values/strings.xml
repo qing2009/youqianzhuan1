@@ -97,6 +97,8 @@
     <string name="agree">同意</string>
     <string name="openSet">打开设置</string>
     <string name="submit">提交</string>
+    <string name="zfb_account">支付宝账号</string>
+    <string name="zfb_name">支付宝姓名</string>
     <string name="input_zfb_account">请填写支付宝账号</string>
     <string name="input_zfb_name">请填写支付宝姓名</string>
     <string name="bind_zfb_success">绑定成功</string>

@@ -14,6 +14,11 @@
         <attr name="border_color" format="color" />
     </declare-styleable>
 
+
+    <declare-styleable name="RoundCornerImageView">
+        <attr name="corner_size" format="integer" />
+    </declare-styleable>
+
     <string-array name="gameUserName">
         <item> 妃子笑</item>
         <item>踏破风尘</item>

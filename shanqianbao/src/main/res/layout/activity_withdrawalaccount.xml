@@ -32,12 +32,13 @@
         android:textAlignment="viewStart" />
 
     <TextView
+        android:id="@+id/tips_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginTop="10dp"
-        android:text="@string/withdrawal_account_tips"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"></TextView>
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:text="@string/withdrawal_account_tips"></TextView>
 
     <com.xuexiang.xui.widget.button.roundbutton.RoundButton
         android:id="@+id/login_btn_login"
@@ -46,6 +47,29 @@
         android:layout_marginTop="50dp"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:text="@string/submit" />
+
+
+    <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
+        android:id="@+id/zfbAccount_superTextView"
+        style="@style/superTextView_keyValue"
+        android:layout_marginTop="50dp"
+        app:sDividerLineType="none"
+        android:enabled="false"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:visibility="gone"
+        app:sLeftTextString="@string/zfb_account" />
+
+    <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
+        android:id="@+id/zfbName_superTextView"
+        style="@style/superTextView_keyValue"
+        android:layout_marginTop="10dp"
+        app:sDividerLineType="none"
+        android:visibility="gone"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        app:sLeftTextString="@string/zfb_name" />
+
 
 
 </LinearLayout>

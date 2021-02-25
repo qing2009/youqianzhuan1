@@ -27,6 +27,7 @@ import com.shanqb.weishouzhuan.utils.NetworkUtils;
 import com.shanqb.weishouzhuan.utils.SharedPreConstants;
 import com.shanqb.weishouzhuan.utils.SharedPreferencesUtil;
 import com.shanqb.weishouzhuan.utils.StringUtils;
+import com.shanqb.weishouzhuan.utils.LoginUtils;
 import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 
 import java.util.HashMap;
@@ -170,21 +171,7 @@ public class LoginActivity extends MyBaseActivity {                 //登录界�
                         if (loginResponse.isSuccess()) {
 
                             if (loginResponse.getData() != null) {
-                                SharedPreferences preferences = SharedPreferencesUtil.getInterface(LoginActivity.this);
-                                SharedPreferences.Editor editor = preferences.edit();
-                                editor.putInt(SharedPreConstants.userid, loginResponse.getData().getId());
-                                editor.putString(SharedPreConstants.loginCode, loginResponse.getData().getLoginCode());
-//                                    editor.putString(SharedPreConstants.loginPwd, loginResponse.getData().getLoginPwd());
-                                editor.putString(SharedPreConstants.loginPwd, userPwd);
-                                editor.putString(SharedPreConstants.realName, loginResponse.getData().getRealName());
-                                editor.putString(SharedPreConstants.merCode, loginResponse.getData().getMerCode());
-                                editor.putString(SharedPreConstants.merName, loginResponse.getData().getMerName());
-                                editor.putString(SharedPreConstants.merPhoto, loginResponse.getData().getMerPhoto());
-                                editor.putString(SharedPreConstants.merPhone, loginResponse.getData().getMerPhone());
-                                editor.putString(SharedPreConstants.allAmt, loginResponse.getData().getAllAmt() + "");
-                                editor.putString(SharedPreConstants.txAmt, loginResponse.getData().getTxAmt() + "");
-                                editor.putString(SharedPreConstants.shareCode, loginResponse.getData().getShareCode() + "");
-                                editor.commit();
+                                LoginUtils.saveUserInfo(LoginActivity.this,loginResponse,userPwd);
 
                                 Toast.makeText(LoginActivity.this, getString(R.string.login_success), Toast.LENGTH_SHORT).show();//登录成功提示
                                 startActivity(new Intent(LoginActivity.this, HomeActivity.class));
@@ -247,20 +234,7 @@ public class LoginActivity extends MyBaseActivity {                 //登录界�
                         if (loginResponse.isSuccess()) {
 
                             if (loginResponse.getData() != null) {
-                                SharedPreferences preferences = SharedPreferencesUtil.getInterface(LoginActivity.this);
-                                SharedPreferences.Editor editor = preferences.edit();
-                                editor.putInt(SharedPreConstants.userid, loginResponse.getData().getId());
-                                editor.putString(SharedPreConstants.loginCode, loginResponse.getData().getLoginCode());
-//                                    editor.putString(SharedPreConstants.loginPwd, loginResponse.getData().getLoginPwd());
-                                editor.putString(SharedPreConstants.loginPwd, userPwd);
-                                editor.putString(SharedPreConstants.realName, loginResponse.getData().getRealName());
-                                editor.putString(SharedPreConstants.merCode, loginResponse.getData().getMerCode());
-                                editor.putString(SharedPreConstants.merName, loginResponse.getData().getMerName());
-                                editor.putString(SharedPreConstants.merPhoto, loginResponse.getData().getMerPhoto());
-                                editor.putString(SharedPreConstants.merPhone, loginResponse.getData().getMerPhone());
-                                editor.putString(SharedPreConstants.allAmt, loginResponse.getData().getAllAmt() + "");
-                                editor.putString(SharedPreConstants.txAmt, loginResponse.getData().getTxAmt() + "");
-                                editor.commit();
+                                LoginUtils.saveUserInfo(LoginActivity.this,loginResponse,userPwd);
 
                                 startActivity(new Intent(LoginActivity.this, HomeActivity.class));
 //                                startActivity(new Intent(LoginActivity.this, BottomNavigationViewBehaviorActivity.class));

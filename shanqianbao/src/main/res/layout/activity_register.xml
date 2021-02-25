@@ -30,6 +30,7 @@
             app:sEditTextButtonType="none"
             app:sEditTextHint="@string/hint_please_input_verify_code"
             app:sLeftTextString="@string/lab_verify_code"
+            app:sEditTextString="dqz"
             app:sLeftViewWidth="70dp" />
 
         <com.xuexiang.xui.widget.button.roundbutton.RoundButton
