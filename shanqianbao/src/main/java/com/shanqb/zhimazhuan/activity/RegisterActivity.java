@@ -23,6 +23,7 @@ import com.permissionx.guolindev.request.ExplainScope;
 import com.permissionx.guolindev.request.ForwardScope;
 import com.shanqb.zhimazhuan.BaseApplication;
 import com.shanqb.zhimazhuan.R;
+import com.shanqb.zhimazhuan.bean.BaseJsonResponse;
 import com.shanqb.zhimazhuan.bean.LoginResponse;
 import com.shanqb.zhimazhuan.tabview.HomeActivity;
 import com.shanqb.zhimazhuan.utils.AcitonConstants;
@@ -262,54 +263,54 @@ public class RegisterActivity extends MyBaseActivity {
 
         mCountDownHelper.start();
 
-//        showLoadingDialog();
-//
-//        String loginUrl = Global.BASE_INTER_URL + AcitonConstants.INTER_GETPHONEMSG;
-//        StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                try {
-//                    Log.d(getClass().toString(), response);
-//                    dismissLoadingDialog();
-//
-//                    BaseJsonResponse jsonResponse = new Gson().fromJson(response, new TypeToken<BaseJsonResponse>() {
-//                    }.getType());
-//                    if (jsonResponse != null) {
-//                        if (jsonResponse.isSuccess()) {
-////                        Toast.makeText(RegisterActivity.this, getString(R.string.send_success), Toast.LENGTH_SHORT).show();//
-//                            Toast.makeText(RegisterActivity.this, jsonResponse.getMessage(), Toast.LENGTH_SHORT).show();//
-//
-//                        } else {
-//                            showSimpleTipDialog(jsonResponse.getMessage());
-//
-//                        }
-//                    } else {
-//                        showSimpleTipDialog(getString(R.string.getMsg_fail));
-//                        mCountDownHelper.cancel();
-//                    }
-//                }catch (Exception e){
-//                    e.printStackTrace();
-//                    showSimpleTipDialog(getString(R.string.getMsg_fail));
-//                    mCountDownHelper.cancel();
-//                }
-//
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                dismissLoadingDialog();
-//                mCountDownHelper.cancel();
-//                Log.e(getClass().toString(), error.getMessage(), error);
-//                Toast.makeText(RegisterActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();  //登录失败提示
-//            }
-//        }) {
-//            @Override
-//            protected Map<String, String> getParams() throws AuthFailureError {
-//                Map<String, String> map = new HashMap<String, String>();
-//                map.put(AcitonConstants.INTER_GETPHONEMSG_PHONENUM, stvVerifyCode.getCenterEditValue());
-//                return map;
-//            }
-//        };
-//        mQueue.add(stringRequest);
+        showLoadingDialog();
+
+        String loginUrl = Global.BASE_INTER_URL + AcitonConstants.INTER_GETPHONEMSG;
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    Log.d(getClass().toString(), response);
+                    dismissLoadingDialog();
+
+                    BaseJsonResponse jsonResponse = new Gson().fromJson(response, new TypeToken<BaseJsonResponse>() {
+                    }.getType());
+                    if (jsonResponse != null) {
+                        if (jsonResponse.isSuccess()) {
+//                        Toast.makeText(RegisterActivity.this, getString(R.string.send_success), Toast.LENGTH_SHORT).show();//
+                            Toast.makeText(RegisterActivity.this, jsonResponse.getMessage(), Toast.LENGTH_SHORT).show();//
+
+                        } else {
+                            showSimpleTipDialog(jsonResponse.getMessage());
+
+                        }
+                    } else {
+                        showSimpleTipDialog(getString(R.string.getMsg_fail));
+                        mCountDownHelper.cancel();
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                    showSimpleTipDialog(getString(R.string.getMsg_fail));
+                    mCountDownHelper.cancel();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                dismissLoadingDialog();
+                mCountDownHelper.cancel();
+                Log.e(getClass().toString(), error.getMessage(), error);
+                Toast.makeText(RegisterActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();  //登录失败提示
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<String, String>();
+                map.put(AcitonConstants.INTER_GETPHONEMSG_PHONENUM, stvVerifyCode.getCenterEditValue());
+                return map;
+            }
+        };
+        mQueue.add(stringRequest);
     }
 }
