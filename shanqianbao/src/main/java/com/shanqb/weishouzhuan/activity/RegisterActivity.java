@@ -23,6 +23,7 @@ import com.permissionx.guolindev.request.ExplainScope;
 import com.permissionx.guolindev.request.ForwardScope;
 import com.shanqb.weishouzhuan.BaseApplication;
 import com.shanqb.weishouzhuan.R;
+import com.shanqb.weishouzhuan.bean.BaseJsonResponse;
 import com.shanqb.weishouzhuan.bean.LoginResponse;
 import com.shanqb.weishouzhuan.tabview.HomeActivity;
 import com.shanqb.weishouzhuan.utils.AcitonConstants;
