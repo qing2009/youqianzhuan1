@@ -307,7 +307,7 @@ public class RegisterActivity extends MyBaseActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
-                map.put(AcitonConstants.INTER_GETPHONEMSG_PHONENUM, stvVerifyCode.getCenterEditValue());
+                map.put(AcitonConstants.INTER_GETPHONEMSG_PHONENUM, phoneNumber);
                 return map;
             }
         };
