@@ -156,7 +156,7 @@ public class RegisterActivity extends MyBaseActivity {
                             map.put(AcitonConstants.LOGIN_USERNAME, userName);
                             map.put(AcitonConstants.LOGIN_PASSWORD, userPwd);
                             map.put(AcitonConstants.INTER_REGISTER_IMEI, imei);
-                            map.put(AcitonConstants.INTER_REGISTER_VCODE, "dqz");
+                            map.put(AcitonConstants.INTER_REGISTER_VCODE, stvVerifyCode.getCenterEditValue().trim());
                             map.put(AcitonConstants.INTER_REGISTER_BUSINESSCODE, Global.BUSINESS_CODE);
                             return map;
                         }
