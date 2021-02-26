@@ -34,7 +34,7 @@ public class Global
 //	public static final String BASE_INTER_URL = "http://47.106.39.224/front/myInfo/";//
 //	public static final String BASE_INTER_URL = "http://wmn.douziok.com/diaobo/front/myInfo/";//
 //	public static final String BASE_INTER_URL = "http://1.15.38.129/front/myInfo/";//tt爱游
-	public static final String BASE_INTER_URL = "http://8.133.178.205/front/myInfo/";//
+	public static final String BASE_INTER_URL = "http://8.133.178.205/admin/front/myInfo/";//
 
 
 	/**

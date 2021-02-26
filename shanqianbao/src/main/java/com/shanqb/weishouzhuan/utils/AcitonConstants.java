@@ -50,6 +50,11 @@ public class AcitonConstants {
     public static final String BIND_ZFB_ACCOUNT = "zfb";
     public static final String BIND_ZFB_NAME = "zfbName";
 
+    //提现
+    public static final String TIXIAN = "tixian";
+
+    public static final String TIXIAN_ACCOUNT = "txAmt";
+
 
     //获取用户信息
     public static final String INTER_MYINFO = "myInfo";

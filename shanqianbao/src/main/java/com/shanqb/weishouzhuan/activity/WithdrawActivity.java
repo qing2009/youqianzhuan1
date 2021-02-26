@@ -3,17 +3,28 @@ package com.shanqb.weishouzhuan.activity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.android.volley.VolleyError;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.shanqb.weishouzhuan.R;
+import com.shanqb.weishouzhuan.bean.BaseJsonResponse;
+import com.shanqb.weishouzhuan.inter.MyQueueResponse;
+import com.shanqb.weishouzhuan.utils.AcitonConstants;
 import com.shanqb.weishouzhuan.utils.NetworkUtils;
+import com.shanqb.weishouzhuan.utils.SharedPreConstants;
+import com.shanqb.weishouzhuan.utils.SharedPreferencesUtil;
 import com.shanqb.weishouzhuan.utils.XToastUtils;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
 import com.xuexiang.xui.widget.edittext.ClearEditText;
 import com.xuexiang.xui.widget.edittext.PasswordEditText;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class WithdrawActivity extends MyBaseActivity {
+public class WithdrawActivity extends MyBaseActivity implements MyQueueResponse {
     @BindView(R.id.withdrawalAccount_titlebar)
     TitleBar withdrawalAccountTitlebar;
     @BindView(R.id.tx_amount_clearEditText)
@@ -69,18 +80,30 @@ public class WithdrawActivity extends MyBaseActivity {
 
 
     public void txRequest(String amount, String pwd) {
-        try {
-            if (!NetworkUtils.checkNetworkConnectionState(this)) {//未连接到网络
-                XToastUtils.toast(getString(R.string.net_close));
-                return;
+        Map<String, String> map = new HashMap<String, String>();
+        map.put(AcitonConstants.MERCODE, SharedPreferencesUtil.getStringValue(this, SharedPreConstants.merCode, ""));
+        map.put(AcitonConstants.TIXIAN_ACCOUNT, amount);
+        map.put(AcitonConstants.LOGIN_PASSWORD, pwd);
+        requestPostQueue(AcitonConstants.TIXIAN,map,this);
+    }
+
+    @Override
+    public void onResponse(String response) {
+        BaseJsonResponse responseBean = new Gson().fromJson(response, new TypeToken<BaseJsonResponse>() {
+        }.getType());
+        if (responseBean != null) {
+            if (responseBean.isSuccess()) {
+                XToastUtils.toast(responseBean.getMessage());
+                finish();
+            }else {
+                XToastUtils.toast(responseBean.getMessage());
             }
-
-            XToastUtils.toast(getString(R.string.submit_success));
-            finish();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            dismissLoadingDialog();
         }
+
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        XToastUtils.toast(error.getMessage());
     }
 }

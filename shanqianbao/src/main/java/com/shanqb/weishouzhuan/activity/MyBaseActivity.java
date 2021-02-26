@@ -1,12 +1,35 @@
 package com.shanqb.weishouzhuan.activity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.shanqb.weishouzhuan.R;
+import com.shanqb.weishouzhuan.bean.BaseJsonResponse;
+import com.shanqb.weishouzhuan.inter.MyQueueResponse;
+import com.shanqb.weishouzhuan.utils.AcitonConstants;
+import com.shanqb.weishouzhuan.utils.Global;
+import com.shanqb.weishouzhuan.utils.NetworkUtils;
+import com.shanqb.weishouzhuan.utils.SharedPreConstants;
+import com.shanqb.weishouzhuan.utils.SharedPreferencesUtil;
+import com.shanqb.weishouzhuan.utils.XToastUtils;
 import com.shanqb.weishouzhuan.view.LoadingProgressDialog;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Queue;
 
 import butterknife.ButterKnife;
 
@@ -68,6 +91,46 @@ public abstract class MyBaseActivity extends AppCompatActivity {
     protected void dismissLoadingDialog() {
         if (!isFinishing() && mLoadingProgressDialog != null && mLoadingProgressDialog.isShowing()) {
             mLoadingProgressDialog.dismiss();
+        }
+    }
+
+
+    protected void requestPostQueue(String requestAction, Map<String, String> requestParams, MyQueueResponse myQueueResponse){
+        try {
+            if (!NetworkUtils.checkNetworkConnectionState(this)) {//未连接到网络
+                XToastUtils.toast(getString(R.string.net_close));
+                return;
+            }
+
+            showLoadingDialog();
+
+
+            String requestUrl = Global.BASE_INTER_URL + requestAction;
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, requestUrl, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Log.d(getClass().toString(), response);
+                    dismissLoadingDialog();
+                    myQueueResponse.onResponse(response);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    dismissLoadingDialog();
+                    Log.e(getClass().toString(), error.getMessage(), error);
+                    myQueueResponse.onErrorResponse(error);
+//                    Toast.makeText(LoginActivity.this, getString(R.string.login_fail), Toast.LENGTH_SHORT).show();  //登录失败提示
+                }
+            }) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    return requestParams;
+                }
+            };
+            mQueue.add(stringRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+            dismissLoadingDialog();
         }
     }
 
