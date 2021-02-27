@@ -67,7 +67,7 @@ public class LoginResponse extends BaseJsonResponse {
         private String imei;
         private Object mobileModel;
         private String shareCode;
-        private String txHaveAmt;
+        private String txMinAmt;
         private List<ChannelBean> listbc;
 
         public String getShareCode() {
@@ -256,12 +256,12 @@ public class LoginResponse extends BaseJsonResponse {
             this.mobileModel = mobileModel;
         }
 
-        public String getTxHaveAmt() {
-            return txHaveAmt;
+        public String getTxMinAmt() {
+            return txMinAmt;
         }
 
-        public void setTxHaveAmt(String txHaveAmt) {
-            this.txHaveAmt = txHaveAmt;
+        public void setTxMinAmt(String txMinAmt) {
+            this.txMinAmt = txMinAmt;
         }
 
         public List<ChannelBean> getListbc() {

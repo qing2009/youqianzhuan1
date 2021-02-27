@@ -4,10 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
-import com.shanqb.weishouzhuan.activity.RegisterActivity;
 import com.shanqb.weishouzhuan.bean.LoginResponse;
-import com.shanqb.weishouzhuan.utils.SharedPreConstants;
-import com.shanqb.weishouzhuan.utils.SharedPreferencesUtil;
 
 public class LoginUtils {
 
@@ -28,7 +25,7 @@ public class LoginUtils {
         editor.putString(SharedPreConstants.allAmt, loginResponse.getData().getAllAmt() + "");
         editor.putString(SharedPreConstants.txAmt, loginResponse.getData().getTxAmt() + "");
         editor.putString(SharedPreConstants.shareCode, loginResponse.getData().getShareCode() + "");
-        editor.putString(SharedPreConstants.txHaveAmt, loginResponse.getData().getTxHaveAmt());
+        editor.putString(SharedPreConstants.txMinAmt, loginResponse.getData().getTxMinAmt());
         String channelListJson = new Gson().toJson(loginResponse.getData().getListbc());
         editor.putString(SharedPreConstants.channelList, channelListJson);
         editor.commit();

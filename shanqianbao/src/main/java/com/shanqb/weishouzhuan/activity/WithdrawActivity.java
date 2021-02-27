@@ -11,7 +11,6 @@ import com.shanqb.weishouzhuan.R;
 import com.shanqb.weishouzhuan.bean.BaseJsonResponse;
 import com.shanqb.weishouzhuan.inter.MyQueueResponse;
 import com.shanqb.weishouzhuan.utils.AcitonConstants;
-import com.shanqb.weishouzhuan.utils.NetworkUtils;
 import com.shanqb.weishouzhuan.utils.SharedPreConstants;
 import com.shanqb.weishouzhuan.utils.SharedPreferencesUtil;
 import com.shanqb.weishouzhuan.utils.XToastUtils;
@@ -52,7 +51,7 @@ public class WithdrawActivity extends MyBaseActivity implements MyQueueResponse 
 
     @Override
     public void initWeight() {
-        tixianTextView.setText("最低提现"+SharedPreferencesUtil.getStringValue(this, SharedPreConstants.txHaveAmt, "")+"元");
+        tixianTextView.setText("最低提现"+SharedPreferencesUtil.getStringValue(this, SharedPreConstants.txMinAmt, "")+"元");
         withdrawalAccountTitlebar.setLeftClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
