@@ -183,6 +183,17 @@
             android:visibility="visible"
             android:nestedScrollingEnabled="false" />
 
+        <TextView
+            android:id="@+id/Top10NoData_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="暂无排名"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"
+            ></TextView>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

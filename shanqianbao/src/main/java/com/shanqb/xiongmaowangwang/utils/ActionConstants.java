@@ -66,4 +66,6 @@ public class ActionConstants {
     //获取公告
     public static final String GETGONGGAO = "getGongGao";
 
+
+    public static final String getMerTop = "getMerTop";
 }
