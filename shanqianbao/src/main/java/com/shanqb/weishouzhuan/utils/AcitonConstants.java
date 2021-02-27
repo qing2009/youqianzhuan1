@@ -8,6 +8,7 @@ public class AcitonConstants {
     /**
      * 登录接口参数
      */
+    public static final String LOGIN_businessCode = "businessCode";
     public static final String LOGIN_USERNAME = "loginCode";
     public static final String LOGIN_PASSWORD = "loginPwd";
 

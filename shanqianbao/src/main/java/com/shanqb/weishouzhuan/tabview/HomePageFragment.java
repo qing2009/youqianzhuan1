@@ -146,9 +146,10 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
         //channel数据
         String channelListJson = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.channelList, "");
-        if (channelListJson!=null){
+        if (channelListJson != null) {
 
-            Type type = new TypeToken<List<ChannelBean>>() {}.getType();
+            Type type = new TypeToken<List<ChannelBean>>() {
+            }.getType();
             List<ChannelBean> channelBeanList = new Gson().fromJson(channelListJson, type);
             channelAdapter = new ChannelAdapter(channelBeanList);
             channelAdapter.setItemClickListener(new BaseRecyclerViewAdapter.OnItemClickListener() {
@@ -177,24 +178,28 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                         String merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
                                         ChannelBean channelBean = channelBeanList.get(var2);
 
-                                        switch (channelBean.getChannelCode()){
-                                            case Global.CHANNEL_CODE_AIBIANXIAN:
-                                                AibianxianUtils.startSDK(getActivity().getApplication(), merCode, getActivity(),channelBean.getChannelUser(),channelBean.getChannelKey());
-                                                break;
-                                            case Global.CHANNEL_CODE_JUXIANGYOU:
-                                                JuxiangyouUtils.startSDK(getActivity(), merCode,channelBean.getChannelUser(),channelBean.getChannelKey());
-                                                break;
-                                            case Global.CHANNEL_CODE_TAOJING91:
-                                                Taojing91Utils.startSDK(getActivity(), merCode,channelBean.getChannelUser(),channelBean.getChannelKey());
-                                                break;
-                                            case Global.CHANNEL_CODE_XIANWANG:
-                                                XianWangUtils.startSDK(getActivity(),channelBean.getChannelUser(),channelBean.getChannelKey());
-                                                break;
-                                            case Global.CHANNEL_CODE_XIQU:
-                                                XiquUtils.init(getActivity().getApplication(),channelBean.getChannelUser(),channelBean.getChannelKey());
-                                                XiquUtils.startSDK(getActivity(), merCode);
-                                                break;
+                                        if ("1".equals(channelBean.getState())) {
+
+                                            switch (channelBean.getChannelCode()) {
+                                                case Global.CHANNEL_CODE_AIBIANXIAN:
+                                                    AibianxianUtils.startSDK(getActivity().getApplication(), merCode, getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey());
+                                                    break;
+                                                case Global.CHANNEL_CODE_JUXIANGYOU:
+                                                    JuxiangyouUtils.startSDK(getActivity(), merCode, channelBean.getChannelUser(), channelBean.getChannelKey());
+                                                    break;
+                                                case Global.CHANNEL_CODE_TAOJING91:
+                                                    Taojing91Utils.startSDK(getActivity(), merCode, channelBean.getChannelUser(), channelBean.getChannelKey());
+                                                    break;
+                                                case Global.CHANNEL_CODE_XIANWANG:
+                                                    XianWangUtils.startSDK(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey());
+                                                    break;
+                                                case Global.CHANNEL_CODE_XIQU:
+                                                    XiquUtils.init(getActivity().getApplication(), channelBean.getChannelUser(), channelBean.getChannelKey());
+                                                    XiquUtils.startSDK(getActivity(), merCode);
+                                                    break;
+                                            }
                                         }
+
 
                                     } else {
 //                                    Toast.makeText(getActivity(), "These permissions are denied: $deniedList", Toast.LENGTH_LONG).show();
@@ -205,17 +210,16 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                 }
             });
 
-            channelLayoutManager = new GridLayoutManager(getActivity(),2);
+            channelLayoutManager = new GridLayoutManager(getActivity(), 2);
             channelRecView.setLayoutManager(channelLayoutManager);
             channelRecView.addItemDecoration(new GridDividerItemDecoration(getContext(), 2, DensityUtils.dp2px(5)));
 
             channelRecView.setHasFixedSize(true);
 
             channelRecView.setAdapter(channelAdapter);
-        }else {
+        } else {
             channelRecView.setVisibility(View.GONE);
         }
-
 
 
         return view;
@@ -242,7 +246,6 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
         super.onDestroyView();
         unbinder.unbind();
     }
-
 
 
     private void test() {

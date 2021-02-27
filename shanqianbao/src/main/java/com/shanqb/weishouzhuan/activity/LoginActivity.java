@@ -200,6 +200,7 @@ public class LoginActivity extends MyBaseActivity {                 //登录界�
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> map = new HashMap<String, String>();
+                    map.put(AcitonConstants.LOGIN_businessCode, Global.BUSINESS_CODE);
                     map.put(AcitonConstants.LOGIN_USERNAME, userName);
                     map.put(AcitonConstants.LOGIN_PASSWORD, userPwd);
                     return map;
@@ -256,6 +257,7 @@ public class LoginActivity extends MyBaseActivity {                 //登录界�
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> map = new HashMap<String, String>();
+                    map.put(AcitonConstants.LOGIN_businessCode, Global.BUSINESS_CODE);
                     map.put(AcitonConstants.LOGIN_USERNAME, userName);
                     map.put(AcitonConstants.LOGIN_PASSWORD, userPwd);
                     return map;
