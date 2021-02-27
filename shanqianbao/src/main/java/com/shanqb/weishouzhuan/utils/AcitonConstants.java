@@ -61,4 +61,6 @@ public class AcitonConstants {
     public static final String INTER_MYINFO = "myInfo";
 
     public static final String MERCODE = "merCode";
+
+    public static final String getMerTop = "getMerTop";
 }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.widget.TextView;
 
 import com.shanqb.weishouzhuan.R;
-import com.shanqb.weishouzhuan.bean.TryPlayListResponse;
 import com.shanqb.weishouzhuan.bean.ZhuanjinTop;
 import com.shanqb.weishouzhuan.test.BaseRecyclerViewAdapter;
 import com.shanqb.weishouzhuan.view.CircleImageView;
@@ -21,10 +20,16 @@ public class HomeTopListAdapter extends BaseRecyclerViewAdapter {
     String[] gameUserNameArr;
     int[] gameHeadArr;
 
-    public HomeTopListAdapter(Context context) {
+    public HomeTopListAdapter(Context context,List<ZhuanjinTop> data) {
 
         super(R.layout.hometop_record_item);
-        gameUserNameArr = context.getResources().getStringArray(R.array.gameUserName);
+        this.data = data;
+        initRandomData(context);
+
+    }
+
+    private void initRandomData(Context context) {
+//        gameUserNameArr = context.getResources().getStringArray(R.array.gameUserName);
         gameHeadArr = new int[]{R.drawable.gameuserhead1,
                 R.drawable.gameuserhead2,
                 R.drawable.gameuserhead3,
@@ -55,23 +60,23 @@ public class HomeTopListAdapter extends BaseRecyclerViewAdapter {
                 R.drawable.gameuserhead29
         };
 
-        for (int i=0; i<10;i++) {
-            ZhuanjinTop zhuanjinTop = new ZhuanjinTop();
-            zhuanjinTop.setUserHeadResId(gameHeadArr[(int)(Math.random()*100)%28]);
-            zhuanjinTop.setGameName(gameUserNameArr[(int)(Math.random()*100)%44]);
-            zhuanjinTop.setGameDes("完成任务");
-
-            double moneyDouble = Math.random();
-            if (moneyDouble<0.1){
-                moneyDouble = 0.1;
-            }
-            moneyDouble = moneyDouble*500;
-            DecimalFormat df = new DecimalFormat("#.##");
-            Double get_double = Double.parseDouble(df.format(moneyDouble));
-            zhuanjinTop.setMoney(get_double);
-
-            data.add(zhuanjinTop);
-        }
+//        for (int i=0; i<10;i++) {
+//            ZhuanjinTop zhuanjinTop = new ZhuanjinTop();
+//            zhuanjinTop.setUserHeadResId(gameHeadArr[(int)(Math.random()*100)%28]);
+//            zhuanjinTop.setMerName(gameUserNameArr[(int)(Math.random()*100)%44]);
+//            zhuanjinTop.setGameDes("完成任务");
+//
+//            double moneyDouble = Math.random();
+//            if (moneyDouble<0.1){
+//                moneyDouble = 0.1;
+//            }
+//            moneyDouble = moneyDouble*500;
+//            DecimalFormat df = new DecimalFormat("#.##");
+//            Double get_double = Double.parseDouble(df.format(moneyDouble));
+//            zhuanjinTop.setAllAmt(get_double);
+//
+//            data.add(zhuanjinTop);
+//        }
 
         Collections.sort(data,new Comparator() {
             @Override
@@ -80,12 +85,11 @@ public class HomeTopListAdapter extends BaseRecyclerViewAdapter {
                     ZhuanjinTop e1 = (ZhuanjinTop) o1;
                     ZhuanjinTop e2 = (ZhuanjinTop) o2;
 
-                    return Double.compare(e2.getMoney() , e1.getMoney());
+                    return Double.compare(e2.getAllAmt() , e1.getAllAmt());
                 }
                 throw new ClassCastException("不能转换为Emp类型");
             }
         });
-
     }
 
     @Override
@@ -95,16 +99,17 @@ public class HomeTopListAdapter extends BaseRecyclerViewAdapter {
 //            TryPlayListResponse.DataBean bean = data.get(var2);
 //            if (bean != null) {
                 TextView income_textView = (TextView) var1.getTextView(R.id.income_textView);
-                income_textView.setText("¥" +zhuanjinTop.getMoney()+ "元");
+                income_textView.setText("¥" +zhuanjinTop.getAllAmt()+ "元");
 
                 CircleImageView gameHeadImgView = (CircleImageView) var1.getImageView(R.id.headImageView);
-                gameHeadImgView.setImageResource(zhuanjinTop.getUserHeadResId());
+//                gameHeadImgView.setImageResource(zhuanjinTop.getUserHeadResId());
+                gameHeadImgView.setImageResource(gameHeadArr[(int)(Math.random()*100)%28]);
 
                 TextView gameName_textView = (TextView) var1.getTextView(R.id.gameName_textView);
-                gameName_textView.setText(zhuanjinTop.getGameDes());
+                gameName_textView.setText(zhuanjinTop.getMerName());
 
-                TextView gameDes_textView = (TextView) var1.getTextView(R.id.gameDes_textView);
-                gameDes_textView.setText(zhuanjinTop.getGameDes());
+//                TextView gameDes_textView = (TextView) var1.getTextView(R.id.gameDes_textView);
+//                gameDes_textView.setText(zhuanjinTop.getGameDes());
 //            }
         } catch (Exception e) {
             e.printStackTrace();

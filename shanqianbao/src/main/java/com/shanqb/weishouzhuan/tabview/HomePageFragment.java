@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.permissionx.guolindev.PermissionX;
@@ -26,14 +28,19 @@ import com.shanqb.weishouzhuan.activity.ReadGetMoneyActivity;
 import com.shanqb.weishouzhuan.adapter.ChannelAdapter;
 import com.shanqb.weishouzhuan.adapter.HomeTopListAdapter;
 import com.shanqb.weishouzhuan.adapter.RecyclerViewBannerAdapter2;
+import com.shanqb.weishouzhuan.bean.BaseJsonResponse;
 import com.shanqb.weishouzhuan.bean.ChannelBean;
 import com.shanqb.weishouzhuan.bean.LoginResponse;
+import com.shanqb.weishouzhuan.bean.ZhuanjinTopResponse;
+import com.shanqb.weishouzhuan.inter.MyQueueResponse;
 import com.shanqb.weishouzhuan.test.BaseRecyclerViewAdapter;
+import com.shanqb.weishouzhuan.utils.AcitonConstants;
 import com.shanqb.weishouzhuan.utils.DemoDataProvider;
 import com.shanqb.weishouzhuan.utils.DeviceUtils;
 import com.shanqb.weishouzhuan.utils.Global;
 import com.shanqb.weishouzhuan.utils.SharedPreConstants;
 import com.shanqb.weishouzhuan.utils.SharedPreferencesUtil;
+import com.shanqb.weishouzhuan.utils.XToastUtils;
 import com.shanqb.weishouzhuan.utils.sdk.AibianxianUtils;
 import com.shanqb.weishouzhuan.utils.sdk.JuxiangyouUtils;
 import com.shanqb.weishouzhuan.utils.sdk.Taojing91Utils;
@@ -44,7 +51,9 @@ import com.xuexiang.xui.utils.DensityUtils;
 import com.xuexiang.xui.widget.banner.recycler.BannerLayout;
 
 import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -55,7 +64,7 @@ import butterknife.Unbinder;
 /**
  * Created by yx on 16/4/3.
  */
-public class HomePageFragment extends BaseFragment implements ITabClickListener, BannerLayout.OnBannerItemClickListener {
+public class HomePageFragment extends BaseFragment implements ITabClickListener, BannerLayout.OnBannerItemClickListener, MyQueueResponse {
     @BindView(R.id.bl_horizontal)
     BannerLayout blHorizontal;
     //    @BindView(R.id.headImageView)
@@ -86,6 +95,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     RecyclerView recordRecyView;
     @BindView(R.id.channel_recView)
     RecyclerView channelRecView;
+    @BindView(R.id.Top10NoData_textView)
+    TextView top10NodataTextView;
 
     private RecyclerViewBannerAdapter2 mAdapterHorizontal;
 
@@ -137,11 +148,6 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
         blHorizontal.setAdapter(mAdapterHorizontal = new RecyclerViewBannerAdapter2(DemoDataProvider.urls));
         mAdapterHorizontal.setOnBannerItemClickListener(this);
 
-        this.layoutManager = new LinearLayoutManager(getActivity());
-        this.layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        this.recordRecyView.setLayoutManager(this.layoutManager);
-        adapter = new HomeTopListAdapter(getActivity());
-        recordRecyView.setAdapter(adapter);
 
 
         //channel数据
@@ -257,6 +263,41 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
     @Override
     public void onItemClick(int position) {
+
+    }
+
+
+    public void getTop10() {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put(AcitonConstants.LOGIN_businessCode, Global.BUSINESS_CODE);
+        map.put(AcitonConstants.ORDERLIST_PAGE, "1");
+        map.put(AcitonConstants.ORDERLIST_SIZE, "10");
+        requestPostQueue(false,getActivity(),AcitonConstants.getMerTop,map,this);
+    }
+
+    @Override
+    public void onResponse(String response) {
+        ZhuanjinTopResponse responseBean = new Gson().fromJson(response, new TypeToken<ZhuanjinTopResponse>() {
+        }.getType());
+        if (responseBean != null && responseBean.isSuccess() && responseBean.getData()!=null && responseBean.getData().size()>0) {
+
+                //赚金top10
+                this.layoutManager = new LinearLayoutManager(getActivity());
+                this.layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                this.recordRecyView.setLayoutManager(this.layoutManager);
+                adapter = new HomeTopListAdapter(getActivity(),responseBean.getData());
+                recordRecyView.setAdapter(adapter);
+            recordRecyView.setVisibility(View.VISIBLE);
+            top10NodataTextView.setVisibility(View.GONE);
+        }else {
+            recordRecyView.setVisibility(View.GONE);
+            top10NodataTextView.setVisibility(View.VISIBLE);
+        }
+
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
 
     }
 }
