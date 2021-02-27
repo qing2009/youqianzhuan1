@@ -1,7 +1,6 @@
 package com.shanqb.zhimazhuan.tabview;
 
 import android.Manifest;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -46,7 +45,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 
 
@@ -84,6 +82,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     RecyclerView recordRecyView;
     @BindView(R.id.channel_recView)
     RecyclerView channelRecView;
+    @BindView(R.id.homeView_imagview)
+    ImageView homeViewImagview;
 
     private RecyclerViewBannerAdapter2 mAdapterHorizontal;
 
@@ -120,6 +120,10 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
         int viewWidth = (screenWidth - spacingWidth) / 3;//总共两张图，每张图的宽度。
         int viewHeight = viewWidth * 675 / 1080;//640*280是图片分辨率
 
+        //计算homeView图片的高度
+        int homeViewHeight = screenWidth * 734 / 1180;
+        homeViewImagview.getLayoutParams().height = homeViewHeight;
+
 //        Log.e(getTag(), "viewWidth: " + viewWidth);
 //        Log.e(getTag(), "viewHeight: " + viewHeight);
 
@@ -134,19 +138,21 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
         blHorizontal.setAdapter(mAdapterHorizontal = new RecyclerViewBannerAdapter2(DemoDataProvider.urls));
         mAdapterHorizontal.setOnBannerItemClickListener(this);
-
-        this.layoutManager = new LinearLayoutManager(getActivity());
-        this.layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        this.recordRecyView.setLayoutManager(this.layoutManager);
-        adapter = new HomeTopListAdapter(getActivity());
-        recordRecyView.setAdapter(adapter);
+//
+//        this.layoutManager = new LinearLayoutManager(getActivity());
+//        this.layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//        this.recordRecyView.setLayoutManager(this.layoutManager);
+//        adapter = new HomeTopListAdapter(getActivity());
+//        recordRecyView.setAdapter(adapter);
+        recordRecyView.setVisibility(View.GONE);
 
 
         //channel数据
         String channelListJson = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.channelList, "");
-        if (channelListJson!=null){
+        if (channelListJson != null) {
 
-            Type type = new TypeToken<List<ChannelBean>>() {}.getType();
+            Type type = new TypeToken<List<ChannelBean>>() {
+            }.getType();
             List<ChannelBean> channelBeanList = new Gson().fromJson(channelListJson, type);
             channelAdapter = new ChannelAdapter(channelBeanList);
             channelAdapter.setItemClickListener(new BaseRecyclerViewAdapter.OnItemClickListener() {
@@ -174,8 +180,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
                                         String merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
                                         ChannelBean channelBean = channelBeanList.get(var2);
-
                                         if ("1".equals(channelBean.getState())) {
+
 
                                             switch (channelBean.getChannelCode()) {
                                                 case Global.CHANNEL_CODE_AIBIANXIAN:
@@ -195,8 +201,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                     XiquUtils.startSDK(getActivity(), merCode);
                                                     break;
                                             }
-                                        }
 
+                                        }
                                     } else {
 //                                    Toast.makeText(getActivity(), "These permissions are denied: $deniedList", Toast.LENGTH_LONG).show();
                                     }
@@ -206,17 +212,16 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                 }
             });
 
-            channelLayoutManager = new GridLayoutManager(getActivity(),2);
+            channelLayoutManager = new GridLayoutManager(getActivity(), 2);
             channelRecView.setLayoutManager(channelLayoutManager);
             channelRecView.addItemDecoration(new GridDividerItemDecoration(getContext(), 2, DensityUtils.dp2px(5)));
 
             channelRecView.setHasFixedSize(true);
 
             channelRecView.setAdapter(channelAdapter);
-        }else {
+        } else {
             channelRecView.setVisibility(View.GONE);
         }
-
 
 
         return view;
@@ -243,7 +248,6 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
         super.onDestroyView();
         unbinder.unbind();
     }
-
 
 
     private void test() {
