@@ -29,6 +29,7 @@ import com.shanqb.weishouzhuan.adapter.ChannelAdapter;
 import com.shanqb.weishouzhuan.adapter.HomeTopListAdapter;
 import com.shanqb.weishouzhuan.adapter.RecyclerViewBannerAdapter2;
 import com.shanqb.weishouzhuan.bean.BaseJsonResponse;
+import com.shanqb.weishouzhuan.bean.BaseJsonResponse2;
 import com.shanqb.weishouzhuan.bean.ChannelBean;
 import com.shanqb.weishouzhuan.bean.LoginResponse;
 import com.shanqb.weishouzhuan.bean.ZhuanjinTopResponse;
@@ -116,6 +117,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 //            totalRevenueTextView.setText(totalRevenue);
 //            String withdrawable = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.txAmt, "0.00");
 //            withdrawableTextView.setText(withdrawable);
+
+            getTop10();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -279,7 +282,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     public void onResponse(String response) {
         ZhuanjinTopResponse responseBean = new Gson().fromJson(response, new TypeToken<ZhuanjinTopResponse>() {
         }.getType());
-        if (responseBean != null && responseBean.isSuccess() && responseBean.getData()!=null && responseBean.getData().size()>0) {
+        if (responseBean != null && BaseJsonResponse2.STATE_SUCCESS.equals(responseBean.getState()) && responseBean.getData()!=null && responseBean.getData().size()>0) {
 
                 //赚金top10
                 this.layoutManager = new LinearLayoutManager(getActivity());

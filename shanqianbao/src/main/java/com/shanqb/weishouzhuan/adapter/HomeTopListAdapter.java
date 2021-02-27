@@ -123,12 +123,12 @@ public class HomeTopListAdapter extends BaseRecyclerViewAdapter {
     }
 
     @Override
-    public int getItemCount() {
-        return 10;
-    }
 //    public int getItemCount() {
-//        return data == null ? 0 : data.size();
+//        return 10;
 //    }
+    public int getItemCount() {
+        return data == null ? 0 : data.size();
+    }
 
 //    public void setData(List<TryPlayListResponse.DataBean> data) {
 //        this.data = data;
