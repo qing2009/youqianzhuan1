@@ -376,4 +376,39 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     public void onErrorResponse(String requestAction,VolleyError error) {
 
     }
+
+
+    public void getTop10() {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put(AcitonConstants.LOGIN_businessCode, Global.BUSINESS_CODE);
+        map.put(AcitonConstants.ORDERLIST_PAGE, "1");
+        map.put(AcitonConstants.ORDERLIST_SIZE, "10");
+        requestPostQueue(false,getActivity(),AcitonConstants.getMerTop,map,this);
+    }
+
+    @Override
+    public void onResponse(String response) {
+        ZhuanjinTopResponse responseBean = new Gson().fromJson(response, new TypeToken<ZhuanjinTopResponse>() {
+        }.getType());
+        if (responseBean != null && responseBean.isSuccess() && responseBean.getData()!=null && responseBean.getData().size()>0) {
+
+                //赚金top10
+                this.layoutManager = new LinearLayoutManager(getActivity());
+                this.layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                this.recordRecyView.setLayoutManager(this.layoutManager);
+                adapter = new HomeTopListAdapter(getActivity(),responseBean.getData());
+                recordRecyView.setAdapter(adapter);
+            recordRecyView.setVisibility(View.VISIBLE);
+            top10NodataTextView.setVisibility(View.GONE);
+        }else {
+            recordRecyView.setVisibility(View.GONE);
+            top10NodataTextView.setVisibility(View.VISIBLE);
+        }
+
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+
+    }
 }

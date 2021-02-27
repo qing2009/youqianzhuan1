@@ -45,13 +45,5 @@
             android:textSize="17sp"
             android:textColor="@color/titleBar_title"
             android:text="名称" />
-
-        <TextView
-            android:id="@+id/gameDes_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:textSize="10sp"
-            />
     </LinearLayout>
 </RelativeLayout>

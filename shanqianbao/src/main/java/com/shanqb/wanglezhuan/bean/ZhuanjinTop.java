@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class ZhuanjinTop {
     private int userHeadResId;
-    private String gameName;
+    private String merName;
     private String gameDes;
-    private double money;
+    private double allAmt;
 
     public int getUserHeadResId() {
         return userHeadResId;
@@ -16,12 +16,12 @@ public class ZhuanjinTop {
         this.userHeadResId = userHeadResId;
     }
 
-    public String getGameName() {
-        return gameName;
+    public String getMerName() {
+        return merName;
     }
 
-    public void setGameName(String gameName) {
-        this.gameName = gameName;
+    public void setMerName(String merName) {
+        this.merName = merName;
     }
 
     public String getGameDes() {
@@ -32,12 +32,12 @@ public class ZhuanjinTop {
         this.gameDes = gameDes;
     }
 
-    public double getMoney() {
-        return money;
+    public double getAllAmt() {
+        return allAmt;
     }
 
-    public void setMoney(double money) {
-        this.money = money;
+    public void setAllAmt(double allAmt) {
+        this.allAmt = allAmt;
     }
 
     @Override
@@ -45,11 +45,11 @@ public class ZhuanjinTop {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ZhuanjinTop that = (ZhuanjinTop) o;
-        return Double.compare(that.money, money) == 0;
+        return Double.compare(that.allAmt, allAmt) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(money);
+        return Objects.hash(allAmt);
     }
 }
