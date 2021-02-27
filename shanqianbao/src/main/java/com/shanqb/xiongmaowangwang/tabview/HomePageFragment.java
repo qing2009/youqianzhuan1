@@ -294,6 +294,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                             .build());
                                                     break;
                                             }
+                                        }
 
                                         }else {
                                             Toast.makeText(getActivity(),channelBean.getTishi(),Toast.LENGTH_SHORT).show();
