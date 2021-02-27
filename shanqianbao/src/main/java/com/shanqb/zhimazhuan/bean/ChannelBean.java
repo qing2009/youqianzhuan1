@@ -25,6 +25,7 @@ public class ChannelBean {
     private String imageUrl;
     private String createTime;
     private String updateTime;
+    private String state;//如果为0就是不能点平台锁住了,为1才能点进去
 
     public int getId() {
         return id;
@@ -104,5 +105,13 @@ public class ChannelBean {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 }

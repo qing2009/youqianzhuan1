@@ -15,6 +15,7 @@ public class SharedPreConstants {
     public static final String allAmt = "allAmt";
     public static final String txAmt = "txAmt";
     public static final String shareCode = "shareCode";
+    public static final String txHaveAmt = "txHaveAmt";
     public static final String zfb = "zfb";
     public static final String zfbName = "zfbName";
     public static final String channelList = "ChannelList";

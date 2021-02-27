@@ -25,6 +25,7 @@ public class LoginUtils {
         editor.putString(SharedPreConstants.allAmt, loginResponse.getData().getAllAmt() + "");
         editor.putString(SharedPreConstants.txAmt, loginResponse.getData().getTxAmt() + "");
         editor.putString(SharedPreConstants.shareCode, loginResponse.getData().getShareCode() + "");
+        editor.putString(SharedPreConstants.txHaveAmt, loginResponse.getData().getTxHaveAmt());
         String channelListJson = new Gson().toJson(loginResponse.getData().getListbc());
         editor.putString(SharedPreConstants.channelList, channelListJson);
         editor.commit();

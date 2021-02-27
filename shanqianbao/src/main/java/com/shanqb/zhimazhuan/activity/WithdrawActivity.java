@@ -1,6 +1,7 @@
 package com.shanqb.zhimazhuan.activity;
 
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
@@ -30,6 +31,8 @@ public class WithdrawActivity extends MyBaseActivity implements MyQueueResponse 
     ClearEditText txAmountClearEditText;
     @BindView(R.id.tx_pwd_clearEditText)
     PasswordEditText txPwdClearEditText;
+    @BindView(R.id.tixian_tips_textView)
+    TextView tixianTextView;
 
     @Override
     public void initLayout() {
@@ -48,6 +51,7 @@ public class WithdrawActivity extends MyBaseActivity implements MyQueueResponse 
 
     @Override
     public void initWeight() {
+        tixianTextView.setText("最低提现"+SharedPreferencesUtil.getStringValue(this, SharedPreConstants.txHaveAmt, "")+"元");
         withdrawalAccountTitlebar.setLeftClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

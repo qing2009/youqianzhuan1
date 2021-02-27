@@ -105,7 +105,7 @@
     <string name="withdrawal_account_tips">提现账户请确认正确，否则平台打款错误将不承担后果！</string>
     <string name="tx_amount">提现金额</string>
     <string name="tx_pwd">提现密码（登录密码）</string>
-    <string name="tx_tips">提现后一个工作日内处理，平台收取3%的手续费。</string>
+    <string name="tx_tips">最低提现$1元</string>
     <string name="tx_amount_empty">请填写提现金额</string>
     <string name="tx_pwd_empty">请填写提现密码（登录密码）</string>
     <string name="submit_success">提交成功</string>
