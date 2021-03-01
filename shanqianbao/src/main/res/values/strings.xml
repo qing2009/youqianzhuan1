@@ -102,10 +102,10 @@
     <string name="input_zfb_account">请填写支付宝账号</string>
     <string name="input_zfb_name">请填写支付宝姓名</string>
     <string name="bind_zfb_success">绑定成功</string>
-    <string name="withdrawal_account_tips">提现账户请确认正确，否则平台打款错误将不承担后果！</string>
+    <string name="withdrawal_account_tips">提现支付宝请确认正确，否则平台打款错误将不承担后果！支付宝绑定后，不可更改！一个支付宝仅允许绑定一个账号，一个支付宝重复绑定多个账号，一律封号</string>
     <string name="tx_amount">提现金额</string>
     <string name="tx_pwd">提现密码（登录密码）</string>
-    <string name="tx_tips">最低提现$1元</string>
+    <string name="tx_tips">最低提现%s元，提现1至2个工作日到账</string>
     <string name="tx_amount_empty">请填写提现金额</string>
     <string name="tx_pwd_empty">请填写提现密码（登录密码）</string>
     <string name="submit_success">提交成功</string>
