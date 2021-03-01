@@ -51,7 +51,8 @@ public class WithdrawActivity extends MyBaseActivity implements MyQueueResponse 
 
     @Override
     public void initWeight() {
-        tixianTextView.setText("最低提现"+SharedPreferencesUtil.getStringValue(this, SharedPreConstants.txMinAmt, "")+"元");
+        String tipsString = getString(R.string.tx_tips,SharedPreferencesUtil.getStringValue(this, SharedPreConstants.txMinAmt, ""));
+        tixianTextView.setText(tipsString);
         withdrawalAccountTitlebar.setLeftClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
