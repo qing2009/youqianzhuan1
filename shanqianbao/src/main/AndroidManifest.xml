@@ -17,6 +17,9 @@
     <uses-permission android:name="com.asus.msa.SupplementaryDID.ACCESS" />
     <uses-permission android:name="freemme.permission.msa" />
 
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <meta-data
         android:name="UMENG_APPKEY"
         android:value="54dc57e0fd98c54ba1000237"></meta-data>
@@ -104,6 +107,16 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
+        </provider>
+
+        <provider
+            android:name="com.component.dly.xzzq_ywsdk.YwFileProvider"
+            android:authorities="${applicationId}.YwFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/ywsdk_file_paths" />
         </provider>
     </application>
 </manifest>

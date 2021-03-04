@@ -2,11 +2,15 @@ package com.shanqb.weishouzhuan.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
+import com.component.dly.xzzq_ywsdk.YwSDK;
 import com.google.gson.Gson;
 import com.shanqb.weishouzhuan.bean.LoginResponse;
+import com.shanqb.weishouzhuan.bean.ChannelBean;
 
 public class LoginUtils {
+    private static final String TAG = "LoginUtils";
 
     public static void saveUserInfo(Context context,LoginResponse loginResponse,String userPwd){
         SharedPreferences preferences = SharedPreferencesUtil.getInterface(context);
@@ -29,5 +33,16 @@ public class LoginUtils {
         String channelListJson = new Gson().toJson(loginResponse.getData().getListbc());
         editor.putString(SharedPreConstants.channelList, channelListJson);
         editor.commit();
+
+        initYwSDk(loginResponse);
+    }
+
+    private static void initYwSDk(LoginResponse loginResponse) {
+        try {
+            YwSDK.Companion.refreshMediaUserId(loginResponse.getData().getMerCode());
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.e(TAG, "initYwSDk: Exception:", e);
+        }
     }
 }

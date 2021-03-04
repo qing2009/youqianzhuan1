@@ -41,7 +41,7 @@ public class MittUtils {
      * @return
      */
     private int CallFromReflect(Context cxt) {
-        return MdidSdkHelper.InitSdk(cxt, true, new IIdentifierListener(){
+        return MdidSdkHelper.InitSdk(cxt, true, new IIdentifierListener() {
             @Override
             public void OnSupport(boolean isSupport, IdSupplier idSupplier) {
                 if (idSupplier == null) {
@@ -57,22 +57,6 @@ public class MittUtils {
             }
         });
     }
-
-
-//    @Override
-//    public void OnSupport(boolean isSupport, IdSupplier idSupplier) {
-//
-//        if (idSupplier == null) {
-//            if (listener != null) {
-//                listener.OnIdsAvailed(isSupport, null);
-//            }
-//            return;
-//        }
-//        String oaid = idSupplier.getOAID();
-//        if (listener != null) {
-//            listener.OnIdsAvailed(isSupport, oaid);
-//        }
-//    }
 
     public interface AppIdsUpdater {
         void OnIdsAvailed(boolean isSupport, String oaid);

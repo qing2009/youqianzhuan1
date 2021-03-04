@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.duoyou.task.openapi.DyAdApi;
 import com.android.volley.VolleyError;
+import com.component.dly.xzzq_ywsdk.YwSDK;
+import com.component.dly.xzzq_ywsdk.YwSDK_WebActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.permissionx.guolindev.PermissionX;
@@ -97,6 +99,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     RecyclerView recordRecyView;
     @BindView(R.id.channel_recView)
     RecyclerView channelRecView;
+    @BindView(R.id.homeView_imagview)
+    ImageView homeViewImagview;
     @BindView(R.id.Top10NoData_textView)
     TextView top10NodataTextView;
 
@@ -211,14 +215,18 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                      */
                                                     DyAdApi.getDyAdApi().jumpAdList(getActivity(), merCode, 0);
                                                     break;
+                                                case Global.CHANNEL_CODE_YUWANG:
+                                                    YwSDK.Companion.refreshAppSecret(channelBean.getChannelKey(),channelBean.getChannelUser());
+                                                    //进入鱼玩盒子首页
+                                                    YwSDK_WebActivity.Companion.open(getActivity());
+                                                    break;
                                                 case Global.CHANNEL_CODE_XIQU:
                                                     XiquUtils.init(getActivity().getApplication(), channelBean.getChannelUser(), channelBean.getChannelKey());
                                                     XiquUtils.startSDK(getActivity(), merCode);
                                                     break;
                                             }
+
                                         }
-
-
                                     } else {
 //                                    Toast.makeText(getActivity(), "These permissions are denied: $deniedList", Toast.LENGTH_LONG).show();
                                     }
