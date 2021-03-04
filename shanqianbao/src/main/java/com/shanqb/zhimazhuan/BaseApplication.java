@@ -5,6 +5,7 @@ import android.app.Application;
 import android.os.Build;
 import android.text.TextUtils;
 
+import com.component.dly.xzzq_ywsdk.YwSDK;
 import com.pceggs.workwall.util.PceggsWallUtils;
 import com.shanqb.zhimazhuan.utils.MittUtils;
 import com.shanqb.zhimazhuan.utils.SharedPreConstants;
@@ -49,6 +50,15 @@ public class BaseApplication extends Application {
 //        TooMeeUtils.init(this);
 
 //        XiquUtils.init(this);
+
+
+        //鱼丸盒子
+        //java代码调用
+        YwSDK.Companion.init(this,"","","",SharedPreferencesUtil.getStringValue(BaseApplication.getInstance(), SharedPreConstants.OAID, ""));
+        YwSDK.Companion.setDebugMode();
+//        YwSDK.Companion.refreshMediaUserId("mediaUserId");
+//        YwSDK.Companion.refreshAppSecret("appSecret","appId");
+//        YwSDK.Companion.refreshOaid("oaid");
     }
 
     private void initOAID() {

@@ -8,13 +8,15 @@ public class Global
 {
 	/** 日志打印TAG */
 	public static final String DEBUG_TAG = "SQB";
-//	public static final String BUSINESS_CODE = "20210223153134088";//商户号
+//	public static final String BUSINESS_CODE = "20210223153134088";//微手赚商户号
 	public static final String BUSINESS_CODE = "20210226140323917";//芝麻赚商户号
 
 	public static final String CHANNEL_CODE_AIBIANXIAN = "20210221021824005";//爱变现
 	public static final String CHANNEL_CODE_JUXIANGYOU = "20210221021842938";//聚享游
 	public static final String CHANNEL_CODE_TAOJING91 = "20210221021834000";//91淘金
 	public static final String CHANNEL_CODE_XIANWANG = "20210221021853088";//享玩
+	public static final String CHANNEL_CODE_YUWANG = "20210302150858583";//鱼丸盒子
+	public static final String CHANNEL_CODE_DUOYOU = "20210302221618125";//多游
 	public static final String CHANNEL_CODE_XIQU = "";//
 
 	/** 日志开启开关 */

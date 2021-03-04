@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.component.dly.xzzq_ywsdk.YwSDK;
+import com.component.dly.xzzq_ywsdk.YwSDK_WebActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.permissionx.guolindev.PermissionX;
@@ -20,6 +22,7 @@ import com.permissionx.guolindev.callback.ForwardToSettingsCallback;
 import com.permissionx.guolindev.callback.RequestCallback;
 import com.permissionx.guolindev.request.ExplainScope;
 import com.permissionx.guolindev.request.ForwardScope;
+import com.shanqb.shanqianbao.MainActivity;
 import com.shanqb.zhimazhuan.R;
 import com.shanqb.zhimazhuan.adapter.ChannelAdapter;
 import com.shanqb.zhimazhuan.adapter.HomeTopListAdapter;
@@ -196,6 +199,13 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                 case Global.CHANNEL_CODE_XIANWANG:
                                                     XianWangUtils.startSDK(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey());
                                                     break;
+                                                case Global.CHANNEL_CODE_YUWANG:
+                                                    YwSDK.Companion.refreshAppSecret(channelBean.getChannelKey(),channelBean.getChannelUser());
+                                                    //进入鱼玩盒子首页
+                                                    YwSDK_WebActivity.Companion.open(getActivity());
+                                                    break;
+                                                case Global.CHANNEL_CODE_DUOYOU:
+                                                    break;
                                                 case Global.CHANNEL_CODE_XIQU:
                                                     XiquUtils.init(getActivity().getApplication(), channelBean.getChannelUser(), channelBean.getChannelKey());
                                                     XiquUtils.startSDK(getActivity(), merCode);
@@ -259,6 +269,12 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
     @Override
     public void onItemClick(int position) {
-
+//        YwSDK.Companion.refreshAppSecret("pe9ef50f987cc6ed577b726e6bde749c", "dy_59634987");
+        YwSDK.Companion.refreshAppSecret("jxlnspmvoc6dc0ybpys30i39641xyitm", "2090");
+        boolean isInitSuccess = YwSDK.Companion.checkInit();
+        if (isInitSuccess) {
+            //进入鱼玩盒子首页
+            YwSDK_WebActivity.Companion.open(getActivity());
+        }
     }
 }
