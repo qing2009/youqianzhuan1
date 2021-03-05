@@ -14,6 +14,8 @@ import com.xuexiang.xui.XUI;
 
 import java.util.ArrayList;
 
+import jfq.wowan.com.myapplication.PlayMeUtil;
+
 public class BaseApplication extends Application {
 
     private static BaseApplication baseApplication = null;
@@ -59,6 +61,10 @@ public class BaseApplication extends Application {
 //        YwSDK.Companion.refreshMediaUserId("mediaUserId");
 //        YwSDK.Companion.refreshAppSecret("appSecret","appId");
 //        YwSDK.Companion.refreshOaid("oaid");
+
+
+        //我玩
+        PlayMeUtil.init(this, BuildConfig.APPLICATION_ID+".fileprovider");
     }
 
     private void initOAID() {
