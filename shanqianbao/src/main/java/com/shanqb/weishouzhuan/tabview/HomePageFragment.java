@@ -18,6 +18,7 @@ import com.duoyou.task.openapi.DyAdApi;
 import com.android.volley.VolleyError;
 import com.component.dly.xzzq_ywsdk.YwSDK;
 import com.component.dly.xzzq_ywsdk.YwSDK_WebActivity;
+import com.duoyou.task.openapi.DyAdApi;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.permissionx.guolindev.PermissionX;
@@ -207,6 +208,11 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                 case Global.CHANNEL_CODE_XIANWANG:
                                                     XianWangUtils.startSDK(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey());
                                                     break;
+                                                case Global.CHANNEL_CODE_YUWANG:
+                                                    YwSDK.Companion.refreshAppSecret(channelBean.getChannelKey(),channelBean.getChannelUser());
+                                                    //进入鱼玩盒子首页
+                                                    YwSDK_WebActivity.Companion.open(getActivity());
+                                                    break;
                                                 case Global.CHANNEL_CODE_DUOYOU:
                                                     DyAdApi.getDyAdApi().init(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey(),"channel");
                                                     /**
@@ -214,12 +220,6 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                      * advertType: 0（默认值）显示全部数据  1.手游  2.棋牌游戏
                                                      */
                                                     DyAdApi.getDyAdApi().jumpAdList(getActivity(), merCode, 0);
-                                                    break;
-                                                case Global.CHANNEL_CODE_YUWANG:
-                                                    YwSDK.Companion.refreshAppSecret(channelBean.getChannelKey(),channelBean.getChannelUser());
-                                                    //进入鱼玩盒子首页
-                                                    YwSDK_WebActivity.Companion.open(getActivity());
-                                                    break;
                                                 case Global.CHANNEL_CODE_XIQU:
                                                     XiquUtils.init(getActivity().getApplication(), channelBean.getChannelUser(), channelBean.getChannelKey());
                                                     XiquUtils.startSDK(getActivity(), merCode);
