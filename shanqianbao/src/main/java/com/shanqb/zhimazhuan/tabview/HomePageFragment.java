@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.component.dly.xzzq_ywsdk.YwSDK;
 import com.component.dly.xzzq_ywsdk.YwSDK_WebActivity;
+import com.duoyou.task.openapi.DyAdApi;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.permissionx.guolindev.PermissionX;
@@ -205,6 +206,12 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                     YwSDK_WebActivity.Companion.open(getActivity());
                                                     break;
                                                 case Global.CHANNEL_CODE_DUOYOU:
+                                                    DyAdApi.getDyAdApi().init(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey(),"channel");
+                                                    /**
+                                                     * userId : 开发者APP用户标识，代表一个用户的Id，保证唯一性
+                                                     * advertType: 0（默认值）显示全部数据  1.手游  2.棋牌游戏
+                                                     */
+                                                    DyAdApi.getDyAdApi().jumpAdList(getActivity(), merCode, 0);
                                                     break;
                                                 case Global.CHANNEL_CODE_XIQU:
                                                     XiquUtils.init(getActivity().getApplication(), channelBean.getChannelUser(), channelBean.getChannelKey());
@@ -269,12 +276,15 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
     @Override
     public void onItemClick(int position) {
-//        YwSDK.Companion.refreshAppSecret("pe9ef50f987cc6ed577b726e6bde749c", "dy_59634987");
-        YwSDK.Companion.refreshAppSecret("jxlnspmvoc6dc0ybpys30i39641xyitm", "2090");
-        boolean isInitSuccess = YwSDK.Companion.checkInit();
-        if (isInitSuccess) {
-            //进入鱼玩盒子首页
-            YwSDK_WebActivity.Companion.open(getActivity());
-        }
+//        String merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
+//
+//        DyAdApi.getDyAdApi().init(getActivity(), "dy_59634987", "be9ef50f987cc6ed577b726e6bde749c","channel");
+////        DyAdApi.getDyAdApi().init(getActivity(),"dy_59633678", "ee0a8ee5de2ce442c8b094410440ec8c", "channel");
+//        /**
+//         * userId : 开发者APP用户标识，代表一个用户的Id，保证唯一性
+//         * advertType: 0（默认值）显示全部数据  1.手游  2.棋牌游戏
+//         */
+//        DyAdApi.getDyAdApi().jumpAdList(getActivity(), merCode, 0);
+
     }
 }
