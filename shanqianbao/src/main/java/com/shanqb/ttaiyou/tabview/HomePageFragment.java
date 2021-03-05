@@ -18,6 +18,7 @@ import com.permissionx.guolindev.callback.ForwardToSettingsCallback;
 import com.permissionx.guolindev.callback.RequestCallback;
 import com.permissionx.guolindev.request.ExplainScope;
 import com.permissionx.guolindev.request.ForwardScope;
+import com.shanqb.shanqianbao.MainActivity;
 import com.shanqb.ttaiyou.R;
 import com.shanqb.ttaiyou.activity.ReadGetMoneyActivity;
 import com.shanqb.ttaiyou.adapter.HomeTopListAdapter;
@@ -40,6 +41,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import jfq.wowan.com.myapplication.PlayMeUtil;
 
 
 /**
@@ -218,6 +220,17 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                 });
                 break;
             case R.id.wowang_btn:
+                requestPermission(new RequestCallback() {
+                    @Override
+                    public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
+                        if (allGranted) {
+                            String deviceId = DeviceUtils.getDeviceId(getActivity());
+                            String oaid = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.OAID,"");
+                            PlayMeUtil.openIndex(getActivity(),"6968",merCode,deviceId,oaid,"z7ugkaIgSvvvaTg0jFmeBdHDE2p15uHh");
+//                            PlayMeUtil.openIndex(getActivity(), "3888", "1443910", deviceId, "dewfew-fregf-gfreg-gre", "Ax5xVDDx9NGbIhefGzqf9S8pT7aM8E72");
+                        }
+                    }
+                });
 
                 break;
         }

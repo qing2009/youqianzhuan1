@@ -7,7 +7,8 @@ import com.bun.miitmdid.core.MdidSdkHelper;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
 import com.bun.miitmdid.interfaces.IdSupplier;
 
-public class MittUtils implements IIdentifierListener {
+
+public class MittUtils {
 
     private AppIdsUpdater listener;
 
@@ -40,23 +41,23 @@ public class MittUtils implements IIdentifierListener {
      * @return
      */
     private int CallFromReflect(Context cxt) {
-        return MdidSdkHelper.InitSdk(cxt, true, this);
-    }
-
-
-    @Override
-    public void OnSupport(boolean isSupport, IdSupplier idSupplier) {
-        if (idSupplier == null) {
-            if (listener != null) {
-                listener.OnIdsAvailed(isSupport, null);
+        return MdidSdkHelper.InitSdk(cxt, true, new IIdentifierListener() {
+            @Override
+            public void OnSupport(boolean isSupport, IdSupplier idSupplier) {
+                if (idSupplier == null) {
+                    if (listener != null) {
+                        listener.OnIdsAvailed(isSupport, null);
+                    }
+                    return;
+                }
+                String oaid = idSupplier.getOAID();
+                if (listener != null) {
+                    listener.OnIdsAvailed(isSupport, oaid);
+                }
             }
-            return;
-        }
-        String oaid = idSupplier.getOAID();
-        if (listener != null) {
-            listener.OnIdsAvailed(isSupport, oaid);
-        }
+        });
     }
+
 
     public interface AppIdsUpdater {
         void OnIdsAvailed(boolean isSupport, String oaid);
