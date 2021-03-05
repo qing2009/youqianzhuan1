@@ -33,7 +33,7 @@
         android:usesCleartextTraffic="true"
         android:icon="@drawable/launcher_icon_weizhuanzushou"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.Light.NoTitleBar">
+        android:theme="@style/AppTheme">
 
 
         <activity
