@@ -153,96 +153,77 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     }
 
 
-    @OnClick({R.id.taskGetMoney_imgView, R.id.readGetMoney_imgView, R.id.juxiangwang_btn, R.id.taojing91_btn, R.id.aibianxian_btn})
+    @OnClick({R.id.taskGetMoney_imgView, R.id.readGetMoney_imgView, R.id.juxiangwang_btn, R.id.taojing91_btn, R.id.aibianxian_btn,R.id.xiqu_btn,R.id.wowang_btn})
     public void onViewClicked(View view) {
+
+        String merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
+
         switch (view.getId()) {
             case R.id.taskGetMoney_imgView:
-                PermissionX.init(this)
-                        .permissions(Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_PHONE_STATE)
-                        .onExplainRequestReason(new ExplainReasonCallback() {
-                            @Override
-                            public void onExplainReason(ExplainScope scope, List<String> deniedList) {
-                                scope.showRequestReasonDialog(deniedList, getString(R.string.need_agree_permissions), getString(R.string.agree), getString(R.string.cancel));
-                            }
-                        })
-                        .onForwardToSettings(new ForwardToSettingsCallback() {
-                            @Override
-                            public void onForwardToSettings(ForwardScope scope, List<String> deniedList) {
-                                scope.showForwardToSettingsDialog(deniedList, getString(R.string.to_set_open_permissions), getString(R.string.openSet), getString(R.string.cancel));
-                            }
-                        })
-                        .request(new RequestCallback() {
-                            @Override
-                            public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
-                                if (allGranted) {
-//                                    Toast.makeText(getActivity(), "All permissions are granted", Toast.LENGTH_LONG).show();
-//                                    textview.setText("deviceId=" + deviceId + "; xwdeviceid=" + xwdeviceid);
-
-                                    XianWangUtils.startSDK(getActivity());
-                                } else {
-//                                    Toast.makeText(getActivity(), "These permissions are denied: $deniedList", Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
+                requestPermission(new RequestCallback() {
+                    @Override
+                    public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
+                        if (allGranted) {
+                            XianWangUtils.startSDK(getActivity());
+                        }
+                    }
+                });
                 break;
 
 
             case R.id.juxiangwang_btn:
-
-                PermissionX.init(this)
-                        .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE)
-                        .onExplainRequestReason(new ExplainReasonCallback() {
-                            @Override
-                            public void onExplainReason(ExplainScope scope, List<String> deniedList) {
-                                scope.showRequestReasonDialog(deniedList, getString(R.string.need_agree_permissions), getString(R.string.agree), getString(R.string.cancel));
-                            }
-                        })
-                        .onForwardToSettings(new ForwardToSettingsCallback() {
-                            @Override
-                            public void onForwardToSettings(ForwardScope scope, List<String> deniedList) {
-                                scope.showForwardToSettingsDialog(deniedList, getString(R.string.to_set_open_permissions), getString(R.string.openSet), getString(R.string.cancel));
-                            }
-                        })
-                        .request(new RequestCallback() {
-                            @Override
-                            public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
-                                if (allGranted) {
-//                                    String userId = "654321";
-                                    String merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
-                                    JuxiangyouUtils.startSDK(getActivity(), merCode);
-                                } else {
-//                                    Toast.makeText(getActivity(), "These permissions are denied: $deniedList", Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
+                requestPermission(new RequestCallback() {
+                    @Override
+                    public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
+                        if (allGranted) {
+                            JuxiangyouUtils.startSDK(getActivity(), merCode);
+                        }
+                    }
+                });
                 break;
+
             case R.id.taojing91_btn:
-                Taojing91Utils.startSDK(getActivity(), merCode);
+                requestPermission(new RequestCallback() {
+                    @Override
+                    public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
+                        if (allGranted) {
+                            Taojing91Utils.startSDK(getActivity(), merCode);
+                        }
+                    }
+                });
+
                 break;
             case R.id.aibianxian_btn:
-                AibianxianUtils.startSDK(getActivity().getApplication(), merCode, getActivity());
-//                test();
+                requestPermission(new RequestCallback() {
+                    @Override
+                    public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
+                        if (allGranted) {
+                            AibianxianUtils.startSDK(getActivity().getApplication(), merCode, getActivity());
+                        }
+                    }
+                });
                 break;
             case R.id.readGetMoney_imgView:
                 startActivity(new Intent(getActivity(), ReadGetMoneyActivity.class));
                 break;
+            case R.id.xiqu_btn:
+
+                requestPermission(new RequestCallback() {
+                    @Override
+                    public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
+                        if (allGranted) {
+                            XiquUtils.startSDK(getActivity(), merCode);
+                        }
+                    }
+                });
+                break;
+            case R.id.wowang_btn:
+
+                break;
         }
     }
 
-    private void test() {
-        Log.e(getClass().getName(), "test: DeviceId=" + DeviceUtils.getDeviceId(getContext()));
-        Log.e(getClass().getName(), "test: IMEI 0 =" + DeviceUtils.getIMEI(getContext(), 0));
-        Log.e(getClass().getName(), "test: IMEI 1 =" + DeviceUtils.getIMEI(getContext(), 1));
-        Log.e(getClass().getName(), "test: MEID =" + DeviceUtils.getMEID(getContext()));
-    }
-
-    @Override
-    public void onItemClick(int position) {
-
-    }
-
-    @OnClick(R.id.xiqu_btn)
-    public void onClick() {
+    private void requestPermission(RequestCallback requestCallback){
         PermissionX.init(this)
                 .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE)
                 .onExplainRequestReason(new ExplainReasonCallback() {
@@ -257,17 +238,18 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                         scope.showForwardToSettingsDialog(deniedList, getString(R.string.to_set_open_permissions), getString(R.string.openSet), getString(R.string.cancel));
                     }
                 })
-                .request(new RequestCallback() {
-                    @Override
-                    public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
-                        if (allGranted) {
-//                                    String userId = "654321";
-                            String merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
-                            XiquUtils.startSDK(getActivity(), merCode);
-                        } else {
-//                                    Toast.makeText(getActivity(), "These permissions are denied: $deniedList", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
+                .request(requestCallback);
+    }
+
+    private void test() {
+        Log.e(getClass().getName(), "test: DeviceId=" + DeviceUtils.getDeviceId(getContext()));
+        Log.e(getClass().getName(), "test: IMEI 0 =" + DeviceUtils.getIMEI(getContext(), 0));
+        Log.e(getClass().getName(), "test: IMEI 1 =" + DeviceUtils.getIMEI(getContext(), 1));
+        Log.e(getClass().getName(), "test: MEID =" + DeviceUtils.getMEID(getContext()));
+    }
+
+    @Override
+    public void onItemClick(int position) {
+
     }
 }
