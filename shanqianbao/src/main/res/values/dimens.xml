@@ -17,7 +17,7 @@
     <!--按钮的高度-->
     <dimen name="buttonHeight">45dp</dimen>
     <dimen name="button_textSize">18sp</dimen>
-    <dimen name="screen_margin_horizontal">5dp</dimen>
+    <dimen name="screen_margin_horizontal">15dp</dimen>
 
 
 </resources>

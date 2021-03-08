@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:paddingBottom="10dp">
 
-        <com.xuexiang.xui.widget.banner.recycler.BannerLayout
+<!--        <com.xuexiang.xui.widget.banner.recycler.BannerLayout
             android:id="@+id/bl_horizontal"
             android:layout_width="match_parent"
             android:layout_height="170dp"
@@ -24,7 +24,9 @@
             app:bl_autoPlaying="true"
             app:bl_centerScale="1.6"
             app:bl_itemSpace="5dp"
-            app:bl_moveSpeed="1.8" />
+            app:bl_moveSpeed="1.8" />-->
+
+        <include layout="@layout/layout_myinfo"></include>
 
 
         <LinearLayout
@@ -158,6 +160,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
+            android:visibility="gone"
             android:src="@drawable/home_view">
 
         </ImageView>
@@ -168,6 +171,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
+            android:visibility="gone"
             android:nestedScrollingEnabled="false" />
 
         <LinearLayout
@@ -177,7 +181,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:orientation="horizontal"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <ImageView
                 android:id="@+id/taojing91_btn"

@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-import com.shanqb.zhimazhuan.R;
-import com.shanqb.zhimazhuan.tabview.HomeActivity;
-import com.shanqb.zhimazhuan.utils.MittUtils;
+import com.shanqb.aiyiyou.R;
+import com.shanqb.aiyiyou.tabview.HomeActivity;
+import com.shanqb.aiyiyou.utils.MittUtils;
 
 public class MainActivity extends Activity
 {
