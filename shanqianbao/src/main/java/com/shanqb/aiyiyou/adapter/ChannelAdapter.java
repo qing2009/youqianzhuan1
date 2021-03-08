@@ -9,6 +9,7 @@ import com.shanqb.aiyiyou.bean.ChannelBean;
 import com.shanqb.aiyiyou.test.BaseRecyclerViewAdapter;
 import com.shanqb.aiyiyou.view.RoundCornerImageView;
 import com.xuexiang.xui.widget.imageview.ImageLoader;
+import com.xuexiang.xui.widget.imageview.strategy.DiskCacheStrategyEnum;
 
 import java.util.List;
 
@@ -31,9 +32,9 @@ public class ChannelAdapter extends BaseRecyclerViewAdapter {
         try {
             ChannelBean channelBean = channelBeanList.get(var2);
             RoundCornerImageView imageView = (RoundCornerImageView) var1.getImageView(R.id.channel_radiusImgView);
-            ImageLoader.get().loadImage(imageView,channelBean.getImageUrl());
-//            ImageLoader.get().loadImage(imageView, channelBean.getImageUrl(), mColorDrawable,
-//                    true ? DiskCacheStrategyEnum.RESOURCE : DiskCacheStrategyEnum.NONE);
+//            ImageLoader.get().loadImage(imageView,channelBean.getImageUrl());
+            ImageLoader.get().loadImage(imageView, channelBean.getImageUrl(), mColorDrawable,
+                    true ? DiskCacheStrategyEnum.RESOURCE : DiskCacheStrategyEnum.NONE);
 //            imageView.setImageResource(R.drawable.shiwang01);
 //            ImageLoader.get().loadImage(imageView,R.drawable.shiwang01);
 //            imageView.setImageURI(Uri.parse(channelBean.getImageUrl()));

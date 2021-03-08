@@ -137,6 +137,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/channel_recView"
             android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
@@ -177,9 +178,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="@dimen/screen_margin_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/screen_margin_horizontal"
             android:orientation="horizontal"
             android:visibility="visible">
 
