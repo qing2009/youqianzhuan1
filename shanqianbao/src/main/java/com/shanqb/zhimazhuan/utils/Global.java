@@ -18,6 +18,7 @@ public class Global
 	public static final String CHANNEL_CODE_YUWANG = "20210302150858583";//鱼丸盒子
 	public static final String CHANNEL_CODE_DUOYOU = "20210302221618125";//多游
 	public static final String CHANNEL_CODE_XIQU = "";//
+	public static final String CHANNEL_CODE_WOWANG = "WOWANG";
 
 	/** 日志开启开关 */
 	public static final boolean DEBUG = false;
@@ -38,6 +39,7 @@ public class Global
 //	public static final String BASE_INTER_URL = "http://wmn.douziok.com/diaobo/front/myInfo/";//
 //	public static final String BASE_INTER_URL = "http://1.15.38.129/front/myInfo/";//tt爱游
 	public static final String BASE_INTER_URL = "http://8.133.178.205/admin/front/myInfo/";//
+
 
 
 	/**
