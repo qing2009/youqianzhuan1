@@ -14,17 +14,17 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
-<!--        <com.xuexiang.xui.widget.banner.recycler.BannerLayout
-            android:id="@+id/bl_horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:layout_marginLeft="@dimen/screen_margin_horizontal"
-            android:layout_marginRight="@dimen/screen_margin_horizontal"
-            android:paddingTop="5dp"
-            app:bl_autoPlaying="true"
-            app:bl_centerScale="1.6"
-            app:bl_itemSpace="5dp"
-            app:bl_moveSpeed="1.8" />-->
+        <!--        <com.xuexiang.xui.widget.banner.recycler.BannerLayout
+                    android:id="@+id/bl_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_marginLeft="@dimen/screen_margin_horizontal"
+                    android:layout_marginRight="@dimen/screen_margin_horizontal"
+                    android:paddingTop="5dp"
+                    app:bl_autoPlaying="true"
+                    app:bl_centerScale="1.6"
+                    app:bl_itemSpace="5dp"
+                    app:bl_moveSpeed="1.8" />-->
 
         <include layout="@layout/layout_myinfo"></include>
 
@@ -137,8 +137,8 @@
             android:id="@+id/marqueeView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
             android:background="#88dddddd" />
 
@@ -146,9 +146,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/channel_recView"
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
             android:nestedScrollingEnabled="false" />
 
@@ -166,12 +166,12 @@
             android:id="@+id/homeView_imagview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
-            android:visibility="gone"
-            android:src="@drawable/home_view">
+            android:scaleType="centerCrop"
+            android:src="@drawable/home_view"
+            android:visibility="gone">
 
         </ImageView>
 
@@ -181,8 +181,8 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
-            android:visibility="gone"
-            android:nestedScrollingEnabled="false" />
+            android:nestedScrollingEnabled="false"
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -199,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
-                android:src="@drawable/homepage_taojin91"></ImageView>
+                android:src="@drawable/home_view"></ImageView>
 
             <!--            <ImageView
                             android:id="@+id/aibianxian_btn"

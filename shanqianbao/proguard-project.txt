@@ -35,7 +35,7 @@
 -keep class com.markupartist.android.widget.** {*;}
 -keep class org.apache.** {*;}
  
--keepclassmembers class com.shanqb.aiyiyou.bean.** {
+-keepclassmembers class com.shanqb.weizhuanzushou.bean.** {
 	public <methods>;
 }
 
@@ -74,7 +74,7 @@
 -keep class org.taptwo.android.widget.**{ *; }
 
 -keepattributes Signature
--keepclasseswithmembernames class com.shanqb.aiyiyou.bean.** {*;}
+-keepclasseswithmembernames class com.shanqb.weizhuanzushou.bean.** {*;}
 
 -dontwarn com.google.android.maps.**
 -dontwarn android.webkit.WebView
