@@ -71,14 +71,16 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
 //        tabs.add(new TabItem(R.drawable.selector_tab_homepage, R.string.homePage, R.string.app_name, HomePageFragment.class));
 //        tabs.add(new TabItem(R.drawable.selector_tab_profile, R.string.me, R.string.me, ProfileFragment.class));
         tabs.add(new TabItem(R.drawable.selector_tab_homepage, R.string.homePage, R.string.app_name));
-        tabs.add(new TabItem(R.drawable.selector_tab_faxian, R.string.faxian, R.string.faxian));
+//        tabs.add(new TabItem(R.drawable.selector_tab_faxian, R.string.faxian, R.string.faxian));
+        tabs.add(new TabItem(R.drawable.selector_tab_faxian, R.string.qiandao, R.string.qiandao));
         tabs.add(new TabItem(R.drawable.selector_tab_profile, R.string.me, R.string.me));
 
         mTabLayout.initData(tabs, this);
         mTabLayout.setCurrentTab(0);
 
         baseFragments.add(new HomePageFragment());
-        baseFragments.add(new FaxianFragment());
+//        baseFragments.add(new FaxianFragment());
+        baseFragments.add(new QiandaoFragment());
         baseFragments.add(new ProfileFragment());
 
         FragAdapter adapter = new FragAdapter(getSupportFragmentManager(),baseFragments);
@@ -195,7 +197,7 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
                             if (loginResponse.isSuccess()) {
 
                                 if (loginResponse.getData() != null) {
-                                    SharedPreferences preferences = SharedPreferencesUtil.getInterface(HomeActivity.this);
+                                    SharedPreferences preferences = SharedPreferencesUtil.getInterface(getApplicationContext());
                                     SharedPreferences.Editor editor = preferences.edit();
                                     editor.putInt(SharedPreConstants.userid, loginResponse.getData().getId());
                                     editor.putString(SharedPreConstants.loginCode, loginResponse.getData().getLoginCode());

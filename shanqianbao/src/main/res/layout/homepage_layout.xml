@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
 <!--        <com.xuexiang.xui.widget.banner.recycler.BannerLayout
@@ -19,7 +20,6 @@
             android:layout_height="170dp"
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
-            android:layout_marginBottom="10dp"
             android:paddingTop="5dp"
             app:bl_autoPlaying="true"
             app:bl_centerScale="1.6"
@@ -132,6 +132,15 @@
                 app:riv_selected_border_width="1px"
                 app:riv_selected_mask_color="@color/xui_config_color_gray_8" />
         </LinearLayout>
+
+        <com.xuexiang.xui.widget.textview.marqueen.MarqueeView
+            android:id="@+id/marqueeView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="@dimen/screen_margin_horizontal"
+            android:layout_marginRight="@dimen/screen_margin_horizontal"
+            android:background="#88dddddd" />
 
 
         <androidx.recyclerview.widget.RecyclerView

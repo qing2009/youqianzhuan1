@@ -22,4 +22,8 @@ public class SharedPreConstants {
 
     public static final String ISLOGINED = "isLogined";
 
+
+    public static final String QIANDAO_SUM = "qiandao_sum";
+    public static final String QIANDAO_RECORD = "qiandao_record";
+
 }

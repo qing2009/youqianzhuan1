@@ -1,6 +1,7 @@
 package com.shanqb.aiyiyou.tabview;
 
 import android.Manifest;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -27,16 +28,16 @@ import com.permissionx.guolindev.callback.RequestCallback;
 import com.permissionx.guolindev.request.ExplainScope;
 import com.permissionx.guolindev.request.ForwardScope;
 import com.shanqb.aiyiyou.R;
+import com.shanqb.aiyiyou.activity.WithdrawActivity;
 import com.shanqb.aiyiyou.adapter.ChannelAdapter;
 import com.shanqb.aiyiyou.adapter.HomeTopListAdapter;
-import com.shanqb.aiyiyou.adapter.RecyclerViewBannerAdapter2;
 import com.shanqb.aiyiyou.bean.ChannelBean;
 import com.shanqb.aiyiyou.test.BaseRecyclerViewAdapter;
-import com.shanqb.aiyiyou.utils.DemoDataProvider;
 import com.shanqb.aiyiyou.utils.DeviceUtils;
 import com.shanqb.aiyiyou.utils.Global;
 import com.shanqb.aiyiyou.utils.SharedPreConstants;
 import com.shanqb.aiyiyou.utils.SharedPreferencesUtil;
+import com.shanqb.aiyiyou.utils.XToastUtils;
 import com.shanqb.aiyiyou.utils.sdk.AibianxianUtils;
 import com.shanqb.aiyiyou.utils.sdk.JuxiangyouUtils;
 import com.shanqb.aiyiyou.utils.sdk.Taojing91Utils;
@@ -46,12 +47,17 @@ import com.shanqb.aiyiyou.view.CircleImageView;
 import com.xuexiang.xui.adapter.recyclerview.GridDividerItemDecoration;
 import com.xuexiang.xui.utils.DensityUtils;
 import com.xuexiang.xui.widget.banner.recycler.BannerLayout;
+import com.xuexiang.xui.widget.textview.marqueen.MarqueeFactory;
+import com.xuexiang.xui.widget.textview.marqueen.MarqueeView;
+import com.xuexiang.xui.widget.textview.marqueen.SimpleNoticeMF;
 
 import java.lang.reflect.Type;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 
@@ -59,7 +65,7 @@ import butterknife.Unbinder;
  * Created by yx on 16/4/3.
  */
 public class HomePageFragment extends BaseFragment implements ITabClickListener, BannerLayout.OnBannerItemClickListener {
-//    @BindView(R.id.bl_horizontal)
+    //    @BindView(R.id.bl_horizontal)
 //    BannerLayout blHorizontal;
     @BindView(R.id.headImageView)
     CircleImageView headImageView;
@@ -91,6 +97,10 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     RecyclerView channelRecView;
     @BindView(R.id.homeView_imagview)
     ImageView homeViewImagview;
+    @BindView(R.id.userInfo_yaoqingma_textView)
+    TextView userYouqingmaSuperText;
+    @BindView(R.id.marqueeView1)
+    MarqueeView marqueeView1;
 
 //    private RecyclerViewBannerAdapter2 mAdapterHorizontal;//轮播图
 
@@ -110,6 +120,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
             totalRevenueTextView.setText(totalRevenue);
             String withdrawable = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.txAmt, "0.00");
             withdrawableTextView.setText(withdrawable);
+            String yaoqingma = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.shareCode, "");
+            userYouqingmaSuperText.setText(getString(R.string.yaoqingma) + ": " + yaoqingma);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -120,6 +132,15 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
         View view = inflater.inflate(R.layout.homepage_layout, container, false);
         unbinder = ButterKnife.bind(this, view);
         merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
+
+
+        //公告
+        final List<String> datas = Arrays.asList("公告：试玩前一定要看清楚试玩规则","公告：请使用正常手机试玩");
+        MarqueeFactory<TextView, String> marqueeFactory1 = new SimpleNoticeMF(getContext());
+        marqueeView1.setMarqueeFactory(marqueeFactory1);
+        marqueeView1.startFlipping();
+        marqueeFactory1.setData(datas);
+
 
 
         int screenWidth = DensityUtils.getScreenMetrics(true).widthPixels;//屏幕宽度
@@ -133,11 +154,10 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 //        homeViewImagview.getLayoutParams().height = homeViewHeight;
 
 
-
-        Bitmap bitmap  = BitmapFactory.decodeResource(getResources(),R.drawable.homepage_taojin91);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.homepage_taojin91);
 //        int viewWidth = taojing91Btn.getWidth();
         int viewWidth = screenWidth - spacingWidth;
-        int viewHeight = viewWidth * bitmap.getHeight()/ bitmap.getWidth();
+        int viewHeight = viewWidth * bitmap.getHeight() / bitmap.getWidth();
         taojing91Btn.getLayoutParams().height = viewHeight;
 
         Log.e(getTag(), "viewWidth: " + viewWidth);
@@ -211,12 +231,12 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                     XianWangUtils.startSDK(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey());
                                                     break;
                                                 case Global.CHANNEL_CODE_YUWANG:
-                                                    YwSDK.Companion.refreshAppSecret(channelBean.getChannelKey(),channelBean.getChannelUser());
+                                                    YwSDK.Companion.refreshAppSecret(channelBean.getChannelKey(), channelBean.getChannelUser());
                                                     //进入鱼玩盒子首页
                                                     YwSDK_WebActivity.Companion.open(getActivity());
                                                     break;
                                                 case Global.CHANNEL_CODE_DUOYOU:
-                                                    DyAdApi.getDyAdApi().init(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey(),"channel");
+                                                    DyAdApi.getDyAdApi().init(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey(), "channel");
                                                     /**
                                                      * userId : 开发者APP用户标识，代表一个用户的Id，保证唯一性
                                                      * advertType: 0（默认值）显示全部数据  1.手游  2.棋牌游戏
@@ -296,5 +316,10 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 //         */
 //        DyAdApi.getDyAdApi().jumpAdList(getActivity(), merCode, 0);
 
+    }
+
+    @OnClick(R.id.ketixian_linLayout)
+    public void onClick() {
+        startActivity(new Intent(getActivity(), WithdrawActivity.class));
     }
 }

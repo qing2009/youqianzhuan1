@@ -20,7 +20,7 @@
         *                   xui color                    *
         ***********************************************-->
         <!-- CheckBox，RadioButton，SwitchCompat等一般控件的选中效果默认采用该颜色 -->
-        <item name="colorAccent">@color/custom_color_main_theme</item>
+        <item name="colorAccent">@color/lead_1</item>
         <!--应用的主要色调，actionBar默认使用该颜色，Toolbar导航栏的底色-->
         <item name="colorPrimary">@color/title_bg</item>
         <!--应用的主要暗色调，statusBarColor默认使用该颜色-->

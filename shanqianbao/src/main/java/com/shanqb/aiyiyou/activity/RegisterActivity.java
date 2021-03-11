@@ -92,7 +92,7 @@ public class RegisterActivity extends MyBaseActivity {
                 String userName = stvRegister.getCenterEditValue().trim();
                 String userPwd = stvRegisterPwd.getCenterEditValue().trim();
                 String userPwdCheck = stvRegisterPwdConfirmPwd.getCenterEditValue().trim();
-                String imei = DeviceUtils.getDeviceId(this);
+                String imei = DeviceUtils.getDeviceId(getApplicationContext());
 
                 if (userPwd.equals(userPwdCheck) == false) {     //两次密码输入不一样
                     Toast.makeText(this, getString(R.string.pwd_not_the_same), Toast.LENGTH_SHORT).show();
@@ -119,7 +119,7 @@ public class RegisterActivity extends MyBaseActivity {
                                 if (loginResponse.isSuccess()) {
 
                                     if (loginResponse.getData() != null) {
-                                        LoginUtils.saveUserInfo(RegisterActivity.this,loginResponse,userPwd);
+                                        LoginUtils.saveUserInfo(getApplicationContext(),loginResponse,userPwd);
 
                                         BaseApplication.getInstance().clearActivityList();
 

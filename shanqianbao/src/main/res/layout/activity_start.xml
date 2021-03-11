@@ -9,6 +9,6 @@
         android:layout_height="fill_parent"
         android:layout_above="@+id/viewCenter"
         android:scaleType="fitXY"
-        android:src="@drawable/start_logo" />
+        android:src="@drawable/start_logo_aiyiyou" />
 
 </RelativeLayout>

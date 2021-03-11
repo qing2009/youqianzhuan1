@@ -122,7 +122,7 @@
                     android:layout_alignParentLeft="true"
                     android:drawableLeft="@drawable/me_yaoqingma"
                     android:gravity="center_vertical"
-                    android:text="邀请码"></TextView>
+                    android:text="@string/yaoqingma"></TextView>
                 <TextView
                     android:id="@+id/yaoqingmaCode_textView"
                     android:layout_width="wrap_content"

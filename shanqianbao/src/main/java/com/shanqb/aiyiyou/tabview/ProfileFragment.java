@@ -47,6 +47,8 @@ public class ProfileFragment extends BaseFragment implements ITabClickListener {
     TextView withdrawalAccountTextView;
     @BindView(R.id.yaoqingmaCode_textView)
     TextView youqingmaSuperText;
+    @BindView(R.id.userInfo_yaoqingma_textView)
+    TextView userYouqingmaSuperText;
 
     @Override
     public void fetchData() {
@@ -57,6 +59,7 @@ public class ProfileFragment extends BaseFragment implements ITabClickListener {
         withdrawableTextView.setText(withdrawable);
         String yaoqingma = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.shareCode, "");
         youqingmaSuperText.setText(yaoqingma);
+        userYouqingmaSuperText.setText(getString(R.string.yaoqingma)+": "+yaoqingma);
     }
 
     @Override

@@ -44,6 +44,15 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/username"
                 android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/userInfo_yaoqingma_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:textIsSelectable="true"
+                ></TextView>
         </LinearLayout>
 
     </RelativeLayout>
@@ -82,6 +91,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ketixian_linLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

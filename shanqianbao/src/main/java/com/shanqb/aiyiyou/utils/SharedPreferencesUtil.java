@@ -2,6 +2,7 @@ package com.shanqb.aiyiyou.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
 
@@ -13,7 +14,7 @@ public class SharedPreferencesUtil {
 	public static SharedPreferences getInterface(Context context) {
 		SharedPreferences mSharedPre = null;
 		if (context!=null) {
-			mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_APPEND);
+			mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_PRIVATE);
 		}
 		return mSharedPre;
 	}
@@ -28,7 +29,7 @@ public class SharedPreferencesUtil {
 	 */
 	public static void setStringValue(Context context, String key, String value) {
 		if (context!=null && !TextUtils.isEmpty(key) && !TextUtils.isEmpty(value)) {
-			SharedPreferences mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_APPEND);
+			SharedPreferences mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_PRIVATE);
 			mSharedPre.edit().putString(key, value).commit();
 		}
 	}
@@ -45,7 +46,7 @@ public class SharedPreferencesUtil {
 		String valueString = defValue;
 		try {
 			if (context!=null && !TextUtils.isEmpty(key)) {
-				SharedPreferences mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_APPEND);
+				SharedPreferences mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_PRIVATE);
 				valueString = mSharedPre.getString(key, defValue);
 			}
 		}catch (Exception e){
@@ -56,7 +57,7 @@ public class SharedPreferencesUtil {
 
 	public static void setBooleanValue(Context context,String key, boolean value) {
 		if (context!=null && !TextUtils.isEmpty(key)) {
-			SharedPreferences mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_APPEND);
+			SharedPreferences mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_PRIVATE);
 			mSharedPre.edit().putBoolean(key, value).commit();
 		}
 	}
@@ -65,7 +66,7 @@ public class SharedPreferencesUtil {
 		boolean valueBoo = defValue;
 		try {
 			if (context != null && !TextUtils.isEmpty(key)) {
-				SharedPreferences mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_APPEND);
+				SharedPreferences mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_PRIVATE);
 				valueBoo = mSharedPre.getBoolean(key, defValue);
 			}
 		} catch (Exception e) {
@@ -76,7 +77,7 @@ public class SharedPreferencesUtil {
 
 	public static void setIntValue(Context context,String key, int value) {
 		if (context!=null && !TextUtils.isEmpty(key)) {
-			SharedPreferences mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_APPEND);
+			SharedPreferences mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_PRIVATE);
 			mSharedPre.edit().putInt(key, value).commit();
 		}
 	}
@@ -85,7 +86,7 @@ public class SharedPreferencesUtil {
 		int valueInt = defValue;
 		try {
 			if (context != null && !TextUtils.isEmpty(key)) {
-				SharedPreferences mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_APPEND);
+				SharedPreferences mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_PRIVATE);
 				return mSharedPre.getInt(key, defValue);
 			}
 		} catch (Exception e) {
@@ -96,14 +97,14 @@ public class SharedPreferencesUtil {
 
 	public static void remove(Context context,String key) {
 		if (context!=null && !TextUtils.isEmpty(key)) {
-			SharedPreferences mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_APPEND);
+			SharedPreferences mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_PRIVATE);
 			mSharedPre.edit().remove(key).commit();
 		}
 	}
 
 	public static void clear(Context context) {
 		if (context!=null) {
-			SharedPreferences mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_APPEND);
+			SharedPreferences mSharedPre = context.getSharedPreferences(USERINFO_SHARED, Context.MODE_PRIVATE);
 			mSharedPre.edit().clear().commit();
 		}
 	}
