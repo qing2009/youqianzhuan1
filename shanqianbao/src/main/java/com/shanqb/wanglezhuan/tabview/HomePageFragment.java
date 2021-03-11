@@ -31,8 +31,10 @@ import com.shanqb.wanglezhuan.R;
 import com.shanqb.wanglezhuan.activity.WithdrawActivity;
 import com.shanqb.wanglezhuan.adapter.ChannelAdapter;
 import com.shanqb.wanglezhuan.adapter.HomeTopListAdapter;
+import com.shanqb.wanglezhuan.adapter.RecyclerViewBannerAdapter2;
 import com.shanqb.wanglezhuan.bean.ChannelBean;
 import com.shanqb.wanglezhuan.test.BaseRecyclerViewAdapter;
+import com.shanqb.wanglezhuan.utils.DemoDataProvider;
 import com.shanqb.wanglezhuan.utils.DeviceUtils;
 import com.shanqb.wanglezhuan.utils.Global;
 import com.shanqb.wanglezhuan.utils.SharedPreConstants;
@@ -64,7 +66,7 @@ import butterknife.Unbinder;
  * Created by yx on 16/4/3.
  */
 public class HomePageFragment extends BaseFragment implements ITabClickListener, BannerLayout.OnBannerItemClickListener {
-    //    @BindView(R.id.bl_horizontal)
+//        @BindView(R.id.bl_horizontal)
 //    BannerLayout blHorizontal;
     @BindView(R.id.headImageView)
     CircleImageView headImageView;
@@ -171,13 +173,13 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
 //        blHorizontal.setAdapter(mAdapterHorizontal = new RecyclerViewBannerAdapter2(DemoDataProvider.urls));
 //        mAdapterHorizontal.setOnBannerItemClickListener(this);
-//
-//        this.layoutManager = new LinearLayoutManager(getActivity());
-//        this.layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-//        this.recordRecyView.setLayoutManager(this.layoutManager);
-//        adapter = new HomeTopListAdapter(getActivity());
-//        recordRecyView.setAdapter(adapter);
-        recordRecyView.setVisibility(View.GONE);
+
+        this.layoutManager = new LinearLayoutManager(getActivity());
+        this.layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        this.recordRecyView.setLayoutManager(this.layoutManager);
+        adapter = new HomeTopListAdapter(getActivity());
+        recordRecyView.setAdapter(adapter);
+//        recordRecyView.setVisibility(View.GONE);
 
 
         //channel数据
