@@ -293,7 +293,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                 case Global.CHANNEL_CODE_XIANWANG2:
 //                                                    XWAdSdk.init(getActivity().getApplication(), "1010", "nw2olixipulielgp"); //初始化 参数
                                                     XWAdSdk.init(getActivity().getApplication(), channelBean.getChannelUser(), channelBean.getChannelKey()); //初始化 参数
-                                                    XWAdSdk.showLOG(BuildConfig.DEBUG); //是否开启日志
+                                                    XWAdSdk.showLOG(true); //是否开启日志
 
                                                     XWADPage.jumpToAD(new XWADPageConfig.Builder(merCode) //必传参数，指接入方渠道的APP的用户ID，要求每个用户唯一，且不变
                                                             .pageType(XWADPageConfig.PAGE_AD_LIST)
