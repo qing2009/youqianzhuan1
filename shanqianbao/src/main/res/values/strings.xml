@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">爱益游</string>
+    <string name="app_name">玩乐赚</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
 
@@ -122,4 +122,7 @@
     <string name="jingriyiqiandao">今日已签到</string>
     <string name="qiandao_success_tishi">签到成功</string>
     <string name="jingqingqidai">敬请期待</string>
+
+    <!--公告分隔符-->
+    <string name="gonggaoSplit">#</string>
 </resources>

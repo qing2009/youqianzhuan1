@@ -7,7 +7,7 @@
     android:layout_marginTop="8dp"
     >
 
-    <com.shanqb.aiyiyou.view.CircleImageView
+    <com.shanqb.wanglezhuan.view.CircleImageView
         android:id="@+id/headImageView"
         android:layout_width="60dp"
         android:layout_height="60dp"
