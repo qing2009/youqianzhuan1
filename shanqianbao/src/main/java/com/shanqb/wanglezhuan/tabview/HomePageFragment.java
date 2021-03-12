@@ -30,7 +30,6 @@ import com.permissionx.guolindev.callback.ForwardToSettingsCallback;
 import com.permissionx.guolindev.callback.RequestCallback;
 import com.permissionx.guolindev.request.ExplainScope;
 import com.permissionx.guolindev.request.ForwardScope;
-import com.shanqb.wanglezhuan.BuildConfig;
 import com.shanqb.wanglezhuan.R;
 import com.shanqb.wanglezhuan.activity.WithdrawActivity;
 import com.shanqb.wanglezhuan.adapter.ChannelAdapter;
