@@ -21,7 +21,6 @@ import com.shanqb.aiyiyou.BaseApplication;
 import com.shanqb.aiyiyou.R;
 import com.shanqb.aiyiyou.bean.LoginResponse;
 import com.shanqb.aiyiyou.tabview.HomeActivity;
-import com.shanqb.aiyiyou.utils.AcitonConstants;
 import com.shanqb.aiyiyou.utils.Global;
 import com.shanqb.aiyiyou.utils.NetworkUtils;
 import com.shanqb.aiyiyou.utils.SharedPreConstants;

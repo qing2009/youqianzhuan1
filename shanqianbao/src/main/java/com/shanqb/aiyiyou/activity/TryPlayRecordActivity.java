@@ -17,7 +17,7 @@ import com.google.gson.reflect.TypeToken;
 import com.shanqb.aiyiyou.R;
 import com.shanqb.aiyiyou.bean.BaseJsonResponse2;
 import com.shanqb.aiyiyou.bean.TryPlayListResponse;
-import com.shanqb.aiyiyou.utils.AcitonConstants;
+
 import com.shanqb.aiyiyou.utils.Global;
 import com.shanqb.aiyiyou.utils.NetworkUtils;
 import com.shanqb.aiyiyou.utils.SharedPreConstants;

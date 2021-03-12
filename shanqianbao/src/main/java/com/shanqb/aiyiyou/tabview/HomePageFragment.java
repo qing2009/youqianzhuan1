@@ -33,6 +33,7 @@ import com.shanqb.aiyiyou.activity.WithdrawActivity;
 import com.shanqb.aiyiyou.adapter.ChannelAdapter;
 import com.shanqb.aiyiyou.adapter.HomeTopListAdapter;
 import com.shanqb.aiyiyou.bean.ChannelBean;
+import com.shanqb.aiyiyou.inter.MyQueueResponse;
 import com.shanqb.aiyiyou.test.BaseRecyclerViewAdapter;
 import com.shanqb.aiyiyou.utils.DeviceUtils;
 import com.shanqb.aiyiyou.utils.Global;

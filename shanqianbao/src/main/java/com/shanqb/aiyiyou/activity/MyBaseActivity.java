@@ -16,6 +16,7 @@ import com.android.volley.toolbox.Volley;
 import com.shanqb.aiyiyou.R;
 import com.shanqb.aiyiyou.inter.MyQueueResponse;
 import com.shanqb.aiyiyou.utils.Global;
+import com.shanqb.aiyiyou.utils.MyVolleyUtils;
 import com.shanqb.aiyiyou.utils.NetworkUtils;
 import com.shanqb.aiyiyou.utils.XToastUtils;
 import com.shanqb.aiyiyou.view.LoadingProgressDialog;
@@ -28,6 +29,7 @@ public abstract class MyBaseActivity extends AppCompatActivity {
 
     public RequestQueue mQueue = null;
 
+    public MyVolleyUtils myVolley;
     private LoadingProgressDialog mLoadingProgressDialog;
 
 

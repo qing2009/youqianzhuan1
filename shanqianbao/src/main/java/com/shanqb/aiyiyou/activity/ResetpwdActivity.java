@@ -14,7 +14,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.shanqb.aiyiyou.R;
 import com.shanqb.aiyiyou.bean.BaseJsonResponse;
-import com.shanqb.aiyiyou.utils.AcitonConstants;
 import com.shanqb.aiyiyou.utils.Global;
 import com.shanqb.aiyiyou.utils.NetworkUtils;
 import com.shanqb.aiyiyou.utils.SharedPreConstants;

@@ -10,7 +10,6 @@ import com.google.gson.reflect.TypeToken;
 import com.shanqb.aiyiyou.R;
 import com.shanqb.aiyiyou.bean.BaseJsonResponse;
 import com.shanqb.aiyiyou.inter.MyQueueResponse;
-import com.shanqb.aiyiyou.utils.AcitonConstants;
 import com.shanqb.aiyiyou.utils.SharedPreConstants;
 import com.shanqb.aiyiyou.utils.SharedPreferencesUtil;
 import com.shanqb.aiyiyou.utils.XToastUtils;
