@@ -64,7 +64,7 @@ public class BaseApplication extends Application {
 
 
         //我玩
-        PlayMeUtil.init(this, BuildConfig.APPLICATION_ID+".fileprovider");
+        PlayMeUtil.init(this, getPackageName()+".fileprovider");
     }
 
     private void initOAID() {
