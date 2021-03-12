@@ -1,6 +1,6 @@
 package com.shanqb.wanglezhuan.utils;
 
-public class AcitonConstants {
+public class ActionConstants {
 
 
     //登录接口
@@ -61,4 +61,9 @@ public class AcitonConstants {
     public static final String INTER_MYINFO = "myInfo";
 
     public static final String MERCODE = "merCode";
+
+
+    //获取公告
+    public static final String GETGONGGAO = "getGongGao";
+
 }

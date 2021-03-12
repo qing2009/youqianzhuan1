@@ -21,7 +21,7 @@ import com.pceggs.workwall.util.PceggsWallUtils;
 import com.shanqb.wanglezhuan.R;
 import com.shanqb.wanglezhuan.activity.MyBaseActivity;
 import com.shanqb.wanglezhuan.bean.LoginResponse;
-import com.shanqb.wanglezhuan.utils.AcitonConstants;
+import com.shanqb.wanglezhuan.utils.ActionConstants;
 import com.shanqb.wanglezhuan.utils.Global;
 import com.shanqb.wanglezhuan.utils.NetworkUtils;
 import com.shanqb.wanglezhuan.utils.SharedPreConstants;
@@ -122,6 +122,7 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
     }
 
 
+
     public class FragAdapter extends FragmentPagerAdapter {
 
 
@@ -183,7 +184,7 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
 
                 showLoadingDialog();
 
-                String loginUrl = Global.BASE_INTER_URL + AcitonConstants.INTER_MYINFO;
+                String loginUrl = Global.BASE_INTER_URL + ActionConstants.INTER_MYINFO;
                 Log.d(getLocalClassName(), "loginUrl: "+loginUrl);
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl, new Response.Listener<String>() {
                     @Override
@@ -246,7 +247,7 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> map = new HashMap<String, String>();
-                        map.put(AcitonConstants.MERCODE, merCode);
+                        map.put(ActionConstants.MERCODE, merCode);
                         return map;
                     }
                 };

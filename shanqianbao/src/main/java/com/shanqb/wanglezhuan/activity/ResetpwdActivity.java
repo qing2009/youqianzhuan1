@@ -14,7 +14,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.shanqb.wanglezhuan.R;
 import com.shanqb.wanglezhuan.bean.BaseJsonResponse;
-import com.shanqb.wanglezhuan.utils.AcitonConstants;
+import com.shanqb.wanglezhuan.utils.ActionConstants;
 import com.shanqb.wanglezhuan.utils.Global;
 import com.shanqb.wanglezhuan.utils.NetworkUtils;
 import com.shanqb.wanglezhuan.utils.SharedPreConstants;
@@ -82,7 +82,7 @@ public class ResetpwdActivity extends MyBaseActivity {
 
                 showLoadingDialog();
 
-                String loginUrl = Global.BASE_INTER_URL + AcitonConstants.INTER_UPDATEPSW;
+                String loginUrl = Global.BASE_INTER_URL + ActionConstants.INTER_UPDATEPSW;
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -114,9 +114,9 @@ public class ResetpwdActivity extends MyBaseActivity {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> map = new HashMap<String, String>();
-                        map.put(AcitonConstants.MERCODE, SharedPreferencesUtil.getStringValue(ResetpwdActivity.this, SharedPreConstants.merCode, ""));
-                        map.put(AcitonConstants.UPDATEPSW_OLDPSW, userPwd_old);
-                        map.put(AcitonConstants.UPDATEPSW_NEWPSW, userPwd_new);
+                        map.put(ActionConstants.MERCODE, SharedPreferencesUtil.getStringValue(ResetpwdActivity.this, SharedPreConstants.merCode, ""));
+                        map.put(ActionConstants.UPDATEPSW_OLDPSW, userPwd_old);
+                        map.put(ActionConstants.UPDATEPSW_NEWPSW, userPwd_new);
                         return map;
                     }
                 };

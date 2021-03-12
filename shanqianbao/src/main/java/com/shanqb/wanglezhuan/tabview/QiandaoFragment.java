@@ -1,5 +1,8 @@
 package com.shanqb.wanglezhuan.tabview;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -7,13 +10,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
 import com.google.gson.Gson;
 import com.shanqb.wanglezhuan.R;
 import com.shanqb.wanglezhuan.adapter.QiandaoRecordAdapter;
@@ -24,6 +32,9 @@ import com.shanqb.wanglezhuan.utils.SharedPreferencesUtil;
 import com.shanqb.wanglezhuan.utils.XToastUtils;
 import com.xuexiang.xui.adapter.recyclerview.GridDividerItemDecoration;
 import com.xuexiang.xui.utils.DensityUtils;
+import com.xuexiang.xui.utils.DrawableUtils;
+import com.xuexiang.xui.widget.imageview.ImageLoader;
+import com.xuexiang.xui.widget.imageview.strategy.DiskCacheStrategyEnum;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -55,6 +66,10 @@ public class QiandaoFragment extends BaseFragment {
     Button qiandaoBtn;
     @BindView(R.id.qiandaoRecyclerView)
     RecyclerView qiandaoRecyclerView;
+    @BindView(R.id.qiandaoHead_imageView)
+    ImageView qiandaoHeadImageView;
+    @BindView(R.id.qiandao_consLayout)
+    ConstraintLayout qiandaoConsLayout;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -93,7 +108,6 @@ public class QiandaoFragment extends BaseFragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-
     }
 
 
@@ -125,10 +139,14 @@ public class QiandaoFragment extends BaseFragment {
 
     @Override
     public void fetchData() {
+
+        //设置签到页背景图
+        setQiandaoBG();
+
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         qiandaoRecyclerView.setLayoutManager(layoutManager);
-
 
         qiandaoSumInteger = SharedPreferencesUtil.getIntValue(getActivity(), SharedPreConstants.QIANDAO_SUM, 0);
         String qiandaoRecordJson = SharedPreferencesUtil.getStringValue(getActivity().getApplicationContext(), SharedPreConstants.QIANDAO_RECORD, "");
@@ -142,8 +160,8 @@ public class QiandaoFragment extends BaseFragment {
                 if (week == qiandaoRecord.getWeekofYear()) {//有本周数据
                     int dayIndex = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
                     Log.e(getTag(), "onCreate: dayIndex=" + dayIndex);
-                    QiandaoItemBean qiandaoItemBean = qiandaoRecord.getQiandaoItemBeanList().get(dayIndex-2);
-                    if (qiandaoItemBean.isQiandao()){
+                    QiandaoItemBean qiandaoItemBean = qiandaoRecord.getQiandaoItemBeanList().get(dayIndex - 2);
+                    if (qiandaoItemBean.isQiandao()) {
                         qiandaoBtn.setEnabled(false);
                         qiandaoBtn.setText(getString(R.string.jingriyiqiandao));
                     }
@@ -166,6 +184,27 @@ public class QiandaoFragment extends BaseFragment {
             initQiandaoRevcordView();
         }
         refreshQiandaoSumView();
+    }
+
+    private void setQiandaoBG() {
+
+        String qdbgImageUrl = SharedPreferencesUtil.getStringValue(this.getContext().getApplicationContext(),SharedPreConstants.qdbg,"");
+        if (!TextUtils.isEmpty(qdbgImageUrl)){
+            ImageRequest imageRequest = new ImageRequest(
+                    qdbgImageUrl,
+                    new Response.Listener<Bitmap>() {
+                        @Override
+                        public void onResponse(Bitmap response) {
+                            qiandaoConsLayout.setBackground(DrawableUtils.bitmap2Drawable(response));
+                        }
+                    }, 0, 0, Bitmap.Config.RGB_565, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                }
+            });
+            myVolley.getmQueue().add(imageRequest);
+        }
+
     }
 
     private void initQiandaoRevcordView() {
@@ -195,7 +234,7 @@ public class QiandaoFragment extends BaseFragment {
 
         int dayIndex = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);//从周日开始计数
         Log.e(getTag(), "onCreate: dayIndex=" + dayIndex);
-        qiandaoRecord.getQiandaoItemBeanList().get(dayIndex-2).setQiandao(true);
+        qiandaoRecord.getQiandaoItemBeanList().get(dayIndex - 2).setQiandao(true);
         adapter.notifyDataSetChanged();
 
         XToastUtils.toast(getString(R.string.qiandao_success_tishi));

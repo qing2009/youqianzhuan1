@@ -16,6 +16,7 @@ import com.android.volley.toolbox.Volley;
 import com.shanqb.wanglezhuan.R;
 import com.shanqb.wanglezhuan.inter.MyQueueResponse;
 import com.shanqb.wanglezhuan.utils.Global;
+import com.shanqb.wanglezhuan.utils.MyVolleyUtils;
 import com.shanqb.wanglezhuan.utils.NetworkUtils;
 import com.shanqb.wanglezhuan.utils.XToastUtils;
 import com.shanqb.wanglezhuan.view.LoadingProgressDialog;
@@ -24,8 +25,9 @@ import java.util.Map;
 
 import butterknife.ButterKnife;
 
-public abstract class MyBaseActivity extends AppCompatActivity {
+public abstract class MyBaseActivity extends AppCompatActivity{
 
+    public MyVolleyUtils myVolley = null;
     public RequestQueue mQueue = null;
 
     private LoadingProgressDialog mLoadingProgressDialog;
@@ -35,9 +37,9 @@ public abstract class MyBaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mQueue = Volley.newRequestQueue(this);
-
         mLoadingProgressDialog = new LoadingProgressDialog(this);
+        myVolley = new MyVolleyUtils(this);
+        mQueue  = myVolley.getmQueue();
 
         initLayout();
         ButterKnife.bind(this);
@@ -86,46 +88,21 @@ public abstract class MyBaseActivity extends AppCompatActivity {
     }
 
 
-    protected void requestPostQueue(String requestAction, Map<String, String> requestParams, MyQueueResponse myQueueResponse){
+    protected void requestPostQueue(boolean isShowDialog,String requestAction, Map<String, String> requestParams, MyQueueResponse myQueueResponse){
         try {
             if (!NetworkUtils.checkNetworkConnectionState(this)) {//未连接到网络
                 XToastUtils.toast(getString(R.string.net_close));
                 return;
             }
+            if (isShowDialog){
+                showLoadingDialog();
+            }
+            myVolley.requestPostQueue(requestAction,requestParams,myQueueResponse);
 
-            showLoadingDialog();
-
-
-            String requestUrl = Global.BASE_INTER_URL + requestAction;
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, requestUrl, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    Log.d(getClass().toString(), response);
-                    dismissLoadingDialog();
-                    myQueueResponse.onResponse(response);
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    dismissLoadingDialog();
-                    Log.e(getClass().toString(), error.getMessage(), error);
-                    myQueueResponse.onErrorResponse(error);
-//                    Toast.makeText(LoginActivity.this, getString(R.string.login_fail), Toast.LENGTH_SHORT).show();  //登录失败提示
-                }
-            }) {
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    return requestParams;
-                }
-            };
-            mQueue.add(stringRequest);
         } catch (Exception e) {
             e.printStackTrace();
             dismissLoadingDialog();
         }
     }
-
-
-
 
 }

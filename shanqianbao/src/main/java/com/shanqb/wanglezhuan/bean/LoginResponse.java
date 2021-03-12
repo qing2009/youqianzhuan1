@@ -8,8 +8,9 @@ public class LoginResponse extends BaseJsonResponse {
      * data : {"id":569,"loginCode":"a","loginPwd":"08b96cdc7dc85dc9e3511a991b6716f4","merCode":"20201130105143309","appId":"APP","description":null,"merName":"抚姚疤","merPhoto":null,"merSex":"1","merPhone":null,"realName":null,"idCard":null,"zfb":null,"zfbName":null,"allAmt":0,"txAmt":0,"state":0,"createTime":"2020-11-30 02:51:43","updateTime":1606704703000,"lastLook":null,"imei":"20201130105143309","mobileModel":null}
      */
 
+    private String qdbg;//签到背景
+    private String gonggao;//公告
     private DataBean data;
-
     public DataBean getData() {
         return data;
     }
@@ -271,5 +272,21 @@ public class LoginResponse extends BaseJsonResponse {
         public void setListbc(List<ChannelBean> listbc) {
             this.listbc = listbc;
         }
+    }
+
+    public String getQdbg() {
+        return qdbg;
+    }
+
+    public void setQdbg(String qdbg) {
+        this.qdbg = qdbg;
+    }
+
+    public String getGonggao() {
+        return gonggao;
+    }
+
+    public void setGonggao(String gonggao) {
+        this.gonggao = gonggao;
     }
 }

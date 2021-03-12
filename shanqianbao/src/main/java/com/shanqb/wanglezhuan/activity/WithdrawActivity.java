@@ -10,7 +10,7 @@ import com.google.gson.reflect.TypeToken;
 import com.shanqb.wanglezhuan.R;
 import com.shanqb.wanglezhuan.bean.BaseJsonResponse;
 import com.shanqb.wanglezhuan.inter.MyQueueResponse;
-import com.shanqb.wanglezhuan.utils.AcitonConstants;
+import com.shanqb.wanglezhuan.utils.ActionConstants;
 import com.shanqb.wanglezhuan.utils.SharedPreConstants;
 import com.shanqb.wanglezhuan.utils.SharedPreferencesUtil;
 import com.shanqb.wanglezhuan.utils.XToastUtils;
@@ -85,14 +85,14 @@ public class WithdrawActivity extends MyBaseActivity implements MyQueueResponse 
 
     public void txRequest(String amount, String pwd) {
         Map<String, String> map = new HashMap<String, String>();
-        map.put(AcitonConstants.MERCODE, SharedPreferencesUtil.getStringValue(this, SharedPreConstants.merCode, ""));
-        map.put(AcitonConstants.TIXIAN_ACCOUNT, amount);
-        map.put(AcitonConstants.LOGIN_PASSWORD, pwd);
-        requestPostQueue(AcitonConstants.TIXIAN,map,this);
+        map.put(ActionConstants.MERCODE, SharedPreferencesUtil.getStringValue(this, SharedPreConstants.merCode, ""));
+        map.put(ActionConstants.TIXIAN_ACCOUNT, amount);
+        map.put(ActionConstants.LOGIN_PASSWORD, pwd);
+        requestPostQueue(true,ActionConstants.TIXIAN,map,this);
     }
 
     @Override
-    public void onResponse(String response) {
+    public void onResponse(String requestAction,String response) {
         BaseJsonResponse responseBean = new Gson().fromJson(response, new TypeToken<BaseJsonResponse>() {
         }.getType());
         if (responseBean != null) {
@@ -107,7 +107,7 @@ public class WithdrawActivity extends MyBaseActivity implements MyQueueResponse 
     }
 
     @Override
-    public void onErrorResponse(VolleyError error) {
+    public void onErrorResponse(String requestAction,VolleyError error) {
         XToastUtils.toast(error.getMessage());
     }
 }

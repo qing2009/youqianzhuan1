@@ -15,7 +15,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.shanqb.wanglezhuan.R;
 import com.shanqb.wanglezhuan.bean.BaseJsonResponse;
-import com.shanqb.wanglezhuan.utils.AcitonConstants;
+import com.shanqb.wanglezhuan.utils.ActionConstants;
 import com.shanqb.wanglezhuan.utils.Global;
 import com.shanqb.wanglezhuan.utils.NetworkUtils;
 import com.shanqb.wanglezhuan.utils.SharedPreConstants;
@@ -120,7 +120,7 @@ public class WithdrawalAccountActivity extends MyBaseActivity {
 
             showLoadingDialog();
 
-            String loginUrl = Global.BASE_INTER_URL + AcitonConstants.BIND_ZFB;
+            String loginUrl = Global.BASE_INTER_URL + ActionConstants.BIND_ZFB;
             StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -149,9 +149,9 @@ public class WithdrawalAccountActivity extends MyBaseActivity {
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> map = new HashMap<String, String>();
-                    map.put(AcitonConstants.MERCODE, SharedPreferencesUtil.getStringValue(WithdrawalAccountActivity.this, SharedPreConstants.merCode, ""));
-                    map.put(AcitonConstants.BIND_ZFB_ACCOUNT, account);
-                    map.put(AcitonConstants.BIND_ZFB_NAME, name);
+                    map.put(ActionConstants.MERCODE, SharedPreferencesUtil.getStringValue(WithdrawalAccountActivity.this, SharedPreConstants.merCode, ""));
+                    map.put(ActionConstants.BIND_ZFB_ACCOUNT, account);
+                    map.put(ActionConstants.BIND_ZFB_NAME, name);
                     return map;
                 }
             };

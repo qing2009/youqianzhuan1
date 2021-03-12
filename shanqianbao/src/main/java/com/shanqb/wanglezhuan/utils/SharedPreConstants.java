@@ -20,6 +20,9 @@ public class SharedPreConstants {
     public static final String zfbName = "zfbName";
     public static final String channelList = "ChannelList";
 
+    public static final String gonggao = "gonggao";
+    public static final String qdbg = "qdbg";
+
     public static final String ISLOGINED = "isLogined";
 
 

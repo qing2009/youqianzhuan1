@@ -17,7 +17,7 @@ import com.google.gson.reflect.TypeToken;
 import com.shanqb.wanglezhuan.R;
 import com.shanqb.wanglezhuan.bean.BaseJsonResponse2;
 import com.shanqb.wanglezhuan.bean.TryPlayListResponse;
-import com.shanqb.wanglezhuan.utils.AcitonConstants;
+import com.shanqb.wanglezhuan.utils.ActionConstants;
 import com.shanqb.wanglezhuan.utils.Global;
 import com.shanqb.wanglezhuan.utils.NetworkUtils;
 import com.shanqb.wanglezhuan.utils.SharedPreConstants;
@@ -84,7 +84,7 @@ public class TryPlayRecordActivity extends MyBaseActivity {
         } else {
             showLoadingDialog();
 
-            String loginUrl = Global.BASE_INTER_URL + AcitonConstants.INTER_ORDERLIST;
+            String loginUrl = Global.BASE_INTER_URL + ActionConstants.INTER_ORDERLIST;
             StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -123,9 +123,9 @@ public class TryPlayRecordActivity extends MyBaseActivity {
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> map = new HashMap<String, String>();
-                    map.put(AcitonConstants.ORDERLIST_MEMBERCODE, SharedPreferencesUtil.getStringValue(TryPlayRecordActivity.this, SharedPreConstants.merCode, ""));
-                    map.put(AcitonConstants.ORDERLIST_PAGE, page + "");
-                    map.put(AcitonConstants.ORDERLIST_SIZE, size + "");
+                    map.put(ActionConstants.ORDERLIST_MEMBERCODE, SharedPreferencesUtil.getStringValue(TryPlayRecordActivity.this, SharedPreConstants.merCode, ""));
+                    map.put(ActionConstants.ORDERLIST_PAGE, page + "");
+                    map.put(ActionConstants.ORDERLIST_SIZE, size + "");
                     return map;
                 }
             };

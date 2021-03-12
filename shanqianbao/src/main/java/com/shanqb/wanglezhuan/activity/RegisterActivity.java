@@ -26,7 +26,7 @@ import com.shanqb.wanglezhuan.R;
 import com.shanqb.wanglezhuan.bean.BaseJsonResponse;
 import com.shanqb.wanglezhuan.bean.LoginResponse;
 import com.shanqb.wanglezhuan.tabview.HomeActivity;
-import com.shanqb.wanglezhuan.utils.AcitonConstants;
+import com.shanqb.wanglezhuan.utils.ActionConstants;
 import com.shanqb.wanglezhuan.utils.DeviceUtils;
 import com.shanqb.wanglezhuan.utils.Global;
 import com.shanqb.wanglezhuan.utils.NetworkUtils;
@@ -106,7 +106,7 @@ public class RegisterActivity extends MyBaseActivity {
 
                     showLoadingDialog();
 
-                    String loginUrl = Global.BASE_INTER_URL + AcitonConstants.INTER_REGISTER;
+                    String loginUrl = Global.BASE_INTER_URL + ActionConstants.INTER_REGISTER;
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -154,11 +154,11 @@ public class RegisterActivity extends MyBaseActivity {
                         @Override
                         protected Map<String, String> getParams() throws AuthFailureError {
                             Map<String, String> map = new HashMap<String, String>();
-                            map.put(AcitonConstants.LOGIN_USERNAME, userName);
-                            map.put(AcitonConstants.LOGIN_PASSWORD, userPwd);
-                            map.put(AcitonConstants.INTER_REGISTER_IMEI, imei);
-                            map.put(AcitonConstants.INTER_REGISTER_VCODE, stvVerifyCode.getCenterEditValue().trim());
-                            map.put(AcitonConstants.INTER_REGISTER_BUSINESSCODE, Global.BUSINESS_CODE);
+                            map.put(ActionConstants.LOGIN_USERNAME, userName);
+                            map.put(ActionConstants.LOGIN_PASSWORD, userPwd);
+                            map.put(ActionConstants.INTER_REGISTER_IMEI, imei);
+                            map.put(ActionConstants.INTER_REGISTER_VCODE, stvVerifyCode.getCenterEditValue().trim());
+                            map.put(ActionConstants.INTER_REGISTER_BUSINESSCODE, Global.BUSINESS_CODE);
                             return map;
                         }
                     };
@@ -265,7 +265,7 @@ public class RegisterActivity extends MyBaseActivity {
 
         showLoadingDialog();
 
-        String loginUrl = Global.BASE_INTER_URL + AcitonConstants.INTER_GETPHONEMSG;
+        String loginUrl = Global.BASE_INTER_URL + ActionConstants.INTER_GETPHONEMSG;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -307,8 +307,8 @@ public class RegisterActivity extends MyBaseActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
-                map.put(AcitonConstants.INTER_GETPHONEMSG_PHONENUM, phoneNumber);
-                map.put(AcitonConstants.LOGIN_businessCode, Global.BUSINESS_CODE);
+                map.put(ActionConstants.INTER_GETPHONEMSG_PHONENUM, phoneNumber);
+                map.put(ActionConstants.LOGIN_businessCode, Global.BUSINESS_CODE);
                 return map;
             }
         };

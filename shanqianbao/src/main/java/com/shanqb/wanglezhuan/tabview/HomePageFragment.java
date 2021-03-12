@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.VolleyError;
 import com.component.dly.xzzq_ywsdk.YwSDK;
 import com.component.dly.xzzq_ywsdk.YwSDK_WebActivity;
 import com.duoyou.task.openapi.DyAdApi;
@@ -34,7 +36,10 @@ import com.shanqb.wanglezhuan.adapter.ChannelAdapter;
 import com.shanqb.wanglezhuan.adapter.HomeTopListAdapter;
 import com.shanqb.wanglezhuan.adapter.RecyclerViewBannerAdapter2;
 import com.shanqb.wanglezhuan.bean.ChannelBean;
+import com.shanqb.wanglezhuan.bean.GonggaoResponse;
+import com.shanqb.wanglezhuan.inter.MyQueueResponse;
 import com.shanqb.wanglezhuan.test.BaseRecyclerViewAdapter;
+import com.shanqb.wanglezhuan.utils.ActionConstants;
 import com.shanqb.wanglezhuan.utils.DemoDataProvider;
 import com.shanqb.wanglezhuan.utils.DeviceUtils;
 import com.shanqb.wanglezhuan.utils.Global;
@@ -55,7 +60,9 @@ import com.xuexiang.xui.widget.textview.marqueen.SimpleNoticeMF;
 
 import java.lang.reflect.Type;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -67,7 +74,7 @@ import jfq.wowan.com.myapplication.PlayMeUtil;
 /**
  * Created by yx on 16/4/3.
  */
-public class HomePageFragment extends BaseFragment implements ITabClickListener, BannerLayout.OnBannerItemClickListener {
+public class HomePageFragment extends BaseFragment implements ITabClickListener, BannerLayout.OnBannerItemClickListener, MyQueueResponse {
 //        @BindView(R.id.bl_horizontal)
 //    BannerLayout blHorizontal;
     @BindView(R.id.headImageView)
@@ -115,6 +122,9 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     private GridLayoutManager channelLayoutManager;
     private ChannelAdapter channelAdapter;
 
+    List<String> gonggaoList;
+    MarqueeFactory<TextView, String> marqueeFactory1;
+
     @Override
     public void fetchData() {
         try {
@@ -125,8 +135,32 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
             withdrawableTextView.setText(withdrawable);
             String yaoqingma = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.shareCode, "");
             userYouqingmaSuperText.setText(getString(R.string.yaoqingma) + ": " + yaoqingma);
+
+            setGonggao();
+
+
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * 设置公告
+     */
+    private void setGonggao() {
+        String gonggaoString = SharedPreferencesUtil.getStringValue(getContext(), SharedPreConstants.gonggao,"");
+        if (!TextUtils.isEmpty(gonggaoString)){
+            String[] strings = gonggaoString.split(getString(R.string.gonggaoSplit));
+            gonggaoList = Arrays.asList(strings);
+
+            marqueeFactory1 = new SimpleNoticeMF(getContext());
+            marqueeView1.setMarqueeFactory(marqueeFactory1);
+            marqueeView1.startFlipping();
+            marqueeFactory1.setData(gonggaoList);
+            marqueeView1.setVisibility(View.VISIBLE);
+        }else {
+            marqueeView1.setVisibility(View.GONE);
         }
     }
 
@@ -135,15 +169,6 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
         View view = inflater.inflate(R.layout.homepage_layout, container, false);
         unbinder = ButterKnife.bind(this, view);
         merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
-
-
-        //公告
-        final List<String> datas = Arrays.asList("公告：试玩前一定要看清楚试玩规则","公告：请使用正常手机试玩");
-        MarqueeFactory<TextView, String> marqueeFactory1 = new SimpleNoticeMF(getContext());
-        marqueeView1.setMarqueeFactory(marqueeFactory1);
-        marqueeView1.startFlipping();
-        marqueeFactory1.setData(datas);
-
 
 
         int screenWidth = DensityUtils.getScreenMetrics(true).widthPixels;//屏幕宽度
@@ -260,7 +285,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                             }
 
                                         }else {
-                                            Toast.makeText(getActivity(),getString(R.string.jingqingqidai),Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getActivity(),channelBean.getTishi(),Toast.LENGTH_SHORT).show();
                                         }
                                     } else {
 //                                    Toast.makeText(getActivity(), "These permissions are denied: $deniedList", Toast.LENGTH_LONG).show();
@@ -333,5 +358,14 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     @OnClick(R.id.ketixian_linLayout)
     public void onClick() {
         startActivity(new Intent(getActivity(), WithdrawActivity.class));
+    }
+
+    @Override
+    public void onResponse(String requestAction,String response) {
+    }
+
+    @Override
+    public void onErrorResponse(String requestAction,VolleyError error) {
+
     }
 }

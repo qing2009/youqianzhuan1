@@ -122,4 +122,7 @@
     <string name="jingriyiqiandao">今日已签到</string>
     <string name="qiandao_success_tishi">签到成功</string>
     <string name="jingqingqidai">敬请期待</string>
+
+    <!--公告分隔符-->
+    <string name="gonggaoSplit">#</string>
 </resources>

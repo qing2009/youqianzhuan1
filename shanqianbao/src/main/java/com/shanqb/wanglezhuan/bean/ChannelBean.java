@@ -26,6 +26,7 @@ public class ChannelBean {
     private String createTime;
     private String updateTime;
     private String state;//如果为0就是不能点平台锁住了,为1才能点进去
+    private String tishi;//如果为0的提示文字
 
     public int getId() {
         return id;
@@ -113,5 +114,13 @@ public class ChannelBean {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getTishi() {
+        return tishi;
+    }
+
+    public void setTishi(String tishi) {
+        this.tishi = tishi;
     }
 }
