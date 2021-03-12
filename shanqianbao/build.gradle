@@ -51,13 +51,13 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.jakewharton:butterknife:10.2.3'
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
     implementation 'com.permissionx.guolindev:permissionx:1.4.0'
 
@@ -69,44 +69,21 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
 
 
+    implementation 'com.github.lzyzsd:jsbridge:1.0.4'//使用的sdk有：91淘金
 
-//    implementation(name: 'oaid_sdk_1.0.23', ext: 'aar')//移动安全联盟获取OAID
-
-
-    api 'com.liulishuo.filedownloader:library:1.7.4'
-//    implementation(name: 'pceggs_wall_v5.0', ext: 'aar')//享玩
+    implementation 'com.toomee:jxwSDK-Android:2.1.3'//使用的sdk有：聚享游sdk
 
 
-//    implementation(name: 'tjsdk-3.0', ext: 'aar')// 91淘金CPL广告对接
-    implementation 'com.github.lzyzsd:jsbridge:1.0.4'
-
-
-    implementation 'com.toomee:jxwSDK-Android:2.1.3'//聚享游sdk
-
-
-    //爱变现接入文档：http://www.aibianxian.net/igame-guide/android.html#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98
-//    implementation(name:'ibx_sdk_release_v2.0.3',ext:'aar') //根据 libs 目录下具体文件填写
-//    implementation(name:'device_release_v1.0.3',ext:'aar')
+    //爱变现接入
     implementation 'com.arialyy.aria:core:3.8.10'  //必须
     annotationProcessor 'com.arialyy.aria:compiler:3.8.10' //必须
     implementation "com.github.donkingliang:ImageSelector:2.2.0"//必须 非AndroidX 项目 使用 1.9.2版本
 
 
-
-    //嘻趣sdk。接入文档：https://www.showdoc.com.cn/XiQuChannelV2?page_id=3398243819072419
-//    implementation(name:"xq_android_1.2.6",ext:'aar')
-    //下载器 嘻趣sdk中使用了此下载器 不集成无法下载
-//    implementation 'com.liulishuo.filedownloader:library:1.7.6'
-
-
-
-
     //鱼丸盒子
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
-    implementation 'com.liulishuo.filedownloader:library:1.7.7'
+    implementation 'com.liulishuo.filedownloader:library:1.7.7'//使用的sdk有：享玩、嘻趣、鱼丸盒子
     implementation "org.greenrobot:eventbus:3.1.0-RC"
-//    implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.zhy:okhttputils:2.6.2'
 
 }
