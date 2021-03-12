@@ -214,3 +214,16 @@
 -keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent {
     <init>(java.lang.Throwable);
 }
+
+#闲玩混淆配置
+-dontoptimize
+-dontpreverify
+-dontwarn com.xianwan.sdklibrary.**
+-keep class com.xianwan.sdklibrary.*.** { *; }
+-keep public class com.xxx.xxx.R$*{
+          public static final int *;
+}
+
+#-keep class **.R$* {
+# *;
+#}

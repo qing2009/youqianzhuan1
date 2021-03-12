@@ -2,13 +2,17 @@ package com.shanqb.weishouzhuan.tabview;
 
 import android.Manifest;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -54,8 +58,12 @@ import com.shanqb.weishouzhuan.utils.sdk.XiquUtils;
 import com.xuexiang.xui.adapter.recyclerview.GridDividerItemDecoration;
 import com.xuexiang.xui.utils.DensityUtils;
 import com.xuexiang.xui.widget.banner.recycler.BannerLayout;
+import com.xuexiang.xui.widget.textview.marqueen.MarqueeFactory;
+import com.xuexiang.xui.widget.textview.marqueen.MarqueeView;
+import com.xuexiang.xui.widget.textview.marqueen.SimpleNoticeMF;
 
 import java.lang.reflect.Type;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -85,6 +93,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 //    TextView withdrawableTextView;
     Unbinder unbinder;
     String merCode;
+    String oaid;
     @BindView(R.id.taojing91_btn)
     ImageView taojing91Btn;
     @BindView(R.id.aibianxian_btn)
@@ -116,6 +125,9 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     private GridLayoutManager channelLayoutManager;
     private ChannelAdapter channelAdapter;
 
+    List<String> gonggaoList;
+    MarqueeFactory<TextView, String> marqueeFactory1;
+
     @Override
     public void fetchData() {
         try {
@@ -136,6 +148,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
         View view = inflater.inflate(R.layout.homepage_layout, container, false);
         unbinder = ButterKnife.bind(this, view);
         merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
+        oaid = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.OAID,"");
+
 
 
         int screenWidth = DensityUtils.getScreenMetrics(true).widthPixels;//屏幕宽度
@@ -210,27 +224,38 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                     XianWangUtils.startSDK(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey());
                                                     break;
                                                 case Global.CHANNEL_CODE_YUWANG:
-                                                    YwSDK.Companion.refreshAppSecret(channelBean.getChannelKey(),channelBean.getChannelUser());
+                                                    YwSDK.Companion.refreshAppSecret(channelBean.getChannelKey(), channelBean.getChannelUser());
                                                     //进入鱼玩盒子首页
                                                     YwSDK_WebActivity.Companion.open(getActivity());
                                                     break;
                                                 case Global.CHANNEL_CODE_DUOYOU:
-                                                    DyAdApi.getDyAdApi().init(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey(),"channel");
+                                                    DyAdApi.getDyAdApi().init(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey(), "channel");
                                                     /**
                                                      * userId : 开发者APP用户标识，代表一个用户的Id，保证唯一性
                                                      * advertType: 0（默认值）显示全部数据  1.手游  2.棋牌游戏
                                                      */
                                                     DyAdApi.getDyAdApi().jumpAdList(getActivity(), merCode, 0);
+                                                    break;
                                                 case Global.CHANNEL_CODE_XIQU:
                                                     XiquUtils.init(getActivity().getApplication(), channelBean.getChannelUser(), channelBean.getChannelKey());
                                                     XiquUtils.startSDK(getActivity(), merCode);
                                                     break;
                                                 case Global.CHANNEL_CODE_WOWANG:
                                                     String deviceId = DeviceUtils.getDeviceId(getActivity());
-                                                    String oaid = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.OAID,"");
                                                     PlayMeUtil.openIndex(getActivity(),channelBean.getChannelUser(),merCode,deviceId,oaid,channelBean.getChannelKey());
 //                                                    PlayMeUtil.openIndex(getActivity(),"6968",merCode,deviceId,oaid,"z7ugkaIgSvvvaTg0jFmeBdHDE2p15uHh");
 //                                                  PlayMeUtil.openIndex(getActivity(), "3888", "1443910", deviceId, "dewfew-fregf-gfreg-gre", "Ax5xVDDx9NGbIhefGzqf9S8pT7aM8E72");
+                                                    break;
+
+                                                case Global.CHANNEL_CODE_XIANWANG2:
+//                                                    XWAdSdk.init(getActivity().getApplication(), "1010", "nw2olixipulielgp"); //初始化 参数
+                                                    XWAdSdk.init(getActivity().getApplication(), channelBean.getChannelUser(), channelBean.getChannelKey()); //初始化 参数
+                                                    XWAdSdk.showLOG(BuildConfig.DEBUG); //是否开启日志
+
+                                                    XWADPage.jumpToAD(new XWADPageConfig.Builder(merCode) //必传参数，指接入方渠道的APP的用户ID，要求每个用户唯一，且不变
+                                                            .pageType(XWADPageConfig.PAGE_AD_LIST)
+                                                            .msaOAID(oaid)//指的是接入了安全联盟sdk后，获取的用户的oaid，获取不到可不用设置 或者传 空/null 不可乱传
+                                                            .build());
                                                     break;
                                             }
 
@@ -291,6 +316,15 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
     @Override
     public void onItemClick(int position) {
+//        String merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
+//
+//        DyAdApi.getDyAdApi().init(getActivity(), "dy_59634987", "be9ef50f987cc6ed577b726e6bde749c","channel");
+////        DyAdApi.getDyAdApi().init(getActivity(),"dy_59633678", "ee0a8ee5de2ce442c8b094410440ec8c", "channel");
+//        /**
+//         * userId : 开发者APP用户标识，代表一个用户的Id，保证唯一性
+//         * advertType: 0（默认值）显示全部数据  1.手游  2.棋牌游戏
+//         */
+//        DyAdApi.getDyAdApi().jumpAdList(getActivity(), merCode, 0);
 
     }
 
