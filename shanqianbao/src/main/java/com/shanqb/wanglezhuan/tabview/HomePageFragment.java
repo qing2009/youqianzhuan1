@@ -61,6 +61,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import jfq.wowan.com.myapplication.PlayMeUtil;
 
 
 /**
@@ -248,6 +249,13 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                 case Global.CHANNEL_CODE_XIQU:
                                                     XiquUtils.init(getActivity().getApplication(), channelBean.getChannelUser(), channelBean.getChannelKey());
                                                     XiquUtils.startSDK(getActivity(), merCode);
+                                                    break;
+                                                case Global.CHANNEL_CODE_WOWANG:
+                                                    String deviceId = DeviceUtils.getDeviceId(getActivity());
+                                                    String oaid = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.OAID,"");
+                                                    PlayMeUtil.openIndex(getActivity(),channelBean.getChannelUser(),merCode,deviceId,oaid,channelBean.getChannelKey());
+//                                                    PlayMeUtil.openIndex(getActivity(),"6968",merCode,deviceId,oaid,"z7ugkaIgSvvvaTg0jFmeBdHDE2p15uHh");
+//                                                  PlayMeUtil.openIndex(getActivity(), "3888", "1443910", deviceId, "dewfew-fregf-gfreg-gre", "Ax5xVDDx9NGbIhefGzqf9S8pT7aM8E72");
                                                     break;
                                             }
 
