@@ -82,7 +82,7 @@ dependencies {
 
     //鱼丸盒子
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.liulishuo.filedownloader:library:1.7.7'//使用的sdk有：享玩、嘻趣、鱼丸盒子
+    implementation 'com.liulishuo.filedownloader:library:1.7.7'//使用的sdk有：享玩、嘻趣、鱼丸盒子、闲玩sdk
     implementation "org.greenrobot:eventbus:3.1.0-RC"
     implementation 'com.zhy:okhttputils:2.6.2'
 

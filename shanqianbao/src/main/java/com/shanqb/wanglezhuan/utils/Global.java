@@ -22,6 +22,7 @@ public class Global
 	public static final String CHANNEL_CODE_DUOYOU = "20210302221618125";//多游
 	public static final String CHANNEL_CODE_XIQU = "20210224141221832";//嘻趣
 	public static final String CHANNEL_CODE_WOWANG = "20210306151335295";//我玩
+	public static final String CHANNEL_CODE_XIANWANG2 = "2021030615135295";//闲玩
 
 	/** 日志开启开关 */
 	public static final boolean DEBUG = false;
