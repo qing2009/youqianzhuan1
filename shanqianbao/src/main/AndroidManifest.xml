@@ -46,10 +46,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.shanqb.shanqianbao.MainActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"></activity>
-        <activity
             android:name="com.shanqb.wanglezhuan.activity.WebActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"></activity>

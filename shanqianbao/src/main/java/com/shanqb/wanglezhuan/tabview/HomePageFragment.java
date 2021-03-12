@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -250,6 +251,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                     break;
                                             }
 
+                                        }else {
+                                            Toast.makeText(getActivity(),getString(R.string.jingqingqidai),Toast.LENGTH_SHORT).show();
                                         }
                                     } else {
 //                                    Toast.makeText(getActivity(), "These permissions are denied: $deniedList", Toast.LENGTH_LONG).show();

@@ -170,8 +170,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
-            android:visibility="gone"
-            android:src="@drawable/home_view">
+            android:src="@drawable/hometop">
 
         </ImageView>
 
