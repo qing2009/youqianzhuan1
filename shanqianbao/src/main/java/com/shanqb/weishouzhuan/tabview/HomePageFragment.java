@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.duoyou.task.openapi.DyAdApi;
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -186,8 +187,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
                                         String merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
                                         ChannelBean channelBean = channelBeanList.get(var2);
-
                                         if ("1".equals(channelBean.getState())) {
+
 
                                             switch (channelBean.getChannelCode()) {
                                                 case Global.CHANNEL_CODE_AIBIANXIAN:
@@ -201,6 +202,14 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                     break;
                                                 case Global.CHANNEL_CODE_XIANWANG:
                                                     XianWangUtils.startSDK(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey());
+                                                    break;
+                                                case Global.CHANNEL_CODE_DUOYOU:
+                                                    DyAdApi.getDyAdApi().init(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey(),"channel");
+                                                    /**
+                                                     * userId : 开发者APP用户标识，代表一个用户的Id，保证唯一性
+                                                     * advertType: 0（默认值）显示全部数据  1.手游  2.棋牌游戏
+                                                     */
+                                                    DyAdApi.getDyAdApi().jumpAdList(getActivity(), merCode, 0);
                                                     break;
                                                 case Global.CHANNEL_CODE_XIQU:
                                                     XiquUtils.init(getActivity().getApplication(), channelBean.getChannelUser(), channelBean.getChannelKey());
