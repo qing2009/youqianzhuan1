@@ -14,6 +14,7 @@ public class Global
 	public static final String CHANNEL_CODE_JUXIANGYOU = "20210221021842938";//聚享游
 	public static final String CHANNEL_CODE_TAOJING91 = "20210221021834000";//91淘金
 	public static final String CHANNEL_CODE_XIANWANG = "20210221021853088";//享玩
+	public static final String CHANNEL_CODE_DUOYOU = "20210302221618125";//
 	public static final String CHANNEL_CODE_XIQU = "";//
 
 	/** 日志开启开关 */
