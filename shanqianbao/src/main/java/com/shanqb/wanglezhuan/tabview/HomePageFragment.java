@@ -35,8 +35,10 @@ import com.shanqb.wanglezhuan.activity.WithdrawActivity;
 import com.shanqb.wanglezhuan.adapter.ChannelAdapter;
 import com.shanqb.wanglezhuan.adapter.HomeTopListAdapter;
 import com.shanqb.wanglezhuan.adapter.RecyclerViewBannerAdapter2;
+import com.shanqb.wanglezhuan.bean.BaseJsonResponse2;
 import com.shanqb.wanglezhuan.bean.ChannelBean;
 import com.shanqb.wanglezhuan.bean.GonggaoResponse;
+import com.shanqb.wanglezhuan.bean.ZhuanjinTopResponse;
 import com.shanqb.wanglezhuan.inter.MyQueueResponse;
 import com.shanqb.wanglezhuan.test.BaseRecyclerViewAdapter;
 import com.shanqb.wanglezhuan.utils.ActionConstants;
@@ -132,6 +134,9 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     @Override
     public void fetchData() {
         try {
+
+            getTop10();
+
             userNameTextView.setText(SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.loginCode, ""));
             String totalRevenue = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.allAmt, "0.00");
             totalRevenueTextView.setText(totalRevenue);
@@ -141,7 +146,6 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
             userYouqingmaSuperText.setText(getString(R.string.yaoqingma) + ": " + yaoqingma);
 
             setGonggao();
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -210,8 +214,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
         this.layoutManager = new LinearLayoutManager(getActivity());
         this.layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         this.recordRecyView.setLayoutManager(this.layoutManager);
-        adapter = new HomeTopListAdapter(getActivity());
-        recordRecyView.setAdapter(adapter);
+//        adapter = new HomeTopListAdapter(getActivity());
+//        recordRecyView.setAdapter(adapter);
 //        recordRecyView.setVisibility(View.GONE);
 
 
@@ -300,9 +304,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                             .build());
                                                     break;
                                             }
-                                        }
-
-                                        }else {
+                                        } else {
                                             Toast.makeText(getActivity(),channelBean.getTishi(),Toast.LENGTH_SHORT).show();
                                         }
                                     } else {
@@ -335,9 +337,6 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
     }
 
-    public void initTop10Data() {
-
-    }
 
     @Override
     public BaseFragment getFragment() {
@@ -369,47 +368,38 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
         startActivity(new Intent(getActivity(), WithdrawActivity.class));
     }
 
-    @Override
-    public void onResponse(String requestAction,String response) {
-    }
-
-    @Override
-    public void onErrorResponse(String requestAction,VolleyError error) {
-
-    }
-
 
     public void getTop10() {
         Map<String, String> map = new HashMap<String, String>();
-        map.put(AcitonConstants.LOGIN_businessCode, Global.BUSINESS_CODE);
-        map.put(AcitonConstants.ORDERLIST_PAGE, "1");
-        map.put(AcitonConstants.ORDERLIST_SIZE, "10");
-        requestPostQueue(false,getActivity(),AcitonConstants.getMerTop,map,this);
+        map.put(ActionConstants.LOGIN_businessCode, Global.BUSINESS_CODE);
+        map.put(ActionConstants.ORDERLIST_PAGE, "1");
+        map.put(ActionConstants.ORDERLIST_SIZE, "10");
+        requestPostQueue(false,ActionConstants.getMerTop,map,this);
     }
 
     @Override
-    public void onResponse(String response) {
+    public void onResponse(String requestAction,String response) {
         ZhuanjinTopResponse responseBean = new Gson().fromJson(response, new TypeToken<ZhuanjinTopResponse>() {
         }.getType());
-        if (responseBean != null && responseBean.isSuccess() && responseBean.getData()!=null && responseBean.getData().size()>0) {
+        if (responseBean != null && BaseJsonResponse2.STATE_SUCCESS.equals(responseBean.getState()) && responseBean.getData()!=null && responseBean.getData().size()>0) {
 
-                //赚金top10
-                this.layoutManager = new LinearLayoutManager(getActivity());
-                this.layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-                this.recordRecyView.setLayoutManager(this.layoutManager);
-                adapter = new HomeTopListAdapter(getActivity(),responseBean.getData());
-                recordRecyView.setAdapter(adapter);
+            //赚金top10
+            this.layoutManager = new LinearLayoutManager(getActivity());
+            this.layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+            this.recordRecyView.setLayoutManager(this.layoutManager);
+            adapter = new HomeTopListAdapter(getActivity(), responseBean.getData());
+            recordRecyView.setAdapter(adapter);
             recordRecyView.setVisibility(View.VISIBLE);
-            top10NodataTextView.setVisibility(View.GONE);
+//            top10NodataTextView.setVisibility(View.GONE);
         }else {
             recordRecyView.setVisibility(View.GONE);
-            top10NodataTextView.setVisibility(View.VISIBLE);
+//            top10NodataTextView.setVisibility(View.VISIBLE);
         }
 
     }
 
     @Override
-    public void onErrorResponse(VolleyError error) {
+    public void onErrorResponse(String requestAction,VolleyError error) {
 
     }
 }
