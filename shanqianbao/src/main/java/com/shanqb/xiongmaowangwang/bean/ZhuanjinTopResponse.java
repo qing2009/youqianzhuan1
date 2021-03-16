@@ -1,8 +1,8 @@
-package com.shanqb.weishouzhuan.bean;
+package com.shanqb.xiongmaowangwang.bean;
 
 import java.util.List;
 
-public class ZhuanjinTopResponse extends BaseJsonResponse2{
+public class ZhuanjinTopResponse extends BaseJsonResponse2 {
     private List<ZhuanjinTop> data;
 
     public List<ZhuanjinTop> getData() {
