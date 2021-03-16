@@ -95,8 +95,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     Unbinder unbinder;
     String merCode;
     String oaid;
-    @BindView(R.id.taojing91_btn)
-    ImageView taojing91Btn;
+//    @BindView(R.id.taojing91_btn)
+//    ImageView taojing91Btn;
     @BindView(R.id.aibianxian_btn)
     ImageView aibianxianBtn;
     @BindView(R.id.juxiangwang_btn)
@@ -135,7 +135,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     public void fetchData() {
         try {
 
-            getTop10();
+//            getTop10();
 
             userNameTextView.setText(SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.loginCode, ""));
             String totalRevenue = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.allAmt, "0.00");
@@ -196,7 +196,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 //        int viewWidth = taojing91Btn.getWidth();
         int viewWidth = screenWidth - spacingWidth;
         int viewHeight = viewWidth * bitmap.getHeight() / bitmap.getWidth();
-        taojing91Btn.getLayoutParams().height = viewHeight;
+        homeViewImagview.getLayoutParams().height = viewHeight;
 
         Log.e(getTag(), "viewWidth: " + viewWidth);
         Log.e(getTag(), "viewHeight: " + viewHeight);
@@ -211,12 +211,9 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 //        blHorizontal.setAdapter(mAdapterHorizontal = new RecyclerViewBannerAdapter2(DemoDataProvider.urls));
 //        mAdapterHorizontal.setOnBannerItemClickListener(this);
 
-        this.layoutManager = new LinearLayoutManager(getActivity());
-        this.layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        this.recordRecyView.setLayoutManager(this.layoutManager);
-//        adapter = new HomeTopListAdapter(getActivity());
-//        recordRecyView.setAdapter(adapter);
-//        recordRecyView.setVisibility(View.GONE);
+//        this.layoutManager = new LinearLayoutManager(getActivity());
+//        this.layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//        this.recordRecyView.setLayoutManager(this.layoutManager);
 
 
         //channel数据
