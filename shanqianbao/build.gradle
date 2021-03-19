@@ -107,4 +107,7 @@ dependencies {
 //    implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.zhy:okhttputils:2.6.2'
 
+    //我玩
+    implementation 'com.github.gibingLiao:github_jifenqiang_androidx:1.1.7'
+
 }

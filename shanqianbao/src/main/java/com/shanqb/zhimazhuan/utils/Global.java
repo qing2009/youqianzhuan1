@@ -17,8 +17,10 @@ public class Global
 	public static final String CHANNEL_CODE_XIANWANG = "20210221021853088";//享玩
 	public static final String CHANNEL_CODE_YUWANG = "20210302150858583";//鱼丸盒子
 	public static final String CHANNEL_CODE_DUOYOU = "20210302221618125";//多游
-	public static final String CHANNEL_CODE_XIQU = "";//
-	public static final String CHANNEL_CODE_WOWANG = "WOWANG";
+	public static final String CHANNEL_CODE_XIQU = "20210224141221832";//嘻趣
+	public static final String CHANNEL_CODE_WOWANG = "20210306151335295";//我玩
+	public static final String CHANNEL_CODE_XIANWANG2 = "20210224141124709";//闲玩
+
 
 	/** 日志开启开关 */
 	public static final boolean DEBUG = false;
