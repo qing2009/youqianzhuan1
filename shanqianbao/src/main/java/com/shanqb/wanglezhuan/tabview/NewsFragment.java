@@ -1,4 +1,4 @@
-package com.shanqb.qianzhuan.tabview;
+package com.shanqb.wanglezhuan.tabview;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,9 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.viewpager.widget.ViewPager;
 
-import com.shanqb.qianzhuan.R;
-import com.shanqb.qianzhuan.bean.ContentPage;
-import com.shanqb.qianzhuan.utils.XToastUtils;
+import com.shanqb.wanglezhuan.bean.ContentPage;
+import com.shanqb.wanglezhuan.R;
 import com.xuexiang.xui.adapter.FragmentAdapter;
 import com.xuexiang.xui.widget.tabbar.TabSegment;
 

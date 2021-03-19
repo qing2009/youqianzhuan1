@@ -15,7 +15,7 @@
  *
  */
 
-package com.shanqb.qianzhuan.bean;
+package com.shanqb.wanglezhuan.bean;
 
 /**
  * 页面枚举

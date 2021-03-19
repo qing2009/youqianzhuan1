@@ -71,6 +71,7 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
 //        tabs.add(new TabItem(R.drawable.selector_tab_homepage, R.string.homePage, R.string.app_name, HomePageFragment.class));
 //        tabs.add(new TabItem(R.drawable.selector_tab_profile, R.string.me, R.string.me, ProfileFragment.class));
         tabs.add(new TabItem(R.drawable.selector_tab_homepage, R.string.homePage, R.string.app_name));
+        tabs.add(new TabItem(R.drawable.selector_tab_homepage, R.string.homePage, R.string.app_name));
 //        tabs.add(new TabItem(R.drawable.selector_tab_faxian, R.string.faxian, R.string.faxian));
         tabs.add(new TabItem(R.drawable.selector_tab_faxian, R.string.qiandao, R.string.qiandao));
         tabs.add(new TabItem(R.drawable.selector_tab_profile, R.string.me, R.string.me));
@@ -78,6 +79,7 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
         mTabLayout.initData(tabs, this);
         mTabLayout.setCurrentTab(0);
 
+        baseFragments.add(new NewsFragment());
         baseFragments.add(new HomePageFragment());
 //        baseFragments.add(new FaxianFragment());
         baseFragments.add(new QiandaoFragment());
