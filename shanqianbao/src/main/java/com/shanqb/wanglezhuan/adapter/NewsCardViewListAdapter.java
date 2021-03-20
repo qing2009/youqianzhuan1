@@ -5,10 +5,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 
 import com.shanqb.wanglezhuan.R;
-import com.shanqb.wanglezhuan.bean.NewInfo;
+import com.shanqb.wanglezhuan.bean.NewInfo163Item;
 import com.xuexiang.xui.adapter.recyclerview.BaseRecyclerAdapter;
 import com.xuexiang.xui.adapter.recyclerview.RecyclerViewHolder;
-import com.xuexiang.xui.utils.CollectionUtils;
 import com.xuexiang.xui.utils.WidgetUtils;
 
 import java.util.List;
@@ -17,7 +16,7 @@ import java.util.List;
  * @author XUE
  * @since 2019/5/9 10:41
  */
-public class NewsCardViewListAdapter extends BaseRecyclerAdapter<NewInfo> {
+public class NewsCardViewListAdapter extends BaseRecyclerAdapter<NewInfo163Item> {
 
     @Override
     public int getItemLayoutId(int viewType) {
@@ -26,16 +25,25 @@ public class NewsCardViewListAdapter extends BaseRecyclerAdapter<NewInfo> {
     }
 
     @Override
-    public void bindData(@NonNull RecyclerViewHolder holder, int position, NewInfo model) {
+    public void bindData(@NonNull RecyclerViewHolder holder, int position, NewInfo163Item model) {
+
         if (model != null) {
-            holder.text(R.id.tv_user_name, model.getUserName());
-            holder.text(R.id.tv_tag, model.getTag());
+            holder.text(R.id.tv_user_name, model.getSource());
+//            holder.text(R.id.tv_tag, model.getTag());
             holder.text(R.id.tv_title, model.getTitle());
-            holder.text(R.id.tv_summary, model.getSummary());
-            holder.text(R.id.tv_praise, model.getPraise() == 0 ? "点赞" : String.valueOf(model.getPraise()));
-            holder.text(R.id.tv_comment, model.getComment() == 0 ? "评论" : String.valueOf(model.getComment()));
-            holder.text(R.id.tv_read, "阅读量 " + model.getRead());
-            holder.image(R.id.iv_image, model.getImageUrl());
+            holder.text(R.id.tv_summary, model.getDigest());
+            holder.text(R.id.tv_praise, model.getReplyCount()+"");
+            holder.text(R.id.tv_comment, model.getVotecount()+"");
+            holder.text(R.id.tv_read, "阅读量 " + model.getDaynum());
+            holder.image(R.id.iv_image, model.getImgsrc());
+//            holder.text(R.id.tv_user_name, model.getUserName());
+//            holder.text(R.id.tv_tag, model.getTag());
+//            holder.text(R.id.tv_title, model.getTitle());
+//            holder.text(R.id.tv_summary, model.getSummary());
+//            holder.text(R.id.tv_praise, model.getPraise() == 0 ? "点赞" : String.valueOf(model.getPraise()));
+//            holder.text(R.id.tv_comment, model.getComment() == 0 ? "评论" : String.valueOf(model.getComment()));
+//            holder.text(R.id.tv_read, "阅读量 " + model.getRead());
+//            holder.image(R.id.iv_image, model.getImageUrl());
         }
     }
 
@@ -56,7 +64,7 @@ public class NewsCardViewListAdapter extends BaseRecyclerAdapter<NewInfo> {
         }
 
 //        Logger.e("正在进行增量刷新:" + position);
-        NewInfo newInfo = getItem(position);
+        NewInfo163Item newInfo = getItem(position);
 //        for (String key : payload.keySet()) {
 //            switch (key) {
 //                case DiffUtilCallback.PAYLOAD_USER_NAME:

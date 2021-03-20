@@ -24,10 +24,10 @@ package com.shanqb.wanglezhuan.bean;
  */
 public enum ContentPage {
 
-    新闻(0),
-    教育(1),
-    体育(2),
-    娱乐(3);
+    头条(0),
+    汽车(1),
+    娱乐(2),
+    体育(3);
 
     private final int position;
 

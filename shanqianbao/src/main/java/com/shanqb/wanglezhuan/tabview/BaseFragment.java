@@ -104,6 +104,24 @@ public abstract class BaseFragment extends Fragment{
         }
     }
 
+    protected void requestGetQueue(boolean isShowDialog,String requestUrl, MyQueueResponse myQueueResponse){
+        try {
+            if (!NetworkUtils.checkNetworkConnectionState(getContext())) {//未连接到网络
+                XToastUtils.toast(getString(R.string.net_close));
+                return;
+            }
+            if (isShowDialog){
+                showLoadingDialog();
+            }
+
+            myVolley.requestGetQueue(requestUrl,myQueueResponse);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            dismissLoadingDialog();
+        }
+    }
+
 
 
 }

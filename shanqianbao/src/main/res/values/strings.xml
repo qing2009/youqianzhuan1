@@ -80,6 +80,7 @@
     <string name="withdraw">提现</string>
     <string name="tryPlay">试玩记录</string>
     <string name="noRecord">暂无记录</string>
+    <string name="get_money">赚钱</string>
     <string name="read_get_money">阅读赚钱</string>
     <string name="myDownline">我的下线</string>
 
@@ -125,4 +126,10 @@
 
     <!--公告分隔符-->
     <string name="gonggaoSplit">#</string>
+
+    <!--网易新闻接口-->
+    <string name="news_url_163_toutiao">http://c.m.163.com/nc/article/headline/T1348647853363/0-40.html</string><!--头条-->
+    <string name="news_url_163_tiyu">http://c.3g.163.com/nc/article/list/T1348649079062/0-20.html</string><!--体育-->
+    <string name="news_url_163_yule">http://c.3g.163.com/nc/article/list/T1348648517839/0-20.html</string><!--娱乐-->
+    <string name="news_url_163_car">http://c.m.163.com/nc/auto/list/6YOR5bee/0-20.html</string><!--汽车-->
 </resources>

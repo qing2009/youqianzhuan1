@@ -10,11 +10,22 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.alibaba.fastjson.annotation.JSONType;
+import com.android.volley.VolleyError;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.shanqb.wanglezhuan.R;
 import com.shanqb.wanglezhuan.adapter.NewsCardViewListAdapter;
+import com.shanqb.wanglezhuan.bean.ContentPage;
 import com.shanqb.wanglezhuan.bean.NewInfo;
-import com.shanqb.wanglezhuan.utils.DemoDataProvider;
+import com.shanqb.wanglezhuan.bean.NewInfo163;
+import com.shanqb.wanglezhuan.bean.NewInfo163_car;
+import com.shanqb.wanglezhuan.bean.NewInfo163_tiyu;
+import com.shanqb.wanglezhuan.bean.NewInfo163_toutiao;
+import com.shanqb.wanglezhuan.bean.NewInfo163_yule;
+import com.shanqb.wanglezhuan.inter.MyQueueResponse;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +37,7 @@ import butterknife.Unbinder;
  * @author XUE
  * @since 2019/5/9 11:54
  */
-public class SimpleListFragment extends BaseFragment {
+public class SimpleListFragment extends BaseFragment implements MyQueueResponse {
 
     Unbinder unbinder;
 
@@ -37,6 +48,18 @@ public class SimpleListFragment extends BaseFragment {
     SwipeRefreshLayout swipeRefreshLayout;
 
     private NewsCardViewListAdapter mAdapter;
+    private String requestUrl;
+    private String new163_type;
+
+
+    public static SimpleListFragment getInstance(String requestUrl,String new163_type){
+        SimpleListFragment simpleListFragment = new SimpleListFragment();
+        Bundle b = new Bundle();
+        b.putString("requestUrl",requestUrl);
+        b.putString("new163_type",new163_type);
+        simpleListFragment.setArguments(b);
+        return simpleListFragment;
+    }
 
 
 
@@ -45,7 +68,8 @@ public class SimpleListFragment extends BaseFragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         recyclerView.setAdapter(mAdapter = new NewsCardViewListAdapter());
-        mAdapter.refresh(getSpecialDemoNewInfos());
+//        mAdapter.refresh(getSpecialDemoNewInfos());
+        requestGetQueue(false,requestUrl,this);
 
         swipeRefreshLayout.setEnabled(false);
     }
@@ -55,6 +79,9 @@ public class SimpleListFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.include_recycler_view_refresh, container, false);
         unbinder = ButterKnife.bind(this, view);
+
+        requestUrl = getArguments().getString("requestUrl");
+        new163_type = getArguments().getString("new163_type");
 
         initViews();
         return view;
@@ -109,5 +136,35 @@ public class SimpleListFragment extends BaseFragment {
                 .setImageUrl("https://user-gold-cdn.xitu.io/2019/2/22/16914891cd8a950a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"));
 
         return list;
+    }
+
+    @Override
+    public void onResponse(String actonString, String response) {
+        NewInfo163 newInfo163 = null;
+
+
+        switch (new163_type){
+            case "头条":
+            newInfo163 = new Gson().fromJson(response,NewInfo163_toutiao.class);
+            break;
+            case "汽车":
+            newInfo163 = new Gson().fromJson(response, NewInfo163_car.class);
+            break;
+            case "娱乐":
+            newInfo163 = new Gson().fromJson(response, NewInfo163_yule.class);
+            break;
+            case "体育":
+            newInfo163 = new Gson().fromJson(response, NewInfo163_tiyu.class);
+            break;
+        }
+
+        if (newInfo163!=null && newInfo163.getNewInfo163Items()!=null && newInfo163.getNewInfo163Items().size()>0){
+            mAdapter.refresh(newInfo163.getNewInfo163Items());
+        }
+    }
+
+    @Override
+    public void onErrorResponse(String actonString, VolleyError error) {
+
     }
 }

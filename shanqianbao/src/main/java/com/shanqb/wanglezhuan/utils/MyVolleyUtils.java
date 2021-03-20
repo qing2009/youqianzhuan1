@@ -34,8 +34,8 @@ public class MyVolleyUtils {
         this(context,null);
     }
 
-    public void requestQueue(int RequestMethod, String requestAction, Map<String, String> requestParams){
-        String requestUrl = Global.BASE_INTER_URL + requestAction;
+    public void requestQueue(int RequestMethod, String requestInterUrl, String requestAction, Map<String, String> requestParams){
+        String requestUrl = requestInterUrl + requestAction;
         StringRequest stringRequest = new StringRequest(RequestMethod, requestUrl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -62,11 +62,16 @@ public class MyVolleyUtils {
         mQueue.add(stringRequest);
     }
     public void requestPostQueue(String requestAction, Map<String, String> requestParams){
-        requestQueue(Request.Method.POST,requestAction,requestParams);
+        requestQueue(Request.Method.POST,Global.BASE_INTER_URL,requestAction,requestParams);
     }
     public void requestPostQueue(String requestAction, Map<String, String> requestParams, MyQueueResponse myQueueResponse){
         this.myQueueResponse = myQueueResponse;
-        requestQueue(Request.Method.POST,requestAction,requestParams);
+        requestQueue(Request.Method.POST,Global.BASE_INTER_URL,requestAction,requestParams);
+    }
+
+    public void requestGetQueue(String requestUrl, MyQueueResponse myQueueResponse){
+        this.myQueueResponse = myQueueResponse;
+        requestQueue(Request.Method.GET,requestUrl,"",null);
     }
 
     public Context getmContext() {

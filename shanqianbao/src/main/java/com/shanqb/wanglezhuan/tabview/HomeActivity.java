@@ -71,7 +71,7 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
 //        tabs.add(new TabItem(R.drawable.selector_tab_homepage, R.string.homePage, R.string.app_name, HomePageFragment.class));
 //        tabs.add(new TabItem(R.drawable.selector_tab_profile, R.string.me, R.string.me, ProfileFragment.class));
         tabs.add(new TabItem(R.drawable.selector_tab_homepage, R.string.homePage, R.string.app_name));
-        tabs.add(new TabItem(R.drawable.selector_tab_homepage, R.string.homePage, R.string.app_name));
+        tabs.add(new TabItem(R.drawable.selector_tab_zhuanqian, R.string.get_money, R.string.get_money));
 //        tabs.add(new TabItem(R.drawable.selector_tab_faxian, R.string.faxian, R.string.faxian));
         tabs.add(new TabItem(R.drawable.selector_tab_faxian, R.string.qiandao, R.string.qiandao));
         tabs.add(new TabItem(R.drawable.selector_tab_profile, R.string.me, R.string.me));
@@ -87,7 +87,7 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
 
         FragAdapter adapter = new FragAdapter(getSupportFragmentManager(),baseFragments);
         mViewPager.setAdapter(adapter);
-        mViewPager.setOffscreenPageLimit(3);
+        mViewPager.setOffscreenPageLimit(4);
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -99,7 +99,7 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
                 try {
 
                     mTabLayout.setCurrentTab(position);
-                    actionBar.setTitle(tabs.get(position).titleResId);
+//                    actionBar.setTitle(tabs.get(position).titleResId);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -115,7 +115,7 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
     @Override
     public void onTabClick(TabItem tabItem) {
         try {
-            actionBar.setTitle(tabItem.titleResId);
+//            actionBar.setTitle(tabItem.titleResId);
             mViewPager.setCurrentItem(tabs.indexOf(tabItem));
         } catch (Exception e) {
             e.printStackTrace();
