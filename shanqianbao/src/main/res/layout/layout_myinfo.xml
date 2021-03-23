@@ -16,12 +16,12 @@
         android:paddingRight="15dp"
         android:paddingBottom="10dp">
 
-        <com.shanqb.wanglezhuan.view.CircleImageView
+        <com.shanqb.demo.view.CircleImageView
             android:id="@+id/headImageView"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/launcher_icon" />
+            android:src="@drawable/ic_launcher" />
 
         <LinearLayout
             android:layout_width="wrap_content"

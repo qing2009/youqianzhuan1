@@ -25,7 +25,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:visibility="gone"
-                android:src="@drawable/launcher_icon"
+                android:src="@drawable/ic_launcher"
                 app:riv_is_circle="true" />
 
 
@@ -44,6 +44,7 @@
             android:id="@+id/tv_tag"
             style="@style/TextStyle.Explain"
             android:layout_gravity="end|center_vertical"
+            android:visibility="gone"
             android:text="Java" />
 
     </FrameLayout>
