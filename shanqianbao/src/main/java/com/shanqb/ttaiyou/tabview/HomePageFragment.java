@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.duoyou.task.openapi.DyAdApi;
 import com.permissionx.guolindev.PermissionX;
 import com.permissionx.guolindev.callback.ExplainReasonCallback;
 import com.permissionx.guolindev.callback.ForwardToSettingsCallback;
@@ -178,7 +179,15 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                     @Override
                     public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
                         if (allGranted) {
-                            JuxiangyouUtils.startSDK(getActivity(), merCode);
+//                            JuxiangyouUtils.startSDK(getActivity(), merCode);
+
+                            DyAdApi.getDyAdApi().init(getActivity(), "dy_59635174", "8f6e7ad15edefc36ea7650a211f21562","");
+//                            DyAdApi.getDyAdApi().init(getActivity(),"dy_59633678", "ee0a8ee5de2ce442c8b094410440ec8c", "channel");//测试id
+                            /**
+                             * userId : 开发者APP用户标识，代表一个用户的Id，保证唯一性
+                             * advertType: 0（默认值）显示全部数据  1.手游  2.棋牌游戏
+                             */
+                            DyAdApi.getDyAdApi().jumpAdList(getActivity(), merCode, 0);
                         }
                     }
                 });
