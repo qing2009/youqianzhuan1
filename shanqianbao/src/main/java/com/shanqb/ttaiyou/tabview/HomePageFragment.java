@@ -209,7 +209,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                     @Override
                     public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
                         if (allGranted) {
-                            AibianxianUtils.startSDK(getActivity().getApplication(), merCode, getActivity());
+//                            AibianxianUtils.startSDK(getActivity().getApplication(), merCode, getActivity());
+                            Taojing91Utils.startSDK(getActivity(), merCode);
                         }
                     }
                 });

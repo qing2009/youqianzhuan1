@@ -9,8 +9,8 @@ import com.fc.tjcpl.sdk.TJSDK;
  */
 public class Taojing91Utils {
 
-    public static final String appId  = "1957";
-    public static final String appkey = "359b2780e4f0d05db9241c179b8fd3cf";
+    public static final String appId  = "2046";
+    public static final String appkey = "df2b11916782d4df37f441ae041b0d01";
 
     public static void startSDK(Activity context, String userId){
         //初始化sdk,TJSDK.init(appId,appSecret,userId)
