@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.shanqb.wanglezhuan"
+    package="com.shanqb.youlewang"
     android:resizeableActivity="true"
     android:versionCode="1"
     android:versionName="1.0.0">
@@ -28,7 +28,7 @@
         android:value="OPPO"></meta-data>
 
     <application
-        android:name="com.shanqb.wanglezhuan.BaseApplication"
+        android:name="com.shanqb.youlewang.BaseApplication"
         android:allowBackup="true"
         android:usesCleartextTraffic="true"
         android:icon="@drawable/launcher_icon"
@@ -37,7 +37,7 @@
 
 
         <activity
-            android:name="com.shanqb.wanglezhuan.activity.StartActivity"
+            android:name="com.shanqb.youlewang.activity.StartActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -46,58 +46,58 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.shanqb.wanglezhuan.activity.WebActivity"
+            android:name="com.shanqb.youlewang.activity.WebActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.wanglezhuan.activity.LeadActivity"
+            android:name="com.shanqb.youlewang.activity.LeadActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name="com.shanqb.wanglezhuan.tabview.HomeActivity"
+            android:name="com.shanqb.youlewang.tabview.HomeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light"></activity>
         <activity
-            android:name="com.shanqb.wanglezhuan.activity.BottomNavigationViewBehaviorActivity"
+            android:name="com.shanqb.youlewang.activity.BottomNavigationViewBehaviorActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name="com.shanqb.wanglezhuan.activity.LoginActivity"
+            android:name="com.shanqb.youlewang.activity.LoginActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.wanglezhuan.activity.RegisterActivity"
+            android:name="com.shanqb.youlewang.activity.RegisterActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.shanqb.wanglezhuan.activity.ResetpwdActivity"
+            android:name="com.shanqb.youlewang.activity.ResetpwdActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.wanglezhuan.activity.TryPlayRecordActivity"
+            android:name="com.shanqb.youlewang.activity.TryPlayRecordActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.wanglezhuan.activity.ReadGetMoneyActivity"
+            android:name="com.shanqb.youlewang.activity.ReadGetMoneyActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.wanglezhuan.activity.WithdrawActivity"
+            android:name="com.shanqb.youlewang.activity.WithdrawActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.wanglezhuan.activity.WithdrawalAccountActivity"
+            android:name="com.shanqb.youlewang.activity.WithdrawalAccountActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"></activity>
 
         <uses-library android:name="org.apache.http.legacy" android:required="false" />
-        <service android:name="com.shanqb.wanglezhuan.activity.DownLoadAppUpdateService" />
+        <service android:name="com.shanqb.youlewang.activity.DownLoadAppUpdateService" />
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.shanqb.wanglezhuan.fileprovider"
+            android:authorities="com.shanqb.youlewang.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
