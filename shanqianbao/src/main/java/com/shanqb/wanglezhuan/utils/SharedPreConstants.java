@@ -3,6 +3,8 @@ package com.shanqb.wanglezhuan.utils;
 
 public class SharedPreConstants {
     public static final String OAID = "oaid";
+    public static final String VAID = "vaid";
+    public static final String AAID = "aaid";
 
     public static final String userid = "userId";
     public static final String loginCode = "loginCode";

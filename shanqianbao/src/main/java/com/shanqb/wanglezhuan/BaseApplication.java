@@ -2,12 +2,10 @@ package com.shanqb.wanglezhuan;
 
 import android.app.Activity;
 import android.app.Application;
-import android.os.Build;
-import android.text.TextUtils;
 
 import com.component.dly.xzzq_ywsdk.YwSDK;
 import com.pceggs.workwall.util.PceggsWallUtils;
-import com.shanqb.wanglezhuan.utils.MittUtils;
+import com.shanqb.wanglezhuan.utils.DeviceUtils;
 import com.shanqb.wanglezhuan.utils.SharedPreConstants;
 import com.shanqb.wanglezhuan.utils.SharedPreferencesUtil;
 import com.xuexiang.xui.XUI;
@@ -17,6 +15,8 @@ import java.util.ArrayList;
 import jfq.wowan.com.myapplication.PlayMeUtil;
 
 public class BaseApplication extends Application {
+
+    private static final String TAG = "BaseApplication";
 
     private static BaseApplication baseApplication = null;
     private ArrayList<Activity> activityArrayList = null;
@@ -41,8 +41,7 @@ public class BaseApplication extends Application {
 
 
         //安全联盟
-        initOAID();
-
+        DeviceUtils.initOaid(this);
 
 
         //享玩sdk初始化
@@ -67,24 +66,6 @@ public class BaseApplication extends Application {
         PlayMeUtil.init(this, getPackageName()+".fileprovider");
     }
 
-    private void initOAID() {
-        if (Build.VERSION.SDK_INT > 28) {
-            try {
-                //获取oaid
-                new MittUtils().getDeviceIds(this, new MittUtils.AppIdsUpdater() {
-                    @Override
-                    public void OnIdsAvailed(boolean isSupport, String oaid) {
-                        if (!TextUtils.isEmpty(oaid)) {
-
-                            SharedPreferencesUtil.setStringValue(BaseApplication.getInstance(), SharedPreConstants.OAID, oaid);
-                        }
-                    }
-                });
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
 
     public void addActivity2List(Activity activity) {

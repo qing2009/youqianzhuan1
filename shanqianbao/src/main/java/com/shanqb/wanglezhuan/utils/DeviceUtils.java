@@ -5,6 +5,10 @@ import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 
+import com.bun.miitmdid.core.MdidSdkHelper;
+import com.bun.miitmdid.interfaces.IIdentifierListener;
+import com.bun.miitmdid.interfaces.IdSupplier;
+
 import java.lang.reflect.Method;
 
 /**
@@ -12,6 +16,42 @@ import java.lang.reflect.Method;
  * 可以获取手机的IMEI、oaid等。
  */
 public class DeviceUtils {
+
+    private static final String TAG = "DeviceUtils";
+
+
+    /**
+     * 将oaid保存到配置文件
+     * @param context
+     */
+    public static void initOaid(Context context){
+
+        MdidSdkHelper.InitSdk(context, true, new IIdentifierListener() {
+            @Override
+            public void OnSupport(boolean b, IdSupplier idSupplier) {
+
+                if(idSupplier==null) {
+                    return;
+                }
+                String oaid=idSupplier.getOAID();
+                String vaid=idSupplier.getVAID();
+                String aaid=idSupplier.getAAID();
+
+                StringBuilder builder=new StringBuilder();
+                builder.append("support: ").append(idSupplier.isSupported()?"true":"false").append("\n");
+                builder.append("OAID: ").append(oaid).append("\n");
+                builder.append("VAID: ").append(vaid).append("\n");
+                builder.append("AAID: ").append(aaid).append("\n");
+                String idstext=builder.toString();
+
+                LogUtils.debug(idstext);
+
+                SharedPreferencesUtil.setStringValue(context, SharedPreConstants.OAID, oaid);
+                SharedPreferencesUtil.setStringValue(context, SharedPreConstants.VAID, oaid);
+                SharedPreferencesUtil.setStringValue(context, SharedPreConstants.AAID, oaid);
+            }
+        });
+    }
 
 
 
