@@ -25,7 +25,7 @@ public class Global
 	public static final String CHANNEL_CODE_XIANWANG2 = "20210224141124709";//闲玩
 
 	/** 日志开启开关 */
-	public static final boolean DEBUG = false;
+	public static final boolean DEBUG = true;
 
 	/** 页面启动地址 */
 	public static final String BASE_URL = "http://192.168.1.5:8084/XWGame/front/index";

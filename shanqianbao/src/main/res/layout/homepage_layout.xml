@@ -14,162 +14,52 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
-<!--        <com.xuexiang.xui.widget.banner.recycler.BannerLayout
-            android:id="@+id/bl_horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:layout_marginLeft="@dimen/screen_margin_horizontal"
-            android:layout_marginRight="@dimen/screen_margin_horizontal"
-            android:paddingTop="5dp"
-            app:bl_autoPlaying="true"
-            app:bl_centerScale="1.6"
-            app:bl_itemSpace="5dp"
-            app:bl_moveSpeed="1.8" />-->
+        <!-- 轮播图       <com.xuexiang.xui.widget.banner.recycler.BannerLayout
+                    android:id="@+id/bl_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_marginLeft="@dimen/screen_margin_horizontal"
+                    android:layout_marginRight="@dimen/screen_margin_horizontal"
+                    android:paddingTop="5dp"
+                    app:bl_autoPlaying="true"
+                    app:bl_centerScale="1.6"
+                    app:bl_itemSpace="5dp"
+                    app:bl_moveSpeed="1.8" />-->
 
         <include layout="@layout/layout_myinfo"></include>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <TextView
-                android:id="@+id/meizhou_textView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:drawableTop="@drawable/home_meizhou"
-                android:gravity="center"
-                android:text="@string/meizhou_libao"></TextView>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:drawableTop="@drawable/home_task"
-                android:gravity="center"
-                android:text="@string/task_libao"></TextView>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <com.xuexiang.xui.widget.imageview.RadiusImageView
-                android:id="@+id/aibianxian_btn"
-                android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:src="@drawable/shiwang01"
-                app:riv_border_color="@color/white"
-                app:riv_border_width="1px"
-                app:riv_corner_radius="8dp"
-                app:riv_selected_border_color="@color/xui_config_color_gray_4"
-                app:riv_selected_border_width="1px"
-                app:riv_selected_mask_color="@color/xui_config_color_gray_8" />
-
-            <com.xuexiang.xui.widget.imageview.RadiusImageView
-                android:id="@+id/juxiangwang_btn"
-                android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:src="@drawable/shiwang02"
-                app:riv_border_color="@color/white"
-                app:riv_border_width="1px"
-                app:riv_corner_radius="8dp"
-                app:riv_selected_border_color="@color/xui_config_color_gray_4"
-                app:riv_selected_border_width="1px"
-                app:riv_selected_mask_color="@color/xui_config_color_gray_8" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <com.xuexiang.xui.widget.imageview.RadiusImageView
-                android:id="@+id/xiqu_btn"
-                android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:src="@drawable/shiwang03"
-                app:riv_border_color="@color/white"
-                app:riv_border_width="1px"
-                app:riv_corner_radius="8dp"
-                app:riv_selected_border_color="@color/xui_config_color_gray_4"
-                app:riv_selected_border_width="1px"
-                app:riv_selected_mask_color="@color/xui_config_color_gray_8" />
-
-            <com.xuexiang.xui.widget.imageview.RadiusImageView
-                android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:src="@drawable/shiwang04"
-                app:riv_border_color="@color/white"
-                app:riv_border_width="1px"
-                app:riv_corner_radius="8dp"
-                app:riv_selected_border_color="@color/xui_config_color_gray_4"
-                app:riv_selected_border_width="1px"
-                app:riv_selected_mask_color="@color/xui_config_color_gray_8" />
-        </LinearLayout>
-
+        <!--  公告      -->
         <com.xuexiang.xui.widget.textview.marqueen.MarqueeView
             android:id="@+id/marqueeView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
             android:background="#88dddddd" />
 
 
+        <!--渠道-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/channel_recView"
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
             android:nestedScrollingEnabled="false" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/zhuanjingtop10"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:visibility="gone"></TextView>
 
+        <!--赚金top10-->
         <ImageView
             android:id="@+id/homeView_imagview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
+            android:scaleType="centerCrop"
             android:src="@drawable/homepage_taojin91">
 
         </ImageView>
@@ -180,127 +70,18 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
-            android:visibility="gone"
-            android:nestedScrollingEnabled="false" />
+            android:nestedScrollingEnabled="false"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/Top10NoData_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="暂无排名"
-            android:layout_marginTop="20dp"
-            android:textSize="20sp"
             android:layout_gravity="center_horizontal"
-            android:visibility="gone"
-            ></TextView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/screen_margin_horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="@dimen/screen_margin_horizontal"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <ImageView
-                android:id="@+id/taojing91_btn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                android:src="@drawable/homepage_taojin91"></ImageView>
-
-            <!--            <ImageView
-                            android:id="@+id/aibianxian_btn"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_weight="1"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/homepage_aibianxian"></ImageView>-->
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <!--            <ImageView
-                            android:id="@+id/juxiangwang_btn"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:src="@drawable/homepage_img1"></ImageView>-->
-
-            <ImageView
-                android:id="@+id/lin2Img2_imgView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:src="@drawable/homepage_img2"></ImageView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <ImageView
-                android:id="@+id/lin3Img1_imgView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/homepage_img3"></ImageView>
-
-            <ImageView
-                android:id="@+id/lin3Img2_imgView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:src="@drawable/homepage_img4"></ImageView>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:visibility="gone">
-
-            <ImageView
-                android:id="@+id/taskGetMoney_imgView"
-                android:layout_width="0dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="1"
-                android:scaleType="fitXY"
-                android:src="@drawable/task_get_money"></ImageView>
-
-            <ImageView
-                android:id="@+id/readGetMoney_imgView"
-                android:layout_width="0dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:scaleType="center"
-                android:src="@drawable/read_get_money"></ImageView>
-        </LinearLayout>
+            android:layout_marginTop="20dp"
+            android:text="暂无排名"
+            android:textSize="20sp"
+            android:visibility="gone"></TextView>
 
     </LinearLayout>
 

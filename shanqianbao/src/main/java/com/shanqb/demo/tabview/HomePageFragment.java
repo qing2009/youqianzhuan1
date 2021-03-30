@@ -77,56 +77,60 @@ import jfq.wowan.com.myapplication.PlayMeUtil;
  * Created by yx on 16/4/3.
  */
 public class HomePageFragment extends BaseFragment implements ITabClickListener, BannerLayout.OnBannerItemClickListener, MyQueueResponse {
+
 //        @BindView(R.id.bl_horizontal)
-//    BannerLayout blHorizontal;
+//    BannerLayout blHorizontal;//轮播图
+
+    //个人信息
     @BindView(R.id.headImageView)
     CircleImageView headImageView;
     @BindView(R.id.userNameTextView)
     TextView userNameTextView;
     @BindView(R.id.phoneTextView)
     TextView phoneTextView;
+    @BindView(R.id.userInfo_yaoqingma_textView)
+    TextView userYouqingmaSuperText;
     @BindView(R.id.totalRevenueTextView)
     TextView totalRevenueTextView;
     @BindView(R.id.withdrawableTextView)
     TextView withdrawableTextView;
-    Unbinder unbinder;
-    String merCode;
-    String oaid;
-//    @BindView(R.id.taojing91_btn)
-//    ImageView taojing91Btn;
-    @BindView(R.id.aibianxian_btn)
-    ImageView aibianxianBtn;
-    @BindView(R.id.juxiangwang_btn)
-    ImageView juxiangwangBtn;
-    @BindView(R.id.lin2Img2_imgView)
-    ImageView lin2Img2ImgView;
-    @BindView(R.id.lin3Img1_imgView)
-    ImageView lin3Img1ImgView;
-    @BindView(R.id.lin3Img2_imgView)
-    ImageView lin3Img2ImgView;
-    @BindView(R.id.recordRecyView)
-    RecyclerView recordRecyView;
-    @BindView(R.id.channel_recView)
-    RecyclerView channelRecView;
-    @BindView(R.id.homeView_imagview)
-    ImageView homeViewImagview;
-    @BindView(R.id.userInfo_yaoqingma_textView)
-    TextView userYouqingmaSuperText;
+
+    //公告
     @BindView(R.id.marqueeView1)
     MarqueeView marqueeView1;
 
+    //渠道
+    @BindView(R.id.channel_recView)
+    RecyclerView channelRecView;
+
+    //赚金top10
+    @BindView(R.id.homeView_imagview)
+    ImageView homeViewImagview;//赚金top10 title图片
+    @BindView(R.id.recordRecyView)
+    RecyclerView recordRecyView;//赚金top10列表
+
 //    private RecyclerViewBannerAdapter2 mAdapterHorizontal;//轮播图
+
+    //公告
+    private List<String> gonggaoList;
+    private MarqueeFactory<TextView, String> marqueeFactory1;
+
+    //渠道
+    private GridLayoutManager channelLayoutManager;
+    private ChannelAdapter channelAdapter;
 
     //赚金top10
     private LinearLayoutManager layoutManager;
     private HomeTopListAdapter adapter;
 
-    //sdk入口
-    private GridLayoutManager channelLayoutManager;
-    private ChannelAdapter channelAdapter;
 
-    List<String> gonggaoList;
-    MarqueeFactory<TextView, String> marqueeFactory1;
+
+    private Unbinder unbinder;
+    private String merCode;
+    private String oaid;
+
+
+
 
     @Override
     public void fetchData() {
@@ -173,38 +177,23 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.homepage_layout, container, false);
         unbinder = ButterKnife.bind(this, view);
-        merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
-        oaid = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.OAID,"");
 
+        initData();
 
 
         int screenWidth = DensityUtils.getScreenMetrics(true).widthPixels;//屏幕宽度
-
-        int spacingWidth = DensityUtils.dp2px(15);//图片控件左右中间使用的空白间距宽度
-//        int viewWidth = (screenWidth - spacingWidth) / 3;//总共两张图，每张图的宽度。
-//        int viewHeight = viewWidth * 675 / 1080;//640*280是图片分辨率
-
-        //计算homeView图片的高度
-//        int homeViewHeight = screenWidth * 734 / 1180;
-//        homeViewImagview.getLayoutParams().height = homeViewHeight;
-
+        int leftSpacingWidth = getResources().getDimensionPixelSize(R.dimen.screen_margin_horizontal);//图片控件和左侧屏幕边框的距离
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.homepage_taojin91);
-//        int viewWidth = taojing91Btn.getWidth();
-        int viewWidth = screenWidth - spacingWidth;
+        int viewWidth = screenWidth - leftSpacingWidth*2;
         int viewHeight = viewWidth * bitmap.getHeight() / bitmap.getWidth();
         homeViewImagview.getLayoutParams().height = viewHeight;
 
         Log.e(getTag(), "viewWidth: " + viewWidth);
         Log.e(getTag(), "viewHeight: " + viewHeight);
-//        aibianxianBtn.getLayoutParams().height = viewHeight;
-//        juxiangwangBtn.getLayoutParams().height = viewHeight;
-//        aibianxianBtn.getLayoutParams().height = viewHeight;
-//        lin2Img2ImgView.getLayoutParams().height = viewHeight;
-//        lin3Img1ImgView.getLayoutParams().height = viewHeight;
-//        lin3Img2ImgView.getLayoutParams().height = viewHeight;
 
 
+        //轮播图
 //        blHorizontal.setAdapter(mAdapterHorizontal = new RecyclerViewBannerAdapter2(DemoDataProvider.urls));
 //        mAdapterHorizontal.setOnBannerItemClickListener(this);
 
@@ -217,8 +206,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
         String channelListJson = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.channelList, "");
         if (channelListJson != null) {
 
-            Type type = new TypeToken<List<ChannelBean>>() {
-            }.getType();
+            Type type = new TypeToken<List<ChannelBean>>() {}.getType();
             List<ChannelBean> channelBeanList = new Gson().fromJson(channelListJson, type);
             channelAdapter = new ChannelAdapter(channelBeanList);
             channelAdapter.setItemClickListener(new BaseRecyclerViewAdapter.OnItemClickListener() {
@@ -323,6 +311,11 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
 
         return view;
+    }
+
+    private void initData() {
+        merCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.merCode, "");
+        oaid = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.OAID,"");
     }
 
 
