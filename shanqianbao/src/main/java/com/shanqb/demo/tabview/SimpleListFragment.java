@@ -1,5 +1,6 @@
 package com.shanqb.demo.tabview;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,9 @@ import com.shanqb.demo.bean.NewInfo163_tiyu;
 import com.shanqb.demo.bean.NewInfo163_toutiao;
 import com.shanqb.demo.bean.NewInfo163_yule;
 import com.shanqb.demo.inter.MyQueueResponse;
+import com.shanqb.demo.utils.Utils;
+import com.shanqb.demo.webview.AgentWebActivity;
+import com.xuexiang.xui.adapter.recyclerview.DividerItemDecoration;
 import com.xuexiang.xui.adapter.recyclerview.RecyclerViewHolder;
 
 import java.util.ArrayList;
@@ -65,6 +69,7 @@ public class SimpleListFragment extends BaseFragment implements MyQueueResponse 
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
+        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(mAdapter = new NewsCardViewListAdapter());
 //        mAdapter.refresh(getSpecialDemoNewInfos());
         requestGetQueue(false,requestUrl,this);
@@ -73,11 +78,7 @@ public class SimpleListFragment extends BaseFragment implements MyQueueResponse 
         mAdapter.setOnItemClickListener(new RecyclerViewHolder.OnItemClickListener<NewInfo163Item>() {
             @Override
             public void onItemClick(View itemView, NewInfo163Item item, int position) {
-//                Intent intent = new Intent(context, AgentWebActivity.class);
-//                intent.putExtra(KEY_URL, url);
-//                context.startActivity(intent);
-//                Utils.goWeb(getContext(), item.getDetailUrl()
-
+                Utils.goWeb(getContext(),item.getUrl());
             }
         });
     }

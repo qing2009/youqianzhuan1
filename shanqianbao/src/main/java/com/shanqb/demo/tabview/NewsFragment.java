@@ -58,7 +58,10 @@ public class NewsFragment extends BaseFragment {
             }
 
 
-            mTabSegment.addTab(new TabSegment.Tab(page.name()));
+            TabSegment.Tab tab = new TabSegment.Tab(page.name());
+            tab.setTextColor(getResources().getColor(R.color.textNineColor),getResources().getColor(R.color.custom_color_main_theme));
+
+            mTabSegment.addTab(tab);
             adapter.addFragment(SimpleListFragment.getInstance(requestUrl,page.name()), page.name());
         }
 //        for (String page : pages) {

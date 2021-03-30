@@ -10,9 +10,13 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+
+import com.shanqb.demo.webview.AgentWebActivity;
+import com.shanqb.demo.webview.AgentWebFragment;
 
 /**
  * 全局工具类
@@ -379,6 +383,18 @@ public final class Utils
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+
+	/**
+	 * 请求浏览器
+	 *
+	 * @param url
+	 */
+	public static void goWeb(Context context, final String url) {
+		Intent intent = new Intent(context, AgentWebActivity.class);
+		intent.putExtra(AgentWebFragment.KEY_URL, url);
+		context.startActivity(intent);
 	}
 
 }

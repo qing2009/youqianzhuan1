@@ -208,7 +208,7 @@ public class QiandaoFragment extends BaseFragment {
 
         GridLayoutManager channelLayoutManager = new GridLayoutManager(getActivity(), 7);
         qiandaoRecyclerView.setLayoutManager(channelLayoutManager);
-        qiandaoRecyclerView.addItemDecoration(new GridDividerItemDecoration(getContext(), 7, DensityUtils.dp2px(5)));
+        qiandaoRecyclerView.addItemDecoration(new GridDividerItemDecoration(getContext(), 7));
         qiandaoRecyclerView.setHasFixedSize(true);
         qiandaoRecyclerView.setAdapter(adapter);
     }
