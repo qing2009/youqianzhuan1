@@ -7,6 +7,7 @@ import android.text.TextUtils;
 
 import com.component.dly.xzzq_ywsdk.YwSDK;
 import com.pceggs.workwall.util.PceggsWallUtils;
+import com.shanqb.demo.utils.DeviceUtils;
 import com.shanqb.demo.utils.MittUtils;
 import com.shanqb.demo.utils.SharedPreConstants;
 import com.shanqb.demo.utils.SharedPreferencesUtil;
