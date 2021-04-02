@@ -69,6 +69,7 @@ public class LoginResponse extends BaseJsonResponse {
         private Object mobileModel;
         private String shareCode;
         private String txMinAmt;
+        private String isSlogin;
         private List<ChannelBean> listbc;
 
         public String getShareCode() {
@@ -80,6 +81,13 @@ public class LoginResponse extends BaseJsonResponse {
         }
 
 
+        public String getIsSlogin() {
+            return isSlogin;
+        }
+
+        public void setIsSlogin(String isSlogin) {
+            this.isSlogin = isSlogin;
+        }
 
         public int getId() {
             return id;
@@ -289,4 +297,6 @@ public class LoginResponse extends BaseJsonResponse {
     public void setGonggao(String gonggao) {
         this.gonggao = gonggao;
     }
+
+
 }

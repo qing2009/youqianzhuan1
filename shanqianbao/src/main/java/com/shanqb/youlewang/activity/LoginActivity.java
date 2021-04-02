@@ -173,10 +173,7 @@ public class LoginActivity extends MyBaseActivity {                 //登录界�
                             if (loginResponse.getData() != null) {
                                 LoginUtils.saveUserInfo(getApplicationContext(),loginResponse,userPwd);
 
-                                Toast.makeText(LoginActivity.this, getString(R.string.login_success), Toast.LENGTH_SHORT).show();//登录成功提示
-                                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-                                finish();
-
+                                LoginUtils.emulatorCheck(LoginActivity.this, getString(R.string.login_success));
 
                             } else {
                                 Toast.makeText(LoginActivity.this, getString(R.string.login_fail), Toast.LENGTH_SHORT).show();  //登录失败提示
@@ -237,10 +234,7 @@ public class LoginActivity extends MyBaseActivity {                 //登录界�
                             if (loginResponse.getData() != null) {
                                 LoginUtils.saveUserInfo(getApplicationContext(),loginResponse,userPwd);
 
-                                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-//                                startActivity(new Intent(LoginActivity.this, BottomNavigationViewBehaviorActivity.class));
-                                finish();
-
+                                LoginUtils.emulatorCheck(LoginActivity.this, "");
 
                             }
                         }

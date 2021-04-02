@@ -31,4 +31,9 @@ public class SharedPreConstants {
     public static final String QIANDAO_SUM = "qiandao_sum";
     public static final String QIANDAO_RECORD = "qiandao_record";
 
+    public static final String ISSLOGIN = "isSlogin";//0就是开启检测
+    public static final String ISSLOGIN_OPNE = "0";//0就是开启检测
+
+    public static final String ISEMULATOR = "isEmulator";//是否为模拟器
+
 }

@@ -1,12 +1,22 @@
 package com.shanqb.youlewang.utils;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.component.dly.xzzq_ywsdk.YwSDK;
 import com.google.gson.Gson;
 import com.shanqb.youlewang.bean.LoginResponse;
+import com.shanqb.youlewang.R;
+import com.shanqb.youlewang.activity.RegisterActivity;
+import com.shanqb.youlewang.bean.LoginResponse;
+import com.shanqb.youlewang.tabview.HomeActivity;
+import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
 
 public class LoginUtils {
     private static final String TAG = "LoginUtils";
@@ -29,6 +39,7 @@ public class LoginUtils {
         editor.putString(SharedPreConstants.txAmt, loginResponse.getData().getTxAmt() + "");
         editor.putString(SharedPreConstants.shareCode, loginResponse.getData().getShareCode() + "");
         editor.putString(SharedPreConstants.txMinAmt, loginResponse.getData().getTxMinAmt());
+        editor.putString(SharedPreConstants.ISSLOGIN, loginResponse.getData().getIsSlogin());
 
         editor.putString(SharedPreConstants.gonggao, loginResponse.getGonggao());
         editor.putString(SharedPreConstants.qdbg, loginResponse.getQdbg());
@@ -48,4 +59,43 @@ public class LoginUtils {
             Log.e(TAG, "initYwSDk: Exception:", e);
         }
     }
+
+
+    /**
+     * 是否需要模拟器检测
+     *  如果不需要：打开主页
+     *  如果需要：判断是否为模拟器：
+     *      非模拟器：打开主页
+     *      模拟器：弹出提示
+     *          点击确定退出应用。
+     */
+    public static void emulatorCheck(Activity activity, String toastString){
+
+        String isSlogin = SharedPreferencesUtil.getStringValue(activity.getApplicationContext(),SharedPreConstants.ISSLOGIN,"");
+        if (SharedPreConstants.ISSLOGIN_OPNE.equals(isSlogin)){//需要检测
+            boolean isEmulator = SharedPreferencesUtil.getBooleanValue(activity.getApplicationContext(),SharedPreConstants.ISEMULATOR,false);
+            if (isEmulator){//当前设备为模拟器
+                new MaterialDialog.Builder(activity)
+                        .title(R.string.notice)
+                        .content(R.string.emulator_tips)
+                        .positiveText(R.string.ok)
+                        .dismissListener(new DialogInterface.OnDismissListener() {
+                            @Override
+                            public void onDismiss(DialogInterface dialog) {
+                                System.exit(0);
+                            }
+                        })
+                        .cancelable(false)
+                        .show();
+                return;
+            }
+        }
+
+        if (!TextUtils.isEmpty(toastString)){
+            Toast.makeText(activity, toastString, Toast.LENGTH_SHORT).show();//登录成功提示
+        }
+        activity.startActivity(new Intent(activity, HomeActivity.class));
+        activity.finish();
+    }
+
 }

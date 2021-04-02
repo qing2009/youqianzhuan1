@@ -123,11 +123,7 @@ public class RegisterActivity extends MyBaseActivity {
 
                                         BaseApplication.getInstance().clearActivityList();
 
-                                        Toast.makeText(RegisterActivity.this, getString(R.string.register_success), Toast.LENGTH_SHORT).show();//登录成功提示
-                                        startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
-                                        finish();
-
-
+                                        LoginUtils.emulatorCheck(RegisterActivity.this, getString(R.string.register_success));
                                     } else {
 //                                        Toast.makeText(RegisterActivity.this, getString(R.string.register_fail), Toast.LENGTH_SHORT).show();  //登录失败提示
                                         showSimpleTipDialog(getString(R.string.register_fail));
