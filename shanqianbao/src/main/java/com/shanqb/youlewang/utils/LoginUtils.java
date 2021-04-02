@@ -72,6 +72,7 @@ public class LoginUtils {
     public static void emulatorCheck(Activity activity, String toastString){
 
         String isSlogin = SharedPreferencesUtil.getStringValue(activity.getApplicationContext(),SharedPreConstants.ISSLOGIN,"");
+//        String isSlogin = "0";//测试代码
         if (SharedPreConstants.ISSLOGIN_OPNE.equals(isSlogin)){//需要检测
             boolean isEmulator = SharedPreferencesUtil.getBooleanValue(activity.getApplicationContext(),SharedPreConstants.ISEMULATOR,false);
             if (isEmulator){//当前设备为模拟器

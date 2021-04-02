@@ -126,5 +126,5 @@
     <!--公告分隔符-->
     <string name="gonggaoSplit">#</string>
 
-    <string name="emulator_tips">检测到当前设备为模拟器，请使用真是设备使用当前App</string>
+    <string name="emulator_tips">检测到当前设备为模拟器，请使用真实设备使用当前App</string>
 </resources>
