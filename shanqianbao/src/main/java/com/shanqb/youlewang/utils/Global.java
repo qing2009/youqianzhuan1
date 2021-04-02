@@ -1,4 +1,4 @@
-package com.shanqb.wanglezhuan.utils;
+package com.shanqb.youlewang.utils;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
