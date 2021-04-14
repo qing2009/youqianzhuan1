@@ -45,6 +45,7 @@ import com.shanqb.wanglezhuan.utils.ActionConstants;
 import com.shanqb.wanglezhuan.utils.DemoDataProvider;
 import com.shanqb.wanglezhuan.utils.DeviceUtils;
 import com.shanqb.wanglezhuan.utils.Global;
+import com.shanqb.wanglezhuan.utils.LogUtils;
 import com.shanqb.wanglezhuan.utils.SharedPreConstants;
 import com.shanqb.wanglezhuan.utils.SharedPreferencesUtil;
 import com.shanqb.wanglezhuan.utils.sdk.AibianxianUtils;
@@ -138,16 +139,13 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     @Override
     public void fetchData() {
         try {
-
 //            getTop10();
-
             userNameTextView.setText(SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.loginCode, ""));
-            String totalRevenue = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.allAmt, "0.00");
-            totalRevenueTextView.setText(totalRevenue);
-            String withdrawable = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.txAmt, "0.00");
-            withdrawableTextView.setText(withdrawable);
+
             String yaoqingma = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.shareCode, "");
             userYouqingmaSuperText.setText(getString(R.string.yaoqingma) + ": " + yaoqingma);
+
+            setShouyiView();
 
             setGonggao();
 
@@ -156,6 +154,25 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
         }
     }
 
+
+    /**
+     * 显示收益
+     */
+    private void setShouyiView() {
+        Log.e("HomePageFragment", "setShouyiView() called");
+        String totalRevenue = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.allAmt, "0.00");
+        totalRevenueTextView.setText(totalRevenue);
+        String withdrawable = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.txAmt, "0.00");
+        withdrawableTextView.setText(withdrawable);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        //刷新总收益、可提现
+        setShouyiView();
+    }
 
     /**
      * 设置公告
