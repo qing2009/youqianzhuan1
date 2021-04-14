@@ -211,7 +211,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
             Type type = new TypeToken<List<ChannelBean>>() {}.getType();
             List<ChannelBean> channelBeanList = new Gson().fromJson(channelListJson, type);
-            channelAdapter = new ChannelAdapter(channelBeanList);
+            channelAdapter = new ChannelAdapter(getContext(),channelBeanList);
             channelAdapter.setItemClickListener(new BaseRecyclerViewAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(View var1, int var2) {
