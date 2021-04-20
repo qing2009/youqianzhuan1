@@ -1,12 +1,20 @@
 package com.shanqb.demo.utils;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.component.dly.xzzq_ywsdk.YwSDK;
 import com.google.gson.Gson;
+import com.shanqb.demo.R;
 import com.shanqb.demo.bean.LoginResponse;
+import com.shanqb.demo.tabview.HomeActivity;
+import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
 
 public class LoginUtils {
     private static final String TAG = "LoginUtils";
