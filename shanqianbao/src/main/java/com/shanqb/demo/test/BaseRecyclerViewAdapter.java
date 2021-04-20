@@ -1,6 +1,8 @@
 package com.shanqb.demo.test;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Context;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,10 +17,15 @@ import android.widget.TextView;
  */
 
 public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter {
+    protected Context context;
     private int mResourceId;
     private OnItemClickListener mItemClickListener;
     private OnItemLongClickListener mItemLongClickListener;
 
+    public BaseRecyclerViewAdapter( Context context,int resourceId) {
+        this.context = context;
+        this.mResourceId = resourceId;
+    }
     public BaseRecyclerViewAdapter(int resourceId) {
         this.mResourceId = resourceId;
     }

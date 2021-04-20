@@ -216,16 +216,16 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
                                     editor.commit();
 
 
-                                    try {
-                                        for (BaseFragment baseFragment:baseFragments) {
-                                            baseFragment.fetchData();
-                                        }
-
-//                                    } catch (InstantiationException e) {
+//                                    try {
+//                                        for (BaseFragment baseFragment:baseFragments) {
+//                                            baseFragment.fetchData();
+//                                        }
+//
+////                                    } catch (InstantiationException e) {
+////                                        e.printStackTrace();
+//                                    } catch (Exception e) {
 //                                        e.printStackTrace();
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
+//                                    }
 
                                 } else {
                                     Toast.makeText(HomeActivity.this, getString(R.string.getUserInfo_error), Toast.LENGTH_SHORT).show();

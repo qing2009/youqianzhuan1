@@ -15,6 +15,7 @@ import com.xuexiang.xui.XUI;
 
 import java.util.ArrayList;
 
+import diff.strazzere.anti.AntiEmulatorUtils;
 import jfq.wowan.com.myapplication.PlayMeUtil;
 
 public class BaseApplication extends Application {
@@ -67,8 +68,24 @@ public class BaseApplication extends Application {
 
         //我玩
         PlayMeUtil.init(this, getPackageName()+".fileprovider");
+
+        emulatorCheck();
     }
 
+
+    /**
+     * 模拟器检测
+     */
+    private void emulatorCheck() {
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                boolean result = new AntiEmulatorUtils().isEmulator(getApplicationContext());
+                SharedPreferencesUtil.setBooleanValue(getApplicationContext(),SharedPreConstants.ISEMULATOR,result);
+            }
+        }.start();
+    }
 
 
     public void addActivity2List(Activity activity) {

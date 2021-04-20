@@ -1,5 +1,6 @@
 package com.shanqb.demo.adapter;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
@@ -15,16 +16,17 @@ import java.util.List;
 
 public class ChannelAdapter extends BaseRecyclerViewAdapter {
 
+
     private List<ChannelBean> channelBeanList;
     /**
      * 默认加载图片
      */
-    private ColorDrawable mColorDrawable;
+//    private ColorDrawable mColorDrawable;
 
-    public ChannelAdapter(List<ChannelBean> channelBeanList) {
-        super(R.layout.item_layout_channel);
+    public ChannelAdapter(Context context,List<ChannelBean> channelBeanList) {
+        super(context,R.layout.item_layout_channel);
         this.channelBeanList = channelBeanList;
-        mColorDrawable = new ColorDrawable(Color.parseColor("#555555"));
+//        mColorDrawable = new ColorDrawable(Color.parseColor("#555555"));
     }
 
     @Override
@@ -33,7 +35,7 @@ public class ChannelAdapter extends BaseRecyclerViewAdapter {
             ChannelBean channelBean = channelBeanList.get(var2);
             RoundCornerImageView imageView = (RoundCornerImageView) var1.getImageView(R.id.channel_radiusImgView);
 //            ImageLoader.get().loadImage(imageView,channelBean.getImageUrl());
-            ImageLoader.get().loadImage(imageView, channelBean.getImageUrl(), mColorDrawable,
+            ImageLoader.get().loadImage(imageView, channelBean.getImageUrl(), context.getDrawable(R.drawable.jinqingqidai),
                     true ? DiskCacheStrategyEnum.RESOURCE : DiskCacheStrategyEnum.NONE);
 //            imageView.setImageResource(R.drawable.shiwang01);
 //            ImageLoader.get().loadImage(imageView,R.drawable.shiwang01);

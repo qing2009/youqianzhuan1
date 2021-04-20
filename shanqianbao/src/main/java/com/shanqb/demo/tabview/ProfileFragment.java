@@ -2,6 +2,7 @@ package com.shanqb.demo.tabview;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,13 +54,30 @@ public class ProfileFragment extends BaseFragment implements ITabClickListener {
     @Override
     public void fetchData() {
         userNameTextView.setText(SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.loginCode, ""));
+        String yaoqingma = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.shareCode, "");
+        youqingmaSuperText.setText(yaoqingma);
+        userYouqingmaSuperText.setText(getString(R.string.yaoqingma)+": "+yaoqingma);
+
+        setShouyiView();
+    }
+
+    /**
+     * 显示收益
+     */
+    private void setShouyiView() {
+        Log.e("ProfileFragment", "setShouyiView() called");
         String totalRevenue = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.allAmt, "0.00");
         totalRevenueTextView.setText(totalRevenue);
         String withdrawable = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.txAmt, "0.00");
         withdrawableTextView.setText(withdrawable);
-        String yaoqingma = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.shareCode, "");
-        youqingmaSuperText.setText(yaoqingma);
-        userYouqingmaSuperText.setText(getString(R.string.yaoqingma)+": "+yaoqingma);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        //刷新总收益、可提现
+        setShouyiView();
     }
 
     @Override
