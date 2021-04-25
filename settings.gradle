@@ -1,2 +1,3 @@
+rootProject.name = 'com.shanqb.demo'
 include ':shanqianbao'
 include ':AntiEmulator'
