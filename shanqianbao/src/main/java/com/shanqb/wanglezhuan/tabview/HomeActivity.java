@@ -44,7 +44,7 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
     @Override
     public void initLayout() {
         setContentView(R.layout.activity_home);
-        //初始化8.0配置
+        //享玩初始化8.0配置
         PceggsWallUtils.setAuthorities("com.shanqb.wallet.fileprovider");
     }
 
@@ -113,8 +113,8 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
     @Override
     public void onTabClick(TabItem tabItem) {
         try {
-            actionBar.setTitle(tabItem.titleResId);
             mViewPager.setCurrentItem(tabs.indexOf(tabItem));
+            actionBar.setTitle(tabItem.titleResId);
         } catch (Exception e) {
             e.printStackTrace();
         }
