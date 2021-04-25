@@ -27,6 +27,7 @@
         android:name="UMENG_CHANNEL"
         android:value="OPPO"></meta-data>
 
+    <!--假如您的App适配到了9.0(Android P),因为google在P上出于安全原因使用的是Https,而我们的网页路径采用的是http,所以可以在Application节点中添加:cleartextTrafficPermitted="true"-->
     <application
         android:name=".BaseApplication"
         android:allowBackup="true"
