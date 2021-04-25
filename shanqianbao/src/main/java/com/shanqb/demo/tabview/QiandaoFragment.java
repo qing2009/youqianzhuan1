@@ -154,9 +154,7 @@ public class QiandaoFragment extends BaseFragment {
 
                 int week = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
                 if (week == qiandaoRecord.getWeekofYear()) {//有本周数据
-                    int dayIndex = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
-                    Log.e(getTag(), "onCreate: dayIndex=" + dayIndex);
-                    QiandaoItemBean qiandaoItemBean = qiandaoRecord.getQiandaoItemBeanList().get(dayIndex - 2);
+                    QiandaoItemBean qiandaoItemBean = qiandaoRecord.getQiandaoItemBeanList().get(getQiandanIndex());
                     if (qiandaoItemBean.isQiandao()) {
                         qiandaoBtn.setEnabled(false);
                         qiandaoBtn.setText(getString(R.string.jingriyiqiandao));
@@ -180,6 +178,23 @@ public class QiandaoFragment extends BaseFragment {
             initQiandaoRevcordView();
         }
         refreshQiandaoSumView();
+    }
+
+
+    /**
+     * 获取当期日期时本周的第几天。从周一开始，周一为0
+     * @return
+     */
+    private int getQiandanIndex() {
+        int dayIndex = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);//本周第几天。从周日开始，周日为1
+        Log.e(getTag(), "onCreate: dayIndex=" + dayIndex);
+        int qiandaoIndex;
+        if (dayIndex==1){//如果时周日，需要修改值为6
+            qiandaoIndex = 6;
+        }else {
+            qiandaoIndex = dayIndex - 2;
+        }
+        return qiandaoIndex;
     }
 
     private void setQiandaoBG() {
@@ -228,9 +243,7 @@ public class QiandaoFragment extends BaseFragment {
         qiandaoSumInteger = qiandaoSumInteger + 1;
         SharedPreferencesUtil.setIntValue(getActivity(), SharedPreConstants.QIANDAO_SUM, qiandaoSumInteger);
 
-        int dayIndex = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);//从周日开始计数
-        Log.e(getTag(), "onCreate: dayIndex=" + dayIndex);
-        qiandaoRecord.getQiandaoItemBeanList().get(dayIndex - 2).setQiandao(true);
+        qiandaoRecord.getQiandaoItemBeanList().get(getQiandanIndex()).setQiandao(true);
         adapter.notifyDataSetChanged();
 
         XToastUtils.toast(getString(R.string.qiandao_success_tishi));
