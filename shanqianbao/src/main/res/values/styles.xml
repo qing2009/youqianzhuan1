@@ -22,16 +22,22 @@
         <!-- CheckBox，RadioButton，SwitchCompat等一般控件的选中效果默认采用该颜色 -->
         <item name="colorAccent">@color/custom_color_main_theme</item>
         <!--应用的主要色调，actionBar默认使用该颜色，Toolbar导航栏的底色-->
-        <item name="colorPrimary">@color/title_bg</item>
+        <item name="colorPrimary">@color/custom_color_main_theme</item>
         <!--应用的主要暗色调，statusBarColor默认使用该颜色-->
-        <item name="colorPrimaryDark">@color/xui_config_color_control_normal</item>
-        <item name="colorControlNormal">@color/xui_config_color_control_normal</item>
+        <item name="colorPrimaryDark">@color/custom_color_main_theme</item>
 
         <!--actionbar的样式-->
-        <item name="xui_actionbar_color">@color/white</item>
-        <item name="xui_actionbar_text_color">@color/titleBar_title</item>
-        <item name="xui_actionbar_immersive">false</item>
-        <item name="xui_actionbar_ic_navigation_back">@drawable/back_icon</item>
+        <item name="xui_actionbar_color">@color/custom_color_main_theme</item>
+ <!--       <item name="xui_actionbar_text_color">@color/titleBar_title</item>-->
+<!--        <item name="xui_actionbar_immersive">false</item>-->
+<!--        <item name="xui_actionbar_ic_navigation_back">@drawable/back_icon</item>-->
+
+    </style>
+    <style name="PullDownStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="srlEnableOverScrollDrag">true</item>
+        <item name="srlEnablePureScrollMode">true</item>
     </style>
 
 
@@ -125,5 +131,8 @@
         <item name="android:layout_height">80dp</item>
         <item name="android:layout_height">80dp</item>
     </style>-->
+
+
+
 
 </resources>
