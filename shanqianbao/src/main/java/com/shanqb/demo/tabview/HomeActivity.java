@@ -45,7 +45,7 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
     public void initLayout() {
         setContentView(R.layout.activity_home);
         //初始化8.0配置
-        PceggsWallUtils.setAuthorities("com.shanqb.wallet.fileprovider");
+        PceggsWallUtils.setAuthorities(getPackageName()+".fileprovider");
     }
 
     @Override
