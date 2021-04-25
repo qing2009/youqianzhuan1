@@ -373,6 +373,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     @OnClick(R.id.ketixian_linLayout)
     public void onClick() {
         startActivity(new Intent(getActivity(), WithdrawActivity.class));
+
+//        XianWangUtils.startSDK(getActivity(),"10001", "PCDDXW_CS_10001");
     }
 
 
