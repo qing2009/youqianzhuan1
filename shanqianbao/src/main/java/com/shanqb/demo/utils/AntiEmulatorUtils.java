@@ -1,4 +1,4 @@
-package com.shanqb.wanglezhuan.utils;
+package com.shanqb.demo.utils;
 
 
 import android.bluetooth.BluetoothAdapter;
@@ -13,7 +13,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.shanqb.wanglezhuan.emulator.FindEmulator;
+import com.shanqb.demo.emulator.FindEmulator;
 
 
 /**

@@ -1,17 +1,15 @@
-package com.shanqb.wanglezhuan.emulator;
+package com.shanqb.demo.emulator;
 
 import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.util.Property;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
-import diff.strazzere.anti.common.Property;
-import diff.strazzere.anti.common.Utilities;
-import diff.strazzere.anti.debugger.FindDebugger;
 
 /**
  * Class used to determine functionality specific to the Android QEmu.
@@ -40,11 +38,24 @@ public class FindEmulator {
             "/system/bin/qemu-props"};
     private static String[] known_geny_files = {"/dev/socket/genyd", "/dev/socket/baseband_genyd"};
     private static String[] known_qemu_drivers = {"goldfish"};
+
+    static class MyPorperty extends Property<String,String>{
+
+
+        public MyPorperty(Class<String> type, String name) {
+            super(type, name);
+        }
+
+        @Override
+        public String get(String s) {
+            return null;
+        }
+    }
     /**
      * Known props, in the format of [property name, value to seek] if value to seek is null, then it is assumed that
      * the existence of this property (anything not null) indicates the QEmu environment.
      */
-    private static Property[] known_props = {new Property("init.svc.qemud", null),
+    private static MyPorperty[] known_props = {new MyPorperty("init.svc.qemud", null),
             new Property("init.svc.qemu-props", null), new Property("qemu.hw.mainkeys", null),
             new Property("qemu.sf.fake_camera", null), new Property("qemu.sf.lcd_density", null),
             new Property("ro.bootloader", "unknown"), new Property("ro.bootmode", "unknown"),
