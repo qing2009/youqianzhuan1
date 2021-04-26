@@ -13,70 +13,79 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.shanqb.demo.emulator.FindEmulator;
-
 
 /**
  * 工具类
  */
 public class AntiEmulatorUtils {
 
-
     /**
      * 检测是否为模拟器
+     *
      * @param context
      * @return
      */
     public boolean isEmulator(Context context) {
-        log("isEmulator...");
+        LogUtils.debug("isEmulator...");
 
-        boolean checkResult = hasWendu(context) ||
+        boolean checkResult =
+                checkProperty() ||
+                        operatorNameCheck(context) ||
                         checkTelephoneStatus(context) ||
+                        hasWendu(context) ||
                         notHasLightSensorManager(context) ||
-                        notHasBlueTooth() ||
-                        isQEmuEnvDetected(context);
+                        notHasBlueTooth();
 
-        log("检测结果:"+checkResult);
+        LogUtils.debug("是否为模拟器:" + checkResult);
         return checkResult;
     }
 
 
-    public boolean isQEmuEnvDetected(Context context) {
-        log("Checking for QEmu env...");
-        log("hasKnownDeviceId : " + FindEmulator.hasKnownDeviceId(context.getApplicationContext()));
-        log("hasKnownPhoneNumber : " + FindEmulator.hasKnownPhoneNumber(context.getApplicationContext()));
-        log("isOperatorNameAndroid : " + FindEmulator.isOperatorNameAndroid(context.getApplicationContext()));
-        log("hasKnownImsi : " + FindEmulator.hasKnownImsi(context.getApplicationContext()));
-        log("hasEmulatorBuild : " + FindEmulator.hasEmulatorBuild(context.getApplicationContext()));
-        log("hasPipes : " + FindEmulator.hasPipes());
-        log("hasQEmuDriver : " + FindEmulator.hasQEmuDrivers());
-        log("hasQEmuFiles : " + FindEmulator.hasQEmuFiles());
-        log("hasGenyFiles : " + FindEmulator.hasGenyFiles());
-        log("hasEmulatorAdb :" + FindEmulator.hasEmulatorAdb());
-        for (String abi : Build.SUPPORTED_ABIS) {
-            if (abi.equalsIgnoreCase("armeabi-v7a")) {
-                log("hitsQemuBreakpoint : " + FindEmulator.checkQemuBreakpoint());
+    /**
+     * 根据运营商名称检测
+     *
+     * @param context
+     * @return
+     */
+    private static boolean operatorNameCheck(Context context) {
+        LogUtils.debug("operatorNameCheck() called with: context = [" + context + "]");
+
+        String operatorName = "";
+        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        if (tm != null) {
+            String name = tm.getNetworkOperatorName();
+            if (name != null) {
+                operatorName = name;
             }
         }
-        if (FindEmulator.hasKnownDeviceId(context.getApplicationContext())
-                || FindEmulator.hasKnownImsi(context.getApplicationContext())
-                || FindEmulator.hasEmulatorBuild(context.getApplicationContext())
-                || FindEmulator.hasKnownPhoneNumber(context.getApplicationContext()) || FindEmulator.hasPipes()
-                || FindEmulator.hasQEmuDrivers() || FindEmulator.hasEmulatorAdb()
-                || FindEmulator.hasQEmuFiles()
-                || FindEmulator.hasGenyFiles()) {
-            log("QEmu environment detected.");
-            log("\n");
-            return true;
-        } else {
-            log("QEmu environment not detected.");
-            log("\n");
-            return false;
-        }
+        LogUtils.debug("operatorName:"+operatorName);
+        boolean checkOperatorName = operatorName.toLowerCase().equals("android");
+        LogUtils.debug("checkOperatorName:"+checkOperatorName);
+        LogUtils.debug("\n");
+        return checkOperatorName;
     }
 
 
-
+    /**
+     * 根据参数检测
+     *
+     * @return
+     */
+    private static boolean checkProperty() {
+        LogUtils.debug( "checkProperty() called");
+        boolean result =  Build.FINGERPRINT.startsWith("generic")
+                || Build.FINGERPRINT.toLowerCase().contains("vbox")
+                || Build.FINGERPRINT.toLowerCase().contains("test-keys")
+                || Build.MODEL.contains("google_sdk")
+                || Build.MODEL.contains("Emulator")
+                || Build.MODEL.contains("Android SDK built for x86")
+                || Build.MANUFACTURER.contains("Genymotion")
+                || (Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic"))
+                || "google_sdk".equals(Build.PRODUCT);
+        LogUtils.debug("result:"+result);
+        LogUtils.debug("\r\n");
+        return result;
+    }
 
 
     /**
@@ -85,22 +94,22 @@ public class AntiEmulatorUtils {
      * @return
      */
     public boolean hasWendu(Context context) {
-        log("通过电池的伏数和温度来判断是真机还是模拟器.");
+        LogUtils.debug("通过电池的伏数和温度来判断是真机还是模拟器.");
         IntentFilter intentFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
         Intent batteryStatusIntent = context.registerReceiver(null, intentFilter);
         int voltage = batteryStatusIntent.getIntExtra("voltage", 99999);
         int temperature = batteryStatusIntent.getIntExtra("temperature", 99999);
-        log("voltage : " + voltage);
-        log("temperature : " + temperature);
+        LogUtils.debug("voltage : " + voltage);
+        LogUtils.debug("temperature : " + temperature);
         if (((voltage == 0) && (temperature == 0))
                 || ((voltage == 10000) && (temperature == 0))) {
             //这是通过电池的伏数和温度来判断是真机还是模拟器
-            log("检测结果 : true");
-            log("\n");
+            LogUtils.debug("检测结果 : true");
+            LogUtils.debug("\n");
             return true;
         } else {
-            log("检测结果 : false");
-            log("\n");
+            LogUtils.debug("检测结果 : false");
+            LogUtils.debug("\n");
             return false;
         }
     }
@@ -111,34 +120,17 @@ public class AntiEmulatorUtils {
      * @return
      */
     public boolean checkTelephoneStatus(Context context) {
-        log("拨打电话检测");
+        LogUtils.debug("拨打电话检测");
         String url = "tel:" + "15512340001";
         Intent intent = new Intent();
         intent.setData(Uri.parse(url));
         intent.setAction(Intent.ACTION_DIAL);
         // 是否可以处理跳转到拨号的 Intent
         boolean canResolveIntent = intent.resolveActivity(context.getPackageManager()) != null;
-        log("canResolveIntent : " + canResolveIntent);
+        LogUtils.debug("canResolveIntent : " + canResolveIntent);
 
-        boolean result = Build.FINGERPRINT.startsWith("generic")
-                || Build.FINGERPRINT.toLowerCase().contains("vbox")
-                || Build.FINGERPRINT.toLowerCase().contains("test-keys")
-                || Build.MODEL.contains("google_sdk")
-                || Build.MODEL.contains("Emulator")
-                || Build.SERIAL.equalsIgnoreCase("unknown")
-                || Build.SERIAL.equalsIgnoreCase("android")
-                || Build.MODEL.contains("Android SDK built for x86")
-                || Build.MANUFACTURER.contains("Genymotion")
-                || (Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic"))
-                || "google_sdk".equals(Build.PRODUCT)
-                || ((TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE))
-                .getNetworkOperatorName().toLowerCase().equals("android")
-                || !canResolveIntent;
-//        return result;
-
-        log("result : " + result);
-        log("检测结果 : " + !canResolveIntent);
-        log("\n");
+        LogUtils.debug("检测结果 : " + !canResolveIntent);
+        LogUtils.debug("\n");
         return !canResolveIntent;
     }
 
@@ -149,17 +141,17 @@ public class AntiEmulatorUtils {
      * @return true 为模拟器
      */
     public Boolean notHasLightSensorManager(Context context) {
-        log("判断是否存在光传感器来判断是否为模拟器");
+        LogUtils.debug("判断是否存在光传感器来判断是否为模拟器");
         SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         Sensor sensor8 = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT); //光
-        log("sensor8 : " + sensor8);
+        LogUtils.debug("sensor8 : " + sensor8);
         if (null == sensor8) {
-            log("检测结果 : true");
-            log("\n");
+            LogUtils.debug("检测结果 : true");
+            LogUtils.debug("\n");
             return true;
         } else {
-            log("检测结果 : false");
-            log("\n");
+            LogUtils.debug("检测结果 : false");
+            LogUtils.debug("\n");
             return false;
         }
     }
@@ -169,32 +161,27 @@ public class AntiEmulatorUtils {
      *返回:true 为模拟器
      */
     public boolean notHasBlueTooth() {
-        log("判断蓝牙是否有效来判断是否为模拟器");
+        LogUtils.debug("判断蓝牙是否有效来判断是否为模拟器");
         BluetoothAdapter ba = BluetoothAdapter.getDefaultAdapter();
         if (ba == null) {
-            log("ba : " + ba);
-            log("检测结果 : true");
-            log("\n");
+            LogUtils.debug("ba : " + ba);
+            LogUtils.debug("检测结果 : true");
+            LogUtils.debug("\n");
             return true;
         } else {
             // 如果有蓝牙不一定是有效的。获取蓝牙名称，若为null 则默认为模拟器
             String name = ba.getName();
-            log("BlueToothName : " + name);
+            LogUtils.debug("BlueToothName : " + name);
             if (TextUtils.isEmpty(name)) {
-                log("检测结果 : true");
-                log("\n");
+                LogUtils.debug("检测结果 : true");
+                LogUtils.debug("\n");
                 return true;
             } else {
-                log("检测结果 : false");
-                log("\n");
+                LogUtils.debug("检测结果 : false");
+                LogUtils.debug("\n");
                 return false;
             }
         }
     }
-
-    public void log(String msg) {
-        Log.v("AntiEmulator", msg);
-    }
-
 
 }
