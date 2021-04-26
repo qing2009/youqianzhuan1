@@ -1,4 +1,4 @@
-package diff.strazzere.anti.emulator;
+package com.shanqb.wanglezhuan.emulator;
 
 import android.content.Context;
 import android.os.Build;
@@ -202,16 +202,16 @@ public class FindEmulator {
     }
 
     public static boolean hasEmulatorBuild(Context context) {
-        String BOARD = android.os.Build.BOARD; // The name of the underlying board, like "unknown".
+        String BOARD = Build.BOARD; // The name of the underlying board, like "unknown".
         // This appears to occur often on real hardware... that's sad
         // String BOOTLOADER = android.os.Build.BOOTLOADER; // The system bootloader version number.
-        String BRAND = android.os.Build.BRAND; // The brand (e.g., carrier) the software is customized for, if any.
+        String BRAND = Build.BRAND; // The brand (e.g., carrier) the software is customized for, if any.
         // "generic"
-        String DEVICE = android.os.Build.DEVICE; // The name of the industrial design. "generic"
-        String HARDWARE = android.os.Build.HARDWARE; // The name of the hardware (from the kernel command line or
+        String DEVICE = Build.DEVICE; // The name of the industrial design. "generic"
+        String HARDWARE = Build.HARDWARE; // The name of the hardware (from the kernel command line or
         // /proc). "goldfish"
-        String MODEL = android.os.Build.MODEL; // The end-user-visible name for the end product. "sdk"
-        String PRODUCT = android.os.Build.PRODUCT; // The name of the overall product.
+        String MODEL = Build.MODEL; // The end-user-visible name for the end product. "sdk"
+        String PRODUCT = Build.PRODUCT; // The name of the overall product.
         if ((BOARD.compareTo("unknown") == 0) /* || (BOOTLOADER.compareTo("unknown") == 0) */
                 || (BRAND.compareTo("generic") == 0) || (DEVICE.compareTo("generic") == 0)
                 || (MODEL.compareTo("sdk") == 0) || (PRODUCT.compareTo("sdk") == 0)

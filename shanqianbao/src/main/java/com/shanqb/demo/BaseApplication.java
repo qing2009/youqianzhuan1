@@ -15,7 +15,6 @@ import com.xuexiang.xui.XUI;
 
 import java.util.ArrayList;
 
-import diff.strazzere.anti.AntiEmulatorUtils;
 import jfq.wowan.com.myapplication.PlayMeUtil;
 
 public class BaseApplication extends Application {
