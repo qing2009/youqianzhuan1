@@ -1,4 +1,4 @@
-package diff.strazzere.anti;
+package com.shanqb.wanglezhuan.utils;
 
 
 import android.bluetooth.BluetoothAdapter;
@@ -13,10 +13,8 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-import diff.strazzere.anti.debugger.FindDebugger;
-import diff.strazzere.anti.emulator.FindEmulator;
-import diff.strazzere.anti.monkey.FindMonkey;
-import diff.strazzere.anti.taint.FindTaint;
+import com.shanqb.wanglezhuan.emulator.FindEmulator;
+
 
 /**
  * 工具类
@@ -32,15 +30,11 @@ public class AntiEmulatorUtils {
     public boolean isEmulator(Context context) {
         log("isEmulator...");
 
-        boolean checkResult =
-                        hasWendu(context) ||
+        boolean checkResult = hasWendu(context) ||
                         checkTelephoneStatus(context) ||
                         notHasLightSensorManager(context) ||
                         notHasBlueTooth() ||
-                        isQEmuEnvDetected(context) ||
-                        isTaintTrackingDetected(context) ||
-                        isMonkeyDetected() ||
-                        isDebugged();
+                        isQEmuEnvDetected(context);
 
         log("检测结果:"+checkResult);
         return checkResult;
@@ -81,58 +75,8 @@ public class AntiEmulatorUtils {
         }
     }
 
-    public boolean isTaintTrackingDetected(Context context) {
-        log("Checking for Taint tracking...");
-        log("hasAppAnalysisPackage : " + FindTaint.hasAppAnalysisPackage(context.getApplicationContext()));
-        log("hasTaintClass : " + FindTaint.hasTaintClass());
-        log("hasTaintMemberVariables : " + FindTaint.hasTaintMemberVariables());
-        if (FindTaint.hasAppAnalysisPackage(context.getApplicationContext()) || FindTaint.hasTaintClass()
-                || FindTaint.hasTaintMemberVariables()) {
-            log("Taint tracking was detected.");
-            log("\n");
-            return true;
-        } else {
-            log("Taint tracking was not detected.");
-            log("\n");
-            return false;
-        }
-    }
 
-    public boolean isMonkeyDetected() {
-        log("Checking for Monkey user...");
-        log("isUserAMonkey : " + FindMonkey.isUserAMonkey());
 
-        if (FindMonkey.isUserAMonkey()) {
-            log("Monkey user was detected.");
-            log("\n");
-            return true;
-        } else {
-            log("Monkey user was not detected.");
-            log("\n");
-            return false;
-        }
-    }
-
-    public boolean isDebugged() {
-        log("Checking for debuggers...");
-
-        boolean tracer = false;
-        try {
-            tracer = FindDebugger.hasTracerPid();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
-
-        if (FindDebugger.isBeingDebugged() || tracer) {
-            log("Debugger was detected");
-            log("\n");
-            return true;
-        } else {
-            log("No debugger was detected.");
-            log("\n");
-            return false;
-        }
-    }
 
 
     /**

@@ -5,6 +5,7 @@ import android.app.Application;
 
 import com.component.dly.xzzq_ywsdk.YwSDK;
 import com.pceggs.workwall.util.PceggsWallUtils;
+import com.shanqb.wanglezhuan.utils.AntiEmulatorUtils;
 import com.shanqb.wanglezhuan.utils.DeviceUtils;
 import com.shanqb.wanglezhuan.utils.SharedPreConstants;
 import com.shanqb.wanglezhuan.utils.SharedPreferencesUtil;
@@ -12,7 +13,6 @@ import com.xuexiang.xui.XUI;
 
 import java.util.ArrayList;
 
-import diff.strazzere.anti.AntiEmulatorUtils;
 import jfq.wowan.com.myapplication.PlayMeUtil;
 
 public class BaseApplication extends Application {

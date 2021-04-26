@@ -1,3 +1,2 @@
 rootProject.name = '${applicationId}'
 include ':shanqianbao'
-include ':AntiEmulator'
