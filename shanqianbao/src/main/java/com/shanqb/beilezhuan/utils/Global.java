@@ -8,7 +8,7 @@ public class Global
 {
 	/** 日志打印TAG */
 	public static final String DEBUG_TAG = "SQB";
-	public static final String BUSINESS_CODE = "20210316081944220";//商户号
+	public static final String BUSINESS_CODE = "20210426234655856";//商户号
 
 	public static final String CHANNEL_CODE_AIBIANXIAN = "20210221021824005";//爱变现
 	public static final String CHANNEL_CODE_JUXIANGYOU = "20210221021842938";//聚享游
