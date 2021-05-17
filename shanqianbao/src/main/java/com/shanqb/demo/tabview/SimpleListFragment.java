@@ -22,6 +22,7 @@ import com.shanqb.demo.bean.NewInfo163_car;
 import com.shanqb.demo.bean.NewInfo163_tiyu;
 import com.shanqb.demo.bean.NewInfo163_toutiao;
 import com.shanqb.demo.bean.NewInfo163_yule;
+import com.shanqb.demo.bean.NewInfo163_yundong;
 import com.shanqb.demo.inter.MyQueueResponse;
 import com.shanqb.demo.utils.Utils;
 import com.shanqb.demo.webview.AgentWebActivity;
@@ -151,20 +152,22 @@ public class SimpleListFragment extends BaseFragment implements MyQueueResponse 
     public void onResponse(String actonString, String response) {
         NewInfo163 newInfo163 = null;
 
-
-        switch (new163_type){
+        switch (new163_type) {
             case "头条":
-            newInfo163 = new Gson().fromJson(response,NewInfo163_toutiao.class);
-            break;
+                newInfo163 = new Gson().fromJson(response, NewInfo163_toutiao.class);
+                break;
             case "汽车":
-            newInfo163 = new Gson().fromJson(response, NewInfo163_car.class);
-            break;
+                newInfo163 = new Gson().fromJson(response, NewInfo163_car.class);
+                break;
             case "娱乐":
-            newInfo163 = new Gson().fromJson(response, NewInfo163_yule.class);
-            break;
+                newInfo163 = new Gson().fromJson(response, NewInfo163_yule.class);
+                break;
             case "体育":
-            newInfo163 = new Gson().fromJson(response, NewInfo163_tiyu.class);
-            break;
+                newInfo163 = new Gson().fromJson(response, NewInfo163_tiyu.class);
+                break;
+            case "运动":
+                newInfo163 = new Gson().fromJson(response, NewInfo163_yundong.class);
+                break;
         }
 
         if (newInfo163!=null && newInfo163.getNewInfo163Items()!=null && newInfo163.getNewInfo163Items().size()>0){

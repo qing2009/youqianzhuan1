@@ -55,6 +55,9 @@ public class NewsFragment extends BaseFragment {
             }else if (ContentPage.体育.equals(page)) {
                 requestUrl = getString(R.string.news_url_163_tiyu);
 
+            }else if (ContentPage.运动.equals(page)) {
+                requestUrl = getString(R.string.news_url_163_yundong);
+
             }
 
 

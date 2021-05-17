@@ -27,7 +27,8 @@ public enum ContentPage {
     头条(0),
     汽车(1),
     娱乐(2),
-    体育(3);
+    体育(3),
+    运动(4);
 
     private final int position;
 
