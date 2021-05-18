@@ -11,7 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
 
-    <com.shanqb.demo.view.PointView
+    <com.shanqb.qianrenzixun.view.PointView
         android:id="@+id/pointView"
         android:layout_width="fill_parent"
         android:layout_height="20dp"
