@@ -260,7 +260,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                     AibianxianUtils.startSDK(getActivity().getApplication(), merCode, getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey());
                                                     break;
                                                 case Global.CHANNEL_CODE_JUXIANGYOU:
-                                                    JuxiangyouUtils.startSDK(getActivity(), merCode, channelBean.getChannelUser(), channelBean.getChannelKey());
+                                                    JuxiangyouUtils.startSDK(getActivity(), merCode, channelBean.getChannelUser(), channelBean.getChannelKey(),oaid);
                                                     break;
                                                 case Global.CHANNEL_CODE_TAOJING91:
                                                     Taojing91Utils.startSDK(getActivity(), merCode, channelBean.getChannelUser(), channelBean.getChannelKey());
