@@ -2,7 +2,6 @@ package com.shanqb.demo.utils.sdk;
 
 import android.content.Context;
 
-import com.shanqb.qianrenzixun.utils.DeviceUtils;
 import com.toomee.mengplus.manager.TooMeeManager;
 
 /**
