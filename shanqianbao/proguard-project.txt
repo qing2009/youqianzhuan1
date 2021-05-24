@@ -154,7 +154,7 @@
 -keep class android.support.** {*;}
 -keep class com.github.lzyzsd.jsbridge.** {*;}
 # 移动安全联盟设备标识符SDK
-#设备标识符sdk v1.0.23
+#设备标识符sdk
 -keep class XI.CA.XI.**{*;}
 -keep class XI.K0.XI.**{*;}
 -keep class XI.XI.K0.**{*;}

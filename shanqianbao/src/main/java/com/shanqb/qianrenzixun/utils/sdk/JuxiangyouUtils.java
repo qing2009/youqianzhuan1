@@ -20,7 +20,6 @@ public class JuxiangyouUtils {
         //注意申请动态权限 WRITE_EXTERNAL_STORAGE和READ_PHONE_STATE
 //        TooMeeManager.init(context, MID, userId, TOKEN, null);
 
-//        String comstring = "shield,ismobile｜oaid,"+oaid+"｜android_id,"+ DeviceUtils.getIMEI(context,1);
         String comstring = "oaid,"+oaid;
 
         TooMeeManager.init(context, channelUser, userId, channelKey, comstring,null);
