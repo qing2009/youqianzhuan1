@@ -32,12 +32,14 @@ import com.permissionx.guolindev.request.ExplainScope;
 import com.permissionx.guolindev.request.ForwardScope;
 import com.shanqb.demo.R;
 import com.shanqb.demo.activity.WithdrawActivity;
+import com.shanqb.demo.taojin91.H5Activity;
 import com.shanqb.demo.adapter.ChannelAdapter;
 import com.shanqb.demo.adapter.HomeTopListAdapter;
 import com.shanqb.demo.bean.BaseJsonResponse2;
 import com.shanqb.demo.bean.ChannelBean;
 import com.shanqb.demo.bean.ZhuanjinTopResponse;
 import com.shanqb.demo.inter.MyQueueResponse;
+import com.shanqb.demo.taojin91.H5ActivityOpt;
 import com.shanqb.demo.test.BaseRecyclerViewAdapter;
 import com.shanqb.demo.utils.ActionConstants;
 import com.shanqb.demo.utils.DeviceUtils;
@@ -263,7 +265,13 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                     JuxiangyouUtils.startSDK(getActivity(), merCode, channelBean.getChannelUser(), channelBean.getChannelKey(),oaid);
                                                     break;
                                                 case Global.CHANNEL_CODE_TAOJING91:
-                                                    Taojing91Utils.startSDK(getActivity(), merCode, channelBean.getChannelUser(), channelBean.getChannelKey());
+                                                    if (channelBean.getWay().equals("0")){//sdk打开
+                                                        Taojing91Utils.startSDK(getActivity(), merCode, channelBean.getChannelUser(), channelBean.getChannelKey());
+                                                    }else {//h5打开
+                                                        //使用内置webview打开H5连接
+                                                        Intent intent=new Intent(getActivity(), H5ActivityOpt.class);
+                                                        startActivity(intent);
+                                                    }
                                                     break;
                                                 case Global.CHANNEL_CODE_XIANWANG:
                                                     XianWangUtils.startSDK(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey());
@@ -367,7 +375,7 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
     }
 
-    @OnClick(R.id.ketixian_linLayout)
+    @OnClick({R.id.ketixian_linLayout})
     public void onClick() {
         startActivity(new Intent(getActivity(), WithdrawActivity.class));
     }

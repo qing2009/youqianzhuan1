@@ -26,6 +26,7 @@ public class ChannelBean {
     private String createTime;
     private String updateTime;
     private String state;//如果为0就是不能点平台锁住了,为1才能点进去
+    private String way;//91淘金的打开方式 0:sdk;1:h5
     private String tishi;//如果为0的提示文字
 
     public int getId() {
@@ -122,5 +123,13 @@ public class ChannelBean {
 
     public void setTishi(String tishi) {
         this.tishi = tishi;
+    }
+
+    public String getWay() {
+        return way;
+    }
+
+    public void setWay(String way) {
+        this.way = way;
     }
 }
