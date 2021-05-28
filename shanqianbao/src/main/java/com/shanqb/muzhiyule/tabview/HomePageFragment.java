@@ -269,6 +269,8 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                     }else {//h5打开
                                                         //使用内置webview打开H5连接
                                                         Intent intent=new Intent(getActivity(), H5ActivityOpt.class);
+                                                        intent.putExtra("appid",channelBean.getChannelUser());
+                                                        intent.putExtra("appkey",channelBean.getChannelKey());
                                                         startActivity(intent);
                                                     }
                                                     break;

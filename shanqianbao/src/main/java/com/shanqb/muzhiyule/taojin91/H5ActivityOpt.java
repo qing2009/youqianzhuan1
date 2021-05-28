@@ -352,7 +352,7 @@ public class H5ActivityOpt extends Activity {
         String appId = "65";
         String appKey = "6dd20c04be295ef26fcb39eef1efe27d";
 //        String url = UrlUtil.buildUrl(getApplicationContext(),userId,oaid,baseUrl,appId,appKey);
-        String url = UrlUtil.buildUrl(getApplicationContext(),userId,oaid,baseUrl, Taojing91Utils.appId,Taojing91Utils.appkey);
+        String url = UrlUtil.buildUrl(getApplicationContext(),userId,oaid,baseUrl, getIntent().getStringExtra("appid"),getIntent().getStringExtra("appkey"));
         Log.e("tag","url=="+url);
         webView.loadUrl(url);
     }
