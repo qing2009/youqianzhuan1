@@ -90,6 +90,12 @@
         <activity
             android:name=".webview.AgentWebActivity"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".taojin91.H5Activity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".taojin91.H5ActivityOpt"
+            android:screenOrientation="portrait"></activity>
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -114,6 +120,17 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/ywsdk_file_paths" />
+        </provider>
+
+        <!--h5 app安装必须provider-->
+        <provider
+            android:name="com.shanqb.demo.taojin91.TJH5FileProvider"
+            android:authorities="${applicationId}.tjh5.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/tjh5_provider_paths" />
         </provider>
     </application>
 </manifest>
