@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.shanqb.demo"
+    package="com.shanqb.muzhiyule"
     android:resizeableActivity="true"
     android:versionCode="1"
     android:versionName="1.0.0">
@@ -28,7 +28,7 @@
         android:value="OPPO"></meta-data>
 
     <application
-        android:name=".BaseApplication"
+        android:name="com.shanqb.muzhiyule.BaseApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:theme="@style/AppTheme"
@@ -36,7 +36,7 @@
 
 
         <activity
-            android:name=".activity.StartActivity"
+            android:name="com.shanqb.muzhiyule.activity.StartActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,63 +44,63 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.WebActivity"
+            android:name="com.shanqb.muzhiyule.activity.WebActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.LeadActivity"
+            android:name="com.shanqb.muzhiyule.activity.LeadActivity"
 
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name=".tabview.HomeActivity"
+            android:name="com.shanqb.muzhiyule.tabview.HomeActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.BottomNavigationViewBehaviorActivity"
+            android:name="com.shanqb.muzhiyule.activity.BottomNavigationViewBehaviorActivity"
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name=".activity.LoginActivity"
+            android:name="com.shanqb.muzhiyule.activity.LoginActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.RegisterActivity"
+            android:name="com.shanqb.muzhiyule.activity.RegisterActivity"
 
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ResetpwdActivity"
+            android:name="com.shanqb.muzhiyule.activity.ResetpwdActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.TryPlayRecordActivity"
+            android:name="com.shanqb.muzhiyule.activity.TryPlayRecordActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.ReadGetMoneyActivity"
+            android:name="com.shanqb.muzhiyule.activity.ReadGetMoneyActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.WithdrawActivity"
+            android:name="com.shanqb.muzhiyule.activity.WithdrawActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.WithdrawalAccountActivity"
+            android:name="com.shanqb.muzhiyule.activity.WithdrawalAccountActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".webview.AgentWebActivity"
+            android:name="com.shanqb.muzhiyule.webview.AgentWebActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".taojin91.H5Activity"
+            android:name="com.shanqb.muzhiyule.taojin91.H5Activity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".taojin91.H5ActivityOpt"
+            android:name="com.shanqb.muzhiyule.taojin91.H5ActivityOpt"
             android:screenOrientation="portrait"></activity>
 
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
-        <service android:name=".activity.DownLoadAppUpdateService" />
+        <service android:name="com.shanqb.muzhiyule.activity.DownLoadAppUpdateService" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -124,7 +124,7 @@
 
         <!--h5 app安装必须provider-->
         <provider
-            android:name="com.shanqb.demo.taojin91.TJH5FileProvider"
+            android:name="com.shanqb.muzhiyule.taojin91.TJH5FileProvider"
             android:authorities="${applicationId}.tjh5.provider"
             android:exported="false"
             android:grantUriPermissions="true">
