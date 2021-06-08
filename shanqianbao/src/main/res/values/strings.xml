@@ -135,4 +135,5 @@
     <string name="news_url_163_yundong">http://c.3g.163.com/nc/article/list/T1348649079062/0-20.html</string><!--运动-->
 
     <string name="emulator_tips">检测到当前设备为模拟器，请使用真是设备使用当前App</string>
+    <string name="playNum_param1">%s次播放</string>
 </resources>

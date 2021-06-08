@@ -79,7 +79,8 @@ public class HomeActivity extends MyBaseActivity implements TabLayout.OnTabClick
         mTabLayout.initData(tabs, this);
         mTabLayout.setCurrentTab(0);
 
-        baseFragments.add(new NewsFragment());
+//        baseFragments.add(new NewsFragment());
+        baseFragments.add(new VideosFragment());
         baseFragments.add(new HomePageFragment());
 //        baseFragments.add(new FaxianFragment());
         baseFragments.add(new QiandaoFragment());

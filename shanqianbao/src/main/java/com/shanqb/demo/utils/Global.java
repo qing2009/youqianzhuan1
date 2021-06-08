@@ -40,6 +40,16 @@ public class Global
 //	public static final String BASE_INTER_URL = "http://1.15.38.129/front/myInfo/";//tt爱游
 	public static final String BASE_INTER_URL = "http://8.133.178.205/admin/front/myInfo/";//
 
+	/**
+	 * 视频接口
+	 */
+	public static final String BASE_VIDEO_DOMAIN = "http://wmn.douziok.com/";//视频域名
+	public static final String BASE_VIDEO_URL = BASE_VIDEO_DOMAIN+"diaobo/front/video/videoInfo/";//
+	public static final String GET_VIDEO_TYPE = BASE_VIDEO_URL+"getVideoTypeJson";//获取视频类型
+	public static final String GET_VIDEO_LIST = BASE_VIDEO_URL+"getVideoList?";//获取视频类型
+
+
+
 
 	/**
 	 * 获取应用程序的当前版本号,即AndroidManifest.xml中的versionCode
