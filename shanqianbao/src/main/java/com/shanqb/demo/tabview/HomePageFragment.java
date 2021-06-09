@@ -44,6 +44,7 @@ import com.shanqb.demo.test.BaseRecyclerViewAdapter;
 import com.shanqb.demo.utils.ActionConstants;
 import com.shanqb.demo.utils.DeviceUtils;
 import com.shanqb.demo.utils.Global;
+import com.shanqb.demo.utils.PhoneMsgUtil;
 import com.shanqb.demo.utils.SharedPreConstants;
 import com.shanqb.demo.utils.SharedPreferencesUtil;
 import com.shanqb.demo.utils.sdk.AibianxianUtils;
@@ -125,6 +126,21 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     private LinearLayoutManager layoutManager;
     private HomeTopListAdapter adapter;
 
+    //手机信息
+    @BindView(R.id.phoneInfo_system_model)
+    TextView system_model;
+    @BindView(R.id.phoneInfo_system_version)
+    TextView system_version;
+    @BindView(R.id.phoneInfo_device_brand)
+    TextView device_brand;
+    @BindView(R.id.phoneInfo_device_product)
+    TextView device_product;
+    @BindView(R.id.phoneInfo_phone_imei)
+    TextView phone_imei;
+    @BindView(R.id.phoneInfo_device_SDK)
+    TextView device_SDK;
+    @BindView(R.id.phoneInfo_wifi_ip)
+    TextView wifi_ip;
 
 
     private Unbinder unbinder;
@@ -143,6 +159,18 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
             String yaoqingma = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.shareCode, "");
             userYouqingmaSuperText.setText(getString(R.string.yaoqingma) + ": " + yaoqingma);
+
+            system_model.setText(PhoneMsgUtil.getSystemModel());
+            system_version.setText(PhoneMsgUtil.getSystemVersion());
+            if (oaid != null && !oaid.equals("")) {
+                phone_imei.setText(oaid);
+            } else {
+                phone_imei.setText(DeviceUtils.getDeviceId(getContext()));
+            }
+            device_product.setText(PhoneMsgUtil.getDeviceProduct());
+            device_brand.setText(PhoneMsgUtil.getDeviceBrand());
+            wifi_ip.setText(PhoneMsgUtil.getIPAddress(getContext()));
+            device_SDK.setText(PhoneMsgUtil.getDeviceSDK()+"");
 
             setShouyiView();
 

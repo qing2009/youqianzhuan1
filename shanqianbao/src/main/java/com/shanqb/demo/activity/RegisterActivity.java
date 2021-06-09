@@ -153,7 +153,7 @@ public class RegisterActivity extends MyBaseActivity {
                             map.put(ActionConstants.LOGIN_USERNAME, userName);
                             map.put(ActionConstants.LOGIN_PASSWORD, userPwd);
                             map.put(ActionConstants.INTER_REGISTER_IMEI, imei);
-                            map.put(ActionConstants.INTER_REGISTER_VCODE, stvVerifyCode.getCenterEditValue().trim());
+                            map.put(ActionConstants.INTER_REGISTER_VCODE, "asd");
                             map.put(ActionConstants.INTER_REGISTER_BUSINESSCODE, Global.BUSINESS_CODE);
                             return map;
                         }

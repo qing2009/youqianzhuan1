@@ -30,15 +30,38 @@
 
 
         <!--  公告      -->
-        <com.xuexiang.xui.widget.textview.marqueen.MarqueeView
-            android:id="@+id/marqueeView1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/screen_margin_horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="@dimen/screen_margin_horizontal"
-            android:background="#88dddddd" />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginLeft="@dimen/screen_margin_horizontal"
+            android:layout_marginRight="@dimen/screen_margin_horizontal"
+            android:layout_height="50dp"
+            android:background="#88dddddd" >
+
+            <TextView
+                android:id="@+id/gonggao"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawablePadding="10dp"
+                android:layout_alignParentLeft="true"
+                android:drawableLeft="@drawable/gonggao"
+                android:gravity="center_vertical"
+                android:text="公告:"></TextView>
+            <com.xuexiang.xui.widget.textview.marqueen.MarqueeView
+                android:id="@+id/marqueeView1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/gonggao"
+                android:layout_weight="5"
+                android:layout_marginLeft="@dimen/screen_margin_horizontal"
+                android:layout_marginRight="@dimen/screen_margin_horizontal"
+                />
+        </RelativeLayout>
 
         <!--渠道-->
         <androidx.recyclerview.widget.RecyclerView
@@ -49,7 +72,203 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
             android:nestedScrollingEnabled="false" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e8e8e8"
+            android:orientation="vertical"
+            android:visibility="gone">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:drawablePadding="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:drawableLeft="@drawable/me_yaoqingma"
+                    android:gravity="center_vertical"
+                    android:text="机型"></TextView>
+                <TextView
+                    android:id="@+id/phoneInfo_system_model"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    ></TextView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:drawablePadding="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:drawableLeft="@drawable/me_yaoqingma"
+                    android:gravity="center_vertical"
+                    android:text="安卓版本号"></TextView>
+                <TextView
+                    android:id="@+id/phoneInfo_system_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    ></TextView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:drawablePadding="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:drawableLeft="@drawable/me_yaoqingma"
+                    android:gravity="center_vertical"
+                    android:text="系统SDK"></TextView>
+                <TextView
+                    android:id="@+id/phoneInfo_device_SDK"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    ></TextView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:drawablePadding="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:drawableLeft="@drawable/me_yaoqingma"
+                    android:gravity="center_vertical"
+                    android:text="IP"></TextView>
+                <TextView
+                    android:id="@+id/phoneInfo_wifi_ip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    ></TextView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:drawablePadding="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:drawableLeft="@drawable/me_yaoqingma"
+                    android:gravity="center_vertical"
+                    android:text="手机厂商"></TextView>
+                <TextView
+                    android:id="@+id/phoneInfo_device_brand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    ></TextView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:drawablePadding="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:drawableLeft="@drawable/me_yaoqingma"
+                    android:gravity="center_vertical"
+                    android:text="手机产品"></TextView>
+                <TextView
+                    android:id="@+id/phoneInfo_device_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    ></TextView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:drawablePadding="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:drawableLeft="@drawable/me_yaoqingma"
+                    android:gravity="center_vertical"
+                    android:text="手机串号"></TextView>
+                <TextView
+                    android:id="@+id/phoneInfo_phone_imei"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    ></TextView>
+            </RelativeLayout>
+        </LinearLayout>
 
         <!--赚金top10-->
         <ImageView
@@ -60,7 +279,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
             android:scaleType="centerCrop"
-            android:src="@drawable/homepage_taojin91">
+            android:src="@drawable/homepage_taojin91"
+            android:visibility="gone">
 
         </ImageView>
 
