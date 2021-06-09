@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.shanqb.demo.R;
+import com.shanqb.qianyingkeji.R;
 import com.shanqb.demo.utils.DownloadCompleteReceiver;
 import com.shanqb.demo.utils.LogUtils;
 import com.umeng.analytics.MobclickAgent;

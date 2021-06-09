@@ -24,7 +24,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.shanqb.demo.R;
+import com.shanqb.qianyingkeji.R;
 import com.shanqb.demo.tabview.BaseFragment;
 import com.shanqb.demo.tabview.HomePageFragment;
 import com.shanqb.demo.tabview.ProfileFragment;

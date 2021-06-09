@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
-import com.shanqb.demo.R;
+import com.shanqb.qianyingkeji.R;
 import com.shanqb.demo.inter.MyQueueResponse;
 import com.shanqb.demo.utils.MyVolleyUtils;
 import com.shanqb.demo.utils.NetworkUtils;
