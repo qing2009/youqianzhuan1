@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <com.shanqb.demo.tabview.TabLayout
+    <com.shanqb.qianyingkeji.tabview.TabLayout
         android:id="@+id/tab_layout"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"

@@ -124,7 +124,7 @@
 
         <!--h5 app安装必须provider-->
         <provider
-            android:name="com.shanqb.demo.taojin91.TJH5FileProvider"
+            android:name=".taojin91.TJH5FileProvider"
             android:authorities="${applicationId}.tjh5.provider"
             android:exported="false"
             android:grantUriPermissions="true">
