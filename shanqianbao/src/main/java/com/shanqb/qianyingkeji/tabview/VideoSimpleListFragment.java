@@ -47,7 +47,7 @@ public class VideoSimpleListFragment extends BaseFragment implements MyQueueResp
     private VideoCardViewListAdapter mAdapter;
     private String typeId;
     private int page = 1;
-    private int size = 5;
+    private int size = 15;
 
 
     public static VideoSimpleListFragment getInstance(String typeId){
