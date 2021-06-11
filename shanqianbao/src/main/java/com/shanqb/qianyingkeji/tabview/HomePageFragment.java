@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -109,7 +110,14 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     ImageView homeViewImagview;//赚金top10 title图片
     @BindView(R.id.recordRecyView)
     RecyclerView recordRecyView;//赚金top10列表
-
+    @BindView(R.id.fuwu1)
+    RelativeLayout fuww1;
+    @BindView(R.id.fuwu2)
+    RelativeLayout fuww2;
+    @BindView(R.id.fuwu3)
+    RelativeLayout fuww3;
+    @BindView(R.id.fuwu4)
+    RelativeLayout fuww4;
 //    private RecyclerViewBannerAdapter2 mAdapterHorizontal;//轮播图
 
     //公告
@@ -123,8 +131,6 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     //赚金top10
     private LinearLayoutManager layoutManager;
     private HomeTopListAdapter adapter;
-
-
 
     private Unbinder unbinder;
     private String merCode;
@@ -335,7 +341,6 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
             channelRecView.setVisibility(View.GONE);
         }
 
-
         return view;
     }
 
@@ -376,9 +381,15 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
     }
 
-    @OnClick({R.id.ketixian_linLayout})
-    public void onClick() {
-        startActivity(new Intent(getActivity(), WithdrawActivity.class));
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.ketixian_linLayout:
+                startActivity(new Intent(getActivity(), WithdrawActivity.class));
+                break;
+            case R.id.fuwu1:
+                Toast.makeText(getContext(),getString(R.string.gangong),Toast.LENGTH_SHORT);
+                break;
+        }
     }
 
 
