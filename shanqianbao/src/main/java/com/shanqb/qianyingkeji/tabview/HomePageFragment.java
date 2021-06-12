@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -381,17 +382,32 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
     }
 
-    public void onClick(View v) {
-        switch (v.getId()){
+    @OnClick({R.id.ketixian_linLayout,R.id.fuwu1,R.id.fuwu2,R.id.fuwu3,R.id.fuwu4})
+    public void onClick(View view) {
+        switch(view.getId()){
+            case R.id.fuwu1:
+                Toast.makeText(getContext(), getString(R.string.gangong),
+                        Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.fuwu2:
+                Toast.makeText(getContext(), getString(R.string.gangong),
+                        Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.fuwu3:
+                Toast.makeText(getContext(), getString(R.string.gangong),
+                        Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.fuwu4:
+                Toast.makeText(getContext(), getString(R.string.gangong),
+                        Toast.LENGTH_SHORT).show();
+                break;
             case R.id.ketixian_linLayout:
                 startActivity(new Intent(getActivity(), WithdrawActivity.class));
                 break;
-            case R.id.fuwu1:
-                Toast.makeText(getContext(),getString(R.string.gangong),Toast.LENGTH_SHORT);
-                break;
         }
-    }
 
+    }
 
     public void getTop10() {
         Map<String, String> map = new HashMap<String, String>();
