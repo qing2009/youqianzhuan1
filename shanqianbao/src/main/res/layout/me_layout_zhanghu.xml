@@ -23,7 +23,7 @@
             android:src="@drawable/mingxi"
             />
         <TextView
-            android:id="@+id/text1"
+            android:id="@+id/tryPlay_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/image1"
@@ -31,7 +31,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="明细"/>
+            android:text="明细记录"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -75,7 +75,7 @@
             android:src="@drawable/zhifubao"/>
 
         <TextView
-            android:id="@+id/text3"
+            android:id="@+id/withdrawalAccount_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/image3"

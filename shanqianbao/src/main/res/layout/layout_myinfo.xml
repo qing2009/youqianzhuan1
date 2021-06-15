@@ -85,7 +85,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="7dp"
                 android:text="总收益"
-                android:textColor="@color/black_alpha_80"></TextView>
+                android:textColor="@color/black_7B7B7B"></TextView>
         </LinearLayout>
 
         <LinearLayout
@@ -110,7 +110,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="7dp"
                 android:text="可提现"
-                android:textColor="@color/black_alpha_80"></TextView>
+                android:textColor="@color/black_7B7B7B"></TextView>
         </LinearLayout>
     </LinearLayout>
 
