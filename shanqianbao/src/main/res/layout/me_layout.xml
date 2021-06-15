@@ -21,19 +21,19 @@
             android:background="#e8e8e8"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/withdrawalAccount_textView"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/white"
-                android:drawableLeft="@drawable/me_tiianzhanghu"
-                android:drawableRight="@drawable/jaintou_ic"
-                android:drawablePadding="10dp"
-                android:gravity="center_vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:text="@string/withdrawal_account"></TextView>
+<!--            <TextView-->
+<!--                android:id="@+id/withdrawalAccount_textView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:background="@color/white"-->
+<!--                android:drawableLeft="@drawable/me_tiianzhanghu"-->
+<!--                android:drawableRight="@drawable/jaintou_ic"-->
+<!--                android:drawablePadding="10dp"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:paddingLeft="15dp"-->
+<!--                android:paddingRight="15dp"-->
+<!--                android:text="@string/withdrawal_account"></TextView>-->
 
             <TextView
                 android:id="@+id/withdraw_textView"
@@ -49,19 +49,19 @@
                 android:paddingRight="15dp"
                 android:text="@string/withdraw"></TextView>
 
-            <TextView
-                android:id="@+id/tryPlay_textView"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/white"
-                android:drawableLeft="@drawable/me_tryplay"
-                android:drawableRight="@drawable/jaintou_ic"
-                android:drawablePadding="10dp"
-                android:gravity="center_vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:text="@string/tryPlay"></TextView>
+<!--            <TextView-->
+<!--                android:id="@+id/tryPlay_textView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="@color/white"-->
+<!--                android:drawableLeft="@drawable/me_tryplay"-->
+<!--                android:drawableRight="@drawable/jaintou_ic"-->
+<!--                android:drawablePadding="10dp"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:paddingLeft="15dp"-->
+<!--                android:paddingRight="15dp"-->
+<!--                android:text="@string/tryPlay"></TextView>-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -104,7 +104,18 @@
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:text="修改密码"></TextView>
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:drawableLeft="@drawable/me_xiaxian"
+                android:drawableRight="@drawable/jaintou_ic"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/lianxiwomen"></TextView>
 
             <RelativeLayout
                 android:layout_width="match_parent"

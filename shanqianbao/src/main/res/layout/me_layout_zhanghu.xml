@@ -20,7 +20,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/me_tryplay"
+            android:src="@drawable/mingxi"
             />
         <TextView
             android:id="@+id/text1"
@@ -31,7 +31,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="明细记录"/>
+            android:text="明细"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -46,7 +46,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/me_tiianzhanghu"/>
+            android:src="@drawable/weixin"/>
 
         <TextView
             android:id="@+id/text2"
@@ -57,7 +57,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="提现账户"/>
+            android:text="微信"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -72,7 +72,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/fuwu_qiandao"/>
+            android:src="@drawable/zhifubao"/>
 
         <TextView
             android:id="@+id/text3"
@@ -83,7 +83,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="每日签到"/>
+            android:text="支付宝"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -97,18 +97,18 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/fuwu_chongzhijilu"/>
+            android:src="@drawable/phone"/>
 
         <TextView
             android:id="@+id/text4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/phone"
+            android:layout_below="@id/image4"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="充值记录"/>
+            android:text="手机号"/>
     </RelativeLayout>
 
 </LinearLayout>
