@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/screen_margin_horizontal"
+    android:layout_marginRight="@dimen/screen_margin_horizontal"
+    android:background="@color/white"
+    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="@dimen/screen_margin_horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1" >
+
+        <com.shanqb.demo.view.RoundCornerImageView
+            android:id="@+id/image1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            app:corner_size="15"
+            android:src="@drawable/manhua"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1" >
+
+        <com.shanqb.demo.view.RoundCornerImageView
+            android:id="@+id/image2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            app:corner_size="15"
+            android:src="@drawable/manhua"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="@dimen/screen_margin_horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1" >
+
+        <com.shanqb.demo.view.RoundCornerImageView
+            android:id="@+id/image3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            app:corner_size="15"
+            android:src="@drawable/manhua"/>
+    </RelativeLayout>
+
+</LinearLayout>

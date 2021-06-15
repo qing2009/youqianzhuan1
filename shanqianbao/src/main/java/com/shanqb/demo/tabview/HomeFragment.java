@@ -27,36 +27,9 @@ import butterknife.Unbinder;
  * Created by yx on 16/4/3.
  */
 public class HomeFragment extends BaseFragment implements ITabClickListener {
-    @BindView(R.id.headImageView)
-    CircleImageView headImageView;
-    @BindView(R.id.userNameTextView)
-    TextView userNameTextView;
-    @BindView(R.id.phoneTextView)
-    TextView phoneTextView;
-    @BindView(R.id.totalRevenueTextView)
-    TextView totalRevenueTextView;
-    @BindView(R.id.withdrawableTextView)
-    TextView withdrawableTextView;
-    @BindView(R.id.withdrawDeposit_textView)
-    TextView withdrawDepositTextView;
-    @BindView(R.id.changePwd_textView)
-    TextView changePwdTextView;
-    @BindView(R.id.logout_textView)
-    TextView logoutTextView;
-    Unbinder unbinder;
-    @BindView(R.id.withdrawalAccount_textView)
-    TextView withdrawalAccountTextView;
-    @BindView(R.id.yaoqingmaCode_textView)
-    TextView youqingmaSuperText;
-    @BindView(R.id.userInfo_yaoqingma_textView)
-    TextView userYouqingmaSuperText;
 
     @Override
     public void fetchData() {
-        userNameTextView.setText(SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.loginCode, ""));
-        String yaoqingma = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.shareCode, "");
-        youqingmaSuperText.setText(yaoqingma);
-        userYouqingmaSuperText.setText(getString(R.string.yaoqingma)+": "+yaoqingma);
 
         setShouyiView();
     }
@@ -66,10 +39,6 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
      */
     private void setShouyiView() {
         Log.e("ProfileFragment", "setShouyiView() called");
-        String totalRevenue = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.allAmt, "0.00");
-        totalRevenueTextView.setText(totalRevenue);
-        String withdrawable = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.txAmt, "0.00");
-        withdrawableTextView.setText(withdrawable);
     }
 
     @Override
@@ -83,7 +52,6 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_layout, container, false);
-        unbinder = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -100,7 +68,6 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
     }
 
     @OnClick({R.id.withdrawDeposit_textView, R.id.changePwd_textView, R.id.logout_textView, R.id.tryPlay_textView, R.id.withdraw_textView, R.id.withdrawalAccount_textView})

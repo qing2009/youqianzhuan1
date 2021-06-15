@@ -93,19 +93,6 @@
                 android:nestedScrollingEnabled="false" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/white"
-            android:drawablePadding="10dp"
-            android:gravity="center_vertical"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:layout_marginLeft="@dimen/screen_margin_horizontal"
-            android:layout_marginRight="@dimen/screen_margin_horizontal"
-            android:text="更多服务"></TextView>
-        <include layout="@layout/homepage_layout_fuwu"></include>
         <!--赚金top10-->
         <ImageView
             android:id="@+id/homeView_imagview"
