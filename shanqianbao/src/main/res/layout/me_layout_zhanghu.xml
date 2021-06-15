@@ -20,7 +20,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/fuwu_hfcz"
+            android:src="@drawable/me_tryplay"
             />
         <TextView
             android:id="@+id/text1"
@@ -31,7 +31,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="话费充值"/>
+            android:text="明细记录"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -46,7 +46,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/fuwu_lipin"/>
+            android:src="@drawable/me_tiianzhanghu"/>
 
         <TextView
             android:id="@+id/text2"
@@ -57,7 +57,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="礼品券"/>
+            android:text="提现账户"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -103,7 +103,7 @@
             android:id="@+id/text4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/image4"
+            android:layout_below="@id/phone"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="3dp"
             android:textColor="#000000"

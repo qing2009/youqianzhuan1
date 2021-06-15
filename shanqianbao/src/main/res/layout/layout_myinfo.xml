@@ -59,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:background="@drawable/bg_edittext_rounded"
+        android:background="@color/white"
         android:orientation="horizontal"
         android:paddingTop="20dp"
         android:paddingBottom="20dp">
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="0.00元"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="20sp"></TextView>
 
             <TextView
@@ -85,7 +85,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="7dp"
                 android:text="总收益"
-                android:textColor="@color/wx_gray_bg"></TextView>
+                android:textColor="@color/black_alpha_80"></TextView>
         </LinearLayout>
 
         <LinearLayout
@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="0.00元"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="20sp"></TextView>
 
             <TextView
@@ -110,7 +110,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="7dp"
                 android:text="可提现"
-                android:textColor="@color/wx_gray_bg"></TextView>
+                android:textColor="@color/black_alpha_80"></TextView>
         </LinearLayout>
     </LinearLayout>
 

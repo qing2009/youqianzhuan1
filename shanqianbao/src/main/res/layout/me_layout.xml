@@ -13,6 +13,8 @@
 
         <include layout="@layout/layout_myinfo"></include>
 
+        <include layout="@layout/me_layout_zhanghu"></include>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
