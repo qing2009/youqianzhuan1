@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="@dimen/screen_margin_horizontal"
@@ -16,13 +17,14 @@
         android:layout_weight="1" >
 
         <com.shanqb.demo.view.RoundCornerImageView
-            android:id="@+id/image1"
+            android:id="@+id/home_mahua"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             app:corner_size="15"
+            android:scaleType="fitXY"
             android:src="@drawable/manhua"
-            />
+            ></com.shanqb.demo.view.RoundCornerImageView>
     </RelativeLayout>
 
     <RelativeLayout
@@ -33,12 +35,13 @@
         android:layout_weight="1" >
 
         <com.shanqb.demo.view.RoundCornerImageView
-            android:id="@+id/image2"
+            android:id="@+id/home_xiaoshuo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
             app:corner_size="15"
-            android:src="@drawable/manhua"/>
+            android:src="@drawable/xiaoshuo"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -54,8 +57,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
             app:corner_size="15"
-            android:src="@drawable/manhua"/>
+            android:src="@drawable/xinwen"/>
     </RelativeLayout>
 
 </LinearLayout>

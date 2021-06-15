@@ -14,7 +14,7 @@
         <com.shanqb.demo.view.RoundCornerImageView
             android:id="@+id/taskGetMoney_imgView"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
@@ -22,6 +22,18 @@
             app:corner_size="15"
             android:src="@drawable/task_get_money"></com.shanqb.demo.view.RoundCornerImageView>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/white"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginLeft="@dimen/screen_margin_horizontal"
+            android:layout_marginRight="@dimen/screen_margin_horizontal"
+            android:text="科达服务"></TextView>
         <include layout="@layout/home_layout_mokuai"></include>
 
         <TextView
