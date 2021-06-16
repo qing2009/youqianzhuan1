@@ -48,6 +48,9 @@ public class XGameUrlUtil {
                 paramBuilder.appendQueryParameter("oaid",oaid);
                 map.put("oaid",oaid);
             }
+            paramBuilder.appendQueryParameter("device_id","");
+            paramBuilder.appendQueryParameter("imei1","");
+            paramBuilder.appendQueryParameter("imei2","");
             map.put("device_id","");
             map.put("imei1","");
             map.put("imei2","");
@@ -70,6 +73,7 @@ public class XGameUrlUtil {
                 paramBuilder.appendQueryParameter("imei2","");
                 map.put("imei2","");
             }
+            paramBuilder.appendQueryParameter("oaid","");
             map.put("oaid","");
 //            String imsi= DeviceUtil.getIMSI(con);
 //            if(!TextUtils.isEmpty(imsi)){
@@ -114,7 +118,7 @@ public class XGameUrlUtil {
         String timestamp= (new Date()).getTime()+"";
         if(!TextUtils.isEmpty(timestamp)){
             paramBuilder.appendQueryParameter("timestamp",timestamp);
-            map.put("timestamp",systemVersion);
+            map.put("timestamp",timestamp);
         }
         StringBuilder data=new StringBuilder();
         for (Map.Entry localEntry : map.entrySet()) {
