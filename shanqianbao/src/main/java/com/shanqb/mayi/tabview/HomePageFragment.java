@@ -51,6 +51,7 @@ import com.shanqb.mayi.utils.sdk.Taojing91Utils;
 import com.shanqb.mayi.utils.sdk.XianWangUtils;
 import com.shanqb.mayi.utils.sdk.XiquUtils;
 import com.shanqb.mayi.view.CircleImageView;
+import com.shanqb.mayi.xgame.H5ActivityOptX;
 import com.xianwan.sdklibrary.helper.XWADPage;
 import com.xianwan.sdklibrary.helper.XWADPageConfig;
 import com.xianwan.sdklibrary.helper.XWAdSdk;
@@ -269,6 +270,17 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                     }else {//h5打开
                                                         //使用内置webview打开H5连接
                                                         Intent intent=new Intent(getActivity(), H5ActivityOpt.class);
+                                                        intent.putExtra("appid",channelBean.getChannelUser());
+                                                        intent.putExtra("appkey",channelBean.getChannelKey());
+                                                        startActivity(intent);
+                                                    }
+                                                    break;
+                                                case Global.CHANNEL_CODE_XGAME:
+                                                    if (channelBean.getWay().equals("0")){//sdk打开
+                                                        Taojing91Utils.startSDK(getActivity(), merCode, channelBean.getChannelUser(), channelBean.getChannelKey());
+                                                    }else {//h5打开
+                                                        //使用内置webview打开H5连接
+                                                        Intent intent=new Intent(getActivity(), H5ActivityOptX.class);
                                                         intent.putExtra("appid",channelBean.getChannelUser());
                                                         intent.putExtra("appkey",channelBean.getChannelKey());
                                                         startActivity(intent);

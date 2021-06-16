@@ -13,6 +13,7 @@ public class Global
 	public static final String CHANNEL_CODE_AIBIANXIAN = "20210221021824005";//爱变现
 	public static final String CHANNEL_CODE_JUXIANGYOU = "20210221021842938";//聚享游
 	public static final String CHANNEL_CODE_TAOJING91 = "20210221021834000";//91淘金
+	public static final String CHANNEL_CODE_XGAME = "20210616110840834";//X游戏
 	public static final String CHANNEL_CODE_XIANWANG = "20210221021853088";//享玩
 	public static final String CHANNEL_CODE_YUWANG = "20210302150858583";//鱼丸盒子
 	public static final String CHANNEL_CODE_DUOYOU = "20210302221618125";//多游

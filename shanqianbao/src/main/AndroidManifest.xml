@@ -96,7 +96,12 @@
         <activity
             android:name="com.shanqb.mayi.taojin91.H5ActivityOpt"
             android:screenOrientation="portrait"></activity>
-
+        <activity
+            android:name="com.shanqb.mayi.xgame.H5Activity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.shanqb.mayi.xgame.H5ActivityOptX"
+            android:screenOrientation="portrait"></activity>
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
