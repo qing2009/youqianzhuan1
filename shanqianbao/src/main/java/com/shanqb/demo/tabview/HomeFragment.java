@@ -16,6 +16,7 @@ import com.shanqb.demo.activity.WithdrawActivity;
 import com.shanqb.demo.activity.WithdrawalAccountActivity;
 import com.shanqb.demo.utils.SharedPreConstants;
 import com.shanqb.demo.utils.SharedPreferencesUtil;
+import com.shanqb.demo.utils.Utils;
 import com.shanqb.demo.view.CircleImageView;
 
 import butterknife.BindView;
@@ -70,28 +71,20 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
         super.onDestroyView();
     }
 
-    @OnClick({R.id.withdrawDeposit_textView, R.id.changePwd_textView, R.id.logout_textView, R.id.tryPlay_textView, R.id.withdraw_textView, R.id.withdrawalAccount_textView})
-    public void onViewClicked(View view) {
+    @OnClick({R.id.home_mahua, R.id.home_xiaoshuo, R.id.home_xinwen})
+    public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.withdrawDeposit_textView:
+            case R.id.home_mahua:
+                Utils.goWeb(getContext(),"https://m.kuaikanmanhua.com/");
                 break;
-            case R.id.changePwd_textView:
-                startActivity(new Intent(getActivity(), ResetpwdActivity.class));
-                break;
-            case R.id.logout_textView:
+            case R.id.home_xiaoshuo:
                 SharedPreferencesUtil.clear(getActivity());
 
                 startActivity(new Intent(getActivity(), LoginActivity.class));
                 getActivity().finish();
                 break;
-            case R.id.tryPlay_textView:
+            case R.id.home_xinwen:
                 startActivity(new Intent(getActivity(), TryPlayRecordActivity.class));
-                break;
-            case R.id.withdraw_textView:
-                startActivity(new Intent(getActivity(), WithdrawActivity.class));
-                break;
-            case R.id.withdrawalAccount_textView:
-                startActivity(new Intent(getActivity(), WithdrawalAccountActivity.class));
                 break;
         }
     }
