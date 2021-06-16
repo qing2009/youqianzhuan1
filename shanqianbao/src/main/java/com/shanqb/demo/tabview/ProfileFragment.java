@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.shanqb.demo.R;
 import com.shanqb.demo.activity.LoginActivity;
@@ -103,7 +104,7 @@ public class ProfileFragment extends BaseFragment implements ITabClickListener {
         unbinder.unbind();
     }
 
-    @OnClick({R.id.withdrawDeposit_textView, R.id.changePwd_textView, R.id.logout_textView, R.id.tryPlay_textView, R.id.withdraw_textView, R.id.withdrawalAccount_textView})
+    @OnClick({R.id.image4,R.id.withdrawDeposit_textView, R.id.changePwd_textView, R.id.logout_textView, R.id.tryPlay_textView, R.id.withdraw_textView, R.id.withdrawalAccount_textView})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.withdrawDeposit_textView:
@@ -117,14 +118,18 @@ public class ProfileFragment extends BaseFragment implements ITabClickListener {
                 startActivity(new Intent(getActivity(), LoginActivity.class));
                 getActivity().finish();
                 break;
-            case R.id.tryPlay_textView:
+            case R.id.image1:
                 startActivity(new Intent(getActivity(), TryPlayRecordActivity.class));
                 break;
             case R.id.withdraw_textView:
                 startActivity(new Intent(getActivity(), WithdrawActivity.class));
                 break;
-            case R.id.withdrawalAccount_textView:
+            case R.id.image3:
                 startActivity(new Intent(getActivity(), WithdrawalAccountActivity.class));
+                break;
+            case R.id.image4:
+                String loginCode = SharedPreferencesUtil.getStringValue(getActivity(), SharedPreConstants.loginCode, "");
+                Toast.makeText(getActivity(),"您绑定的手机号："+loginCode,Toast.LENGTH_SHORT).show();
                 break;
         }
     }

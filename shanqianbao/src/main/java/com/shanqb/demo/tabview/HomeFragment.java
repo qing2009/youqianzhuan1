@@ -6,6 +6,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import androidx.viewpager.widget.ViewPager;
 
 import com.shanqb.demo.R;
 import com.shanqb.demo.activity.LoginActivity;
@@ -28,6 +31,7 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
 
     @BindView(R.id.taskGetMoney_imgView)
     RoundCornerImageView taskGetMoneyImgView;
+    private ViewPager mViewPager;
 
     @Override
     public void fetchData() {
@@ -45,7 +49,7 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
     @Override
     public void onResume() {
         super.onResume();
-
+        mViewPager = getActivity().findViewById(R.id.viewpager);
         //刷新总收益、可提现
         setShouyiView();
     }
@@ -72,33 +76,37 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
         super.onDestroyView();
     }
 
-    @OnClick({R.id.home_mahua, R.id.home_xiaoshuo, R.id.home_xinwen})
+    @OnClick({R.id.home_mahua, R.id.home_xiaoshuo, R.id.home_xinwen, R.id.home_kuaizhuan, R.id.home_tuijian, R.id.image1, R.id.image2, R.id.image3, R.id.image4})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.home_mahua:
                 Utils.goWeb(getContext(), "https://m.kuaikanmanhua.com/");
                 break;
             case R.id.home_xiaoshuo:
-                SharedPreferencesUtil.clear(getActivity());
-
-                startActivity(new Intent(getActivity(), LoginActivity.class));
-                getActivity().finish();
+                Utils.goWeb(getContext(), "https://m.readnovel.com/");
                 break;
             case R.id.home_xinwen:
-                startActivity(new Intent(getActivity(), TryPlayRecordActivity.class));
+                Utils.goWeb(getContext(), "https://3g.163.com/?ver=c");
+                break;
+            case R.id.home_kuaizhuan:
+                mViewPager.setCurrentItem(1);
+                break;
+            case R.id.home_tuijian:
+                mViewPager.setCurrentItem(1);
+                break;
+            case R.id.image1:
+                Toast.makeText(getActivity(),"敬请期待",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.image2:
+                Toast.makeText(getActivity(),"敬请期待",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.image3:
+                Toast.makeText(getActivity(),"敬请期待",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.image4:
+                Toast.makeText(getActivity(),"敬请期待",Toast.LENGTH_SHORT).show();
                 break;
         }
     }
 
-//    @OnClick({R.id.home_mahua, R.id.home_xiaoshuo, R.id.home_xinwen})
-//    public void onClick(View view) {
-//        switch (view.getId()) {
-//            case R.id.home_mahua:
-//                break;
-//            case R.id.home_xiaoshuo:
-//                break;
-//            case R.id.home_xinwen:
-//                break;
-//        }
-//    }
 }
