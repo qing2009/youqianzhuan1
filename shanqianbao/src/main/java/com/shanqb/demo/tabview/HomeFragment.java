@@ -6,18 +6,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.shanqb.demo.R;
 import com.shanqb.demo.activity.LoginActivity;
-import com.shanqb.demo.activity.ResetpwdActivity;
 import com.shanqb.demo.activity.TryPlayRecordActivity;
-import com.shanqb.demo.activity.WithdrawActivity;
-import com.shanqb.demo.activity.WithdrawalAccountActivity;
-import com.shanqb.demo.utils.SharedPreConstants;
 import com.shanqb.demo.utils.SharedPreferencesUtil;
 import com.shanqb.demo.utils.Utils;
-import com.shanqb.demo.view.CircleImageView;
+import com.shanqb.demo.view.RoundCornerImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +23,11 @@ import butterknife.Unbinder;
  * Created by yx on 16/4/3.
  */
 public class HomeFragment extends BaseFragment implements ITabClickListener {
+
+    Unbinder unbinder;
+
+    @BindView(R.id.taskGetMoney_imgView)
+    RoundCornerImageView taskGetMoneyImgView;
 
     @Override
     public void fetchData() {
@@ -53,6 +53,7 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_layout, container, false);
+        unbinder = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -75,7 +76,7 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.home_mahua:
-                Utils.goWeb(getContext(),"https://m.kuaikanmanhua.com/");
+                Utils.goWeb(getContext(), "https://m.kuaikanmanhua.com/");
                 break;
             case R.id.home_xiaoshuo:
                 SharedPreferencesUtil.clear(getActivity());
@@ -88,4 +89,16 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
                 break;
         }
     }
+
+//    @OnClick({R.id.home_mahua, R.id.home_xiaoshuo, R.id.home_xinwen})
+//    public void onClick(View view) {
+//        switch (view.getId()) {
+//            case R.id.home_mahua:
+//                break;
+//            case R.id.home_xiaoshuo:
+//                break;
+//            case R.id.home_xinwen:
+//                break;
+//        }
+//    }
 }
