@@ -44,8 +44,13 @@ public class XGameUrlUtil {
         }
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.Q){
             //android Q 设备
-            paramBuilder.appendQueryParameter("oaid",oaid);
-            map.put("oaid",oaid);
+            if(!TextUtils.isEmpty(oaid)){
+                paramBuilder.appendQueryParameter("oaid",oaid);
+                map.put("oaid",oaid);
+            }
+            map.put("device_id","");
+            map.put("imei1","");
+            map.put("imei2","");
         }else{
             String device_id= DeviceUtils.getDeviceId(con);
             if(!TextUtils.isEmpty(device_id)){
@@ -61,8 +66,11 @@ public class XGameUrlUtil {
             if(!TextUtils.isEmpty(imei2)){
                 paramBuilder.appendQueryParameter("imei2",imei2);
                 map.put("imei2",imei2);
+            } else {
+                paramBuilder.appendQueryParameter("imei2","");
+                map.put("imei2","");
             }
-//
+            map.put("oaid","");
 //            String imsi= DeviceUtil.getIMSI(con);
 //            if(!TextUtils.isEmpty(imsi)){
 //                paramBuilder.appendQueryParameter("IMSI",imsi);
