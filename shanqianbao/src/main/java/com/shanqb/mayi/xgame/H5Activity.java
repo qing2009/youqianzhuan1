@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 
-import com.shanqb.demo.R;
+import com.shanqb.mayi.R;
 
 /**
  * 淘金H5 Demo
