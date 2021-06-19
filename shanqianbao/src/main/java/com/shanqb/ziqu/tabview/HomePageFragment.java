@@ -376,8 +376,13 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
     }
 
-    @OnClick({R.id.ketixian_linLayout})
-    public void onClick() {
+    @OnClick({R.id.ketixian_linLayout,R.id.image1,R.id.image2})
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.image1:
+                Utils.goWeb(getContext(), "https://m.kuaikanmanhua.com/");
+            break;
+        }
         startActivity(new Intent(getActivity(), WithdrawActivity.class));
     }
 
