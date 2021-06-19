@@ -353,6 +353,7 @@ public class H5ActivityOpt extends Activity {
 //        String url = UrlUtil.buildUrl(getApplicationContext(),userId,oaid,baseUrl,appId,appKey);
         String url = UrlUtil.buildUrl(getApplicationContext(),userId,oaid,baseUrl, getIntent().getStringExtra("appid"),getIntent().getStringExtra("appkey"));
         Log.e("tag","url=="+url);
+//        Toast.makeText(this, url, Toast.LENGTH_LONG).show();
         webView.loadUrl(url);
     }
 

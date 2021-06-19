@@ -386,8 +386,13 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.fuwu1:
-                Toast.makeText(getContext(), getString(R.string.gangong),
-                        Toast.LENGTH_SHORT).show();
+                String aa = DeviceUtils.getDeviceId(getContext());
+                String bb = DeviceUtils.getSystemVersion();
+                String getSystemModel = DeviceUtils.getSystemModel();
+                String getDeviceBrand = DeviceUtils.getDeviceBrand();
+                Toast.makeText(getContext(), "安卓版本号"+aa+"系统版本号"+bb+"==手机型号"+getSystemModel+"===手机厂商"+getDeviceBrand, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), getString(R.string.gangong),
+//                        Toast.LENGTH_SHORT).show();
                 break;
             case R.id.fuwu2:
                 Toast.makeText(getContext(), getString(R.string.gangong),
