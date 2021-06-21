@@ -45,6 +45,7 @@ import com.shanqb.ziqu.utils.DeviceUtils;
 import com.shanqb.ziqu.utils.Global;
 import com.shanqb.ziqu.utils.SharedPreConstants;
 import com.shanqb.ziqu.utils.SharedPreferencesUtil;
+import com.shanqb.ziqu.utils.Utils;
 import com.shanqb.ziqu.utils.sdk.AibianxianUtils;
 import com.shanqb.ziqu.utils.sdk.JuxiangyouUtils;
 import com.shanqb.ziqu.utils.sdk.Taojing91Utils;
@@ -380,10 +381,15 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.image1:
-                Utils.goWeb(getContext(), "https://m.kuaikanmanhua.com/");
+                Utils.goWeb(getContext(), "https://m.zongheng.com/");
             break;
+            case R.id.image2:
+                Utils.goWeb(getContext(), "http://news.17173.com/");
+                break;
+            case R.id.ketixian_linLayout:
+                startActivity(new Intent(getActivity(), WithdrawActivity.class));
+                break;
         }
-        startActivity(new Intent(getActivity(), WithdrawActivity.class));
     }
 
 
