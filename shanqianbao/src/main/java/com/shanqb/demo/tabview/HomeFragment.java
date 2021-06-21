@@ -80,10 +80,10 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.home_mahua:
-                Utils.goWeb(getContext(), "https://m.kuaikanmanhua.com/");
+                Utils.goWeb(getContext(), "https://m.hupu.com/soccer/news");
                 break;
             case R.id.home_xiaoshuo:
-                Utils.goWeb(getContext(), "https://m.readnovel.com/");
+                Utils.goWeb(getContext(), "http://m.yxdown.com/news/");
                 break;
             case R.id.home_xinwen:
                 Utils.goWeb(getContext(), "https://3g.163.com/?ver=c");

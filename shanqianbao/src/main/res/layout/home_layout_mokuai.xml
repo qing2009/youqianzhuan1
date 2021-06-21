@@ -23,7 +23,7 @@
             android:layout_centerHorizontal="true"
             app:corner_size="15"
             android:scaleType="fitXY"
-            android:src="@drawable/manhua"
+            android:src="@drawable/tiyu"
             ></com.shanqb.demo.view.RoundCornerImageView>
     </RelativeLayout>
 
@@ -41,7 +41,7 @@
             android:layout_centerHorizontal="true"
             android:scaleType="fitXY"
             app:corner_size="15"
-            android:src="@drawable/xiaoshuo"/>
+            android:src="@drawable/youxi"/>
     </RelativeLayout>
 
     <RelativeLayout
