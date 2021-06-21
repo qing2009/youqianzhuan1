@@ -15,7 +15,7 @@
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <com.shanqb.demo.view.RoundCornerImageView
+        <com.shanqb.qianren.view.RoundCornerImageView
             android:id="@+id/home_kuaizhuan"
             android:layout_width="match_parent"
             android:layout_height="95dp"
@@ -33,7 +33,7 @@
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <com.shanqb.demo.view.RoundCornerImageView
+        <com.shanqb.qianren.view.RoundCornerImageView
             android:id="@+id/home_tuijian"
             android:layout_width="match_parent"
             android:layout_height="95dp"
