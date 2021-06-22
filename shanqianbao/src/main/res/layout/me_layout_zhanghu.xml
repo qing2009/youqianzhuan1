@@ -31,7 +31,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="明细记录"/>
+            android:text="明细"/>
     </RelativeLayout>
 
     <RelativeLayout
