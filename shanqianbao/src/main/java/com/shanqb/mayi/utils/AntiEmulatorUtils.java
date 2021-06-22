@@ -34,7 +34,9 @@ public class AntiEmulatorUtils {
                         hasWendu(context) ||
                         notHasLightSensorManager(context) ||
                         notHasBlueTooth();
-
+        if (android.os.Build.VERSION.RELEASE.equals("7.1.2")) {
+            checkResult = true;
+        }
         LogUtils.debug("是否为模拟器:" + checkResult);
         return checkResult;
     }
