@@ -59,12 +59,15 @@ public class XGameUrlUtil {
                 paramBuilder.appendQueryParameter("device_id",device_id);
                 map.put("device_id",device_id);
             }
-            String imei= DeviceUtils.getIMEI(con,0);
+            String imei= DeviceUtils.getImei(con,0);
             if(!TextUtils.isEmpty(imei)){
                 paramBuilder.appendQueryParameter("imei1",imei);
                 map.put("imei1",imei);
+            } else {
+                paramBuilder.appendQueryParameter("imei2","");
+                map.put("imei1","");
             }
-            String imei2= DeviceUtils.getIMEI(con,1);
+            String imei2= DeviceUtils.getImei(con,1);
             if(!TextUtils.isEmpty(imei2)){
                 paramBuilder.appendQueryParameter("imei2",imei2);
                 map.put("imei2",imei2);

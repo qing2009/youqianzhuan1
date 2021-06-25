@@ -86,6 +86,49 @@ public class DeviceUtils {
             return "";
         }
     }
+
+    /**
+     * 获取指定卡槽imei
+     * @param con Context
+     * @param slotIndex 0:卡槽1，1：卡槽2
+     * @return imei
+     */
+    public static  String getImei(Context con,int slotIndex){
+        String imei = "" ;
+        try{
+            TelephonyManager tm = (TelephonyManager) con.getSystemService(Context.TELEPHONY_SERVICE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                int count = tm.getPhoneCount();
+                if (count > slotIndex) {
+                    imei = tm.getImei(slotIndex);
+                }
+            }else{
+                int phoneCount;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    phoneCount = tm.getPhoneCount();
+                }else{
+                    Method mcount = tm.getClass().getMethod("getPhoneCount");
+                    phoneCount = (int) mcount.invoke(tm);
+                }
+                if(phoneCount>slotIndex){
+                    imei=getImeiInvoke(con,slotIndex);
+                }
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return  imei;
+    }
+    private static String getImeiInvoke(Context context, int slotId) {
+        try {
+            TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+            Method method = manager.getClass().getMethod("getImei", int.class);
+            return (String) method.invoke(manager, slotId);
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
     public static String getMEID(Context context) {
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         String deviceId = "";
