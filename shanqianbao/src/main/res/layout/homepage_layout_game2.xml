@@ -15,22 +15,22 @@
         android:layout_weight="1" >
 
         <ImageView
-            android:id="@+id/image1"
+            android:id="@+id/qmxzfzm"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/fuwu_hfcz"
+            android:src="@drawable/game_fzm"
             />
         <TextView
             android:id="@+id/text1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/image1"
+            android:layout_below="@id/qmxzfzm"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="话费充值"/>
+            android:text="寻找房祖名"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -41,22 +41,22 @@
         android:layout_weight="1" >
 
         <ImageView
-            android:id="@+id/image2"
+            android:id="@+id/jianren"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/fuwu_lipin"/>
+            android:src="@drawable/game_jianren"/>
 
         <TextView
             android:id="@+id/text2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/image2"
+            android:layout_below="@id/jianren"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="礼品券"/>
+            android:text="贱人配对"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -67,22 +67,22 @@
         android:layout_weight="1" >
 
         <ImageView
-            android:id="@+id/image3"
+            android:id="@+id/semo"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/fuwu_qiandao"/>
+            android:src="@drawable/game_semo"/>
 
         <TextView
             android:id="@+id/text3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/image3"
+            android:layout_below="@id/semo"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="每日签到"/>
+            android:text="看你有多色"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -92,22 +92,22 @@
         android:layout_weight="1" >
 
         <ImageView
-            android:id="@+id/image4"
+            android:id="@+id/ygj"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/fuwu_chongzhijilu"/>
+            android:src="@drawable/game_ygj"/>
 
         <TextView
             android:id="@+id/text4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/image4"
+            android:layout_below="@id/ygj"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="充值记录"/>
+            android:text="一根筋"/>
     </RelativeLayout>
 
 </LinearLayout>

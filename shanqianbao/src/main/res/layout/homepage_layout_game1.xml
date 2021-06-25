@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/screen_margin_horizontal"
+    android:layout_marginRight="@dimen/screen_margin_horizontal"
+    android:background="@color/white"
+    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1" >
+
+        <ImageView
+            android:id="@+id/suansu"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/game_123"
+            />
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/suansu"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:text="最强大脑"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1" >
+
+        <ImageView
+            android:id="@+id/fangkuai"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/game_fangkuai"/>
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fangkuai"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:text="方块英雄"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1" >
+
+        <ImageView
+            android:id="@+id/jump"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/game_jump"/>
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/jump"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:text="跳一跳"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_weight="1" >
+
+        <ImageView
+            android:id="@+id/daoguo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/game_daoguo"/>
+
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/daoguo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:text="岛国么么哒"/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -94,17 +94,29 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
             case R.id.home_tuijian:
                 mViewPager.setCurrentItem(1);
                 break;
-            case R.id.image1:
-                Toast.makeText(getActivity(),"敬请期待",Toast.LENGTH_SHORT).show();
+            case R.id.suansu:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/123suansu/");
                 break;
-            case R.id.image2:
-                Toast.makeText(getActivity(),"敬请期待",Toast.LENGTH_SHORT).show();
+            case R.id.fangkuai:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/fangkuai/");
                 break;
-            case R.id.image3:
-                Toast.makeText(getActivity(),"敬请期待",Toast.LENGTH_SHORT).show();
+            case R.id.jump:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/jump/");
                 break;
-            case R.id.image4:
-                Toast.makeText(getActivity(),"敬请期待",Toast.LENGTH_SHORT).show();
+            case R.id.daoguo:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/daoguo/");
+                break;
+            case R.id.qmxzfzm:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/qmxzfzm/");
+                break;
+            case R.id.jianren:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/jianren/");
+                break;
+            case R.id.semo:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/jump/");
+                break;
+            case R.id.ygj:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/daoguo/");
                 break;
         }
     }
