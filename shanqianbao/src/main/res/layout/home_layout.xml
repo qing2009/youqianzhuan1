@@ -62,9 +62,7 @@
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
             android:text="那些年你玩过的小游戏"></TextView>
-        <include layout="@layout/homepage_layout_game2"></include>
-        <include layout="@layout/homepage_layout_game2"></include>
-        <include layout="@layout/homepage_layout_game2"></include>
+        <include layout="@layout/homepage_layout_game1"></include>
         <include layout="@layout/homepage_layout_game2"></include>
     </LinearLayout>
 </ScrollView>

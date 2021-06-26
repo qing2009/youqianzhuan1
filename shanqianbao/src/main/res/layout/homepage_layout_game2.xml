@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="@dimen/screen_margin_horizontal"
@@ -14,8 +15,9 @@
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <ImageView
+        <com.shanqb.demo.view.RoundCornerImageView
             android:id="@+id/qmxzfzm"
+            app:corner_size="15"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
@@ -40,8 +42,9 @@
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <ImageView
+        <com.shanqb.demo.view.RoundCornerImageView
             android:id="@+id/jianren"
+            app:corner_size="15"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
@@ -66,8 +69,9 @@
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <ImageView
+        <com.shanqb.demo.view.RoundCornerImageView
             android:id="@+id/semo"
+            app:corner_size="15"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
@@ -91,8 +95,9 @@
         android:layout_marginTop="4dp"
         android:layout_weight="1" >
 
-        <ImageView
+        <com.shanqb.demo.view.RoundCornerImageView
             android:id="@+id/ygj"
+            app:corner_size="15"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"

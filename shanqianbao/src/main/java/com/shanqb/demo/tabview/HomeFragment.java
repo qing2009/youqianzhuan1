@@ -76,7 +76,7 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
         super.onDestroyView();
     }
 
-    @OnClick({R.id.home_mahua, R.id.home_xiaoshuo, R.id.home_xinwen, R.id.home_kuaizhuan, R.id.home_tuijian, R.id.image1, R.id.image2, R.id.image3, R.id.image4})
+    @OnClick({R.id.home_mahua, R.id.home_xiaoshuo, R.id.home_xinwen, R.id.home_kuaizhuan, R.id.home_tuijian,R.id.suansu, R.id.fangkuai, R.id.jump, R.id.daoguo,R.id.qmxzfzm, R.id.jianren, R.id.semo, R.id.ygj})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.home_mahua:
@@ -113,10 +113,10 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
                 Utils.goWeb(getContext(), "http://8.133.178.205/game/jianren/");
                 break;
             case R.id.semo:
-                Utils.goWeb(getContext(), "http://8.133.178.205/game/jump/");
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/semo/");
                 break;
             case R.id.ygj:
-                Utils.goWeb(getContext(), "http://8.133.178.205/game/daoguo/");
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/ygj/");
                 break;
         }
     }
