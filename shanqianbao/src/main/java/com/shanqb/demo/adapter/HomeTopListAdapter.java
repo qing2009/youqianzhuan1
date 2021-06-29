@@ -29,35 +29,35 @@ public class HomeTopListAdapter extends BaseRecyclerViewAdapter {
 
     private void initRandomData(Context context) {
 //        gameUserNameArr = context.getResources().getStringArray(R.array.gameUserName);
-        gameHeadArr = new int[]{R.drawable.gameuserhead1,
-                R.drawable.gameuserhead2,
-                R.drawable.gameuserhead3,
-                R.drawable.gameuserhead4,
-                R.drawable.gameuserhead5,
-                R.drawable.gameuserhead6,
-                R.drawable.gameuserhead7,
-                R.drawable.gameuserhead8,
-                R.drawable.gameuserhead9,
-                R.drawable.gameuserhead10,
-                R.drawable.gameuserhead11,
-                R.drawable.gameuserhead12,
-                R.drawable.gameuserhead13,
-                R.drawable.gameuserhead14,
-                R.drawable.gameuserhead15,
-                R.drawable.gameuserhead16,
-                R.drawable.gameuserhead17,
-                R.drawable.gameuserhead18,
-                R.drawable.gameuserhead19,
-                R.drawable.gameuserhead20,
-                R.drawable.gameuserhead21,
-                R.drawable.gameuserhead22,
-                R.drawable.gameuserhead23,
-                R.drawable.gameuserhead24,
-                R.drawable.gameuserhead25,
-                R.drawable.gameuserhead27,
-                R.drawable.gameuserhead28,
-                R.drawable.gameuserhead29
-        };
+//        gameHeadArr = new int[]{R.drawable.gameuserhead1,
+//                R.drawable.gameuserhead2,
+//                R.drawable.gameuserhead3,
+//                R.drawable.gameuserhead4,
+//                R.drawable.gameuserhead5,
+//                R.drawable.gameuserhead6,
+//                R.drawable.gameuserhead7,
+//                R.drawable.gameuserhead8,
+//                R.drawable.gameuserhead9,
+//                R.drawable.gameuserhead10,
+//                R.drawable.gameuserhead11,
+//                R.drawable.gameuserhead12,
+//                R.drawable.gameuserhead13,
+//                R.drawable.gameuserhead14,
+//                R.drawable.gameuserhead15,
+//                R.drawable.gameuserhead16,
+//                R.drawable.gameuserhead17,
+//                R.drawable.gameuserhead18,
+//                R.drawable.gameuserhead19,
+//                R.drawable.gameuserhead20,
+//                R.drawable.gameuserhead21,
+//                R.drawable.gameuserhead22,
+//                R.drawable.gameuserhead23,
+//                R.drawable.gameuserhead24,
+//                R.drawable.gameuserhead25,
+//                R.drawable.gameuserhead27,
+//                R.drawable.gameuserhead28,
+//                R.drawable.gameuserhead29
+//        };
 
 //        for (int i=0; i<10;i++) {
 //            ZhuanjinTop zhuanjinTop = new ZhuanjinTop();
@@ -77,18 +77,18 @@ public class HomeTopListAdapter extends BaseRecyclerViewAdapter {
 //            data.add(zhuanjinTop);
 //        }
 
-        Collections.sort(data,new Comparator() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                if(o1 instanceof ZhuanjinTop && o2 instanceof ZhuanjinTop){
-                    ZhuanjinTop e1 = (ZhuanjinTop) o1;
-                    ZhuanjinTop e2 = (ZhuanjinTop) o2;
-
-                    return Double.compare(e2.getAllAmt() , e1.getAllAmt());
-                }
-                throw new ClassCastException("不能转换为Emp类型");
-            }
-        });
+//        Collections.sort(data,new Comparator() {
+//            @Override
+//            public int compare(Object o1, Object o2) {
+//                if(o1 instanceof ZhuanjinTop && o2 instanceof ZhuanjinTop){
+//                    ZhuanjinTop e1 = (ZhuanjinTop) o1;
+//                    ZhuanjinTop e2 = (ZhuanjinTop) o2;
+//
+//                    return Double.compare(e2.getAllAmt() , e1.getAllAmt());
+//                }
+//                throw new ClassCastException("不能转换为Emp类型");
+//            }
+//        });
 
     }
 

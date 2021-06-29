@@ -136,4 +136,7 @@
 
     <string name="emulator_tips">检测到当前设备为模拟器，请使用真是设备使用当前App</string>
     <string name="playNum_param1">%s次播放</string>
+    <!--今日推荐-->
+    <string name="game_lvzitiaotiao">驴子跳跳</string>
+    <string name="game_zipai">字牌翻翻翻</string>
 </resources>

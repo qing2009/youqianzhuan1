@@ -18,24 +18,24 @@
         android:layout_weight="1" >
 
         <com.shanqb.demo.view.RoundCornerImageView
-            android:id="@+id/game_lvzitiaotiao"
+            android:id="@+id/game_zipai"
             android:layout_width="wrap_content"
             android:layout_height="120dp"
             android:layout_centerHorizontal="true"
             app:corner_size="25"
             android:scaleType="centerCrop"
-            android:src="@drawable/game_lvzitiaotiao"
+            android:src="@drawable/game_zipai"
             ></com.shanqb.demo.view.RoundCornerImageView>
         <TextView
             android:id="@+id/hot_text_1_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/game_lvzitiaotiao"
+            android:layout_below="@id/game_zipai"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="@string/game_lvzitiaotiao"/>
+            android:text="@string/game_zipai"/>
         <TextView
             android:id="@+id/hot_text1_1_2"
             android:layout_width="wrap_content"
@@ -56,23 +56,23 @@
         android:layout_weight="1" >
 
         <com.shanqb.demo.view.RoundCornerImageView
-            android:id="@+id/game_splash"
+            android:id="@+id/game_chinesechess"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_centerHorizontal="true"
             android:scaleType="centerCrop"
             app:corner_size="25"
-            android:src="@drawable/game_splash"/>
+            android:src="@drawable/game_chinesechess"/>
         <TextView
             android:id="@+id/hot_text_2_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/game_splash"
+            android:layout_below="@id/game_chinesechess"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="土豆历险"/>
+            android:text="中国象棋"/>
         <TextView
             android:id="@+id/hot_text_2_2"
             android:layout_width="wrap_content"
@@ -95,23 +95,23 @@
         android:layout_weight="1" >
 
         <com.shanqb.demo.view.RoundCornerImageView
-            android:id="@+id/game_hextris"
+            android:id="@+id/game_kuaipao"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_centerHorizontal="true"
             android:scaleType="centerCrop"
             app:corner_size="25"
-            android:src="@drawable/game_hextris"/>
+            android:src="@drawable/game_xiaoniaofeifei"/>
         <TextView
             android:id="@+id/hot_text_3_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/game_hextris"
+            android:layout_below="@id/game_kuaipao"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="六边形"/>
+            android:text="小鸟飞飞"/>
         <TextView
             android:id="@+id/hot_text_3_2"
             android:layout_width="wrap_content"

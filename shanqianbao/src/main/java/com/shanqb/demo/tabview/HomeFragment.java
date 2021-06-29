@@ -2,6 +2,7 @@ package com.shanqb.demo.tabview;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.shanqb.demo.R;
 import com.shanqb.demo.activity.LoginActivity;
 import com.shanqb.demo.activity.TryPlayRecordActivity;
+import com.shanqb.demo.utils.DeviceUtils;
 import com.shanqb.demo.utils.SharedPreferencesUtil;
 import com.shanqb.demo.utils.Utils;
 import com.shanqb.demo.view.RoundCornerImageView;
@@ -52,6 +54,9 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
         mViewPager = getActivity().findViewById(R.id.viewpager);
         //刷新总收益、可提现
         setShouyiView();
+        String aid = Settings.System.getString(getContext().getContentResolver(), Settings.System.ANDROID_ID);
+        Toast.makeText(getActivity(),"Device="+DeviceUtils.getDeviceId(getContext())+"imei="+DeviceUtils.getIMEI(getContext(),0)+"android="+aid,Toast.LENGTH_LONG).show();
+//
     }
 
     @Override
@@ -76,17 +81,26 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
         super.onDestroyView();
     }
 
-    @OnClick({R.id.home_mahua, R.id.home_xiaoshuo, R.id.home_xinwen, R.id.home_kuaizhuan, R.id.home_tuijian,R.id.suansu, R.id.fangkuai, R.id.jump, R.id.daoguo,R.id.qmxzfzm, R.id.jianren, R.id.semo, R.id.ygj})
+    @OnClick({R.id.game_lvzitiaotiao, R.id.game_splash, R.id.game_hextris,R.id.game_kuaipao, R.id.game_chinesechess, R.id.game_zipai, R.id.home_kuaizhuan, R.id.home_tuijian,R.id.suansu, R.id.fangkuai, R.id.jump, R.id.daoguo,R.id.qmxzfzm, R.id.jianren, R.id.semo, R.id.ygj})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.home_mahua:
-                Utils.goWeb(getContext(), "https://m.kuaikanmanhua.com/");
+            case R.id.game_lvzitiaotiao:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/lvzitiaotiao");
                 break;
-            case R.id.home_xiaoshuo:
-                Utils.goWeb(getContext(), "https://m.readnovel.com/");
+            case R.id.game_splash:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/splash");
                 break;
-            case R.id.home_xinwen:
-                Utils.goWeb(getContext(), "https://3g.163.com/?ver=c");
+            case R.id.game_hextris:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/hextris");
+                break;
+            case R.id.game_kuaipao:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/xiaoniaofeifei");
+                break;
+            case R.id.game_chinesechess:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/Chinesechess");
+                break;
+            case R.id.game_zipai:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/zipai");
                 break;
             case R.id.home_kuaizhuan:
                 mViewPager.setCurrentItem(1);
