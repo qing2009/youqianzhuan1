@@ -53,6 +53,7 @@ import com.shanqb.demo.utils.sdk.XianWangUtils;
 import com.shanqb.demo.utils.sdk.XiquUtils;
 import com.shanqb.demo.view.CircleImageView;
 import com.shanqb.demo.xgame.H5ActivityOptX;
+import com.shanqb.demo.yuwanhezi.H5ActivityOptYuWan;
 import com.xianwan.sdklibrary.helper.XWADPage;
 import com.xianwan.sdklibrary.helper.XWADPageConfig;
 import com.xianwan.sdklibrary.helper.XWAdSdk;
@@ -291,9 +292,17 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                     XianWangUtils.startSDK(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey());
                                                     break;
                                                 case Global.CHANNEL_CODE_YUWANG:
-                                                    YwSDK.Companion.refreshAppSecret(channelBean.getChannelKey(), channelBean.getChannelUser());
-                                                    //进入鱼玩盒子首页
-                                                    YwSDK_WebActivity.Companion.open(getActivity());
+                                                    if (channelBean.getWay().equals("0")){//sdk打开
+                                                        YwSDK.Companion.refreshAppSecret(channelBean.getChannelKey(), channelBean.getChannelUser());
+                                                        //进入鱼玩盒子首页
+                                                        YwSDK_WebActivity.Companion.open(getActivity());
+                                                    }else {//h5打开
+                                                        //使用内置webview打开H5连接
+                                                        Intent intent=new Intent(getActivity(), H5ActivityOptYuWan.class);
+                                                        intent.putExtra("appid",channelBean.getChannelUser());
+                                                        intent.putExtra("appkey",channelBean.getChannelKey());
+                                                        startActivity(intent);
+                                                    }
                                                     break;
                                                 case Global.CHANNEL_CODE_DUOYOU:
                                                     DyAdApi.getDyAdApi().init(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey(), "channel");
