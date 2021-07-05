@@ -1,4 +1,4 @@
-package com.shanqb.qianren.taojin91;
+package com.shanqb.qianren.aibianxian;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -35,7 +35,7 @@ import com.liulishuo.okdownload.core.listener.assist.Listener1Assist;
 import com.shanqb.qianren.R;
 import com.shanqb.qianren.utils.SharedPreConstants;
 import com.shanqb.qianren.utils.SharedPreferencesUtil;
-import com.shanqb.qianren.utils.sdk.UrlUtil;
+import com.shanqb.qianren.utils.sdk.XGameUrlUtil;
 
 import java.io.File;
 import java.util.Locale;
@@ -43,8 +43,8 @@ import java.util.Locale;
 /**
  * 淘金H5 Demo
  */
-public class H5ActivityOpt extends Activity {
-    private static final String TAG = "TJH5";
+public class H5ActivityOptABX extends Activity {
+    private static final String TAG = "ABXH5";
     private WebView webView;
     private Handler handler;
     //图片上传功能，方便用上传截图反馈问题
@@ -115,7 +115,7 @@ public class H5ActivityOpt extends Activity {
         webView.setWebChromeClient(new WebChromeClient(){
             // For Android  > 4.1.1
             public void openFileChooser(ValueCallback<Uri> filePathCallback, String acceptType, String capture) {
-                picUtil = new WebChoosePicUtil(H5ActivityOpt.this,filePathCallback,null);
+                picUtil = new WebChoosePicUtil(H5ActivityOptABX.this,filePathCallback,null);
                 picUtil.choicePic();
             }
             // For Android  >= 5.0
@@ -123,7 +123,7 @@ public class H5ActivityOpt extends Activity {
             public boolean onShowFileChooser(WebView webView,
                                              ValueCallback<Uri[]> filePathCallback,
                                              FileChooserParams fileChooserParams) {
-                picUtil = new WebChoosePicUtil(H5ActivityOpt.this,null,filePathCallback);
+                picUtil = new WebChoosePicUtil(H5ActivityOptABX.this,null,filePathCallback);
                 picUtil.choicePic();
                 return true;
             }
@@ -171,7 +171,7 @@ public class H5ActivityOpt extends Activity {
             @JavascriptInterface
             public void openApp(String packageName) {
                 Log.e(TAG,"js call openApp() pkg:"+packageName);
-                AppUtil.openApp(H5ActivityOpt.this,packageName);
+                AppUtil.openApp(H5ActivityOptABX.this,packageName);
             }
             @JavascriptInterface
             public void download(String url) {
@@ -184,79 +184,71 @@ public class H5ActivityOpt extends Activity {
 
     @SuppressWarnings("StatementWithEmptyBody")
     private void startTask(final String url){
-        //File parentFile = DemoUtil.getParentFile(getApplicationContext());
-        File parentFile = new File("/storage/emulated/0/Download/qianren/91apk");
-        String[] fs = url.split("/");
-        String fileName = fs[fs.length-1];
-        if (DemoUtil.switch_configurefile(parentFile,fileName)) {
-            String apkPath = parentFile.getPath()+"/"+fileName;
-            AppUtil.installApp(getApplication(), apkPath);
-        } else {
-            DownloadTask task = new DownloadTask.Builder(url, parentFile)
-                    .setFilename("")
-                    .setMinIntervalMillisCallbackProcess(1000)
-                    .setPassIfAlreadyCompleted(false)
-                    .build();
-            StatusUtil.Status status= StatusUtil.getStatus(task);
-            Log.e(TAG,"status:"+status.name());
-            if (status == StatusUtil.Status.COMPLETED){
-                //已经完成，跳转安装
-                if (task.getFile()!=null){
-                    AppUtil.installApp(getApplication(), task.getFile());
-                }else{
-                    String filename = OkDownload.with().breakpointStore().getResponseFilename(url);
-                    if (!TextUtils.isEmpty(filename)){
-                        File file =new File(parentFile, filename);
-                        AppUtil.installApp(getApplication(), file);
+        File parentFile = DemoUtil.getParentFile(getApplicationContext());
+        DownloadTask task = new DownloadTask.Builder(url, parentFile)
+                .setFilename("")
+                .setMinIntervalMillisCallbackProcess(1000)
+                .setPassIfAlreadyCompleted(false)
+                .build();
+        StatusUtil.Status status= StatusUtil.getStatus(task);
+        Log.e(TAG,"status:"+status.name());
+        if (status == StatusUtil.Status.COMPLETED){
+            //已经完成，跳转安装
+            if (task.getFile()!=null){
+                AppUtil.installApp(getApplication(), task.getFile());
+            }else{
+                String filename = OkDownload.with().breakpointStore().getResponseFilename(url);
+                if (!TextUtils.isEmpty(filename)){
+                    File file =new File(parentFile, filename);
+                    AppUtil.installApp(getApplication(), file);
+                }
+            }
+        }else if (status == StatusUtil.Status.PENDING ||status == StatusUtil.Status.RUNNING){
+            //已经在下载中，不作处理
+        }else{
+            //取消当前所有任务
+            OkDownload.with().downloadDispatcher().cancelAll();
+            handler.removeCallbacksAndMessages(null);
+            curRetryCount = MaxRetryCount;
+            //下载本次任务
+            downloadListener=new DownloadListener1() {
+                @Override
+                public void taskStart(@NonNull DownloadTask task, @NonNull Listener1Assist.Listener1Model model) {
+
+                }
+
+                @Override
+                public void retry(@NonNull DownloadTask task, @NonNull ResumeFailedCause cause) {
+
+                }
+
+                @Override
+                public void connected(@NonNull DownloadTask task, int blockCount, long currentOffset, long totalLength) {
+
+                }
+
+                @Override
+                public void progress(@NonNull DownloadTask task, long currentOffset, long totalLength) {
+                    callbackProgress(url,1,currentOffset,totalLength);
+                    curRetryCount = MaxRetryCount;
+                }
+
+                @Override
+                public void taskEnd(@NonNull DownloadTask task, @NonNull EndCause cause, @Nullable Exception realCause, @NonNull Listener1Assist.Listener1Model model) {
+                    if (cause == EndCause.COMPLETED){
+                        callbackProgress(url,2,0,0);
+                        if (task.getFile()!=null && AppUtil.apkIsValid(getApplicationContext(),task.getFile().getAbsolutePath())){
+                            AppUtil.installApp(getApplicationContext(),task.getFile());
+                        }
+                    }else if (cause == EndCause.ERROR){
+                        if (realCause!=null){
+                            realCause.printStackTrace();
+                        }
+                        processRetry(task);
                     }
                 }
-            }else if (status == StatusUtil.Status.PENDING ||status == StatusUtil.Status.RUNNING){
-                //已经在下载中，不作处理
-            }else{
-                //取消当前所有任务
-                OkDownload.with().downloadDispatcher().cancelAll();
-                handler.removeCallbacksAndMessages(null);
-                curRetryCount = MaxRetryCount;
-                //下载本次任务
-                downloadListener=new DownloadListener1() {
-                    @Override
-                    public void taskStart(@NonNull DownloadTask task, @NonNull Listener1Assist.Listener1Model model) {
-
-                    }
-
-                    @Override
-                    public void retry(@NonNull DownloadTask task, @NonNull ResumeFailedCause cause) {
-
-                    }
-
-                    @Override
-                    public void connected(@NonNull DownloadTask task, int blockCount, long currentOffset, long totalLength) {
-
-                    }
-
-                    @Override
-                    public void progress(@NonNull DownloadTask task, long currentOffset, long totalLength) {
-                        callbackProgress(url,1,currentOffset,totalLength);
-                        curRetryCount = MaxRetryCount;
-                    }
-
-                    @Override
-                    public void taskEnd(@NonNull DownloadTask task, @NonNull EndCause cause, @Nullable Exception realCause, @NonNull Listener1Assist.Listener1Model model) {
-                        if (cause == EndCause.COMPLETED){
-                            callbackProgress(url,2,0,0);
-                            if (task.getFile()!=null && AppUtil.apkIsValid(getApplicationContext(),task.getFile().getAbsolutePath())){
-                                AppUtil.installApp(getApplicationContext(),task.getFile());
-                            }
-                        }else if (cause == EndCause.ERROR){
-                            if (realCause!=null){
-                                realCause.printStackTrace();
-                            }
-                            processRetry(task);
-                        }
-                    }
-                };
-                task.enqueue(downloadListener);
-            }
+            };
+            task.enqueue(downloadListener);
         }
     }
 
@@ -334,7 +326,7 @@ public class H5ActivityOpt extends Activity {
 
                 @Override
                 public void onPermissionDenied() {
-                    PermissionUtil.showTipsDialog(H5ActivityOpt.this);
+                    PermissionUtil.showTipsDialog(H5ActivityOptABX.this);
                 }
             });
         }
@@ -355,11 +347,11 @@ public class H5ActivityOpt extends Activity {
 //        String userId= DeviceUtil.getAndroidID(getApplication());
 //        String baseUrl = BuildConfig.appIntranet ? "http://www.l.xyou.cn:9191/" : "https://app.91taojin.com.cn/";
 //        String baseUrl = "https://app.91taojin.com.cn/";
-        String baseUrl = "https://app.91taojin.com.cn?";
+        String baseUrl = "https://apps.xyouxi.cn/?";
         String appId = "65";
         String appKey = "6dd20c04be295ef26fcb39eef1efe27d";
 //        String url = UrlUtil.buildUrl(getApplicationContext(),userId,oaid,baseUrl,appId,appKey);
-        String url = UrlUtil.buildUrl(getApplicationContext(),userId,oaid,baseUrl, getIntent().getStringExtra("appid"),getIntent().getStringExtra("appkey"));
+        String url = XGameUrlUtil.buildUrl(getApplicationContext(),userId,oaid,baseUrl, getIntent().getStringExtra("appid"),getIntent().getStringExtra("appkey"));
         Log.e("tag","url=="+url);
         webView.loadUrl(url);
     }

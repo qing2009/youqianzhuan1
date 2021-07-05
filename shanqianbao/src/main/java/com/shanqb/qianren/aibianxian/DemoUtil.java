@@ -14,17 +14,14 @@
  * limitations under the License.
  */
 
-package com.shanqb.qianren.taojin91;
+package com.shanqb.qianren.aibianxian;
 
 import android.content.Context;
-import android.content.res.AssetManager;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class DemoUtil {
 
@@ -44,31 +41,5 @@ public class DemoUtil {
         } else {
             return externalSaveDir;
         }
-    }
-
-    public static ArrayList<String> getFileName(File file, String type) {
-        ArrayList<String>  result = new ArrayList<String>();
-        File[] files = file.listFiles();
-        for (int i = 0; i < files.length; ++i) {
-            if (!files[i].isDirectory()) {
-                String fileName = files[i].getName();
-                if (fileName.trim().toLowerCase().endsWith(type)) {
-                    result.add(fileName);
-                }
-            }
-        }
-        return result;
-    }
-
-    public static boolean switch_configurefile(File file,String fileName){
-        //这个方法是获取内部存储的根路径
-        //getFilesDir().getAbsolutePath() =/data/user/0/packname/files
-        boolean pdtemp = false;
-
-        ArrayList<String> ss = getFileName(file, ".apk");
-        for (String s : ss) {
-            if (s.equals(fileName))pdtemp=true;
-        }
-        return pdtemp;
     }
 }

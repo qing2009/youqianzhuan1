@@ -34,6 +34,7 @@ import com.shanqb.qianren.R;
 import com.shanqb.qianren.activity.WithdrawActivity;
 import com.shanqb.qianren.adapter.ChannelAdapter;
 import com.shanqb.qianren.adapter.HomeTopListAdapter;
+import com.shanqb.qianren.aibianxian.H5ActivityOptABX;
 import com.shanqb.qianren.bean.BaseJsonResponse2;
 import com.shanqb.qianren.bean.ChannelBean;
 import com.shanqb.qianren.bean.ZhuanjinTopResponse;
@@ -259,7 +260,15 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
                                             switch (channelBean.getChannelCode()) {
                                                 case Global.CHANNEL_CODE_AIBIANXIAN:
-                                                    AibianxianUtils.startSDK(getActivity().getApplication(), merCode, getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey());
+                                                    if (channelBean.getWay().equals("0")){//sdk打开
+                                                        AibianxianUtils.startSDK(getActivity().getApplication(), merCode, getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey());
+                                                    }else {//h5打开
+                                                        //使用内置webview打开H5连接
+                                                        Intent intent=new Intent(getActivity(), H5ActivityOptABX.class);
+                                                        intent.putExtra("appid",channelBean.getChannelUser());
+                                                        intent.putExtra("appkey",channelBean.getChannelKey());
+                                                        startActivity(intent);
+                                                    }
                                                     break;
                                                 case Global.CHANNEL_CODE_JUXIANGYOU:
                                                     JuxiangyouUtils.startSDK(getActivity(), merCode, channelBean.getChannelUser(), channelBean.getChannelKey(),oaid);
