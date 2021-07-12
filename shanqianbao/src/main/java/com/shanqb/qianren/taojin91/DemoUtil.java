@@ -18,6 +18,7 @@ package com.shanqb.qianren.taojin91;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.os.Environment;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
@@ -70,5 +71,26 @@ public class DemoUtil {
             if (s.equals(fileName))pdtemp=true;
         }
         return pdtemp;
+    }
+
+    public static void crSDFile(String... folder) {
+
+        int length = folder.length;
+        String genFolder = Environment.getExternalStorageDirectory().getAbsolutePath()+"/Download/";
+        String str = genFolder;
+        File file;
+
+        for (int i = 0; i < length; i++) {
+
+            str = str + folder[i] + "/";
+            file = new File(str);
+
+            if (!file.exists()) {
+                file.mkdir();
+
+            }
+
+        }
+
     }
 }

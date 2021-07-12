@@ -188,7 +188,7 @@ public class H5ActivityOpt extends Activity {
         //File parentFile = DemoUtil.getParentFile(getApplicationContext());
         File parentFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Download/qianren/91apk");
         if (!parentFile.getParentFile().exists()) {
-            DemoUtil.crSDFile("huixinwen","yuwanapk");
+            DemoUtil.crSDFile("qianren","91apk");
         }
         String[] fs = url.split("/");
         String fileName = fs[fs.length-1];
