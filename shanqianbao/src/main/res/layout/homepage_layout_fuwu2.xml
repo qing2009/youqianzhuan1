@@ -15,7 +15,7 @@
         android:layout_weight="1" >
 
         <ImageView
-            android:id="@+id/image1"
+            android:id="@+id/image5"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
@@ -30,7 +30,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="话费充值"/>
+            android:text="小鸟飞飞"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -41,7 +41,7 @@
         android:layout_weight="1" >
 
         <ImageView
-            android:id="@+id/image2"
+            android:id="@+id/image6"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
@@ -56,7 +56,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="礼品券"/>
+            android:text="跳一跳"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -67,7 +67,7 @@
         android:layout_weight="1" >
 
         <ImageView
-            android:id="@+id/image3"
+            android:id="@+id/image7"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
@@ -82,7 +82,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="每日签到"/>
+            android:text="岛国么么哒"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -92,7 +92,7 @@
         android:layout_weight="1" >
 
         <ImageView
-            android:id="@+id/image4"
+            android:id="@+id/image8"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
@@ -107,7 +107,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="充值记录"/>
+            android:text="最强大脑"/>
     </RelativeLayout>
 
 </LinearLayout>

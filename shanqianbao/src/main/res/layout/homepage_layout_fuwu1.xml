@@ -30,7 +30,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="话费充值"/>
+            android:text="驴子跳跳"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -56,7 +56,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="礼品券"/>
+            android:text="土豆历险"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -82,7 +82,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="每日签到"/>
+            android:text="字牌翻翻"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -107,7 +107,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="充值记录"/>
+            android:text="六边形"/>
     </RelativeLayout>
 
 </LinearLayout>
