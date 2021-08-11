@@ -7,11 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
 import com.shanqb.tongda.R;
+import com.shanqb.tongda.adapter.RecyclerViewBannerAdapter2;
+import com.shanqb.tongda.utils.DemoDataProvider;
 import com.shanqb.tongda.utils.Utils;
 import com.shanqb.tongda.view.RoundCornerImageView;
+import com.xuexiang.xui.widget.banner.recycler.BannerLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,12 +25,17 @@ import butterknife.Unbinder;
 /**
  * Created by yx on 16/4/3.
  */
-public class HomeFragment extends BaseFragment implements ITabClickListener {
+public class HomeFragment extends BaseFragment implements ITabClickListener, BannerLayout.OnBannerItemClickListener {
 
     Unbinder unbinder;
 
-    @BindView(R.id.taskGetMoney_imgView)
-    RoundCornerImageView taskGetMoneyImgView;
+//    @BindView(R.id.taskGetMoney_imgView)
+//    RoundCornerImageView taskGetMoneyImgView;
+    @BindView(R.id.bl_horizontal)
+    BannerLayout blHorizontal;//轮播图
+
+    private RecyclerViewBannerAdapter2 mAdapterHorizontal;//轮播图
+
     private ViewPager mViewPager;
 
     @Override
@@ -54,6 +63,10 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_layout, container, false);
         unbinder = ButterKnife.bind(this, view);
+        //轮播图
+        blHorizontal.setAdapter(mAdapterHorizontal = new RecyclerViewBannerAdapter2(DemoDataProvider.urls));
+        mAdapterHorizontal.setOnBannerItemClickListener(this);
+
         return view;
     }
 
@@ -76,13 +89,13 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.home_mahua:
-                Utils.goWeb(getContext(), "https://m.hupu.com/soccer/news");
+                Utils.goWeb(getContext(), "http://www.chinjgeriatr.com/m/index.html");
                 break;
             case R.id.home_xiaoshuo:
-                Utils.goWeb(getContext(), "http://m.yxdown.com/news/");
+                Utils.goWeb(getContext(), "https://3g.ali213.net/news/");
                 break;
             case R.id.home_xinwen:
-                Utils.goWeb(getContext(), "https://3g.163.com/?ver=c");
+                Utils.goWeb(getContext(), "http://m.yxdown.com/news/");
                 break;
             case R.id.home_kuaizhuan:
                 mViewPager.setCurrentItem(1);
@@ -105,4 +118,8 @@ public class HomeFragment extends BaseFragment implements ITabClickListener {
         }
     }
 
+    @Override
+    public void onItemClick(int position) {
+
+    }
 }

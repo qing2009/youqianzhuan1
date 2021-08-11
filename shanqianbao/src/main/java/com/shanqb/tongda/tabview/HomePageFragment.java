@@ -34,6 +34,7 @@ import com.shanqb.tongda.R;
 import com.shanqb.tongda.activity.WithdrawActivity;
 import com.shanqb.tongda.adapter.ChannelAdapter;
 import com.shanqb.tongda.adapter.HomeTopListAdapter;
+import com.shanqb.tongda.adapter.RecyclerViewBannerAdapter2;
 import com.shanqb.tongda.aibianxian.H5ActivityOptABX;
 import com.shanqb.tongda.bean.BaseJsonResponse2;
 import com.shanqb.tongda.bean.ChannelBean;
@@ -42,6 +43,7 @@ import com.shanqb.tongda.inter.MyQueueResponse;
 import com.shanqb.tongda.taojin91.H5ActivityOpt;
 import com.shanqb.tongda.test.BaseRecyclerViewAdapter;
 import com.shanqb.tongda.utils.ActionConstants;
+import com.shanqb.tongda.utils.DemoDataProvider;
 import com.shanqb.tongda.utils.DeviceUtils;
 import com.shanqb.tongda.utils.Global;
 import com.shanqb.tongda.utils.SharedPreConstants;
@@ -80,9 +82,6 @@ import jfq.wowan.com.myapplication.PlayMeUtil;
  * Created by yx on 16/4/3.
  */
 public class HomePageFragment extends BaseFragment implements ITabClickListener, BannerLayout.OnBannerItemClickListener, MyQueueResponse {
-
-//        @BindView(R.id.bl_horizontal)
-//    BannerLayout blHorizontal;//轮播图
 
     //个人信息
     @BindView(R.id.headImageView)
@@ -211,15 +210,6 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
         Log.e(getTag(), "viewWidth: " + viewWidth);
         Log.e(getTag(), "viewHeight: " + viewHeight);
-
-
-        //轮播图
-//        blHorizontal.setAdapter(mAdapterHorizontal = new RecyclerViewBannerAdapter2(DemoDataProvider.urls));
-//        mAdapterHorizontal.setOnBannerItemClickListener(this);
-
-//        this.layoutManager = new LinearLayoutManager(getActivity());
-//        this.layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-//        this.recordRecyView.setLayoutManager(this.layoutManager);
 
 
         //channel数据
