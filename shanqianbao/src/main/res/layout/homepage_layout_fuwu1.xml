@@ -14,13 +14,15 @@
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <ImageView
+        <com.shanqb.tongda.view.RoundCornerImageView
             android:id="@+id/image1"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
+            app:corner_size="25"
+            android:scaleType="centerCrop"
             android:src="@drawable/image1"
-            />
+            ></com.shanqb.tongda.view.RoundCornerImageView>
         <TextView
             android:id="@+id/text1"
             android:layout_width="wrap_content"
@@ -40,13 +42,15 @@
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <ImageView
+        <com.shanqb.tongda.view.RoundCornerImageView
             android:id="@+id/image2"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/image2"/>
-
+            app:corner_size="25"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image2"
+            ></com.shanqb.tongda.view.RoundCornerImageView>
         <TextView
             android:id="@+id/text2"
             android:layout_width="wrap_content"
@@ -66,13 +70,15 @@
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <ImageView
+        <com.shanqb.tongda.view.RoundCornerImageView
             android:id="@+id/image3"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/image3"/>
-
+            app:corner_size="25"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image3"
+            ></com.shanqb.tongda.view.RoundCornerImageView>
         <TextView
             android:id="@+id/text3"
             android:layout_width="wrap_content"
@@ -91,13 +97,15 @@
         android:layout_marginTop="4dp"
         android:layout_weight="1" >
 
-        <ImageView
+        <com.shanqb.tongda.view.RoundCornerImageView
             android:id="@+id/image4"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/image4"/>
-
+            app:corner_size="25"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image4"
+            ></com.shanqb.tongda.view.RoundCornerImageView>
         <TextView
             android:id="@+id/text4"
             android:layout_width="wrap_content"
