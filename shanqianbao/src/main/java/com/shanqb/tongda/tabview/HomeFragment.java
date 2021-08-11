@@ -104,16 +104,16 @@ public class HomeFragment extends BaseFragment implements ITabClickListener, Ban
                 mViewPager.setCurrentItem(1);
                 break;
             case R.id.image1:
-                Toast.makeText(getActivity(),"敬请期待",Toast.LENGTH_SHORT).show();
+                Utils.goWeb(getContext(), "http://m.yxdown.com/news/");
                 break;
             case R.id.image2:
-                Toast.makeText(getActivity(),"敬请期待",Toast.LENGTH_SHORT).show();
+                Utils.goWeb(getContext(), "http://m.yxdown.com/news/");
                 break;
             case R.id.image3:
-                Toast.makeText(getActivity(),"敬请期待",Toast.LENGTH_SHORT).show();
+                Utils.goWeb(getContext(), "http://m.yxdown.com/news/");
                 break;
             case R.id.image4:
-                Toast.makeText(getActivity(),"敬请期待",Toast.LENGTH_SHORT).show();
+                Utils.goWeb(getContext(), "http://m.yxdown.com/news/");
                 break;
         }
     }
