@@ -19,7 +19,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/fuwu_hfcz"
+            android:src="@drawable/image1"
             />
         <TextView
             android:id="@+id/text1"
@@ -45,7 +45,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/fuwu_lipin"/>
+            android:src="@drawable/image2"/>
 
         <TextView
             android:id="@+id/text2"
@@ -71,7 +71,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/fuwu_qiandao"/>
+            android:src="@drawable/image3"/>
 
         <TextView
             android:id="@+id/text3"
@@ -96,7 +96,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/fuwu_chongzhijilu"/>
+            android:src="@drawable/image4"/>
 
         <TextView
             android:id="@+id/text4"
