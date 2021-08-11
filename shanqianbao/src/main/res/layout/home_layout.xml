@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:paddingTop="10dp">
 
-        <com.shanqb.qianren.view.RoundCornerImageView
+        <com.shanqb.tongda.view.RoundCornerImageView
             android:id="@+id/taskGetMoney_imgView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
             android:layout_marginRight="@dimen/screen_margin_horizontal"
             android:scaleType="fitXY"
             app:corner_size="15"
-            android:src="@drawable/huodong"></com.shanqb.qianren.view.RoundCornerImageView>
+            android:src="@drawable/huodong"></com.shanqb.tongda.view.RoundCornerImageView>
 
         <TextView
             android:layout_width="match_parent"
