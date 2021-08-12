@@ -85,7 +85,7 @@ public class HomeFragment extends BaseFragment implements ITabClickListener, Ban
         super.onDestroyView();
     }
 
-    @OnClick({R.id.home_mahua, R.id.home_xiaoshuo, R.id.home_xinwen, R.id.home_kuaizhuan, R.id.home_tuijian, R.id.image1, R.id.image2, R.id.image3, R.id.image4})
+    @OnClick({R.id.home_mahua, R.id.home_xiaoshuo, R.id.home_xinwen, R.id.home_kuaizhuan, R.id.home_tuijian, R.id.image1, R.id.image2, R.id.image3, R.id.image4, R.id.image5, R.id.image6, R.id.image7, R.id.image8})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.home_mahua:
@@ -104,16 +104,28 @@ public class HomeFragment extends BaseFragment implements ITabClickListener, Ban
                 mViewPager.setCurrentItem(1);
                 break;
             case R.id.image1:
-                Utils.goWeb(getContext(), "http://m.yxdown.com/news/");
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/lvzitiaotiao");
                 break;
             case R.id.image2:
-                Utils.goWeb(getContext(), "http://m.yxdown.com/news/");
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/splash");
                 break;
             case R.id.image3:
-                Utils.goWeb(getContext(), "http://m.yxdown.com/news/");
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/zipai");
                 break;
             case R.id.image4:
-                Utils.goWeb(getContext(), "http://m.yxdown.com/news/");
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/hextris");
+                break;
+            case R.id.image5:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/xiaoniaofeifei/");
+                break;
+            case R.id.image6:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/jump/");
+                break;
+            case R.id.image7:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/daoguo/");
+                break;
+            case R.id.image8:
+                Utils.goWeb(getContext(), "http://8.133.178.205/game/123suansu/");
                 break;
         }
     }
