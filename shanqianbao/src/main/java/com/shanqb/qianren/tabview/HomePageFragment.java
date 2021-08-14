@@ -39,6 +39,7 @@ import com.shanqb.qianren.bean.BaseJsonResponse2;
 import com.shanqb.qianren.bean.ChannelBean;
 import com.shanqb.qianren.bean.ZhuanjinTopResponse;
 import com.shanqb.qianren.inter.MyQueueResponse;
+import com.shanqb.qianren.juxiangyou.H5ActivityOptJXY;
 import com.shanqb.qianren.taojin91.H5ActivityOpt;
 import com.shanqb.qianren.test.BaseRecyclerViewAdapter;
 import com.shanqb.qianren.utils.ActionConstants;
@@ -271,7 +272,15 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                     }
                                                     break;
                                                 case Global.CHANNEL_CODE_JUXIANGYOU:
-                                                    JuxiangyouUtils.startSDK(getActivity(), merCode, channelBean.getChannelUser(), channelBean.getChannelKey(),oaid);
+                                                    if (channelBean.getWay().equals("0")){//sdk打开
+                                                        JuxiangyouUtils.startSDK(getActivity(), merCode, channelBean.getChannelUser(), channelBean.getChannelKey(),oaid);
+                                                    }else {//h5打开
+                                                        //使用内置webview打开H5连接
+                                                        Intent intent=new Intent(getActivity(), H5ActivityOptJXY.class);
+                                                        intent.putExtra("appid",channelBean.getChannelUser());
+                                                        intent.putExtra("appkey",channelBean.getChannelKey());
+                                                        startActivity(intent);
+                                                    }
                                                     break;
                                                 case Global.CHANNEL_CODE_TAOJING91:
                                                     if (channelBean.getWay().equals("0")){//sdk打开

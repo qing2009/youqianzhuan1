@@ -97,9 +97,6 @@
             android:name=".taojin91.H5ActivityOpt"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".xgame.H5Activity"
-            android:screenOrientation="portrait"></activity>
-        <activity
             android:name=".xgame.H5ActivityOptX"
             android:screenOrientation="portrait"></activity>
         <uses-library
