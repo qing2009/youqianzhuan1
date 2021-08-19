@@ -39,6 +39,7 @@ import com.shanqb.tongda.aibianxian.H5ActivityOptABX;
 import com.shanqb.tongda.bean.BaseJsonResponse2;
 import com.shanqb.tongda.bean.ChannelBean;
 import com.shanqb.tongda.bean.ZhuanjinTopResponse;
+import com.shanqb.tongda.duoyou.H5ActivityOptDY;
 import com.shanqb.tongda.inter.MyQueueResponse;
 import com.shanqb.tongda.taojin91.H5ActivityOpt;
 import com.shanqb.tongda.test.BaseRecyclerViewAdapter;
@@ -294,12 +295,20 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
                                                     YwSDK_WebActivity.Companion.open(getActivity());
                                                     break;
                                                 case Global.CHANNEL_CODE_DUOYOU:
-                                                    DyAdApi.getDyAdApi().init(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey(), "channel");
-                                                    /**
-                                                     * userId : 开发者APP用户标识，代表一个用户的Id，保证唯一性
-                                                     * advertType: 0（默认值）显示全部数据  1.手游  2.棋牌游戏
-                                                     */
-                                                    DyAdApi.getDyAdApi().jumpAdList(getActivity(), merCode, 0);
+                                                    if (channelBean.getWay().equals("0")){//sdk打开
+                                                        DyAdApi.getDyAdApi().init(getActivity(), channelBean.getChannelUser(), channelBean.getChannelKey(), "channel");
+                                                        /**
+                                                         * userId : 开发者APP用户标识，代表一个用户的Id，保证唯一性
+                                                         * advertType: 0（默认值）显示全部数据  1.手游  2.棋牌游戏
+                                                         */
+                                                        DyAdApi.getDyAdApi().jumpAdList(getActivity(), merCode, 0);
+                                                    }else {//h5打开
+                                                        //使用内置webview打开H5连接
+                                                        Intent intent=new Intent(getActivity(), H5ActivityOptDY.class);
+                                                        intent.putExtra("appid",channelBean.getChannelUser());
+                                                        intent.putExtra("appkey",channelBean.getChannelKey());
+                                                        startActivity(intent);
+                                                    }
                                                     break;
                                                 case Global.CHANNEL_CODE_XIQU:
                                                     XiquUtils.init(getActivity().getApplication(), channelBean.getChannelUser(), channelBean.getChannelKey());

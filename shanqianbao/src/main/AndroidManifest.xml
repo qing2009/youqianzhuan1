@@ -104,6 +104,9 @@
         <activity
             android:name="com.shanqb.tongda.xgame.H5ActivityOptX"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.shanqb.tongda.duoyou.H5ActivityOptDY"
+            android:screenOrientation="portrait"></activity>
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
