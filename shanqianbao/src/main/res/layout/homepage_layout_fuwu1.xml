@@ -6,117 +6,366 @@
     android:layout_marginLeft="@dimen/screen_margin_horizontal"
     android:layout_marginRight="@dimen/screen_margin_horizontal"
     android:background="@color/white"
-    android:orientation="horizontal" >
+    android:orientation="vertical" >
 
-    <RelativeLayout
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="15dp"
-        android:layout_weight="1" >
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="@drawable/underline">
 
-        <com.shanqb.tongda.view.RoundCornerImageView
-            android:id="@+id/image1"
+        <com.shanqb.wanka.view.RoundCornerImageView
+            android:id="@+id/game1_image1"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
-            app:corner_size="25"
+            app:corner_size="10"
             android:scaleType="centerCrop"
-            android:src="@drawable/image1"
-            ></com.shanqb.tongda.view.RoundCornerImageView>
+            android:src="@drawable/image1" />
         <TextView
-            android:id="@+id/text1"
+            android:id="@+id/game1_text1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:textColor="#F3C41F"
+            android:textSize="18sp"
+            android:text="No.1"/>
+        <TextView
+            android:id="@+id/game1_text2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/image1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="3dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
             android:textColor="#000000"
             android:textSize="15sp"
             android:text="驴子跳跳"/>
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/game1_statrt"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/start_btn"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="立即进入"></TextView>
+    </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="15dp"
-        android:layout_weight="1" >
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="@drawable/underline">
 
-        <com.shanqb.tongda.view.RoundCornerImageView
-            android:id="@+id/image2"
+        <com.shanqb.wanka.view.RoundCornerImageView
+            android:id="@+id/game1_image2"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
-            app:corner_size="25"
+            app:corner_size="10"
             android:scaleType="centerCrop"
-            android:src="@drawable/image2"
-            ></com.shanqb.tongda.view.RoundCornerImageView>
+            android:src="@drawable/image2" />
         <TextView
-            android:id="@+id/text2"
+            android:id="@+id/game2_text1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:textColor="#F3C41F"
+            android:textSize="18sp"
+            android:text="No.2"/>
+        <TextView
+            android:id="@+id/game2_text2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/image2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="3dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
             android:textColor="#000000"
             android:textSize="15sp"
             android:text="土豆历险"/>
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/game2_statrt"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/start_btn"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="立即进入"></TextView>
+    </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="15dp"
-        android:layout_weight="1" >
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="@drawable/underline">
 
-        <com.shanqb.tongda.view.RoundCornerImageView
-            android:id="@+id/image3"
+        <com.shanqb.wanka.view.RoundCornerImageView
+            android:id="@+id/game3_image3"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
-            app:corner_size="25"
+            app:corner_size="10"
             android:scaleType="centerCrop"
-            android:src="@drawable/image3"
-            ></com.shanqb.tongda.view.RoundCornerImageView>
+            android:src="@drawable/image3" />
         <TextView
-            android:id="@+id/text3"
+            android:id="@+id/game3_text1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:textColor="#F3C41F"
+            android:textSize="18sp"
+            android:text="No.3"/>
+        <TextView
+            android:id="@+id/game3_text2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/image3"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="3dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
             android:textColor="#000000"
             android:textSize="15sp"
             android:text="字牌翻翻"/>
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/game3_statrt"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/start_btn"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="立即进入"></TextView>
+    </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_weight="1" >
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="@drawable/underline">
 
-        <com.shanqb.tongda.view.RoundCornerImageView
-            android:id="@+id/image4"
+        <com.shanqb.wanka.view.RoundCornerImageView
+            android:id="@+id/game4_image4"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
-            app:corner_size="25"
+            app:corner_size="10"
             android:scaleType="centerCrop"
-            android:src="@drawable/image4"
-            ></com.shanqb.tongda.view.RoundCornerImageView>
+            android:src="@drawable/image4" />
         <TextView
-            android:id="@+id/text4"
+            android:id="@+id/game4_text1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:textColor="#F3C41F"
+            android:textSize="18sp"
+            android:text="No.4"/>
+        <TextView
+            android:id="@+id/game4_text2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/image4"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="3dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
             android:textColor="#000000"
             android:textSize="15sp"
             android:text="六边形"/>
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/game4_statrt"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/start_btn"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="立即进入"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="@drawable/underline">
+
+        <com.shanqb.wanka.view.RoundCornerImageView
+            android:id="@+id/game5_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:corner_size="10"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image5" />
+        <TextView
+            android:id="@+id/game5_text1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:textColor="#F3C41F"
+            android:textSize="18sp"
+            android:text="No.5"/>
+        <TextView
+            android:id="@+id/game5_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:text="小鸟飞飞"/>
+        <TextView
+            android:id="@+id/game5_statrt"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/start_btn"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="立即进入"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="@drawable/underline">
+
+        <com.shanqb.wanka.view.RoundCornerImageView
+            android:id="@+id/game6_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:corner_size="10"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image6" />
+        <TextView
+            android:id="@+id/game6_text1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:textColor="#F3C41F"
+            android:textSize="18sp"
+            android:text="No.6"/>
+        <TextView
+            android:id="@+id/game6_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:text="跳一跳"/>
+        <TextView
+            android:id="@+id/game6_statrt"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/start_btn"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="立即进入"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="@drawable/underline">
+
+        <com.shanqb.wanka.view.RoundCornerImageView
+            android:id="@+id/game7_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:corner_size="10"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image7" />
+        <TextView
+            android:id="@+id/game7_text1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:textColor="#F3C41F"
+            android:textSize="18sp"
+            android:text="No.7"/>
+        <TextView
+            android:id="@+id/game7_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:text="岛国么么哒"/>
+        <TextView
+            android:id="@+id/game7_statrt"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/start_btn"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="立即进入"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/underline">
+
+        <com.shanqb.wanka.view.RoundCornerImageView
+            android:id="@+id/game8_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:corner_size="10"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image8" />
+        <TextView
+            android:id="@+id/game8_text1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:textColor="#F3C41F"
+            android:textSize="18sp"
+            android:text="No.8"/>
+        <TextView
+            android:id="@+id/game8_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:text="最强大脑"/>
+        <TextView
+            android:id="@+id/game8_statrt"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/start_btn"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="立即进入"></TextView>
+    </LinearLayout>
 
 </LinearLayout>

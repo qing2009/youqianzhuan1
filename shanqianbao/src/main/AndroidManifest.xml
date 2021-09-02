@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.shanqb.tongda"
+    package="com.shanqb.wanka"
     xmlns:tools="http://schemas.android.com/tools"
     android:resizeableActivity="true"
     android:versionCode="1"
@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.asus.msa.SupplementaryDID.ACCESS" />
     <uses-permission android:name="freemme.permission.msa" />
-
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-sdk tools:overrideLibrary="com.liulishuo.okdownload"/>
@@ -30,15 +30,14 @@
         android:value="OPPO"></meta-data>
 
     <application
-        android:name="com.shanqb.tongda.BaseApplication"
+        android:name=".BaseApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 
-
         <activity
-            android:name="com.shanqb.tongda.activity.StartActivity"
+            android:name=".activity.StartActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,71 +45,71 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.shanqb.tongda.activity.WebActivity"
+            android:name=".activity.WebActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.tongda.activity.LeadActivity"
+            android:name=".activity.LeadActivity"
 
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name="com.shanqb.tongda.tabview.HomeActivity"
+            android:name=".tabview.HomeActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.tongda.activity.BottomNavigationViewBehaviorActivity"
+            android:name=".activity.BottomNavigationViewBehaviorActivity"
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name="com.shanqb.tongda.activity.LoginActivity"
+            android:name=".activity.LoginActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.tongda.activity.RegisterActivity"
+            android:name=".activity.RegisterActivity"
 
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.shanqb.tongda.activity.ResetpwdActivity"
+            android:name=".activity.ResetpwdActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.tongda.activity.TryPlayRecordActivity"
+            android:name=".activity.TryPlayRecordActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.tongda.activity.ReadGetMoneyActivity"
+            android:name=".activity.ReadGetMoneyActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.tongda.activity.WithdrawActivity"
+            android:name=".activity.WithdrawActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.tongda.activity.WithdrawalAccountActivity"
+            android:name=".activity.WithdrawalAccountActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.tongda.webview.AgentWebActivity"
+            android:name=".webview.AgentWebActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.tongda.taojin91.H5Activity"
+            android:name=".taojin91.H5Activity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.tongda.taojin91.H5ActivityOpt"
+            android:name=".taojin91.H5ActivityOpt"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.tongda.xgame.H5Activity"
+            android:name=".xgame.H5Activity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.tongda.xgame.H5ActivityOptX"
+            android:name=".xgame.H5ActivityOptX"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.shanqb.tongda.duoyou.H5ActivityOptDY"
+            android:name=".duoyou.H5ActivityOptDY"
             android:screenOrientation="portrait"></activity>
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
-        <service android:name="com.shanqb.tongda.activity.DownLoadAppUpdateService" />
+        <service android:name=".activity.DownLoadAppUpdateService" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -134,7 +133,7 @@
 
         <!--h5 app安装必须provider-->
         <provider
-            android:name="com.shanqb.tongda.taojin91.TJH5FileProvider"
+            android:name=".taojin91.TJH5FileProvider"
             android:authorities="${applicationId}.tjh5.provider"
             android:exported="false"
             android:grantUriPermissions="true">

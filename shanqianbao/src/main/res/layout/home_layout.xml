@@ -49,7 +49,7 @@
             android:text="最新游戏资讯"></TextView>
         <include layout="@layout/home_layout_mokuai"></include>
 
-        <TextView
+        <!--<TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -61,7 +61,7 @@
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
             android:text="趣玩小赚 COME ON"></TextView>
-        <include layout="@layout/home_layout_xiaozhuan"></include>
+        <include layout="@layout/home_layout_xiaozhuan"></include>-->
 
         <TextView
             android:layout_width="match_parent"
@@ -76,6 +76,26 @@
             android:layout_marginRight="@dimen/screen_margin_horizontal"
             android:text="那些年玩过的经典游戏"></TextView>
         <include layout="@layout/homepage_layout_fuwu1"></include>
-        <include layout="@layout/homepage_layout_fuwu2"></include>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:src="@drawable/ic_my_icon"
+            android:scaleType="fitXY"
+            app:borderWidth="0dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="100dp"
+            android:backgroundTint="@color/white"
+            android:visibility="gone"
+            android:layout_margin="16dp" />
+        <ImageView
+            android:id="@+id/home_kuaizhuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:visibility="gone"
+            android:background="@drawable/ic_my_icon"/>
     </LinearLayout>
 </ScrollView>

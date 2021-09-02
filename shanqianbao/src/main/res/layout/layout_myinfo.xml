@@ -16,7 +16,7 @@
         android:paddingRight="15dp"
         android:paddingBottom="10dp">
 
-        <com.shanqb.tongda.view.CircleImageView
+        <com.shanqb.wanka.view.CircleImageView
             android:id="@+id/headImageView"
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -86,6 +86,14 @@
                 android:layout_marginTop="7dp"
                 android:text="总收益"
                 android:textColor="@color/black_7B7B7B"></TextView>
+            <TextView
+                android:id="@+id/upAmt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="7dp"
+                android:text="点我刷新"
+                android:textColor="@color/tab_green"></TextView>
         </LinearLayout>
 
         <LinearLayout
@@ -111,6 +119,13 @@
                 android:layout_marginTop="7dp"
                 android:text="可提现"
                 android:textColor="@color/black_7B7B7B"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="7dp"
+                android:text="立马提现"
+                android:textColor="@color/tab_green"></TextView>
         </LinearLayout>
     </LinearLayout>
 

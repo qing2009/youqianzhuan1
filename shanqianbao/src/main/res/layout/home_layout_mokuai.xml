@@ -12,11 +12,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:layout_marginRight="@dimen/screen_margin_horizontal"
+        android:layout_marginLeft="@dimen/screen_margin_horizontal"
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <com.shanqb.tongda.view.RoundCornerImageView
+        <com.shanqb.wanka.view.RoundCornerImageView
             android:id="@+id/home_mahua"
             android:layout_width="match_parent"
             android:layout_height="95dp"
@@ -24,17 +24,18 @@
             app:corner_size="15"
             android:scaleType="fitXY"
             android:src="@drawable/tiyu"
-            ></com.shanqb.tongda.view.RoundCornerImageView>
+            ></com.shanqb.wanka.view.RoundCornerImageView>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <com.shanqb.tongda.view.RoundCornerImageView
+        <com.shanqb.wanka.view.RoundCornerImageView
             android:id="@+id/home_xiaoshuo"
             android:layout_width="match_parent"
             android:layout_height="95dp"
@@ -48,11 +49,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:layout_marginLeft="@dimen/screen_margin_horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="@dimen/screen_margin_horizontal"
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <com.shanqb.tongda.view.RoundCornerImageView
+        <com.shanqb.wanka.view.RoundCornerImageView
             android:id="@+id/home_xinwen"
             android:layout_width="match_parent"
             android:layout_height="95dp"
