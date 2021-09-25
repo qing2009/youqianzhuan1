@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.shanqb.wanka"
+    package="com.shanqb.haoyi"
     xmlns:tools="http://schemas.android.com/tools"
     android:resizeableActivity="true"
     android:versionCode="1"
@@ -30,14 +30,14 @@
         android:value="OPPO"></meta-data>
 
     <application
-        android:name=".BaseApplication"
+        android:name="com.shanqb.haoyi.BaseApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 
         <activity
-            android:name=".activity.StartActivity"
+            android:name="com.shanqb.haoyi.activity.StartActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,71 +45,71 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.WebActivity"
+            android:name="com.shanqb.haoyi.activity.WebActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.LeadActivity"
+            android:name="com.shanqb.haoyi.activity.LeadActivity"
 
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name=".tabview.HomeActivity"
+            android:name="com.shanqb.haoyi.tabview.HomeActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.BottomNavigationViewBehaviorActivity"
+            android:name="com.shanqb.haoyi.activity.BottomNavigationViewBehaviorActivity"
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name=".activity.LoginActivity"
+            android:name="com.shanqb.haoyi.activity.LoginActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.RegisterActivity"
+            android:name="com.shanqb.haoyi.activity.RegisterActivity"
 
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ResetpwdActivity"
+            android:name="com.shanqb.haoyi.activity.ResetpwdActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.TryPlayRecordActivity"
+            android:name="com.shanqb.haoyi.activity.TryPlayRecordActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.ReadGetMoneyActivity"
+            android:name="com.shanqb.haoyi.activity.ReadGetMoneyActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.WithdrawActivity"
+            android:name="com.shanqb.haoyi.activity.WithdrawActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.WithdrawalAccountActivity"
+            android:name="com.shanqb.haoyi.activity.WithdrawalAccountActivity"
 
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".webview.AgentWebActivity"
+            android:name="com.shanqb.haoyi.webview.AgentWebActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".taojin91.H5Activity"
+            android:name="com.shanqb.haoyi.taojin91.H5Activity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".taojin91.H5ActivityOpt"
+            android:name="com.shanqb.haoyi.taojin91.H5ActivityOpt"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".xgame.H5Activity"
+            android:name="com.shanqb.haoyi.xgame.H5Activity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".xgame.H5ActivityOptX"
+            android:name="com.shanqb.haoyi.xgame.H5ActivityOptX"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".duoyou.H5ActivityOptDY"
+            android:name="com.shanqb.haoyi.duoyou.H5ActivityOptDY"
             android:screenOrientation="portrait"></activity>
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
-        <service android:name=".activity.DownLoadAppUpdateService" />
+        <service android:name="com.shanqb.haoyi.activity.DownLoadAppUpdateService" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -133,7 +133,7 @@
 
         <!--h5 app安装必须provider-->
         <provider
-            android:name=".taojin91.TJH5FileProvider"
+            android:name="com.shanqb.haoyi.taojin91.TJH5FileProvider"
             android:authorities="${applicationId}.tjh5.provider"
             android:exported="false"
             android:grantUriPermissions="true">

@@ -18,15 +18,15 @@
         android:paddingTop="10dp"
         android:background="@drawable/underline">
 
-        <com.shanqb.wanka.view.RoundCornerImageView
-            android:id="@+id/game1_image1"
+        <com.shanqb.haoyi.view.RoundCornerImageView
+            android:id="@+id/game7_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
             app:corner_size="10"
             android:scaleType="centerCrop"
-            android:src="@drawable/image1" />
+            android:src="@drawable/image7" />
         <TextView
-            android:id="@+id/game1_text1"
+            android:id="@+id/game7_text1"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
@@ -35,16 +35,16 @@
             android:textSize="18sp"
             android:text="No.1"/>
         <TextView
-            android:id="@+id/game1_text2"
+            android:id="@+id/game7_text2"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="2"
             android:gravity="center_vertical"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="驴子跳跳"/>
+            android:text="岛国么么哒"/>
         <TextView
-            android:id="@+id/game1_statrt"
+            android:id="@+id/game7_statrt"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:background="@drawable/start_btn"
@@ -63,7 +63,7 @@
         android:paddingTop="10dp"
         android:background="@drawable/underline">
 
-        <com.shanqb.wanka.view.RoundCornerImageView
+        <com.shanqb.haoyi.view.RoundCornerImageView
             android:id="@+id/game1_image2"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -108,7 +108,7 @@
         android:paddingTop="10dp"
         android:background="@drawable/underline">
 
-        <com.shanqb.wanka.view.RoundCornerImageView
+        <com.shanqb.haoyi.view.RoundCornerImageView
             android:id="@+id/game3_image3"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -153,7 +153,7 @@
         android:paddingTop="10dp"
         android:background="@drawable/underline">
 
-        <com.shanqb.wanka.view.RoundCornerImageView
+        <com.shanqb.haoyi.view.RoundCornerImageView
             android:id="@+id/game4_image4"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -198,7 +198,7 @@
         android:paddingTop="10dp"
         android:background="@drawable/underline">
 
-        <com.shanqb.wanka.view.RoundCornerImageView
+        <com.shanqb.haoyi.view.RoundCornerImageView
             android:id="@+id/game5_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -243,7 +243,7 @@
         android:paddingTop="10dp"
         android:background="@drawable/underline">
 
-        <com.shanqb.wanka.view.RoundCornerImageView
+        <com.shanqb.haoyi.view.RoundCornerImageView
             android:id="@+id/game6_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -288,15 +288,15 @@
         android:paddingTop="10dp"
         android:background="@drawable/underline">
 
-        <com.shanqb.wanka.view.RoundCornerImageView
-            android:id="@+id/game7_image"
+        <com.shanqb.haoyi.view.RoundCornerImageView
+            android:id="@+id/game1_image1"
             android:layout_width="50dp"
             android:layout_height="50dp"
             app:corner_size="10"
             android:scaleType="centerCrop"
-            android:src="@drawable/image7" />
+            android:src="@drawable/image1" />
         <TextView
-            android:id="@+id/game7_text1"
+            android:id="@+id/game1_text1"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
@@ -305,16 +305,16 @@
             android:textSize="18sp"
             android:text="No.7"/>
         <TextView
-            android:id="@+id/game7_text2"
+            android:id="@+id/game1_text2"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="2"
             android:gravity="center_vertical"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="岛国么么哒"/>
+            android:text="驴子跳跳"/>
         <TextView
-            android:id="@+id/game7_statrt"
+            android:id="@+id/game1_statrt"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:background="@drawable/start_btn"
@@ -333,7 +333,7 @@
         android:gravity="center_vertical"
         android:background="@drawable/underline">
 
-        <com.shanqb.wanka.view.RoundCornerImageView
+        <com.shanqb.haoyi.view.RoundCornerImageView
             android:id="@+id/game8_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
