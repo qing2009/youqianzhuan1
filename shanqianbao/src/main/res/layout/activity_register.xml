@@ -15,7 +15,7 @@
         app:sEditTextButtonType="clear"
         app:sEditTextHint="@string/hint_username"
         app:sLeftTextString="@string/username"
-        app:sLeftViewWidth="70dp" />
+        app:sLeftViewWidth="77dp" />
 
     <FrameLayout
         android:id="@+id/fl_verify_code"
@@ -30,7 +30,7 @@
             app:sEditTextButtonType="none"
             app:sEditTextHint="@string/hint_please_input_verify_code"
             app:sLeftTextString="@string/lab_verify_code"
-            app:sLeftViewWidth="70dp" />
+            app:sLeftViewWidth="77dp" />
 
         <com.xuexiang.xui.widget.button.roundbutton.RoundButton
             android:id="@+id/btn_get_verify_code"
@@ -59,7 +59,7 @@
         app:sEditTextButtonType="password"
         app:sEditTextHint="@string/hint_password"
         app:sLeftTextString="@string/password"
-        app:sLeftViewWidth="70dp" />
+        app:sLeftViewWidth="77dp" />
 
     <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
         android:id="@+id/stv_register_pwd_confirmPwd"
@@ -68,7 +68,7 @@
         app:sEditTextButtonType="password"
         app:sEditTextHint="@string/input_confirmPwd"
         app:sLeftTextString="@string/confirmPassword"
-        app:sLeftViewWidth="70dp" />
+        app:sLeftViewWidth="77dp" />
 
 
     <com.xuexiang.xui.widget.button.roundbutton.RoundButton

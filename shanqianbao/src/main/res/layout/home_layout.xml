@@ -46,7 +46,7 @@
             android:paddingRight="15dp"
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
-            android:text="关注最新动态"></TextView>
+            android:text="了解行业资讯"></TextView>
         <include layout="@layout/home_layout_mokuai"></include>
 
         <!--<TextView

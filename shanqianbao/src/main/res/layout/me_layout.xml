@@ -111,7 +111,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
-                android:drawableLeft="@drawable/me_xiaxian"
+                android:drawableLeft="@drawable/me_lianxi"
                 android:drawableRight="@drawable/jaintou_ic"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"

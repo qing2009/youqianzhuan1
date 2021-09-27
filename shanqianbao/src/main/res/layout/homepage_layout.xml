@@ -68,7 +68,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:text="专享福利"></TextView>
+                android:text="戳我赚钱"></TextView>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/channel_recView"
                 android:layout_width="match_parent"
