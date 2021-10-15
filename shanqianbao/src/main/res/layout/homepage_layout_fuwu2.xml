@@ -15,15 +15,15 @@
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <com.shanqb.haoyi.view.RoundCornerImageView
+        <com.shanqb.myTools.view.RoundCornerImageView
             android:id="@+id/image5"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            app:corner_size="25"
+            app:corner_size="5"
             android:scaleType="centerCrop"
             android:src="@drawable/image5"
-            ></com.shanqb.haoyi.view.RoundCornerImageView>
+            ></com.shanqb.myTools.view.RoundCornerImageView>
         <TextView
             android:id="@+id/text1"
             android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="小鸟飞飞"/>
+            android:text="微信下载"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -43,15 +43,15 @@
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <com.shanqb.haoyi.view.RoundCornerImageView
+        <com.shanqb.myTools.view.RoundCornerImageView
             android:id="@+id/image6"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            app:corner_size="25"
+            app:corner_size="5"
             android:scaleType="centerCrop"
             android:src="@drawable/image6"
-            ></com.shanqb.haoyi.view.RoundCornerImageView>
+            ></com.shanqb.myTools.view.RoundCornerImageView>
         <TextView
             android:id="@+id/text2"
             android:layout_width="wrap_content"
@@ -61,7 +61,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="跳一跳"/>
+            android:text="网络测速"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -71,15 +71,15 @@
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <com.shanqb.haoyi.view.RoundCornerImageView
+        <com.shanqb.myTools.view.RoundCornerImageView
             android:id="@+id/image7"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            app:corner_size="25"
+            app:corner_size="5"
             android:scaleType="centerCrop"
             android:src="@drawable/image7"
-            ></com.shanqb.haoyi.view.RoundCornerImageView>
+            ></com.shanqb.myTools.view.RoundCornerImageView>
         <TextView
             android:id="@+id/text3"
             android:layout_width="wrap_content"
@@ -89,7 +89,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="岛国么么哒"/>
+            android:text="计算器"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -98,15 +98,15 @@
         android:layout_marginTop="4dp"
         android:layout_weight="1" >
 
-        <com.shanqb.haoyi.view.RoundCornerImageView
+        <com.shanqb.myTools.view.RoundCornerImageView
             android:id="@+id/image8"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            app:corner_size="25"
+            app:corner_size="5"
             android:scaleType="centerCrop"
             android:src="@drawable/image8"
-            ></com.shanqb.haoyi.view.RoundCornerImageView>
+            ></com.shanqb.myTools.view.RoundCornerImageView>
         <TextView
             android:id="@+id/text4"
             android:layout_width="wrap_content"
@@ -116,7 +116,7 @@
             android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:text="最强大脑"/>
+            android:text="脚本下载"/>
     </RelativeLayout>
 
 </LinearLayout>
