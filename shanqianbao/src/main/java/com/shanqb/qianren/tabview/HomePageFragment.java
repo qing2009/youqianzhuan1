@@ -47,6 +47,7 @@ import com.shanqb.qianren.utils.DeviceUtils;
 import com.shanqb.qianren.utils.Global;
 import com.shanqb.qianren.utils.SharedPreConstants;
 import com.shanqb.qianren.utils.SharedPreferencesUtil;
+import com.shanqb.qianren.utils.Utils;
 import com.shanqb.qianren.utils.sdk.AibianxianUtils;
 import com.shanqb.qianren.utils.sdk.JuxiangyouUtils;
 import com.shanqb.qianren.utils.sdk.Taojing91Utils;
@@ -406,9 +407,35 @@ public class HomePageFragment extends BaseFragment implements ITabClickListener,
 
     }
 
-    @OnClick({R.id.ketixian_linLayout})
-    public void onClick() {
-        startActivity(new Intent(getActivity(), WithdrawActivity.class));
+    @OnClick({R.id.ketixian_linLayout,R.id.image1,R.id.image2,R.id.image3,R.id.image4})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.image1:
+                //使用内置webview打开H5连接
+                Intent intent=new Intent(getActivity(), H5ActivityOpt.class);
+                intent.putExtra("appid","2190");
+                intent.putExtra("appkey","e3c1223f50a218dd283c8b76bb21d280");
+                startActivity(intent);
+                break;
+            case R.id.image2:
+                Intent intent2 =new Intent(getActivity(), H5ActivityOpt.class);
+                intent2.putExtra("appid","2190");
+                intent2.putExtra("appkey","e3c1223f50a218dd283c8b76bb21d280");
+                startActivity(intent2);
+                break;
+            case R.id.image3:
+                Intent intent3 =new Intent(getActivity(), H5ActivityOpt.class);
+                intent3.putExtra("appid","2190");
+                intent3.putExtra("appkey","e3c1223f50a218dd283c8b76bb21d280");
+                startActivity(intent3);
+                break;
+            case R.id.image4:
+                Intent intent4 =new Intent(getActivity(), H5ActivityOpt.class);
+                intent4.putExtra("appid","2190");
+                intent4.putExtra("appkey","e3c1223f50a218dd283c8b76bb21d280");
+                startActivity(intent4);
+                break;
+        }
     }
 
 

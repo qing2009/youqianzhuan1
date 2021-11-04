@@ -41,7 +41,8 @@
             android:background="@color/white"
             android:layout_marginLeft="@dimen/screen_margin_horizontal"
             android:layout_marginRight="@dimen/screen_margin_horizontal"
-            android:layout_height="50dp" >
+            android:layout_height="50dp"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/gonggao"
@@ -91,6 +92,26 @@
                 android:layout_marginBottom="15dp"
                 android:background="@color/white"
                 android:nestedScrollingEnabled="false" />
+        </LinearLayout>
+        <!--渠道-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/screen_margin_horizontal"
+            android:layout_marginLeft="@dimen/screen_margin_horizontal"
+            android:layout_marginRight="@dimen/screen_margin_horizontal"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="每日推荐"></TextView>
+            <include layout="@layout/homepage_layout_fuwu"></include>
         </LinearLayout>
 
         <!--赚金top10-->
