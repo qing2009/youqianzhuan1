@@ -71,6 +71,9 @@ public class LoginResponse extends BaseJsonResponse {
         private String txMinAmt;
         private String isSlogin;
         private List<ChannelBean> listbc;
+        private List<AppsBean> listapps;
+        private String appUrl;
+        private String appIds;
 
         public String getShareCode() {
             return shareCode;
@@ -80,6 +83,13 @@ public class LoginResponse extends BaseJsonResponse {
             this.shareCode = shareCode;
         }
 
+        public String getAppIds() {
+            return appIds;
+        }
+
+        public void setAppIds(String appIds) {
+            this.appIds = appIds;
+        }
 
         public String getIsSlogin() {
             return isSlogin;
@@ -280,6 +290,22 @@ public class LoginResponse extends BaseJsonResponse {
         public void setListbc(List<ChannelBean> listbc) {
             this.listbc = listbc;
         }
+
+        public List<AppsBean> getListapps() {
+            return listapps;
+        }
+
+        public void setListapps(List<AppsBean> listapps) {
+            this.listapps = listapps;
+        }
+
+        public String getAppUrl() {
+            return appUrl;
+        }
+
+        public void setAppUrl(String appUrl) {
+            this.appUrl = appUrl;
+        }
     }
 
     public String getQdbg() {
@@ -297,6 +323,5 @@ public class LoginResponse extends BaseJsonResponse {
     public void setGonggao(String gonggao) {
         this.gonggao = gonggao;
     }
-
 
 }

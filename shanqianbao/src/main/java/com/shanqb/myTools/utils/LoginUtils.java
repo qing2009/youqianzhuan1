@@ -38,12 +38,15 @@ public class LoginUtils {
         editor.putString(SharedPreConstants.shareCode, loginResponse.getData().getShareCode() + "");
         editor.putString(SharedPreConstants.txMinAmt, loginResponse.getData().getTxMinAmt());
         editor.putString(SharedPreConstants.ISSLOGIN, loginResponse.getData().getIsSlogin());
-
+        editor.putString(SharedPreConstants.appUrl, loginResponse.getData().getAppUrl());
+        editor.putString(SharedPreConstants.appIds, loginResponse.getData().getAppIds());
         editor.putString(SharedPreConstants.gonggao, loginResponse.getGonggao());
         editor.putString(SharedPreConstants.qdbg, loginResponse.getQdbg());
 
         String channelListJson = new Gson().toJson(loginResponse.getData().getListbc());
         editor.putString(SharedPreConstants.channelList, channelListJson);
+        String appListJson = new Gson().toJson(loginResponse.getData().getListapps());
+        editor.putString(SharedPreConstants.appList, appListJson);
         editor.commit();
 
         initYwSDk(loginResponse);
