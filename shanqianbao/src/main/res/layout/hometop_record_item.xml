@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
     >
 
-    <com.shanqb.myTools.view.CircleImageView
+    <com.shanqb.myTool.view.CircleImageView
         android:id="@+id/headImageView"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -18,12 +19,12 @@
 
     <TextView
         android:id="@+id/income_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
         android:layout_alignParentRight="true"
         android:gravity="center"
         android:layout_centerVertical="true"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:text="立即下载"
         android:background="@drawable/start_btn"
         android:textColor="@android:color/white" />
