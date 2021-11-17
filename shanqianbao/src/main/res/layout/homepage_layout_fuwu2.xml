@@ -15,7 +15,7 @@
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <com.shanqb.youyou.view.RoundCornerImageView
+        <com.shanqb.lwan.view.RoundCornerImageView
             android:id="@+id/image5"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -23,7 +23,7 @@
             app:corner_size="25"
             android:scaleType="centerCrop"
             android:src="@drawable/image5"
-            ></com.shanqb.youyou.view.RoundCornerImageView>
+            ></com.shanqb.lwan.view.RoundCornerImageView>
         <TextView
             android:id="@+id/text1"
             android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <com.shanqb.youyou.view.RoundCornerImageView
+        <com.shanqb.lwan.view.RoundCornerImageView
             android:id="@+id/image6"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -51,7 +51,7 @@
             app:corner_size="25"
             android:scaleType="centerCrop"
             android:src="@drawable/image6"
-            ></com.shanqb.youyou.view.RoundCornerImageView>
+            ></com.shanqb.lwan.view.RoundCornerImageView>
         <TextView
             android:id="@+id/text2"
             android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
         android:layout_marginBottom="15dp"
         android:layout_weight="1" >
 
-        <com.shanqb.youyou.view.RoundCornerImageView
+        <com.shanqb.lwan.view.RoundCornerImageView
             android:id="@+id/image7"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -79,7 +79,7 @@
             app:corner_size="25"
             android:scaleType="centerCrop"
             android:src="@drawable/image7"
-            ></com.shanqb.youyou.view.RoundCornerImageView>
+            ></com.shanqb.lwan.view.RoundCornerImageView>
         <TextView
             android:id="@+id/text3"
             android:layout_width="wrap_content"
@@ -98,7 +98,7 @@
         android:layout_marginTop="4dp"
         android:layout_weight="1" >
 
-        <com.shanqb.youyou.view.RoundCornerImageView
+        <com.shanqb.lwan.view.RoundCornerImageView
             android:id="@+id/image8"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -106,7 +106,7 @@
             app:corner_size="25"
             android:scaleType="centerCrop"
             android:src="@drawable/image8"
-            ></com.shanqb.youyou.view.RoundCornerImageView>
+            ></com.shanqb.lwan.view.RoundCornerImageView>
         <TextView
             android:id="@+id/text4"
             android:layout_width="wrap_content"
